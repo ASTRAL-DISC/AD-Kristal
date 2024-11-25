@@ -14,7 +14,7 @@ local MainMenuTitle, super = Class(StateClass)
 function MainMenuTitle:init(menu)
     self.menu = menu
 
-    self.logo = Assets.getTexture("kristal/title_logo_shadow")
+    self.logo = Assets.getTexture("ad/logo_disc")
 
     self.selected_option = 1
 end
@@ -37,6 +37,7 @@ function MainMenuTitle:onEnter(old_state)
             {"play",    self.has_target_saves and "Load game" or "Start game"},
             {"options", "Options"},
             {"credits", "Credits"},
+            {"website", "Go to Website"},
             {"quit",    "Quit"},
         }
     else
@@ -71,8 +72,6 @@ function MainMenuTitle:onKeyPressed(key, is_repeat)
 				if MainMenu.mod_list:getSelectedMod() and MainMenu.mod_list:getSelectedMod().soulColor then
 					MainMenu.heart.color = MainMenu.mod_list:getSelectedMod().soulColor
 				end
-            elseif self.has_target_saves then
-                self.menu:setState("FILESELECT")
             else
                 Kristal.loadMod(TARGET_MOD, 1)
             end
@@ -93,6 +92,9 @@ function MainMenuTitle:onKeyPressed(key, is_repeat)
 
         elseif option == "wiki" then
             love.system.openURL("https://kristal.cc/wiki")
+
+        elseif option == "website" then
+            love.system.openURL("https://astraldisc.com/")
 
         elseif option == "quit" then
             love.event.quit()

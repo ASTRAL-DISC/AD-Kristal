@@ -1,8 +1,8 @@
 local Loading = {}
 
 function Loading:init()
-    self.logo = love.graphics.newImage("assets/sprites/kristal/title_logo.png")
-    self.logo_heart = love.graphics.newImage("assets/sprites/kristal/title_logo_heart.png")
+    self.logo = love.graphics.newImage("assets/sprites/ad/logo.png")
+    self.logo_heart = love.graphics.newImage("assets/sprites/ad/logo_sparkle.png")
 end
 
 function Loading:enter(from, dir)
@@ -18,8 +18,8 @@ function Loading:enter(from, dir)
     self.h = self.logo:getHeight()
 
     if not Kristal.Config["skipIntro"] then
-        self.noise = love.audio.newSource("assets/sounds/kristal_intro.ogg", "static")
-        self.end_noise = love.audio.newSource("assets/sounds/kristal_intro_end.ogg", "static")
+        self.noise = love.audio.newSource("assets/sounds/ad_intro.ogg", "static")
+        self.end_noise = love.audio.newSource("assets/sounds/ad_intro_end.ogg", "static")
         self.noise:play()
     else
         self:beginLoad()
