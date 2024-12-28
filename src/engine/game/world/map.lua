@@ -429,11 +429,25 @@ function Map:loadTiles(layer, depth)
 end
 
 function Map:loadImage(layer, depth)
+    local sprite
+    local do_backup = false
     local texture = Utils.absoluteToLocalPath("assets/sprites/", layer.image, self.full_map_path)
+    local backup_image = GeneralUtils:breakString("../../../assets/sprites/", layer.image, ".png")
     if not texture then
-        error("Invalid image location for layer " .. layer.name)
+        local texture_check = Assets.getTexture(backup_image)
+        if not texture_check then
+            error("Invalid image location for layer " .. layer.name)
+        else
+            do_backup = true
+        end
     end
-    local sprite = Sprite(texture, layer.offsetx, layer.offsety)
+
+    if do_backup == true then
+        sprite = Sprite(backup_image, layer.offsetx, layer.offsety)
+    else
+        sprite = Sprite(texture, layer.offsetx, layer.offsety)
+    end
+    
     sprite:setParallax(layer.parallaxx, layer.parallaxy)
     sprite.alpha = layer.opacity
     sprite.layer = depth
@@ -788,8 +802,9 @@ function Map:populateTilesets(data)
         local filename = tileset_data.exportfilename or tileset_data.filename
         if filename then
             local tileset_path = Utils.absoluteToLocalPath("scripts/world/tilesets/", filename, self.full_map_path)
-            --local backup_name = GeneralUtils:breakString("../../tilesets/", filename, ".lua")
-            tileset = Registry.getTileset(tileset_path)
+            local backup_name = GeneralUtils:breakString("../../tilesets/", filename, ".lua")
+            local backup_name_backup = GeneralUtils:breakString("../../tilesets/", filename, ".tsx")
+            tileset = Registry.getTileset(tileset_path or backup_name or backup_name_backup)
             if not tileset then
                 error("Failed to load map \""..self.data.id.."\", tileset not found: \""..filename.."\"")
             end
