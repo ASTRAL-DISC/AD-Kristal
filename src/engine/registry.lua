@@ -78,12 +78,12 @@ function Registry.initialize(preload)
             self.base_scripts["data/"..path] = chunk
         end
 
-        if Mod then
+        --[[if Mod then
             for _,path in ipairs(Utils.getFilesRecursive("scripts", ".lua")) do
                 local chunk = love.filesystem.load("scripts/"..path..".lua")
                 self.base_scripts[path] = chunk
             end
-        end
+        end]]
 
         Registry.initActors()
     end
