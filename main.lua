@@ -28,6 +28,7 @@ GitFinder = require("src.utils.gitfinder")
 Utils = require("src.utils.utils")
 CollisionUtil = require("src.utils.collision")
 Draw = require("src.utils.draw")
+GeneralUtils = require("src.utils.utils_general")
 
 Kristal = require("src.kristal")
 -- Ease of access for game variables
