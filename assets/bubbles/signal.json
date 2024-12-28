@@ -1,0 +1,21 @@
+{
+    "auto": true,
+    "sprites": {
+        "left": "signal/side",
+        "right": "signal/side",
+        "top": "signal/side",
+        "bottom": "signal/side",
+        "top_left": "signal/top_left",
+        "top_right": "signal/top_right",
+        "bottom_left": "signal/bottom_left",
+        "bottom_right": "signal/bottom_right",
+        "tail": "signal/tail",
+        "fill": "fill"
+    },
+    "text_padding": {
+        "left":   6,
+        "top":    5,
+        "right":  5,
+        "bottom": 5
+    }
+}

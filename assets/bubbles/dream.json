@@ -1,0 +1,21 @@
+{
+    "auto": true,
+    "sprites": {
+        "left": "dream/left",
+        "right": "dream/right",
+        "top": "dream/top",
+        "bottom": "dream/bottom",
+        "top_left": "dream/top_left",
+        "top_right": "dream/top_right",
+        "bottom_left": "dream/bottom_left",
+        "bottom_right": "dream/bottom_right",
+        "tail": "dream/tail",
+        "fill": "fill"
+    },
+    "text_padding": {
+        "left":   6,
+        "top":    5,
+        "right":  5,
+        "bottom": 5
+    }
+}

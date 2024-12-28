@@ -1,0 +1,21 @@
+{
+    "auto": true,
+    "sprites": {
+        "left": "sacred/left",
+        "right": "sacred/right",
+        "top": "sacred/top",
+        "bottom": "sacred/bottom",
+        "top_left": "sacred/top_left",
+        "top_right": "sacred/top_right",
+        "bottom_left": "sacred/bottom_left",
+        "bottom_right": "sacred/bottom_right",
+        "tail": "sacred/tail",
+        "fill": "fill"
+    },
+    "text_padding": {
+        "left":   6,
+        "top":    5,
+        "right":  5,
+        "bottom": 5
+    }
+}

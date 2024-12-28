@@ -1,0 +1,21 @@
+{
+    "auto": true,
+    "sprites": {
+        "left": "roaring/left",
+        "right": "roaring/right",
+        "top": "roaring/top",
+        "bottom": "roaring/bottom",
+        "top_left": "roaring/top_left",
+        "top_right": "roaring/top_right",
+        "bottom_left": "roaring/bottom_left",
+        "bottom_right": "roaring/bottom_right",
+        "tail": "roaring/tail",
+        "fill": "fill"
+    },
+    "text_padding": {
+        "left":   6,
+        "top":    5,
+        "right":  5,
+        "bottom": 5
+    }
+}
