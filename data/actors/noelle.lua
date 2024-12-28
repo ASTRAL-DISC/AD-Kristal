@@ -62,6 +62,23 @@ function actor:init()
 
         -- Cutscene animations
         ["laugh"]               = {"laugh", 4/30, true},
+
+        ["slide"] = {"slide", 4/30, true},
+        ["landed"] = {"landed", 4/30, false},
+        ["fall"] = {"fall", 4/30, true},
+        ["jump_ball"] = {"jump_ball", 1/15, true},
+
+        --Iceslide
+        ["iceslide/up"] = {"iceslide/up", 0, false},
+        ["iceslide/down"] = {"iceslide/down", 0, false},
+        ["iceslide/left"] = {"iceslide/left", 0, false},
+        ["iceslide/right"] = {"iceslide/right", 0, false},
+
+        -- Choir Minigame
+        ["choir/hold"] = {"choir/hold", 1/15, true},
+        ["choir/hold_b"] = {"choir/hold_b", 1/15, true},
+        ["choir/idle"] = {"choir/idle", 4/30, true},
+        ["choir/single_note"] = {"choir/single_note", 4/30, true},
     }
 
     -- Alternate animations to use for Noelle weird mode (false to disable the animation)
@@ -91,6 +108,11 @@ function actor:init()
         ["walk_happy/up"] = "walk_happy/down",
         ["walk_happy/left"] = "walk_happy/left",
         ["walk_happy/right"] = "walk_happy/right",
+
+        ["walk_happy_alt/down"] = "walk_happy_alt/up",
+        ["walk_happy_alt/up"] = "walk_happy_alt/down",
+        ["walk_happy_alt/left"] = "walk_happy_alt/left",
+        ["walk_happy_alt/right"] = "walk_happy_alt/right",
 
         ["walk_blush/down"] = "walk_blush/up",
         ["walk_blush/up"] = "walk_blush/down",
@@ -133,6 +155,11 @@ function actor:init()
         ["walk_happy/right"] = {0, 0},
         ["walk_happy/left"] = {0, 0},
         ["walk_happy/up"] = {0, 0},
+
+        ["walk_happy_alt/down"] = {0, 0},
+        ["walk_happy_alt/right"] = {0, 0},
+        ["walk_happy_alt/left"] = {0, 0},
+        ["walk_happy_alt/up"] = {0, 0},
 
         ["walk_blush/down"] = {0, 0},
         ["walk_blush/right"] = {0, 0},
@@ -216,6 +243,46 @@ function actor:init()
         ["head_lowered"] = {0, 0},
         ["head_lowered_look_left"] = {0, 0},
         ["head_lowered_look_right"] = {0, 0},
+
+        ["slide"] = {-3, 0},
+        ["pose"] = {-3, 0},
+        ["landed"] = {-3, 0},
+        ["fall"] = {-3, 0},
+        ["jump_ball"] = {1, 8},
+    
+        ["blush_look"] = {-3, 0},
+        ["wrist_blush"] = {-2, 1},
+    
+        ["clap"] = {2, -1},
+    
+        ["exasperated"] = {0, 0},
+        ["wtf"] = {0, 0},
+    
+        ["scroll"] = {0, 0},
+        ["scroll_focus"] = {0, 1},
+        ["scroll_sing"] = {-2, 2},
+    
+        -- Choir Minigame
+        ["choir/hold"] = {-6, 1},
+        ["choir/hold_b"] = {-6, 1},
+        ["choir/idle"] = {-6, 0},
+        ["choir/single_note"] = {-6, 1},
+
+        -- Iceslide
+        ["iceslide/up"] = {-6, 0},
+        ["iceslide/down"] = {-7, 0},
+        ["iceslide/left"] = {0, -2},
+        ["iceslide/right"] = {0, -2},
+    }
+
+    self.spotlight = {
+        offset_x = -2,
+        offset_y = -1,
+        width = 80,
+        beam_height = 280,
+        top_color = {1, 1, 1, 0.0},
+        bottom_color = {1, 1, 0, 0.25},
+        base_color = {0.75, 0.75, 0, 1}
     }
 end
 
@@ -238,6 +305,14 @@ function actor:onSetAnimation(sprite, anim, keep_anim)
         foreground.layer = sprite.layer + 1
         background:setScale(0.5)
         foreground:setScale(0.5)
+    end
+end
+
+function actor:getDefault()
+    if Game:getFlag("noelle_switch") then
+        return "walk_happy"
+    else
+        return "walk"
     end
 end
 

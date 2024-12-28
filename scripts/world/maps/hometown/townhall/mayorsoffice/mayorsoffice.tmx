@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="20" nextobjectid="76">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="17" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/townhall/mayorsoffice.png" width="640" height="480"/>
+ </imagelayer>
+ <imagelayer id="19" name="bg2">
+  <image source="../../../../../../assets/sprites/world/hometown/townhall/mayorsoffice_blinds.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#55aa7f" id="5" name="markers">
+  <object id="2" name="spawn" x="319.983" y="441.262">
+   <point/>
+  </object>
+  <object id="27" name="noelle" x="280" y="342">
+   <point/>
+  </object>
+  <object id="34" name="comet" x="352.813" y="342.583">
+   <point/>
+  </object>
+  <object id="45" name="fountain" x="320" y="297">
+   <point/>
+  </object>
+  <object id="54" name="kris2" x="286" y="382.5">
+   <point/>
+  </object>
+  <object id="55" name="susie2" x="355" y="382.5">
+   <point/>
+  </object>
+  <object id="57" name="rubble1" x="418" y="-3">
+   <point/>
+  </object>
+  <object id="58" name="rubble3" x="195" y="-31">
+   <point/>
+  </object>
+  <object id="59" name="rubble4" x="281" y="-65">
+   <point/>
+  </object>
+  <object id="60" name="rubble5" x="116" y="-10">
+   <point/>
+  </object>
+  <object id="61" name="rubble2" x="519" y="-15">
+   <point/>
+  </object>
+  <object id="71" name="kris" x="319.98" y="578">
+   <point/>
+  </object>
+  <object id="72" name="susie" x="319.98" y="611.5">
+   <point/>
+  </object>
+  <object id="73" name="comet2" x="320" y="295">
+   <point/>
+  </object>
+  <object id="75" name="comet3" x="320" y="320">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#0055ff" id="6" name="collisions">
+  <object id="4" x="80" y="120" width="480" height="40"/>
+  <object id="5" x="560" y="160" width="40" height="240"/>
+  <object id="6" x="370.667" y="400" width="189.333" height="121.976"/>
+  <object id="8" x="80" y="400" width="188" height="120.6"/>
+  <object id="9" x="40" y="160" width="40" height="240"/>
+  <object id="10" x="218.827" y="194.742" width="202.312" height="61.9322"/>
+  <object id="11" x="294.522" y="258.051" width="49.5457" height="50.2339"/>
+  <object id="16" x="283.333" y="160" width="70.6667" height="40"/>
+  <object id="17" x="526.423" y="161.024" width="19.2678" height="11.6983"/>
+  <object id="19" x="501.332" y="329.546" width="58.6678" height="70.4543"/>
+  <object id="20" x="80" y="329.546" width="61.4204" height="70.4543"/>
+  <object id="62" x="93" y="160" width="122" height="27.5"/>
+ </objectgroup>
+ <objectgroup color="#aa55ff" id="7" name="objects">
+  <object id="23" name="transition_extended" x="268.333" y="480" width="101.667" height="40">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/townhall/hallway2"/>
+    <property name="marker" value="entry2"/>
+   </properties>
+  </object>
+  <object id="25" name="npc" x="320.216" y="209.615">
+   <properties>
+    <property name="actor" value="comet_lw"/>
+    <property name="cond" value="Game.chapter == 5"/>
+    <property name="cutscene" value="hometown/townhall.comet"/>
+    <property name="sprite" value="desk"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="29" name="interactable" x="520" y="120" width="38.6667" height="56.6667">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.trash2"/>
+   </properties>
+  </object>
+  <object id="31" name="interactable" x="294.667" y="227.667" width="50" height="79.3334">
+   <properties>
+    <property name="cond" value="Game.chapter == 5"/>
+    <property name="cutscene" value="hometown/townhall.chair2"/>
+   </properties>
+  </object>
+  <object id="32" name="interactable" x="93.5" y="120" width="110.667" height="68.8334">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.drawers"/>
+   </properties>
+  </object>
+  <object id="37" gid="33" x="84.6667" y="394" width="56" height="100"/>
+  <object id="38" gid="33" x="500" y="393.667" width="56" height="100"/>
+  <object id="40" gid="35" x="215.667" y="258" width="208" height="88"/>
+  <object id="42" gid="36" x="293" y="309" width="52" height="84">
+   <properties>
+    <property name="cond" value="Game.chapter == 5"/>
+   </properties>
+  </object>
+  <object id="63" name="npc" x="382.5" y="188">
+   <properties>
+    <property name="actor" value="comet_lw"/>
+    <property name="cond" value="Game.chapter == 6"/>
+    <property name="cutscene" value="hometown/townhall.nosusie"/>
+    <property name="facing" value="up"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff0000" id="8" name="paths">
+  <object id="26" name="comet_path" x="360" y="320">
+   <polyline points="-7,22 120,22 120,-80 80,-80 79.875,-110.75 -39.5152,-111.03"/>
+  </object>
+  <object id="35" name="noelle_path" x="279.383" y="342.691">
+   <polyline points="0,0 0.688135,39.2237 14.4508,39.2237 14.4508,94.9626"/>
+  </object>
+  <object id="70" name="comet_path2" x="382.5" y="188.5">
+   <polyline points="0,0 78,0 57.5,106.5 -62,123.5"/>
+  </object>
+ </objectgroup>
+</map>

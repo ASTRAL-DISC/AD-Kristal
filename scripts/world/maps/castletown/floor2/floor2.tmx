@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="12" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="9" nextobjectid="29">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="castle"/>
+  <property name="music" value="castletown"/>
+ </properties>
+ <tileset firstgid="1" source="../../../tilesets/castle_inside.tsx"/>
+ <tileset firstgid="129" source="../../../tilesets/castle_town_bg.tsx"/>
+ <layer id="4" name="tiles" width="32" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,2,54,54,54,54,34,54,54,54,34,54,54,54,54,54,34,54,54,54,54,54,54,54,54,54,54,54,34,5,0,
+0,0,3,54,34,54,54,54,54,54,54,6,54,54,54,54,34,54,6,54,54,54,34,54,54,12,13,14,15,16,5,0,
+0,0,3,54,54,6,54,54,54,54,34,54,54,54,54,54,54,54,22,54,54,54,54,54,6,28,29,30,31,32,18,0,
+0,0,3,34,54,54,54,54,54,22,54,54,54,54,54,54,54,34,54,54,54,54,54,34,54,54,45,46,47,22,5,0,
+0,0,19,20,20,20,20,20,20,20,36,20,20,20,20,36,20,20,20,20,20,20,20,20,36,20,61,62,63,20,21,0,
+0,0,82,82,52,82,82,82,52,82,82,82,82,82,82,82,66,82,82,82,82,82,82,52,66,82,82,82,82,50,53,0,
+0,0,82,82,82,82,66,82,82,82,50,82,82,82,52,82,82,82,82,52,82,82,82,82,82,82,82,66,52,82,69,0,
+0,0,82,50,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,66,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,82,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="5" name="objects_decor">
+  <object id="2" gid="175" x="239" y="280" width="106" height="128"/>
+  <object id="3" gid="177" x="504" y="280" width="126" height="184"/>
+  <object id="4" gid="176" x="768" y="310" width="132" height="182"/>
+ </objectgroup>
+ <objectgroup color="#ff00ff" id="8" name="objects">
+  <object id="8" name="transition" x="80" y="480" width="120" height="40">
+   <properties>
+    <property name="map" value="castletown/floor1"/>
+    <property name="marker" value="entry_2f"/>
+   </properties>
+  </object>
+  <object id="10" name="transition" x="255" y="240" width="72" height="26">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="castletown/rooms/kris"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="14" name="transition" x="530" y="234" width="74" height="34">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="castletown/rooms/susie"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="16" name="transition" x="806" y="240" width="55" height="24">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="castletown/rooms/lancer"/>
+    <property name="marker" value="entry"/>
+    <property name="sound" value="splat"/>
+   </properties>
+  </object>
+  <object id="27" name="transition" x="1064" y="230" width="76" height="40">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="castletown/floor3"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#aa00ff" id="6" name="markers">
+  <object id="19" name="entry" x="139" y="435">
+   <point/>
+  </object>
+  <object id="20" name="spawn" x="139" y="355">
+   <point/>
+  </object>
+  <object id="21" name="entry_kris" x="298" y="300">
+   <point/>
+  </object>
+  <object id="22" name="entry_susie" x="570" y="300">
+   <point/>
+  </object>
+  <object id="23" name="entry_lancer" x="834.333" y="304">
+   <point/>
+  </object>
+  <object id="28" name="entry_3f" x="1101.33" y="307.333">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#0000ff" id="7" name="collision">
+  <object id="5" x="1240" y="80" width="40" height="280"/>
+  <object id="6" x="200" y="360" width="1080" height="120"/>
+  <object id="7" x="40" y="80" width="40" height="400"/>
+  <object id="9" x="80" y="80" width="174" height="200"/>
+  <object id="12" x="327" y="80" width="203" height="200"/>
+  <object id="15" x="600" y="80" width="206" height="200"/>
+  <object id="18" x="861" y="80" width="201" height="200"/>
+  <object id="26" x="1141" y="80" width="99" height="200"/>
+ </objectgroup>
+</map>

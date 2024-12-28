@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="26">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Hometown Street 2"/>
+ </properties>
+ <tileset firstgid="1" source="../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../assets/sprites/world/hometown/diner/diner_bg.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#55aaff" id="3" name="markers">
+  <object id="1" name="entry" x="320" y="440">
+   <point/>
+  </object>
+  <object id="2" name="spawn" x="320" y="360">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#5555ff" id="4" name="collisions">
+  <object id="3" x="200" y="218.667" width="400" height="61.3333"/>
+  <object id="5" x="480" y="347.333" width="120" height="92.6667"/>
+  <object id="6" x="40" y="200" width="118.667" height="240"/>
+  <object id="10" x="238" y="377.333" width="40" height="142.667"/>
+  <object id="11" x="360" y="378.667" width="40" height="141.333"/>
+  <object id="12" x="400" y="440" width="80" height="40"/>
+  <object id="13" x="160" y="440" width="80" height="40"/>
+  <object id="14" x="158.667" y="160" width="41.3333" height="40"/>
+  <object id="15" x="600" y="280" width="40" height="80"/>
+  <object id="19" x="320" y="280" width="280" height="17.1984"/>
+  <object id="23" x="200" y="200" width="49.3333" height="18"/>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="17" name="transition_extended" x="279.333" y="480" width="80.6667" height="40">
+   <properties>
+    <property name="door" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street3"/>
+    <property name="marker" value="entry_diner"/>
+   </properties>
+  </object>
+  <object id="20" gid="49" x="40" y="418" width="560" height="182"/>
+  <object id="21" gid="48" x="40" y="480" width="564" height="56"/>
+  <object id="22" gid="47" x="238" y="380" width="362" height="62"/>
+  <object id="24" name="npc" x="280" y="219">
+   <properties>
+    <property name="actor" value="qc_lw"/>
+    <property name="sprite" value="diner_talk"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="25" name="interactable" x="240" y="240" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/diner.qc"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

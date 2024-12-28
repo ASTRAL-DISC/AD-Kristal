@@ -54,6 +54,13 @@ function actor:init()
         ["sit"] = {"sit", 0.25, true},
 
         ["eat_chalk"] = {"eat_chalk", 0.15, false},
+
+        ["diagonal_kick_left"] = {"diagonal_kick_left", 2/30, false},
+        ["gaming"] = {"gaming", 4/30, true},
+        ["shake_kris"] = {"shake_kris", 2/30, true},
+        ["kris_tug"] = {"kris_tug", 2/30, true},
+
+        ["point_up"] = {"point_up", 4/30, true},
     }
 
     -- Tables of sprites to change into in mirrors
@@ -81,6 +88,16 @@ function actor:init()
         ["walk_bangs/left"] = {0, -2},
         ["walk_bangs/right"] = {0, -2},
         ["walk_bangs/up"] = {0, -2},
+
+        ["walk_unhappy/down"] = {0, -2},
+        ["walk_unhappy/left"] = {0, -2},
+        ["walk_unhappy/right"] = {0, -2},
+        ["walk_unhappy/up"] = {0, -2},
+
+        ["walk_bangs_unhappy/down"] = {0, -2},
+        ["walk_bangs_unhappy/left"] = {0, -2},
+        ["walk_bangs_unhappy/right"] = {0, -2},
+        ["walk_bangs_unhappy/up"] = {0, -2},
 
         -- Cutscene offsets
         ["chill"] = {2, -2},
@@ -114,7 +131,25 @@ function actor:init()
 
         ["away_scratch"] = {-2, -2},
 
+        ["point_up"] = {-2, -12},
+        ["point_up_turn"] = {-4, -12},
+
+        ["diagonal_kick_left"] = {-3, -1},
+        ["gaming"] = {0, -2},
+        ["shake_kris"] = {-5, -2},
+        ["kris_tug"] = {-5, -2},
+
+        ["shock_behind"] = {-15, -3},
+        ["shock_behind_left"] = {-5, -3},
     }
+end
+
+function actor:getPortraitPath()
+    if Game:getPartyMember("susie"):getFlag("eyes") then
+        return "face/susie_eyes"
+    else
+        return "face/susie"
+    end
 end
 
 return actor

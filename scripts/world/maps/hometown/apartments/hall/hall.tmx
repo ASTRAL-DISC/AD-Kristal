@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="25" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="27">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="6" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/apartments/hall.png" width="1000" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collisions">
+  <object id="1" x="200" y="360" width="38.6667" height="120"/>
+  <object id="2" x="66" y="360" width="49.3333" height="120"/>
+  <object id="3" x="40" y="246.667" width="25.3333" height="113.333"/>
+  <object id="6" x="240" y="360" width="650.667" height="40"/>
+  <object id="7" x="891.333" y="247.333" width="24" height="112.667"/>
+  <object id="8" x="65" y="206" width="294" height="40"/>
+  <object id="9" x="408.333" y="206" width="481.667" height="40"/>
+  <object id="10" x="359.333" y="216.667" width="49" height="17.6667"/>
+  <object id="11" x="644.667" y="286.667" width="44" height="26"/>
+  <object id="20" x="849.5" y="340" width="28" height="13.5"/>
+  <object id="21" x="73.25" y="339.25" width="29.5" height="13.5"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="4" name="markers">
+  <object id="12" name="entry2" x="384.5" y="269.5">
+   <point/>
+  </object>
+  <object id="13" name="entry" x="158.5" y="341.5">
+   <point/>
+  </object>
+  <object id="24" name="spawn" x="520" y="320">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="14" name="transition" x="113.5" y="470" width="86.5" height="10">
+   <properties>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/apartments/lobby"/>
+    <property name="marker" value="entry2"/>
+    <property name="sound" value="escaped"/>
+   </properties>
+  </object>
+  <object id="15" name="interactable" x="357.5" y="235.5" width="51" height="11.5">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.susiedoor"/>
+   </properties>
+  </object>
+  <object id="17" name="wetfloor" x="728.667" y="263.667" width="90.1667" height="76.6667"/>
+  <object id="18" gid="2147483710" x="72" y="353.5" width="56" height="82"/>
+  <object id="19" gid="62" x="825.5" y="353" width="56" height="82"/>
+  <object id="22" name="interactable" x="158" y="237.75" width="51" height="11.5">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.mteendoor"/>
+   </properties>
+  </object>
+  <object id="23" name="interactable" x="558" y="237.75" width="51" height="11.5">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.snowydoor"/>
+   </properties>
+  </object>
+  <object id="26" gid="63" x="644" y="314" width="44" height="52"/>
+ </objectgroup>
+</map>

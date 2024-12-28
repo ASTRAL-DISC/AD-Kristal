@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="23">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Hospital - Corridor"/>
+ </properties>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/hospital/bg_hospital_lobby2.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collisions">
+  <object id="1" x="363.533" y="298.664" width="155.414" height="31.0827"/>
+  <object id="2" x="520" y="200.277" width="40" height="96.6162"/>
+  <object id="4" x="121.628" y="298.664" width="158.793" height="31.0827"/>
+  <object id="5" x="80" y="201.628" width="40" height="95.2647"/>
+  <object id="7" x="120" y="160" width="40" height="40"/>
+  <object id="8" x="240" y="160" width="160" height="40"/>
+  <object id="9" x="480" y="160" width="40" height="40"/>
+  <object id="10" x="400" y="120" width="80" height="66.3527"/>
+  <object id="11" x="160" y="120" width="80" height="63.6499"/>
+  <object id="13" x="254.067" y="330.423" width="25.677" height="100.681"/>
+  <object id="15" x="362.857" y="331.436" width="25.677" height="100.681"/>
+ </objectgroup>
+ <objectgroup color="#c2e0e3" id="4" name="markers">
+  <object id="16" name="entry" x="320" y="320">
+   <point/>
+  </object>
+  <object id="17" name="entry2" x="439.212" y="226.363">
+   <point/>
+  </object>
+  <object id="18" name="entry_rudy" x="199.335" y="227.039">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="19" name="transition_extended" x="160" y="160" width="80" height="33.2429">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/hospital/rudyroom"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="20" name="transition_extended" x="400" y="160" width="80" height="33.9186">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/hospital/room"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="22" name="transition_extended" x="280" y="392.434" width="80" height="38.7816">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/hospital/lobby"/>
+    <property name="marker" value="entry2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

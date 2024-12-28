@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="43">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Town Hall"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="Image Layer 1">
+  <image source="../../../../../../assets/sprites/world/hometown/townhall/bg_townhall.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#0055ff" id="6" name="collisions">
+  <object id="3" x="80" y="120" width="48.2576" height="40"/>
+  <object id="4" x="40" y="160" width="40" height="240"/>
+  <object id="5" x="80" y="400" width="200" height="119.224"/>
+  <object id="6" x="360" y="400" width="200" height="117.847"/>
+  <object id="7" x="560" y="160" width="40" height="240"/>
+  <object id="8" x="200" y="120" width="360" height="40"/>
+  <object id="9" x="200" y="217" width="200" height="23"/>
+  <object id="10" x="360" y="160" width="40" height="56"/>
+  <object id="11" x="200" y="240" width="200" height="40"/>
+  <object id="17" x="494.451" y="352.763" width="65.5492" height="47.2373"/>
+ </objectgroup>
+ <objectgroup color="#00aaff" id="4" name="markers">
+  <object id="24" name="entry" x="319.983" y="415.634">
+   <point/>
+  </object>
+  <object id="25" name="entry_up" x="160" y="200">
+   <point/>
+  </object>
+  <object id="27" name="spawn" x="232.59" y="322.047">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="19" name="transition_extended" x="120" y="80" width="80" height="80">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/townhall/hallway"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="26" name="transition" x="280" y="480" width="80" height="40">
+   <properties>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street4"/>
+    <property name="marker" value="entry4"/>
+   </properties>
+  </object>
+  <object id="28" name="npc" x="307.875" y="200.125">
+   <properties>
+    <property name="actor" value="receptionist"/>
+    <property name="cutscene" value="hometown/townhall.receptionist"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="30" name="interactable" x="240" y="240" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.receptionist_counter"/>
+   </properties>
+  </object>
+  <object id="31" name="npc" x="480" y="240">
+   <properties>
+    <property name="actor" value="politicsbear"/>
+    <property name="cutscene" value="hometown/townhall.politicsbear"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="33" name="interactable" x="400" y="120" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.townmap"/>
+   </properties>
+  </object>
+  <object id="36" name="interactable" x="493.163" y="320" width="66.8373" height="80">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.chair"/>
+   </properties>
+  </object>
+  <object id="37" name="npc" x="121.376" y="355.871">
+   <properties>
+    <property name="actor" value="blobgal"/>
+    <property name="cond" value="Game.chapter == 5"/>
+    <property name="cutscene" value="hometown/townhall.blobgal"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="40" name="npc" x="140" y="279">
+   <properties>
+    <property name="actor" value="businessguy"/>
+    <property name="cond" value="Game.chapter == 3 or Game.chapter == 4"/>
+    <property name="cutscene" value="hometown/townhall.businessguy"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="41" gid="58" x="495.974" y="394.03" width="52" height="84"/>
+  <object id="42" gid="60" x="200" y="280.667" width="200" height="80"/>
+ </objectgroup>
+</map>

@@ -48,15 +48,47 @@ function item:init()
 end
 
 function item:onWorldUse()
-    Assets.stopAndPlaySound("splat")
+    if Game:getFlag("petrify") then
+        Assets.stopAndPlaySound("petrify")
+    else
+        Assets.stopAndPlaySound("splat")
+    end
 end
 
 function item:getCustomAnimation()
-    return nil
+    if Game:getFlag("weird") then
+        if Game:getFlag("petrify") then
+            return "stone"
+        else
+            return "sleep"
+        end
+    elseif Game:getFlag("petrify") then
+        return "stone"
+    else
+        return nil
+    end
 end
 
 function item:isVisible()
     return true
+end
+
+function item:getDescription()
+    local desc = super.getDescription(self)
+    if Game:getFlag("weird") then
+        if Game:getFlag("petrify") then
+            desc = "A stone statue.\nStrangely, it looks like Lancer..."
+        else
+            desc = "(Innocent boys are fast asleep)."
+        end
+    elseif Game:getFlag("petrify") then
+        desc = "A stone statue.\nStrangely, it looks like Lancer..."
+    elseif (Game.world and Game.world.map.id == "castletown/rooms/lancer") and Game:getFlag("splat") then
+        desc = "Accidentally dropped salsa all over the floor! Now your footsteps are like my MP3's!"
+    else
+        desc = desc
+    end
+    return desc
 end
 
 function item:onMenuUpdate(menu)

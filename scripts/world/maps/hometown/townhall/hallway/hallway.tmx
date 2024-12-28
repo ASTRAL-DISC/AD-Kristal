@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="52">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Town Hall - Hallway"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="Image Layer 1">
+  <image source="../../../../../../assets/sprites/world/hometown/townhall/townhall_hallway.png" width="1124" height="480"/>
+ </imagelayer>
+ <objectgroup color="#0055ff" id="5" name="collisions">
+  <object id="2" x="80" y="240" width="622" height="40"/>
+  <object id="4" x="40" y="280" width="40" height="120"/>
+  <object id="8" x="80" y="400" width="60.0441" height="123"/>
+  <object id="10" x="240" y="400" width="40" height="124.5"/>
+  <object id="11" x="280" y="400" width="760" height="40"/>
+  <object id="13" x="1040" y="280" width="40" height="120"/>
+  <object id="15" x="789" y="113" width="5.5" height="167"/>
+  <object id="16" x="880" y="118" width="160" height="162"/>
+  <object id="17" x="985.333" y="340" width="54.6667" height="60"/>
+  <object id="18" x="80" y="344" width="61.3333" height="56"/>
+  <object id="19" x="370.545" y="280.182" width="29.2727" height="14.1818"/>
+  <object id="20" x="334.091" y="279.818" width="21.8182" height="11.8182"/>
+  <object id="21" x="680" y="115" width="21.7273" height="125"/>
+ </objectgroup>
+ <objectgroup color="#55aa7f" id="4" name="markers">
+  <object id="22" name="entry2" x="840" y="240">
+   <point/>
+  </object>
+  <object id="24" name="entry" x="189.5" y="424">
+   <point/>
+  </object>
+  <object id="43" name="spawn" x="491.333" y="336">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="3" name="objects">
+  <object id="26" name="transition" x="796.167" y="120" width="82.6667" height="40">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/townhall/hallway2"/>
+    <property name="marker" value="entry"/>
+    <property name="sound" value="escaped"/>
+   </properties>
+  </object>
+  <object id="29" name="transition_extended" x="140" y="480" width="100" height="40">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/townhall/lobby"/>
+    <property name="marker" value="entry_up"/>
+   </properties>
+  </object>
+  <object id="31" name="interactable" x="160" y="240" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.door1"/>
+   </properties>
+  </object>
+  <object id="34" name="interactable" x="414" y="240" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.door2"/>
+   </properties>
+  </object>
+  <object id="35" name="interactable" x="369.333" y="249.333" width="32" height="50.6667">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.watercooler"/>
+   </properties>
+  </object>
+  <object id="36" name="interactable" x="332" y="245.333" width="24" height="50.6667">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.trash"/>
+   </properties>
+  </object>
+  <object id="40" name="interactable" x="905" y="240" width="80" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.door3"/>
+   </properties>
+  </object>
+  <object id="42" name="interactable" x="256.667" y="214" width="58.6667" height="65.3333">
+   <properties>
+    <property name="cutscene" value="hometown/townhall.window2"/>
+   </properties>
+  </object>
+  <object id="44" name="npc" x="745.333" y="298">
+   <properties>
+    <property name="actor" value="businessguy"/>
+    <property name="cond" value="Game.chapter == 5"/>
+    <property name="cutscene" value="hometown/townhall.businessguy"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="47" name="sprite" x="369" y="226" width="34.25" height="53.5">
+   <properties>
+    <property name="scalex" type="float" value="2"/>
+    <property name="scaley" type="float" value="2"/>
+    <property name="speed" type="float" value="0.25"/>
+    <property name="texture" value="world/hometown/townhall/watercooler"/>
+   </properties>
+  </object>
+  <object id="48" gid="33" x="84.6667" y="394" width="56" height="100"/>
+  <object id="50" gid="33" x="980" y="396" width="56" height="100"/>
+ </objectgroup>
+</map>

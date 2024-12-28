@@ -81,7 +81,50 @@ function actor:init(style)
         ["jump_ball"]           = {"ball", 1/15, true},
 
         ["diagonal_kick_right"] = {"diagonal_kick_right", 4/30, false},
-        ["diagonal_kick_left"] = {"diagonal_kick_left", 4/30, false}
+        ["diagonal_kick_left"] = {"diagonal_kick_left", 4/30, false},
+
+        ["blink"] = {"blink", 1/30, true},
+        ["shock_down_flip"] = {"shock_down_flip", 1/10, true},
+        ["red_carpet"] = {"red_carpet", 2/30, true},
+        ["dance"] = {"dance", 4/30, true},
+
+        ["flailing"] = {"flailing", 2/30, true},
+        ["slam"] = {"slam", 2/30, false},
+
+        ["kris_tug"] = {"kris_tug", 2/30, true},
+
+        ["iceslide/up"] = {"iceslide/up", 0, false},
+        ["iceslide/down"] = {"iceslide/down", 0, false},
+        ["iceslide/left"] = {"iceslide/left", 0, false},
+        ["iceslide/right"] = {"iceslide/right", 0, false},
+    }
+
+    self.animations_eyes = {
+        -- Battle animations
+        ["battle/idle"]         = {"battle_eyes/idle", 0.2, true},
+
+        ["battle/attack"]       = {"battle_eyes/attack", 1/15, false},
+        ["battle/act"]          = {"battle_eyes/act", 1/15, false},
+        ["battle/spell"]        = {"battle_eyes/spell", 1/15, false, next="battle/idle"},
+        ["battle/item"]         = {"battle_eyes/item", 1/12, false, next="battle/idle"},
+        ["battle/spare"]        = {"battle_eyes/act", 1/15, false, next="battle/idle"},
+
+        ["battle/attack_ready"] = {"battle_eyes/attackready", 0.2, true},
+        ["battle/act_ready"]    = {"battle_eyes/actready", 0.2, true},
+        ["battle/spell_ready"]  = {"battle_eyes/spellready", 0.2, true},
+        ["battle/item_ready"]   = {"battle_eyes/itemready", 0.2, true},
+        ["battle/defend_ready"] = {"battle_eyes/defend", 1/15, false},
+
+        ["battle/act_end"]      = {"battle_eyes/actend", 1/15, false, next="battle/idle"},
+
+        ["battle/hurt"]         = {"battle_eyes/hurt", 1/15, false, temp=true, duration=0.5},
+        ["battle/defeat"]       = {"battle_eyes/defeat", 1/15, false},
+
+        ["battle/transition"]   = {self.default.."/right_1", 1/15, false},
+        ["battle/intro"]        = {"battle_eyes/attack", 1/15, true},
+        ["battle/victory"]      = {"battle_eyes/victory", 1/10, false},
+
+        ["battle/rude_buster"]  = {"battle_eyes/rudebuster", 1/15, false, next="battle/idle"},
     }
 
     if susie_style == 1 then
@@ -216,7 +259,63 @@ function actor:init(style)
 
         ["diagonal_kick_right"] = {-5, -1},
         ["diagonal_kick_left"] = {-3, -1},
+
+        ["blink"] = {-18, -12},
+        ["red_carpet"] = {0, -2},
+        ["dance"] = {0, 0},
+        ["flailing"] = {0, -2},
+        ["slam"] = {-5, -7},
+        ["kris_tug"] = {0, -2},
+
+        -- Iceslide
+        ["iceslide/up"] = {-5, -7},
+        ["iceslide/down"] = {0, 0},
+        ["iceslide/left"] = {-2, 1},
+        ["iceslide/right"] = {-2, 1},
+
+        -- Battle (eyes version)
+        ["battle_eyes/idle"] = {-22, -1},
+        ["battle_eyes/attack"] = {-26, -25},
+        ["battle_eyes/attackready"] = {-26, -25},
+        ["battle_eyes/act"] = {-24, -25},
+        ["battle_eyes/actend"] = {-24, -25},
+        ["battle_eyes/actready"] = {-24, -25},
+        ["battle_eyes/spell"] = {-22, -30},
+        ["battle_eyes/spellready"] = {-22, -15},
+        ["battle_eyes/item"] = {-22, -1},
+        ["battle_eyes/itemready"] = {-22, -1},
+        ["battle_eyes/defend"] = {-20, -23},
+        ["battle_eyes/defeat"] = {-22, -1},
+        ["battle_eyes/hurt"] = {-22, -1},
+        ["battle_eyes/victory"] = {-28, -7},
+        ["battle_eyes/rudebuster"] = {-44, -33},
     }
+
+    self.spotlight = {
+        offset_x = 0,
+        offset_y = 0,
+        width = 80,
+        beam_height = 280,
+        top_color = {1, 1, 1, 0.0},
+        bottom_color = {1, 0, 1, 0.25},
+        base_color = {0.75, 0, 0.75, 1}
+    }
+end
+
+function actor:getPortraitPath()
+    if Game:getPartyMember("susie"):getFlag("eyes") then
+        return "face/susie_eyes"
+    else
+        return "face/susie"
+    end
+end
+
+function actor:getAnimation(anim)
+    if Game:getPartyMember("susie"):getFlag("eyes", false) and self.animations_eyes[anim] ~= nil then
+        return self.animations_eyes[anim] or nil
+    else
+        return super.getAnimation(self, anim)
+    end
 end
 
 return actor

@@ -1,0 +1,393 @@
+return {
+  version = "1.10",
+  luaversion = "5.1",
+  tiledversion = "1.10.2",
+  class = "",
+  orientation = "orthogonal",
+  renderorder = "right-down",
+  width = 25,
+  height = 12,
+  tilewidth = 40,
+  tileheight = 40,
+  nextlayerid = 7,
+  nextobjectid = 27,
+  properties = {
+    ["border"] = "leaves",
+    ["light"] = "true",
+    ["music"] = "hometown"
+  },
+  tilesets = {
+    {
+      name = "hometown_stuff",
+      firstgid = 1,
+      filename = "../../../../tilesets/hometown_stuff.tsx",
+      exportfilename = "../../../../tilesets/hometown_stuff.lua"
+    }
+  },
+  layers = {
+    {
+      type = "imagelayer",
+      image = "../../../../../../assets/sprites/world/hometown/apartments/hall.png",
+      id = 6,
+      name = "bg",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      repeatx = false,
+      repeaty = false,
+      properties = {}
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 3,
+      name = "collisions",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 1,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 360,
+          width = 38.6667,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 2,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 66,
+          y = 360,
+          width = 49.3333,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 246.667,
+          width = 25.3333,
+          height = 113.333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 360,
+          width = 650.667,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 891.333,
+          y = 247.333,
+          width = 24,
+          height = 112.667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 65,
+          y = 206,
+          width = 294,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 9,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 408.333,
+          y = 206,
+          width = 481.667,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 10,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 359.333,
+          y = 216.667,
+          width = 49,
+          height = 17.6667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 644.667,
+          y = 286.667,
+          width = 44,
+          height = 26,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 20,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 849.5,
+          y = 340,
+          width = 28,
+          height = 13.5,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 21,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 73.25,
+          y = 339.25,
+          width = 29.5,
+          height = 13.5,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 4,
+      name = "markers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 12,
+          name = "entry2",
+          type = "",
+          shape = "point",
+          x = 384.5,
+          y = 269.5,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 13,
+          name = "entry",
+          type = "",
+          shape = "point",
+          x = 158.5,
+          y = 341.5,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 24,
+          name = "spawn",
+          type = "",
+          shape = "point",
+          x = 520,
+          y = 320,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 5,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 14,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 113.5,
+          y = 470,
+          width = 86.5,
+          height = 10,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["facing"] = "down",
+            ["map"] = "hometown/apartments/lobby",
+            ["marker"] = "entry2",
+            ["sound"] = "escaped"
+          }
+        },
+        {
+          id = 15,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 357.5,
+          y = 235.5,
+          width = 51,
+          height = 11.5,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/apartments.susiedoor"
+          }
+        },
+        {
+          id = 17,
+          name = "wetfloor",
+          type = "",
+          shape = "rectangle",
+          x = 728.667,
+          y = 263.667,
+          width = 90.1667,
+          height = 76.6667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 18,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 72,
+          y = 353.5,
+          width = 56,
+          height = 82,
+          rotation = 0,
+          gid = 2147483710,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 19,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 825.5,
+          y = 353,
+          width = 56,
+          height = 82,
+          rotation = 0,
+          gid = 62,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 22,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 158,
+          y = 237.75,
+          width = 51,
+          height = 11.5,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/apartments.mteendoor"
+          }
+        },
+        {
+          id = 23,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 558,
+          y = 237.75,
+          width = 51,
+          height = 11.5,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/apartments.snowydoor"
+          }
+        },
+        {
+          id = 26,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 644,
+          y = 314,
+          width = 44,
+          height = 52,
+          rotation = 0,
+          gid = 63,
+          visible = true,
+          properties = {}
+        }
+      }
+    }
+  }
+}

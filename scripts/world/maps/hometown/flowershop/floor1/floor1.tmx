@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="31">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Hometown - Flower King"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/flowerking/floor1.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collisions">
+  <object id="1" x="40" y="261.5" width="206.081" height="58.5"/>
+  <object id="2" x="40" y="360" width="200" height="40"/>
+  <object id="3" x="0" y="320" width="40" height="40"/>
+  <object id="6" x="120" y="120" width="400" height="40"/>
+  <object id="7" x="400" y="200" width="160" height="40"/>
+  <object id="8" x="400" y="307" width="160" height="40"/>
+  <object id="9" x="240" y="400" width="40" height="120"/>
+  <object id="10" x="360" y="400" width="40" height="120"/>
+  <object id="11" x="400" y="400" width="200" height="40"/>
+  <object id="15" x="600" y="120" width="40" height="280"/>
+  <object id="17" x="0" y="120" width="40" height="120"/>
+  <object id="18" x="40" y="80" width="80" height="40"/>
+  <object id="19" x="520" y="80" width="80" height="40"/>
+ </objectgroup>
+ <objectgroup color="#fb636f" id="4" name="markers">
+  <object id="23" name="entry" x="320" y="440">
+   <point/>
+  </object>
+  <object id="24" name="entry2" x="80" y="200">
+   <point/>
+  </object>
+  <object id="25" name="entry3" x="579.333" y="198">
+   <point/>
+  </object>
+  <object id="26" name="spawn" x="320" y="280">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="20" gid="55" x="398.353" y="240.305" width="166" height="76"/>
+  <object id="21" gid="55" x="398.26" y="348.31" width="166" height="76"/>
+  <object id="22" gid="54" x="40.1243" y="320.01" width="210" height="114"/>
+  <object id="27" name="transition_extended" x="280" y="480" width="80" height="40">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street"/>
+    <property name="marker" value="entry_flowershop"/>
+   </properties>
+  </object>
+  <object id="28" name="transition" x="40" y="120" width="80" height="40">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/flowershop/floor2"/>
+    <property name="marker" value="entry"/>
+    <property name="sound" value="escaped"/>
+   </properties>
+  </object>
+  <object id="29" name="transition" x="520" y="120" width="80" height="40">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/flowershop/floor2"/>
+    <property name="marker" value="entry2"/>
+    <property name="sound" value="escaped"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

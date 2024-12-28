@@ -67,6 +67,21 @@ function actor:init()
         -- Cutscene animations
         ["jump_fall"]           = {"fall", 1/5, true},
         ["jump_ball"]           = {"ball", 1/15, true},
+
+        ["wakeup"] = {"wakeup", 0.15, false},
+        ["sit_look_right"] = {"sit_look_right", 0.5, false},
+        ["pirouette"] = {"pirouette", 0.08, true},
+
+        --[[["iceslide/up"] = {"iceslide/up", 0, false},
+        ["iceslide/down"] = {"iceslide/down", 0, false},
+        ["iceslide/left"] = {"iceslide/left", 0, false},
+        ["iceslide/right"] = {"iceslide/right", 0, false},]]
+
+        ["battle_soulless/idle"] = {"battle_soulless/idle", 0.2, true},
+        ["battle_soulless/idle_b"] = {"battle_soulless/idle_b", 0.2, true},
+        ["battle_soulless/idle_c"] = {"battle_soulless/idle_c", 0.2, true},
+        ["battle_soulless/idle_d"] = {"battle_soulless/idle_d", 0.2, true},
+        ["battle_soulless/defeat"] = {"battle_soulless/defeat", 0.15, false},
     }
 
     if Game.chapter == 1 then
@@ -89,6 +104,9 @@ function actor:init()
         ["walk/up"] = {0, 0},
         ["walk/down"] = {0, 0},
 
+        ["walk_blush/left"] = {0, 0},
+        ["walk_blush/right"] = {0, 0},
+        ["walk_blush/up"] = {0, 0},
         ["walk_blush/down"] = {0, 0},
 
         ["slide"] = {0, 0},
@@ -135,6 +153,30 @@ function actor:init()
         ["sit"] = {-3, 0},
 
         ["t_pose"] = {-4, 0},
+
+        --Cutscene
+        ["wakeup"] = {-3, 0},
+        ["sit_look_right"] = {-3, 0},
+        ["pirouette"] = {-3, -1},
+
+        --Battle (soulless)
+        ["battle_soulless/idle"] = {-5, -1},
+        ["battle_soulless/idle_b"] = {-12, -1},
+        ["battle_soulless/idle_c"] = {-15, -1},
+        ["battle_soulless/idle_d"] = {-15, -1},
+        ["battle_soulless/defeat"] = {-5, 0},
+        ["battle_soulless/defeat_look_right"] = {-5, 0},
+        ["battle_soulless/defeat_sit"] = {-5, 0},
+    }
+
+    self.spotlight = {
+        offset_x = -4,
+        offset_y = -2,
+        width = 80,
+        beam_height = 200,
+        top_color = {1, 1, 1, 0.0},
+        bottom_color = {0, 1, 1, 0.25},
+        base_color = {0, 0.75, 0.75, 1}
     }
 end
 

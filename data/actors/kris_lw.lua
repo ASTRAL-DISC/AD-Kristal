@@ -39,6 +39,9 @@ function actor:init()
     self.animations = {
         -- Cutscene animations
         ["sit"] = {"sit", 0.25, true},
+
+        ["soul/up"] = {"soul/up", 0.15, false},
+        ["soul/up_soulshine"] = {"soul/up_soulshine", 0.2, false},
     }
 
     -- Tables of sprites to change into in mirrors
@@ -51,6 +54,12 @@ function actor:init()
 
     -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
+        --Movement
+        ["walk_soulless/left"] = {-4, 0},
+        ["walk_soulless/right"] = {-4, 0},
+        ["walk_soulless/up"] = {-4, 0},
+        ["walk_soulless/down"] = {-4, 0},
+
         -- Cutscene offsets
         ["fall"] = {-8, -2},
 
@@ -62,6 +71,9 @@ function actor:init()
         ["ghostwalk_lu"] = {-4, 3},
         ["ghostwalk_rf"] = {-4, 3},
         ["ghostwalk_ru"] = {-4, 3},
+
+        ["wetslide/right"] = {-8, -2},
+        ["wetslide/left"] = {-5, -2},
     }
 end
 

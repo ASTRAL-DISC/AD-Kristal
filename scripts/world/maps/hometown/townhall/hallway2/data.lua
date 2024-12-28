@@ -1,0 +1,391 @@
+return {
+  version = "1.10",
+  luaversion = "5.1",
+  tiledversion = "1.10.2",
+  class = "",
+  orientation = "orthogonal",
+  renderorder = "right-down",
+  width = 16,
+  height = 12,
+  tilewidth = 40,
+  tileheight = 40,
+  nextlayerid = 7,
+  nextobjectid = 42,
+  properties = {
+    ["border"] = "leaves",
+    ["inside"] = true,
+    ["light"] = "true",
+    ["music"] = "hometown",
+    ["name"] = "Town Hall - Hallway 2"
+  },
+  tilesets = {
+    {
+      name = "hometown_stuff",
+      firstgid = 1,
+      filename = "../../../../tilesets/hometown_stuff.tsx",
+      exportfilename = "../../../../tilesets/hometown_stuff.lua"
+    }
+  },
+  layers = {
+    {
+      type = "imagelayer",
+      image = "../../../../../../assets/sprites/world/hometown/townhall/premayor.png",
+      id = 6,
+      name = "bg",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      repeatx = false,
+      repeaty = false,
+      properties = {}
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 3,
+      name = "collisions",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 12,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 392.667,
+          y = 126.667,
+          width = 124.667,
+          height = 78.6667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 13,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 462,
+          y = 206,
+          width = 56.6667,
+          height = 55.3333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 15,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 119.333,
+          y = 206,
+          width = 58,
+          height = 58.6667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 16,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120.667,
+          y = 122.667,
+          width = 126.667,
+          height = 82.6667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 17,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 246,
+          y = 120,
+          width = 26.6667,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 18,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 368,
+          y = 120,
+          width = 26,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 19,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272.667,
+          y = 80,
+          width = 94,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 24,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 122.667,
+          y = 294,
+          width = 60.6667,
+          height = 54.6667,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 35,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 520,
+          y = 262.832,
+          width = 40,
+          height = 137.168,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 37,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 264.907,
+          width = 40,
+          height = 135.093,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 40,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 400,
+          width = 157.924,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 41,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 359.308,
+          y = 400,
+          width = 160.692,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 4,
+      name = "markers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 20,
+          name = "entry",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 422,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 21,
+          name = "entry2",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 200,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 22,
+          name = "spawn",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 320,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 5,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 23,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 126.667,
+          y = 349,
+          width = 56,
+          height = 114,
+          rotation = 0,
+          gid = 53,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 30,
+          name = "transition_extended",
+          type = "",
+          shape = "rectangle",
+          x = 273.333,
+          y = 120,
+          width = 94.6667,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["door"] = true,
+            ["facing"] = "up",
+            ["map"] = "hometown/townhall/mayorsoffice",
+            ["marker"] = "spawn"
+          }
+        },
+        {
+          id = 31,
+          name = "script",
+          type = "",
+          shape = "rectangle",
+          x = 248,
+          y = 160,
+          width = 146,
+          height = 14.6667,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 5",
+            ["cutscene"] = "hometown/townhall.busy",
+            ["flagcheck"] = "seen_mayor",
+            ["once"] = false
+          }
+        },
+        {
+          id = 32,
+          name = "script",
+          type = "",
+          shape = "rectangle",
+          x = 248,
+          y = 200,
+          width = 144,
+          height = 13.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 5",
+            ["cutscene"] = "hometown/townhall.noelle",
+            ["flagcheck"] = "!seen_mayor",
+            ["once"] = true
+          }
+        },
+        {
+          id = 33,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 278.616,
+          y = 480,
+          width = 79.3081,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["facing"] = "down",
+            ["map"] = "hometown/townhall/hallway",
+            ["marker"] = "entry2",
+            ["sound"] = "escaped"
+          }
+        },
+        {
+          id = 34,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 289.333,
+          width = 65.3333,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/townhall.glasstree"
+          }
+        }
+      }
+    }
+  }
+}

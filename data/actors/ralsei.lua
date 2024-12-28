@@ -212,7 +212,11 @@ function actor:initChapter2()
         ["hug_stop"]            = {"hug_stop", 2/9, false},
 
         ["wave_start"]          = {"wave_start", 5/30, false, next="wave_down"},
-        ["wave_down"]           = {"wave_down", 5/30, true}
+        ["wave_down"]           = {"wave_down", 5/30, true},
+
+        -- Choir Minigame
+        ["choir/hold"] = {"choir/hold", 1/15, true},
+        ["choir/idle"] = {"choir/idle", 4/30, true},
     }
 
     -- Tables of sprites to change into in mirrors
@@ -292,7 +296,28 @@ function actor:initChapter2()
         ["wave_down"] = {2, 1},
 
         ["splat"] = {-15, 21},
-        ["stool"] = {-11, 18}
+        ["stool"] = {-11, 18},
+
+        ["walk_hood/left"] = {-4, -2},
+        ["walk_hood/right"] = {-4, -2},
+        ["walk_hood/up"] = {-4, -2},
+        ["walk_hood/down"] = {-4, -2},
+
+        ["fell"] = {-13, 19},
+    
+        -- Choir Minigame
+        ["choir/hold"] = {-10, -6},
+        ["choir/idle"] = {-5, -6},
+    }
+
+    self.spotlight = {
+        offset_x = 8,
+        offset_y = -2,
+        width = 80,
+        beam_height = 320,
+        top_color = {1, 1, 1, 0.0},
+        bottom_color = {0, 1, 0, 0.25},
+        base_color = {0, 0.75, 0, 1}
     }
 end
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="29">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Hospital - Rudy Room"/>
+ </properties>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/hospital/rudyroom.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collisions">
+  <object id="1" x="360" y="400" width="160" height="115.137"/>
+  <object id="2" x="120" y="400" width="160" height="111.758"/>
+  <object id="4" x="120" y="290.136" width="40" height="109.864"/>
+  <object id="6" x="520" y="332.839" width="40" height="67.1615"/>
+  <object id="7" x="520" y="222.974" width="40" height="57.0258"/>
+  <object id="8" x="80" y="222.298" width="40" height="68.5129"/>
+  <object id="9" x="120" y="181" width="400" height="40"/>
+  <object id="11" x="280" y="222.298" width="80" height="97.7015"/>
+  <object id="24" x="360" y="220.947" width="40" height="59.0529"/>
+ </objectgroup>
+ <objectgroup color="#b0d8d9" id="4" name="markers">
+  <object id="12" name="entry" x="319.611" y="424.347">
+   <point/>
+  </object>
+  <object id="13" name="noelle" x="291.232" y="231.769">
+   <point/>
+  </object>
+  <object id="14" name="noelle_exit" x="239.878" y="250.689">
+   <point/>
+  </object>
+  <object id="22" name="spawn" x="200" y="320">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="16" name="interactable" x="187.837" y="147.837" width="68.5129" height="73.9186">
+   <properties>
+    <property name="cutscene" value="hometown/hospital.plaque"/>
+   </properties>
+  </object>
+  <object id="17" name="interactable" x="120" y="357.199" width="40" height="42.8012">
+   <properties>
+    <property name="cutscene" value="hometown/hospital.sink3"/>
+   </properties>
+  </object>
+  <object id="23" name="npc" x="320" y="288">
+   <properties>
+    <property name="actor" value="rudy_lw"/>
+    <property name="cutscene" value="hometown/hospital.rudy"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" name="transition_extended" x="280" y="480" width="80" height="40">
+   <properties>
+    <property name="door" type="bool" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/hospital/corridor"/>
+    <property name="marker" value="entry_rudy"/>
+   </properties>
+  </object>
+  <object id="21" name="flowers" x="444" y="236">
+   <point/>
+  </object>
+  <object id="26" name="gifts" x="140.548" y="308.367">
+   <point/>
+  </object>
+  <object id="27" name="rudychair" x="498.675" y="308.8">
+   <point/>
+  </object>
+  <object id="28" name="interactable" x="120" y="290.166" width="40" height="40.6905">
+   <properties>
+    <property name="cutscene" value="hometown/hospital.gifts"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

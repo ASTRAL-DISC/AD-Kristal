@@ -1,0 +1,443 @@
+return {
+  version = "1.10",
+  luaversion = "5.1",
+  tiledversion = "1.10.2",
+  class = "",
+  orientation = "orthogonal",
+  renderorder = "right-down",
+  width = 16,
+  height = 12,
+  tilewidth = 40,
+  tileheight = 40,
+  nextlayerid = 10,
+  nextobjectid = 66,
+  properties = {
+    ["border"] = "castle",
+    ["music"] = "queen_car_radio"
+  },
+  tilesets = {
+    {
+      name = "queen_room",
+      firstgid = 1,
+      filename = "../../../../../tilesets/queen_room.tsx"
+    }
+  },
+  layers = {
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 16,
+      height = 12,
+      id = 1,
+      name = "tiles",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143,
+        143, 143, 143, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+        143, 143, 143, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+        143, 143, 143, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+        143, 143, 143, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52,
+        143, 143, 143, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,
+        143, 143, 143, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78,
+        143, 143, 143, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
+        143, 143, 143, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104,
+        143, 143, 143, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+        143, 143, 143, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130,
+        143, 143, 143, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 2,
+      name = "collision",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 40,
+          width = 400,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 120,
+          width = 40,
+          height = 280,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 24,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 167.333,
+          y = 120.667,
+          width = 102,
+          height = 109.333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 25,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 369.334,
+          y = 120.333,
+          width = 102,
+          height = 109.33,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 53,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 400,
+          width = 160,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 54,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 400,
+          width = 160,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 55,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 520,
+          y = 320,
+          width = 40,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 59,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 560,
+          y = 320,
+          width = 120,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 60,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 560,
+          y = 200,
+          width = 120,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 61,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 520,
+          y = 120,
+          width = 40,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 62,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 440,
+          width = 40,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 63,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 440,
+          width = 40,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 5,
+      name = "objects_speakers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 21,
+          name = "queenspeakers",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 129,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 3,
+      name = "objects_party",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 12,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 480,
+          width = 80,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["facing"] = "down",
+            ["map"] = "castletown/floor3",
+            ["marker"] = "entry_queen",
+            ["sound"] = "elecdoor_close"
+          }
+        },
+        {
+          id = 13,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 219,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "queen",
+            ["cutscene"] = "castletown/queenroom.sip",
+            ["sprite"] = "stealth_sip"
+          }
+        },
+        {
+          id = 15,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 174,
+          y = 389,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "rouxls",
+            ["cutscene"] = "castletown/queenroom.rouxls",
+            ["sprite"] = "lamp"
+          }
+        },
+        {
+          id = 64,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 640,
+          y = 240,
+          width = 40,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["facing"] = "right",
+            ["map"] = "castletown/rooms/queen/gym",
+            ["marker"] = "entry",
+            ["sound"] = "elecdoor_close"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 6,
+      name = "objects_acid",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 20,
+          name = "acidglass",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 129,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 4,
+      name = "markers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 10,
+          name = "spawn",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 320,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "entry",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 440,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 17,
+          name = "queen",
+          type = "",
+          shape = "point",
+          x = 440,
+          y = 256,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 65,
+          name = "entry2",
+          type = "",
+          shape = "point",
+          x = 560,
+          y = 280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    }
+  }
+}

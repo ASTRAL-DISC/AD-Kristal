@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="30">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/apartments/lobby.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collisions">
+  <object id="1" x="367.388" y="378.807" width="208.432" height="40"/>
+  <object id="2" x="66.8668" y="380.15" width="206.417" height="40"/>
+  <object id="3" x="46.3452" y="178.664" width="18.8067" height="200.157"/>
+  <object id="4" x="576.292" y="291.504" width="16.1201" height="87.317"/>
+  <object id="5" x="369.418" y="173.291" width="204.187" height="117.542"/>
+  <object id="6" x="65.8236" y="153.812" width="124.259" height="24.8518"/>
+  <object id="7" x="360.015" y="58.4352" width="9.40337" height="120.9"/>
+  <object id="8" x="367.403" y="419.122" width="36.9418" height="59.7786"/>
+  <object id="9" x="237.099" y="420.465" width="35.5985" height="59.1069"/>
+  <object id="12" x="272.698" y="57.0919" width="6.04502" height="121.572"/>
+  <object id="13" x="178.664" y="56.4202" width="11.4184" height="97.392"/>
+  <object id="20" x="534.649" y="356.656" width="26.8668" height="12.7617"/>
+  <object id="21" x="86.6453" y="333.82" width="31.5685" height="34.2551"/>
+  <object id="28" x="191.426" y="104.109" width="81.272" height="32.2401"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="4" name="markers">
+  <object id="10" name="entry2" x="317.028" y="119.557">
+   <point/>
+  </object>
+  <object id="11" name="entry" x="320" y="400">
+   <point/>
+  </object>
+  <object id="29" name="spawn" x="232.683" y="335.749">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="15" name="transition" x="278.743" y="58.4352" width="79.9286" height="12.09">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/apartments/hall"/>
+    <property name="marker" value="entry"/>
+    <property name="sound" value="escaped"/>
+   </properties>
+  </object>
+  <object id="16" name="transition_extended" x="272.612" y="470.897" width="94.7767" height="9.10322">
+   <properties>
+    <property name="door" value="true"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street3"/>
+    <property name="marker" value="entry_apartments"/>
+   </properties>
+  </object>
+  <object id="17" name="npc" x="532.245" y="246.398">
+   <properties>
+    <property name="actor" value="ladygarf"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" gid="61" x="83.422" y="368.133" width="36" height="74"/>
+  <object id="19" gid="62" x="508.664" y="371.461" width="56" height="82"/>
+  <object id="23" name="interactable" x="83.287" y="308.968" width="36.9418" height="59.7786">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.chair"/>
+   </properties>
+  </object>
+  <object id="24" name="interactable" x="526.589" y="312.998" width="36.2701" height="57.7636">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.plant"/>
+   </properties>
+  </object>
+  <object id="25" name="interactable" x="480.915" y="249.861" width="76.5703" height="40.9718">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.ladygarf"/>
+   </properties>
+  </object>
+  <object id="26" name="interactable" x="86.6453" y="150.454" width="82.6153" height="28.2101">
+   <properties>
+    <property name="cutscene" value="hometown/apartments.window"/>
+   </properties>
+  </object>
+  <object id="27" name="ding" x="372.762" y="225.223" width="38.6567" height="64.8518"/>
+ </objectgroup>
+</map>

@@ -45,6 +45,9 @@ function item:init()
 
     -- Character reactions (key = party member id)
     self.reactions = {}
+
+    self.hey = false
+    self.hey_timer = 0
 end
 
 function item:onMenuOpen(menu)
@@ -55,10 +58,34 @@ function item:isVisible()
     return true
 end
 
+function item:onWorldUse(target)
+    if math.random(1, 100) <= 5 and not self.hey then
+        Assets.stopAndPlaySound("rouxls_hey")
+        self.hey = true
+    else
+        self.hey = false
+        self.hey_timer = 0
+        Assets.stopAndPlaySound(Utils.pick({"voice/rouxls", "voice/rouxls2", "voice/rouxls3"}))
+		return false
+    end
+	
+	return super.onWorldUse(self, target)
+end
+
 function item:onMenuDraw(menu)
     local x, y = menu.box:screenToLocalPos(0, 0)
     if menu.box.state == "SELECT" and self:isVisible() then
-        love.graphics.draw(Assets.getTexture("kristal/rouxls_kaard", x, y), x + 470, y + 230, 0, 2)
+        Draw.draw(Assets.getTexture("npcs/darkners/rouxls/talk_1", x, y), x + 470, y + 230, 0, 2)
+        if self.hey == true then
+            self.hey_timer = self.hey_timer + 1
+            local hey = Assets.getTexture("effects/rouxls_hey", x, y)
+            if self.hey_timer < 15 then
+                Draw.draw(hey, x + 390, y + 230, 0, 2, 2)
+                Draw.draw(Assets.getTexture("npcs/darkners/rouxls/talk_2", x, y), x + 470, y + 230, 0, 2)
+            else
+                -- nothin
+            end
+        end
     end
 end
 

@@ -72,7 +72,9 @@ end
 
 function spell:getDamage(user, target, pressed)
     local damage = math.ceil((user.chara:getStat("magic") * 5) + (user.chara:getStat("attack") * 11) - (target.defense * 3))
-    if pressed then
+    if user.chara:checkWeapon("gloryslicer") then
+        damage = damage + 60
+    elseif pressed then
         damage = damage + 30
     end
     return damage
