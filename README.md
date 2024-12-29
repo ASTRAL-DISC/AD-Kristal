@@ -1,3 +1,51 @@
+<p align="center" width="100%">
+<img src="https://astraldisc.com/assets/img/disc/logo.png" alt="ASTRAL DISC Logo" style="image-rendering:pixelated;" width="70%" />
+</p>
+
+# AD-Kristal (Kristal Fork)
+
+This is a fork of the Kristal Engine made for the ASTRAL DISC project.
+
+## Launching Kristal via .bat file
+
+This repository includes a custom shell script named ``start.bat.`` The purpose of this script is to automatically merge updates from the original Kristal repository. Every time you launch Kristal-AD, we recommend you do so using this file.
+
+```bash
+@echo off
+git fetch upstream main
+git merge --no-ff upstream/main
+pause
+"C:\Program Files\LOVE/lovec" .
+```
+
+Additionally, if you're using Git to download Kristal updates, you can add a ``git pull`` line after the pause line in your ``.bat``, which will make Kristal-AD automatically update every time you launch it through the ``.bat`` file.
+
+When you first clone this repository, you'll also need to run this git command to be able to access the most up to date commits:
+
+```bash
+git remote add upstream https://github.com/KristalTeam/Kristal.git
+```
+
+## Clone the Chapters
+
+To run the ASTRAL DISC Chapters, you'll need to download a few mods and place them in the following directory:
+`C:\Users\user\AppData\Roaming\LOVE\ad\mods`
+
+You can quickly access the `AppData` folder by pressing `Win + R`, execute the `%appdata%` command, and navigate to the `LOVE` folder. Inside it, you'll find the `ad` folder, where you should add these mods:
+
+- [Mod Loader](https://github.com/ASTRAL-DISC/astraldisc)
+- [Chapter 3](https://github.com/ASTRAL-DISC/chapter3)
+- [Chapter 4](https://github.com/ASTRAL-DISC/chapter4)
+- [Chapter 5](https://github.com/ASTRAL-DISC/chapter5)
+- [Chapter 6](https://github.com/ASTRAL-DISC/chapter6)
+- [Chapter 7](https://github.com/ASTRAL-DISC/chapter7)
+
+### Note for the development team:
+
+It's recommended to clone the repository instead of manually downloading the mods. This way, you can easily update your local copy by running `git pull` whenever updates are made. This ensures you're always working with the latest changes.
+
+> **Reminder:** You need to execute the `.bat` file at least once for the `ad` folder to be created.
+
 # Kristal
 
 Kristal is a powerful [DELTARUNE](https://deltarune.com/) fangame and battle engine, made with [LÖVE](https://love2d.org/). It allows you to make **custom DELTARUNE worlds, battles, and more!**
