@@ -9,11 +9,17 @@ function character:init()
     -- Actor (handles sprites)
     self:setActor("noelle")
     self:setLightActor("noelle_lw")
+    self:setDarkTransitionActor("noelle_dark_transition")
+    self:setPastActor("noelle_past")
 
     -- Display level (saved to the save file)
     self.level = Game.chapter
     -- Default title / class (saved to the save file)
-    self.title = "Snowcaster\nMight be able to\nuse some cool moves."
+    if Game.chapter >= 4 then
+        self.title = "Snowcaster\nMight be able to\nuse cooler moves." --WIP
+    else
+        self.title = "Snowcaster\nMight be able to\nuse some cool moves."
+    end
 
     -- Determines which character the soul comes from (higher number = higher priority)
     self.soul_priority = 1
@@ -35,20 +41,66 @@ function character:init()
     self:addSpell("ice_shock")
 
     -- Current health (saved to the save file)
-    self.health = 90
+    if Game.chapter == 2 or Game.chapter == 3 then
+        self.health = 90
+    elseif Game.chapter == 4 then
+        self.health = 120
+    elseif Game.chapter == 5 then
+        self.health = 210
+    elseif Game.chapter >= 6 then
+        self.health = 270
+    end
 
     -- Base stats (saved to the save file)
-    self.stats = {
-        health = 90,
-        attack = 3,
-        defense = 1,
-        magic = 11
-    }
-
+    if Game.chapter == 2 or Game.chapter == 3 then
+        self.stats = {
+            health = 90,
+            attack = 3,
+            defense = 1,
+            magic = 11
+        }
+    elseif Game.chapter == 4 then
+        self.stats = {
+            health = 120,
+            attack = 5,
+            defense = 3,
+            magic = 13
+        }
+    elseif Game.chapter == 5 then
+        self.stats = {
+            health = 210,
+            attack = 7,
+            defense = 3,
+            magic = 15
+        }
+    elseif Game.chapter >= 6 then
+        self.stats = {
+            health = 270,
+            attack = 9,
+            defense = 3,
+            magic = 17
+        }
+    end
     -- Max stats from level-ups
-    self.max_stats = {
-        health = 999
-    }
+    if Game.chapter == 4 then
+        self.max_stats = {
+            health = 190,
+        }
+    elseif Game.chapter == 5 then
+        self.max_stats = {
+            health = 266,
+        }
+    elseif Game.chapter >= 6 then
+        self.max_stats = {
+            health = 330,
+			attack = 10,
+            magic = 20
+        }
+    else
+        self.max_stats = {
+            health = 999
+        }
+    end
     
     -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
     self.stronger_absent = {}
@@ -116,16 +168,12 @@ function character:getTitle()
         return prefix.."Ice Trancer\nReceives pain to\nbecome stronger."
     elseif self:getFlag("iceshocks_used", 0) > 0 then
         return prefix.."Frostmancer\nFreezes the enemy."
+    elseif Game:getFlag("moss_found#4") or Game:getFlag("moss_found#5") then
+        return prefix.."Moss Friendly\nAdmires moss from afar."
+    elseif Game:getFlag("snowgraved") or self:getFlag("weird") then
+        return prefix.."Glacial Mage\nLooks for strength."
     else
         return super.getTitle(self)
-    end
-end
-
-function character:getLevel()
-    if self:checkWeapon("thornring") or self:getFlag("iceshocks_used", 0) > 0 then
-        return super.getLevel(self)
-    else
-        return 1
     end
 end
 
@@ -153,9 +201,12 @@ function character:drawPowerStat(index, x, y, menu)
         return true
     elseif index == 3 then
         local icon = Assets.getTexture("ui/menu/icon/fire")
-        Draw.draw(icon, x-26, y+6, 0, 2, 2)
-        love.graphics.print("Guts:", x, y)
-        return true
+		Draw.draw(icon, x-26, y+6, 0, 2, 2)
+		love.graphics.print("Guts:", x, y)
+		if Game.chapter >= 5 then
+			Draw.draw(icon, x+90, y+6, 0, 2, 2)
+		end
+		return true
     end
 end
 

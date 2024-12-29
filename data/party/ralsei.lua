@@ -16,8 +16,10 @@ function character:init()
     -- Default title / class (saved to the save file)
     if Game.chapter == 1 then
         self.title = "Lonely Prince\nDark-World being.\nHas no subjects."
-    else
+    elseif Game.chapter == 2 then
         self.title = "Dark Prince\nDark-World being.\nHas friends now."
+    elseif Game.chapter >= 3 then
+        self.title = "Scout Prince\nHas friends and\nsubjects."
     end
 
     -- Determines which character the soul comes from (higher number = higher priority)
@@ -39,41 +41,81 @@ function character:init()
     self:addSpell("heal_prayer")
 
     -- Current health (saved to the save file)
-    if Game.chapter == 1 then
-        self.health = 70
-    else
-        self.health = 100
+    if Game.chapter == 3 then
+        self.health = 140
+    elseif Game.chapter == 4 then
+        self.health = 190
+    elseif Game.chapter == 5 then
+        self.health = 250
+    elseif Game.chapter == 6 then
+        self.health = 320
+    elseif Game.chapter == 7 then
+        self.health = 400
     end
 
     -- Base stats (saved to the save file)
-    if Game.chapter == 1 then
+    if Game.chapter == 3 then
         self.stats = {
-            health = 70,
-            attack = 8,
+            health = 140,
+            attack = 12,
             defense = 2,
-            magic = 7
+            magic = 11
         }
-    else
+    elseif Game.chapter == 4 then
         self.stats = {
-            health = 100,
-            attack = 10,
+            health = 190,
+            attack = 16,
             defense = 2,
-            magic = 9,
+            magic = 15
+        }
+    elseif Game.chapter == 5 then
+        self.stats = {
+            health = 250,
+            attack = 18,
+            defense = 2,
+            magic = 17
+        }
+    elseif Game.chapter == 6 then
+        self.stats = {
+            health = 320,
+            attack = 20,
+            defense = 2,
+            magic = 19
+        }
+    elseif Game.chapter == 7 then
+        self.stats = {
+            health = 400,
+            attack = 22,
+            defense = 2,
+            magic = 21
         }
     end
+
     -- Max stats from level-ups
-    if Game.chapter == 1 then
+    if Game.chapter == 3 then
         self.max_stats = {
-            health = 100
+            health = 216,
         }
-    else
+    elseif Game.chapter == 4 then
         self.max_stats = {
-            health = 140
+            health = 266,
+        }
+    elseif Game.chapter == 5 then
+        self.max_stats = {
+            health = 326,
+        }
+    elseif Game.chapter == 6 then
+        self.max_stats = {
+            health = 396,
+        }
+    elseif Game.chapter == 7 then
+        self.max_stats = {
+            health = 476,
         }
     end
     
     -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
-    self.stronger_absent = {"kris","susie","ralsei"}
+    self.stronger_absent = {"kris", "susie", "ralsei"}
 
     -- Weapon icon in equip menu
     self.weapon_icon = "ui/menu/equip/scarf"
@@ -130,6 +172,11 @@ function character:init()
         "This is not\nyour fate...!",
         "Please,[wait:5]\ndon't give up!"
     }
+
+    -- Character flags (saved to the save file)
+    self.flags = {
+        ["alpha_used"] = 0
+    }
 end
 
 function character:getTitle()
@@ -141,6 +188,14 @@ function character:getTitle()
         end
     end
     return super.getTitle(self)
+end
+
+function character:getHeadIcons()
+    if Game.chapter >= 4 then
+        return "party/ralsei/icon_nohat"
+    else
+        return "party/ralsei/icon"
+    end
 end
 
 function character:onLevelUp(level)

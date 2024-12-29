@@ -14,7 +14,11 @@ function character:init()
     -- Display level (saved to the save file)
     self.level = Game.chapter
     -- Default title / class (saved to the save file)
-    self.title = "Dark Knight\nDoes damage using\ndark energy."
+    if Game.chapter == 3 then
+        self.title = "Sleepover Buddy\nMarathons violent\nmovies with you."
+    else
+        self.title = "Dark Knight\nDoes damage using\ndark energy."
+    end
 
     -- Determines which character the soul comes from (higher number = higher priority)
     self.soul_priority = 1
@@ -37,41 +41,90 @@ function character:init()
     end
 
     -- Current health (saved to the save file)
-    if Game.chapter == 1 then
-        self.health = 110
-    else
-        self.health = 140
+    if Game.chapter == 3 then
+        self.health = 190
+    elseif Game.chapter == 4 then
+        self.health = 240
+    elseif Game.chapter == 5 then
+        self.health = 300
+    elseif Game.chapter == 6 then
+        self.health = 370
+    elseif Game.chapter == 7 then
+        self.health = 450
+    elseif Game:getFlag("epilogue") then
+        self.health = 540
     end
 
     -- Base stats (saved to the save file)
-    if Game.chapter == 1 then
+    if Game.chapter == 3 then
         self.stats = {
-            health = 110,
-            attack = 14,
+            health = 190,
+            attack = 18,
             defense = 2,
-            magic = 1
+            magic = 3
         }
-    else
+    elseif Game.chapter == 4 then
         self.stats = {
-            health = 140,
-            attack = 16,
+            health = 240,
+            attack = 20,
             defense = 2,
-            magic = 1
+            magic = 5
+        }
+    elseif Game.chapter == 5 then
+        self.stats = {
+            health = 300,
+            attack = 22,
+            defense = 2,
+            magic = 7
+        }
+    elseif Game.chapter == 6 then
+        self.stats = {
+            health = 370,
+            attack = 24,
+            defense = 4,
+            magic = 9
+        }
+    elseif Game.chapter == 7 then
+        self.stats = {
+            health = 450,
+            attack = 27,
+            defense = 5,
+            magic = 12
+        }
+    elseif Game:getFlag("epilogue") then
+        self.stats = {
+            health = 540,
+            attack = 30,
+            defense = 6,
+            magic = 14
         }
     end
+
     -- Max stats from level-ups
-    if Game.chapter == 1 then
+    if Game.chapter == 3 then
         self.max_stats = {
-            health = 140
+            health = 266,
         }
-    else
+    elseif Game.chapter == 4 then
         self.max_stats = {
-            health = 190
+            health = 316,
+        }
+    elseif Game.chapter == 5 then
+        self.max_stats = {
+            health = 376,
+        }
+    elseif Game.chapter == 6 then
+        self.max_stats = {
+            health = 446,
+        }
+    elseif Game.chapter == 7 then
+        self.max_stats = {
+            health = 526,
         }
     end
     
     -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
-    self.stronger_absent = {"kris","susie","ralsei"}
+    self.stronger_absent = {"kris", "susie", "ralsei"}
 
     -- Weapon icon in equip menu
     self.weapon_icon = "ui/menu/equip/axe"
@@ -125,7 +178,27 @@ function character:init()
     -- Character flags (saved to the save file)
     self.flags = {
         ["auto_attack"] = false,
+        ["beta_used"] = 0,
+        ["eyes"] = false
     }
+end
+
+function character:getTitle()
+    if self:hasSpell("maximum_cure") then
+        return "LV"..self:getLevel().." Healing Booster\nMaximizes healing.\nCool, huh?"
+    elseif Game:getFlag("moss_found#3") then
+        return "LV"..self:getLevel().." Moss Enthusiast\nInterested in the big\npicture of moss."
+    else
+        return "LV"..self:getLevel().." "..self.title
+    end
+end
+
+function character:getMenuIcon()
+    if self:getFlag("eyes") then
+        return "party/susie/head_eyes"
+    else
+        return "party/susie/head"
+    end
 end
 
 function character:onTurnStart(battler)
