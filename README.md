@@ -44,7 +44,8 @@ You can quickly access the `AppData` folder by pressing `Win + R`, execute the `
 
 It's recommended to clone the repository instead of manually downloading the mods. This way, you can easily update your local copy by running `git pull` whenever updates are made. This ensures you're always working with the latest changes.
 
-> **Reminder:** You need to execute the `.bat` file at least once for the `ad` folder to be created.
+> [!WARNING]
+> You need to execute the `.bat` file at least once for the `ad` folder to be created.
 
 # Kristal
 
