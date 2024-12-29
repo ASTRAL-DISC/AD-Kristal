@@ -23,14 +23,14 @@ git remote add upstream "https://github.com/KristalTeam/Kristal.git"
 
 ### Launching AD-Kristal via .bat file
 
-This repository includes a [custom shell script](./start.bat) named ``start.bat``. The purpose of this script is to automatically merge updates from the original Kristal repository. Every time you launch Kristal-AD, we recommend you do so using this file.
+This repository includes a [custom shell script](./start.bat) named ``start.bat``. The purpose of this script is to automatically merge updates from the original Kristal repository. Every time you launch AD-Kristal, we recommend you do so using this file.
 
 When executed, the script opens a console window and waits for your input. Take a moment to read the console messages carefully before proceeding. If everything looks good, press any key to continue, and the custom client will launch. Because this is your first time, there are no mods loaded, so an error will occur. Don't worry, this is expected. The client will still run some code and generate the necessary folders for the next step.
 
 > [!NOTE]
 > Additionally, you can add a `git pull` command after the `pause` line in your `.bat` file. This will ensure AD-Kristal automatically updates every time you launch it through the `.bat`. While this is helpful if you often forget to pull updates, it may be inconvenient for some, so consider it optional.
 
-### Clone the Chapters
+### Cloning the Chapters
 
 To run the ASTRAL DISC Chapters, you'll need to download a few mods and place them in the following directory:
 ```
