@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-<img src="https://astraldisc.com/assets/img/disc/logo.png" alt="ASTRAL DISC Logo" style="image-rendering:pixelated;" width="70%" />
+<img src="https://astraldisc.com/assets/img/disc/logo_big.png" alt="ASTRAL DISC Logo"/>
 </p>
 
 # AD-Kristal (Kristal Fork)
