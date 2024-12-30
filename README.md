@@ -21,9 +21,6 @@ After cloning is done, you can launch the custom client through the next step be
 
 This repository includes a [custom shell script](./start.bat) named ``start.bat``. The purpose of this script is to facilitate the process of starting the application. Every time you launch AD-Kristal, we recommend you do so using this file.
 
-> [!NOTE]
-> You need to have `.Git` installed in order to run the `.bat` file properly.
-
 When executed, the script opens a console window and soon launches the custom client. Because this is your first time, there are no mods loaded, so an error will occur. Don't worry, this is expected. The client will still run some code and generate the necessary folders for the next step.
 
 > [!NOTE]
