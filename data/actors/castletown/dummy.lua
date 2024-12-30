@@ -13,7 +13,7 @@ function actor:init()
 
     self.flip = nil
 
-    self.path = "enemies/dummy"
+    self.path = "npcs/castletown/dummy"
     self.default = "idle"
 
     self.voice = nil
