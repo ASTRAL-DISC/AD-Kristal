@@ -15,20 +15,19 @@ There are multiple ways of doing it, but a quick one is to open up a terminal (P
 git clone "https://github.com/ASTRAL-DISC/AD-Kristal.git"
 ```
 
-After cloning is done, you'll also need to run this git command once to be able to access the most up to date commits directly from source:
-
-```bash
-git remote add upstream "https://github.com/KristalTeam/Kristal.git"
-```
+After cloning is done, you can launch the custom client through the next step below.
 
 ### Launching AD-Kristal via .bat file
 
-This repository includes a [custom shell script](./start.bat) named ``start.bat``. The purpose of this script is to automatically merge updates from the original Kristal repository. Every time you launch AD-Kristal, we recommend you do so using this file.
-
-When executed, the script opens a console window and waits for your input. Take a moment to read the console messages carefully before proceeding. If everything looks good, press any key to continue, and the custom client will launch. Because this is your first time, there are no mods loaded, so an error will occur. Don't worry, this is expected. The client will still run some code and generate the necessary folders for the next step.
+This repository includes a [custom shell script](./start.bat) named ``start.bat``. The purpose of this script is to facilitate the process of starting the application. Every time you launch AD-Kristal, we recommend you do so using this file.
 
 > [!NOTE]
-> Additionally, you can add a `git pull` command after the `pause` line in your `.bat` file. This will ensure AD-Kristal automatically updates every time you launch it through the `.bat`. While this is helpful if you often forget to pull updates, it may be inconvenient for some, so consider it optional.
+> You need to have `.Git` installed in order to run the `.bat` file properly.
+
+When executed, the script opens a console window and soon launches the custom client. Because this is your first time, there are no mods loaded, so an error will occur. Don't worry, this is expected. The client will still run some code and generate the necessary folders for the next step.
+
+> [!NOTE]
+> Additionally, you can add a `git pull` command in your `.bat` file. This will ensure AD-Kristal automatically updates every time you launch it through the `.bat`. While this is helpful if you often forget to pull updates, it may be inconvenient for some, so consider it optional.
 
 ### Cloning the Chapters
 
