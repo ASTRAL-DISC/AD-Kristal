@@ -1,0 +1,146 @@
+{
+    "maps": [
+        {
+            "fileName": "maps/castletown/main/main.tmx",
+            "height": 1600,
+            "width": 1520,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "fileName": "maps/castletown/main2/main2.tmx",
+            "height": 1920,
+            "width": 1680,
+            "x": -120,
+            "y": 2360
+        },
+        {
+            "fileName": "maps/castletown/front/front.tmx",
+            "height": 1000,
+            "width": 1000,
+            "x": 240,
+            "y": -1080
+        },
+        {
+            "fileName": "maps/castletown/entrance/entrance.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 440,
+            "y": 1720
+        },
+        {
+            "fileName": "maps/castletown/tutorial/tutorial.tmx",
+            "height": 480,
+            "width": 1400,
+            "x": 1600,
+            "y": 840
+        },
+        {
+            "fileName": "maps/castletown/east/east.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 3080,
+            "y": 840
+        },
+        {
+            "fileName": "maps/castletown/west/west.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -720,
+            "y": 880
+        },
+        {
+            "fileName": "maps/castletown/dungeon/dungeon.tmx",
+            "height": 480,
+            "width": 1640,
+            "x": 1280,
+            "y": -1520
+        },
+        {
+            "fileName": "maps/castletown/floor1/floor1.tmx",
+            "height": 480,
+            "width": 1240,
+            "x": 120,
+            "y": -1600
+        },
+        {
+            "fileName": "maps/castletown/floor2/floor2.tmx",
+            "height": 480,
+            "width": 1280,
+            "x": 320,
+            "y": -2120
+        },
+        {
+            "fileName": "maps/castletown/floor3/floor3.tmx",
+            "height": 480,
+            "width": 1280,
+            "x": 280,
+            "y": -2680
+        },
+        {
+            "fileName": "maps/castletown/dojo/dojo.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -720,
+            "y": 280
+        },
+        {
+            "fileName": "maps/castletown/cafe/cafe.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 1240,
+            "y": -560
+        },
+        {
+            "fileName": "maps/castletown/bakery/bakery.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 1640,
+            "y": 0
+        },
+        {
+            "fileName": "maps/castletown/rooms/kris/kris.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -440,
+            "y": -2120
+        },
+        {
+            "fileName": "maps/castletown/rooms/susie/susie.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 1760,
+            "y": -2120
+        },
+        {
+            "fileName": "maps/castletown/rooms/lancer/lancer.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 2360,
+            "y": -2120
+        },
+        {
+            "fileName": "maps/castletown/rooms/noelle/noelle.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -440,
+            "y": -2680
+        },
+        {
+            "fileName": "maps/castletown/rooms/queen/queen.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 1640,
+            "y": -2680
+        },
+        {
+            "fileName": "maps/castletown/cafe2/cafe2.tmx",
+            "height": 480,
+            "width": 1440,
+            "x": 1160,
+            "y": 1800
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}
