@@ -259,7 +259,7 @@ end
 
 function Sans:draw()
     self:drawBackground()
-    super.super.super.draw(self)
+    super.super.draw(self)
     love.graphics.setFont(self.font)
     if self.state == "MAINMENU" then
         love.graphics.setColor(COLORS.white)
