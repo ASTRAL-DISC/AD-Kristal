@@ -81,9 +81,35 @@ SHOP_LAYERS = {
 
 MUSIC_VOLUME = 0.7
 MUSIC_VOLUMES = {
-    ["battle"] = 0.7
+    ["battle"] = 0.7,
+    ["lancer"] = 0.8,
+    ["queen_car_radio"] = 0.8,
+    ["friendship"] = 0.8,
+    ["creepylandscape"] = 0.5,
+    ["thrashmachine"] = 0.6,
 }
-MUSIC_PITCHES = {}
+MUSIC_PITCHES = {
+    ["THE_HOLY"] = 0.9,
+    ["hometown"] = 0.97,
+    ["flashback_excerpt"] = 0.95,
+    ["alley_ambience"] = 0.97,
+    ["friendship"] = 0.95,
+    ["wind"] = 0.7,
+    ["april_2012"] = 0.7,
+    ["home"] = 0.97,
+    ["lantern"] = 0.95,
+    ["ocean"] = 0.9,
+    ["creepylandscape"] = 0.95,
+}
+
+-- music bpm (for rhythm stuff)
+MUSIC_BPM = {
+    ["castletown"] = 137,
+    ["castletown_empty"] = 138,
+    ["funky_normal"] = 125,
+    ["castletown_expanded"] = 135,
+    ["hometown"] = 140
+}
 
 -- Colors used by the engine for various things, here for customizability
 local palette_data = {
