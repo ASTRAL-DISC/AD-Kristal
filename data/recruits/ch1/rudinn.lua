@@ -20,7 +20,7 @@ function Rudinn:init()
 
     self.box_gradient_type = "dark"
     self.box_gradient_color = {1, 0, 1, 1}
-    self.box_sprite = {"enemies/rudinn/idle", 0, 12, 0.1}
+    self.box_sprite = {"npcs/castletown/rudinn/idle", 0, 12, 0.1}
     
     self.recruited = true
     self.cafe_cutscene = "castletown/cafeplace.rudinn"

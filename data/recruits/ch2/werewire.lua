@@ -20,7 +20,7 @@ function Werewire:init()
 
     self.box_gradient_type = "bright"
     self.box_gradient_color = {0, 1, 1, 1}
-    self.box_sprite = {"enemies/werewire/recruit", -7, -4, 0.1}
+    self.box_sprite = {"npcs/castletown/werewire/recruit", -7, -4, 0.1}
 
     self.recruited = true
     self.cafe_cutscene = "castletown/cafeplace.werewire"

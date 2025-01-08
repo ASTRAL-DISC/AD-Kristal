@@ -20,7 +20,7 @@ function Hathy:init()
 
     self.box_gradient_type = "dark"
     self.box_gradient_color = {1, 0, 1, 1}
-    self.box_sprite = {"enemies/hathy/idle", 0, 12, 0.1}
+    self.box_sprite = {"npcs/castletown/hathy/idle", 0, 12, 0.1}
     
     self.recruited = true
     self.cafe_cutscene = "castletown/cafeplace.hathy"

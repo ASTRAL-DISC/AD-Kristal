@@ -20,7 +20,7 @@ function Virovirokun:init()
 
     self.box_gradient_type = "bright"
     self.box_gradient_color = {0, 1, 1, 1}
-    self.box_sprite = {"enemies/virovirokun/idle", 0, 12, 0.1}
+    self.box_sprite = {"npcs/castletown/virovirokun/idle", 0, 12, 0.1}
 
     self.recruited = true
     self.cafe_cutscene = "castletown/cafeplace.virovirokun"

@@ -20,7 +20,7 @@ function Tasque:init()
 
     self.box_gradient_type = "bright"
     self.box_gradient_color = {0, 1, 1, 1}
-    self.box_sprite = {"enemies/tasque/idle", -3, 15, 0.1}
+    self.box_sprite = {"npcs/castletown/tasque/idle", -3, 15, 0.1}
 
     self.recruited = true
     self.cafe_cutscene = "castletown/cafeplace.tasque"

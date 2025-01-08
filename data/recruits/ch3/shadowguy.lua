@@ -26,11 +26,12 @@ function Shadowguy:init()
 
     self.recruited = 0
     self.cafe_cutscene = "castletown/cafeplace.shadowguy"
+    self.place_offset = {0, 0}
 end
 
 function Shadowguy:getRecruited()
     if Game.chapter > 3 then
-        if not Game:getFlag("stormeye") then
+        if not Game:getFlag("offscript") then
             return true
         else
             return false
