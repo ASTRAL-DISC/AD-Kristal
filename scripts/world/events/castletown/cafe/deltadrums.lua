@@ -27,8 +27,8 @@ function DeltaDrums:update()
     end
 
     local music = Music.getPlaying()[1]
-    if music and Mod.bpm[music.current] then
-        local beat = music.source:tell() / (60 / Mod.bpm[music.current])
+    if music and MUSIC_BPM[music.current] then
+        local beat = music.source:tell() / (60 / MUSIC_BPM[music.current])
         beatToSize(beat)
     end
 end

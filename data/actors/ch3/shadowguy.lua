@@ -49,8 +49,8 @@ end
 function actor:musicAnim(sprite, wait, beat_delay)
     while true do
         local music = Music.getPlaying()[1]
-        if music and Mod.bpm[music.current] then
-            local beat = music.source:tell() / (60 / Mod.bpm[music.current])
+        if music and MUSIC_BPM[music.current] then
+            local beat = music.source:tell() / (60 / MUSIC_BPM[music.current])
             sprite:setFrame(math.floor(beat / beat_delay) + 1)
         end
         wait()
