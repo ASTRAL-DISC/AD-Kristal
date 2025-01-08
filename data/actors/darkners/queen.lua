@@ -91,13 +91,19 @@ function actor:init()
 
         ["drunk_smash"] = {-39, -17}
     }
+
+    self.voice_timer = 0
+end
+
+function actor:onWorldUpdate(chara)
+    self.voice_timer = Utils.approach(self.voice_timer, 0, DTMULT)
 end
 
 function actor:onTextSound(node, state)
-    if Mod.sound_timer == 0 then
+    if self.voice_timer == 0 then
         local snd = Assets.stopAndPlaySound("voice/queen")
         snd:setPitch(0.9 + Utils.random(0.15))
-        Mod.sound_timer = 2
+        self.voice_timer = 2
     end
     return true
 end
