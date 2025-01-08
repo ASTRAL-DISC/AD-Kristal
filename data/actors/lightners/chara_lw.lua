@@ -43,12 +43,18 @@ function actor:init()
         ["pointing_left"] = {0, 0},
         ["pointing_right"] = {0, 0},
     }
+
+    self.voice_timer = 0
+end
+
+function actor:onWorldUpdate(chara)
+    self.voice_timer = Utils.approach(self.voice_timer, 0, DTMULT)
 end
 
 function actor:onTextSound(node, state)
-    if Mod.sound_timer == 0 then
+    if self.voice_timer == 0 then
         Assets.stopAndPlaySound("voice/chara")
-        Mod.sound_timer = 1.1
+        self.voice_timer = 1.1
     end
     return true
 end
