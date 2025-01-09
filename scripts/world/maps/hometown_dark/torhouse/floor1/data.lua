@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -529,23 +529,6 @@ return {
             ["facing"] = "left",
             ["map"] = "hometown_dark/torhouse/bathroom",
             ["marker"] = "entry"
-          }
-        },
-        {
-          id = 53,
-          name = "script",
-          type = "",
-          shape = "rectangle",
-          x = 1105.5,
-          y = 337.5,
-          width = 19,
-          height = 102.5,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cond"] = "Game.chapter == 3",
-            ["cutscene"] = "hometown/dreemurr.junkball",
-            ["once"] = true
           }
         },
         {

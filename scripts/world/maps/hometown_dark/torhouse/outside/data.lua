@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -314,42 +314,6 @@ return {
             ["facing"] = "down",
             ["map"] = "hometown_dark/street",
             ["marker"] = "entry"
-          }
-        },
-        {
-          id = 18,
-          name = "script",
-          type = "",
-          shape = "rectangle",
-          x = 400,
-          y = 360,
-          width = 40,
-          height = 200,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cond"] = "Game.chapter == 3",
-            ["cutscene"] = "hometown/dreemurr.wrongway",
-            ["flagcheck"] = "junkball",
-            ["once"] = false
-          }
-        },
-        {
-          id = 20,
-          name = "script",
-          type = "",
-          shape = "rectangle",
-          x = 280,
-          y = 360,
-          width = 120,
-          height = 10.3484,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cond"] = "Game.chapter == 3",
-            ["cutscene"] = "hometown/dreemurr.wrongway2",
-            ["flagcheck"] = "junkball",
-            ["once"] = false
           }
         }
       }

@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -831,6 +831,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "noelle_lw",
+            ["cond"] = "Game.chapter == 4",
             ["facing"] = "down",
             ["flagcheck"] = "!noellechase",
             ["sprite"] = "walk_serious"

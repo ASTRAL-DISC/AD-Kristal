@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -439,60 +439,6 @@ return {
           }
         },
         {
-          id = 31,
-          name = "transition_extended",
-          type = "",
-          shape = "rectangle",
-          x = 2121,
-          y = 199,
-          width = 79,
-          height = 18,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["door"] = true,
-            ["facing"] = "up",
-            ["map"] = "hometown/library/lobby",
-            ["marker"] = "entry"
-          }
-        },
-        {
-          id = 32,
-          name = "transition_extended",
-          type = "",
-          shape = "rectangle",
-          x = 603,
-          y = 201,
-          width = 76,
-          height = 20,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["door"] = true,
-            ["facing"] = "up",
-            ["map"] = "hometown/police",
-            ["marker"] = "entry"
-          }
-        },
-        {
-          id = 33,
-          name = "transition_extended",
-          type = "",
-          shape = "rectangle",
-          x = 1323,
-          y = 198,
-          width = 76,
-          height = 20,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["door"] = true,
-            ["facing"] = "up",
-            ["map"] = "hometown/hospital/lobby",
-            ["marker"] = "entry"
-          }
-        },
-        {
           id = 54,
           name = "script",
           type = "",
@@ -539,6 +485,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "noelle_lw",
+            ["cond"] = "Game.chapter == 4",
             ["facing"] = "down",
             ["flagcheck"] = "!noellechase2",
             ["sprite"] = "walk_serious"

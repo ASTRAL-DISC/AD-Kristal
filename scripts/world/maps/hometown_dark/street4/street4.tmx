@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="57">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="58">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -52,10 +52,11 @@
   <object id="15" x="400" y="680">
    <polygon points="0,0 40,-40 40,-360 -400,-360 -400,0"/>
   </object>
-  <object id="17" x="1120" y="0" width="80" height="200"/>
+  <object id="17" x="1120" y="0" width="80" height="285.885"/>
   <object id="19" x="720" y="320">
    <polygon points="0,0 40,39 40,234 0,351 -280,351 -280,39 -240,0"/>
   </object>
+  <object id="57" x="0" y="680" width="40" height="160"/>
  </objectgroup>
  <objectgroup color="#5500ff" id="3" name="markers">
   <object id="20" name="entry" x="850" y="106">
@@ -109,6 +110,7 @@
   <object id="52" name="npc" x="596" y="726">
    <properties>
     <property name="actor" value="noelle_lw"/>
+    <property name="cond" value="Game.chapter == 4"/>
     <property name="facing" value="up"/>
    </properties>
    <point/>

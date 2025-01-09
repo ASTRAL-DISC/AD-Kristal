@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 8,
-  nextobjectid = 57,
+  nextobjectid = 58,
   properties = {
     ["border"] = "leaves_dark",
     ["light"] = "true",
@@ -205,7 +205,7 @@ return {
           x = 1120,
           y = 0,
           width = 80,
-          height = 200,
+          height = 285.885,
           rotation = 0,
           visible = true,
           properties = {}
@@ -230,6 +230,19 @@ return {
             { x = -280, y = 39 },
             { x = -240, y = 0 }
           },
+          properties = {}
+        },
+        {
+          id = 57,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 680,
+          width = 40,
+          height = 160,
+          rotation = 0,
+          visible = true,
           properties = {}
         }
       }
@@ -423,6 +436,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "noelle_lw",
+            ["cond"] = "Game.chapter == 4",
             ["facing"] = "up"
           }
         }

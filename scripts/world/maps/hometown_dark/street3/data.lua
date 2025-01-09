@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 30,
-  nextobjectid = 158,
+  nextobjectid = 159,
   properties = {
     ["border"] = "leaves_dark",
     ["light"] = "true",
@@ -217,7 +217,7 @@ return {
           x = 2174,
           y = 239.667,
           width = 83.6667,
-          height = 40.3333,
+          height = 124.333,
           rotation = 0,
           visible = true,
           properties = {}
@@ -568,7 +568,7 @@ return {
           x = 1197,
           y = 120,
           width = 49,
-          height = 240,
+          height = 263,
           rotation = 0,
           visible = true,
           properties = {}
@@ -594,7 +594,7 @@ return {
           x = 600,
           y = 120,
           width = 120,
-          height = 240,
+          height = 261,
           rotation = 0,
           visible = true,
           properties = {}
@@ -608,6 +608,19 @@ return {
           y = 280,
           width = 40,
           height = 66,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 158,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 3480,
+          y = -40,
+          width = 160,
+          height = 40,
           rotation = 0,
           visible = true,
           properties = {}
@@ -822,6 +835,7 @@ return {
           visible = true,
           properties = {
             ["actor"] = "noelle_lw",
+            ["cond"] = "Game.chapter == 4",
             ["facing"] = "down",
             ["flagcheck"] = "!noellechase3",
             ["sprite"] = "walk_serious"
