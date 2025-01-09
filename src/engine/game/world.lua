@@ -900,6 +900,7 @@ function World:setupMap(map, ...)
     local dark_transitioned = self.map.light ~= Game:isLight()
 
     Game:setLight(self.map.light)
+    Game:setPast(self.map.past)
 
     self.width = self.map.width * self.map.tile_width
     self.height = self.map.height * self.map.tile_height

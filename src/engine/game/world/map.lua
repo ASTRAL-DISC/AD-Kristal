@@ -81,12 +81,6 @@ function Map:init(world, data)
     self.layers = {}
 
     self.timer = Timer()
-
-    if self.past == true then
-        Game:setPast(self.past)
-    else
-        Game:setPast(self.past)
-    end
 end
 
 function Map:load()
