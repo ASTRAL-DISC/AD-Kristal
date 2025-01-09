@@ -84,7 +84,7 @@ function JukeboxMenu:init(jukebox)
                 file = "castletown_expanded",
                 composer = "L Void ft. HUECYCLES",
                 released = "Mar 18, 2023",
-                origin = "Andromedia Chapters"
+                origin = "ASTRAL DISC"
             },
             {
                 name = "---",
