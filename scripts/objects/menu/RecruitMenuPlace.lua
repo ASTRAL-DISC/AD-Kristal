@@ -1,4 +1,4 @@
-local RecruitMenuPlace, super = Class("RecruitMenu")
+local RecruitMenuPlace, super = Class(RecruitMenu)
 
 function RecruitMenuPlace:init()
     super.init(self, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -285,6 +285,8 @@ function RecruitMenuPlace:update()
     end
     self.heart.x = self.heart.x + ((self.heart_target_x - self.heart.x) / 2) * DTMULT
     self.heart.y = self.heart.y + ((self.heart_target_y - self.heart.y) / 2) * DTMULT
+
+    super.super.update(self)
 end
 
 function RecruitMenuPlace:draw()
