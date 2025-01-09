@@ -392,8 +392,14 @@ function World:onKeyPressed(key)
                 Input.clear("confirm")
             end
         elseif Input.isMenu(key) and not self:hasCutscene() then
-            self:openMenu(nil, WORLD_LAYERS["ui"] + 1)
-            Input.clear("menu")
+            if Game:isPast() then
+                self.player:shake(3)
+                Assets.playSound("hurt")
+                Input.clear("menu")
+            else
+                self:openMenu(nil, WORLD_LAYERS["ui"] + 1)
+                Input.clear("menu")
+            end
         end
     elseif self.state == "MENU" then
         if self.menu and self.menu.onKeyPressed then

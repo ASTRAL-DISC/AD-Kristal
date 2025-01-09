@@ -10,7 +10,7 @@ function character:init()
     self:setActor("noelle")
     self:setLightActor("noelle_lw")
     self:setDarkTransitionActor("noelle_dark_transition")
-    --:setPastActor("noelle_past")
+    self:setPastActor("noelle_past")
 
     -- Display level (saved to the save file)
     self.level = Game.chapter

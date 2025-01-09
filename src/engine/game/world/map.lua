@@ -29,6 +29,7 @@ function Map:init(world, data)
     self.keep_music = data and data.properties and data.properties["keepmusic"]
 
     self.light = data and data.properties and data.properties["light"] or false
+    self.past = data and data.properties and data.properties["past"] or false
 
     self.border = data and data.properties and data.properties["border"]
 
@@ -80,6 +81,12 @@ function Map:init(world, data)
     self.layers = {}
 
     self.timer = Timer()
+
+    if self.past == true then
+        Game:setPast(self.past)
+    else
+        Game:setPast(self.past)
+    end
 end
 
 function Map:load()

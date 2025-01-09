@@ -7,6 +7,7 @@
 ---@field actor                 Actor
 ---@field lw_actor              Actor
 ---@field dark_transition_actor Actor
+---@field past_actor              Actor
 ---
 ---@field title string
 ---@field level integer
@@ -80,6 +81,8 @@ function PartyMember:init()
     self.lw_actor = nil
     -- Dark Transition Actor (handles sprites during the dark world transition) (optional)
     self.dark_transition_actor = nil
+    -- Past Actor (handles overworld sprites in past world maps) (optional)
+    self.past_actor = nil
 
     -- Default title / class (saved to the save file)
     self.title = "Player"
@@ -449,12 +452,20 @@ function PartyMember:getReaction(item, user)
 end
 
 ---@param light? boolean
-function PartyMember:getActor(light)
+---@param past? boolean
+function PartyMember:getActor(light, past)
     if light == nil then
         light = Game.light
     end
+
+    if past == nil then
+        past = Game.past
+    end
+
     if light then
         return self.lw_actor or self.actor
+    elseif past then
+        return self.past_actor or self.actor
     else
         return self.actor
     end
@@ -490,6 +501,15 @@ function PartyMember:setDarkTransitionActor(actor)
         actor = Registry.createActor(actor)
     end
     self.dark_transition_actor = actor
+end
+
+--- Changes this party member's Past World actor
+---@param actor string|Actor
+function PartyMember:setPastActor(actor)
+    if type(actor) == "string" then
+        actor = Registry.createActor(actor)
+    end
+    self.past_actor = actor
 end
 
 function PartyMember:getSpells()

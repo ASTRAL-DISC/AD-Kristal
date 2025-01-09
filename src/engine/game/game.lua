@@ -40,6 +40,8 @@
 ---@field fader             Fader
 ---@field max_followers     integer
 ---@field is_new_file       boolean
+---
+---@field past             boolean
 local Game = {}
 
 function Game:clear()
@@ -564,6 +566,25 @@ function Game:convertToDark()
     if self:getFlag("has_cell_phone", false) then
         self.inventory:addItemTo("key_items", 1, "cell_phone")
     end
+end
+
+---@param past? boolean
+function Game:setPast(past)
+    past = past or false
+
+    if not self.started then
+        self.past = past
+        return
+    end
+
+    if self.past == past then return end
+
+    self.past = past
+end
+
+---@return boolean
+function Game:isPast()
+    return self.past
 end
 
 ---@param x? number
