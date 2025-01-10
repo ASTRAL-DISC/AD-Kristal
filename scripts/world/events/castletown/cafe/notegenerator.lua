@@ -1,3 +1,4 @@
+-- original code by Sam
 local NoteGenerator, super = Class(Event, "notegenerator")
 
 function NoteGenerator:init(data)

@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local actor, super = Class(Actor, "shadowguy")
 
 function actor:init()

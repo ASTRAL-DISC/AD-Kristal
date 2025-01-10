@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local LightTransitionParticle, super = Class(Sprite)
 
 function LightTransitionParticle:init(x, y)

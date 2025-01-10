@@ -1,3 +1,4 @@
+-- taken from Dark Place
 ---@class YourPower : Object
 local YourPower, super = Class(Object)
 

@@ -1,3 +1,4 @@
+-- original library by J.A.R.U.
 local JukeboxMenu, super = Class(Object)
 
 function JukeboxMenu:init(jukebox)

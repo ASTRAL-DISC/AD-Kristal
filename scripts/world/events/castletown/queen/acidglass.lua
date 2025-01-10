@@ -9,8 +9,6 @@ function AcidGlass:init(data)
 	self.solid = false
     
     self:setSprite("world/events/castletown/queen/acid")
-
-    self.no_reflection = true
 end
 
 return AcidGlass

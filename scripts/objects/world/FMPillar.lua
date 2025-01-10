@@ -1,3 +1,4 @@
+-- original code by Ally/Nyako
 ---@class FMPillar : Object
 ---@overload fun(...) : FMPillar
 local FMPillar, super = Class(Object)

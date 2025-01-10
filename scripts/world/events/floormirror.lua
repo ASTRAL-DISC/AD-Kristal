@@ -1,3 +1,4 @@
+-- original library by AcousticJamm, modified for Dark Place and modified here
 local FloorMirror, super = Class(Event, "floormirror")
 
 function FloorMirror:init(data)

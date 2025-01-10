@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local ShadowguyActor, super = Class(ActorSprite)
 
 function ShadowguyActor:init(actor)

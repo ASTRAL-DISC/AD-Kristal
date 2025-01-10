@@ -1,3 +1,4 @@
+-- original code by Dobby233Liu
 ---@class DarkDoorFXRect : Rectangle
 ---@overload fun(...) : DarkDoorFXRect
 local DarkDoorFXRect, super = Class(Rectangle)

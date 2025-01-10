@@ -1,3 +1,4 @@
+-- original library by AcousticJamm
 local Spikes, super = Class(Event, "spikes")
 
 function Spikes:init(data)
@@ -10,11 +11,6 @@ function Spikes:init(data)
 	self.default = data.properties["default"]
 	if self.default == nil then
 		self.default = true
-	end
-	if data.properties["spikedeath"] == nil then
-		self.spikedeath = Kristal.getLibConfig("spikes", "spikedeath")
-	else
-		self.spikedeath = data.properties["spikedeath"]
 	end
 	
 	self.solid = false
@@ -47,21 +43,7 @@ function Spikes:update()
 		self:setSprite(self.sprite_down)
 		self.solid = false
 	end
-	if self.solid and self:collidesWith(self.world.player) and self.spikedeath then
-		Game.stage.timer:after(0.1, function()
-			Game:gameOver(self.world.player.x, self.world.player.y)
-		end)
-	end
 	super.update(self)
-end
-
-function Spikes:getDebugInfo()
-	local info = super.getDebugInfo(self)
-	if self.flag then
-		table.insert(info, "Flag: "    .. self.flag)
-	end
-	table.insert(info, "Death On Skewer: "    .. (self.spikedeath and "True" or "False"))
-	return info
 end
 
 return Spikes

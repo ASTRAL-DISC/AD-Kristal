@@ -1,3 +1,4 @@
+-- original code by Dobby233Liu
 ---@class DarkDoorFX : Object
 ---@overload fun(...) : DarkDoorFX
 -- Dark World entrance shadow effect with arbitary shape, to be put under the

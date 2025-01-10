@@ -1,3 +1,4 @@
+-- original code by Dobby233Liu
 local FMParticle, super = Class(Sprite)
 
 function FMParticle:init(x, y)

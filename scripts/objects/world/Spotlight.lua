@@ -1,16 +1,4 @@
---[[
-todo:
-DONE    test custom shaders
-DONE    rework hitboxes/selectboxes
-DONE getter/setter
-DONE reimplement DojoEncounter
-DONE reimplement event spotlight
-DONE reimplement battle example
-DONE rewrite actor spotlight data
-
-maybe get rid of examples/move them to own stuff
-]]
-
+-- original library by Skarph
 local Spotlight, super = Class(Object, "Spotlight")
 
 local TRIANGLE_MESH = love.graphics.newMesh(

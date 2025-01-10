@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local GreenBullet, super = Class(Bullet)
 
 function GreenBullet:init(x, y, texture)

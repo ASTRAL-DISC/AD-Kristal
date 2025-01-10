@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local BlueBullet, super = Class(Bullet)
 
 function BlueBullet:init(x, y, texture)

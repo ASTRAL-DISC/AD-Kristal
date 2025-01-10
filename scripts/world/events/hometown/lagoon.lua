@@ -15,7 +15,7 @@ function Lagoon:init(data)
 
     self.siner = 0
 
-    --shader by Dobby233Liu
+    -- shader by Dobby233Liu
     self.shader = Assets.newShader("lagoon")
 end
 

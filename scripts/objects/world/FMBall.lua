@@ -1,3 +1,4 @@
+-- original code by Dobby233Liu
 ---@class FMBall : Sprite
 ---@overload fun(...) : FMBall
 local FMBall, super = Class(Sprite)

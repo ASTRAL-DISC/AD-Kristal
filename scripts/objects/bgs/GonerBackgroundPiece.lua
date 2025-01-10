@@ -1,3 +1,4 @@
+-- Taken from Test Mod
 local GonerBackgroundPiece, super = Class(Object)
 
 function GonerBackgroundPiece:init(sprite)

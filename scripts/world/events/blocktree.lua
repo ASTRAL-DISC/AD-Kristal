@@ -1,4 +1,4 @@
---original code by Simbel
+-- original code by Simbel
 local BlockTree, super = Class(Event, "blocktree")
 
 function BlockTree:init(data)

@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local DWExit, super = Class(Event, "dwexit")
 
 function DWExit:init(data)

@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local OrangeBullet, super = Class(Bullet)
 
 function OrangeBullet:init(x, y, texture)

@@ -1,3 +1,4 @@
+-- original library by KateBulka
 local LightTransition, super = Class(Object)
 
 function LightTransition:init(x, y, data)

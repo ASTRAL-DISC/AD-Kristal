@@ -1,3 +1,4 @@
+-- original library by Skarph
 local SpotlightEvent, super = Class(Event, "spotlight")
 
 --comma-seperated-list to array of valid lua variable names

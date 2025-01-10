@@ -1,3 +1,4 @@
+-- original code by Sam
 local Note, super = Class(Event, "note")
 
 function Note:init(data)

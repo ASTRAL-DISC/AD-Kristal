@@ -9,7 +9,7 @@ function Jukebox:init(data)
 end
 
 function Jukebox:onInteract(chara, dir)
-    if Game.chapter >= 4 then
+    if Game.chapter >= 3 then
         Game.world:startCutscene("castletown/cafe.jukebox")
     else
         Game.world:startCutscene(function (cutscene)

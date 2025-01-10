@@ -1,3 +1,4 @@
+-- original code by Ally/Nyako
 ---@class FMEffect : Object
 ---@overload fun(...) : FMEffect
 local FMEffect, super = Class(Object)

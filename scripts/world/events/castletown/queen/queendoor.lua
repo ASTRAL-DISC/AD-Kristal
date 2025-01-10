@@ -1,3 +1,4 @@
+-- original code by Agent 7
 local QueenDoor, super = Class(Event, "queendoor")
 
 function QueenDoor:init(data)

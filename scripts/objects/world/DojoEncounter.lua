@@ -1,5 +1,5 @@
+-- original code by Skarph
 local DojoEncounter, super = Class(Encounter, "DojoEncounter")
-
 
 --makes a spotlight for a particular battler, using it's actor.spotlight data.
 --returns the new spotlight and stores it in battler.spotlight

@@ -1,5 +1,4 @@
----@class Shine : Event
----@overload fun(...) : Shine
+-- original library by Bor
 local Shine, super = Class(Event, "shine")
 
 function Shine:init(x, y, width, height)

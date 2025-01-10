@@ -1,3 +1,4 @@
+-- taken from Dark Place / likely from J.A.R.U.
 ---@class AfterImageCut: Object
 ---@overload fun(...): AfterImageCut
 local AfterImageCut, super = Class(Object)

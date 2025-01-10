@@ -1,3 +1,4 @@
+-- original code by Dobby233Liu
 ---@class FMScreenCover : Sprite
 ---@overload fun(...) : FMScreenCover
 local FMScreenCover, super = Class(Object)
