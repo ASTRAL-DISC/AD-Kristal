@@ -7,9 +7,9 @@ return {
         Game.world.timer:tween(1, black, {alpha = 1})
 
         cutscene:wait(1.5)
-        cutscene:text("* (Before you left, [wait:5]you gathered up everything in the room...)")
+        cutscene:text("* (Before you left, [wait:5]you gathered up everything in the house...)")
         cutscene:wait(0.5)
-        cutscene:wait(cutscene:mapTransition("hometown/torhouse/outside", "entry", "down"))
+        cutscene:wait(cutscene:mapTransition("hometown/torhouse_robbed/floor1", "kris", "down"))
         black:fadeOutAndRemove(1)
 
         Game:setFlag("junkball", true)
