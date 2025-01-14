@@ -2,7 +2,7 @@
 local LightTransitionParticle, super = Class(Sprite)
 
 function LightTransitionParticle:init(x, y)
-	super:init(self, "ui/lightparticle", x, y)
+	super:init(self, "world/events/castletown/dwexit/lightparticle", x, y)
 	self.physics.speed_y = -2 * DTMULT
 	self:setScale(2)
 	self.physics.friction = 0.07 * DTMULT
