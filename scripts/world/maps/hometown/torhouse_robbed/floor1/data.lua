@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 54,
+  nextobjectid = 55,
   properties = {
     ["border"] = "leaves",
     ["inside"] = true,
@@ -436,6 +436,19 @@ return {
           shape = "point",
           x = 520,
           y = 360,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 54,
+          name = "kris",
+          type = "",
+          shape = "point",
+          x = 920,
+          y = 389,
           width = 0,
           height = 0,
           rotation = 0,

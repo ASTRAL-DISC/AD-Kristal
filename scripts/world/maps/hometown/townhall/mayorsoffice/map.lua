@@ -10,9 +10,7 @@ end
 function MayorsOffice:onEnter()
     local blindsopen = Game.world.map:getImageLayer("bg2")
     
-    if Game.chapter == 4 and Game:getFlag("ch4_rain") then
-        Game.stage:setWeather("rain", true, true, Game.world)
-    elseif Game.chapter == 5 then
+    if Game.chapter == 5 then
         blindsopen.visible = false
         if not Game:getFlag("seen_mayor") then
             Game.world:startCutscene("hometown/townhall.mayorsoffice")
@@ -29,9 +27,9 @@ function MayorsOffice:onEnter()
 end
 
 function MayorsOffice:onExit()
-    if Game.stage:hasWeather("rain") then
+    --[[if Game.stage:hasWeather("rain") then
         Game.stage:resetWeather()
-    end
+    end]]
 end
 
 return MayorsOffice

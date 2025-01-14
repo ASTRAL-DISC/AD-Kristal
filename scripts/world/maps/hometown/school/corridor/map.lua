@@ -13,15 +13,15 @@ function Corridor:onEnter()
         overlay.visible = false
     end
 
-    if Game.chapter == 4 and Game:getFlag("ch4_rain") then
+    --[[if Game.chapter == 4 and Game:getFlag("ch4_rain") then
         Game.stage:setWeather("rain", true, true, Game.world)
-    end
+    end]]
 end
 
 function Corridor:onExit()
-    if Game.stage:hasWeather("rain") then
+    --[[if Game.stage:hasWeather("rain") then
         Game.stage:resetWeather()
-    end
+    end]]
 end
 
 return Corridor
