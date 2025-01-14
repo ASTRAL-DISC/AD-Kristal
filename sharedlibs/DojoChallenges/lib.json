@@ -1,0 +1,12 @@
+{
+    "id": "challenges",
+    "version": "0.0.1",
+    "engineVersion": "0.9.0-dev",
+    "authors": [
+        "HUECYCLES",
+        "Simbel", //Original FuseItems Menu
+        "AcousticJamm", //Lots of Help
+    ],
+    "config": {
+    }
+}
