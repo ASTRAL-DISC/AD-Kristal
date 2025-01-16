@@ -34,7 +34,7 @@ function SpotlightEvent:init(data)
         shader_fields = praseLuaNames(data.properties.shader_fields) --values of self[<field>] that are passed into shader
     }
     self.spotlight = Spotlight(self.x + self.width/2, self.y + self.height,spotlight_data)
-    self.spotlight:setLayer(0.4)
+    self.spotlight:setLayer(data.properties.layer or 0.4) -- HAS to be int in Tiled
     Game.world:addChild(self.spotlight)
 end
 
