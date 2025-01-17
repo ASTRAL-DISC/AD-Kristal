@@ -1,3 +1,4 @@
+-- og library by MrFukuo
 local Autowalk, super = Class(Event)
 
 function Autowalk:init(data)
