@@ -168,7 +168,7 @@ return {
 
         Game.world.music:play("creepydoor")
         
-        cutscene:wait(1)
+        cutscene:wait(2.5)
 
         cutscene:setSpeaker(noelle)
         noelle:shake(2)
@@ -180,19 +180,19 @@ return {
         cutscene:text("* F-Father Alvin?[wait:5]\n* Are you in there?", "shock_b")
         cutscene:text("* I'm...! [wait:5]I'm sorry we came so late! [wait:5]I just...", "nervous")
 
-        cutscene:wait(1)
+        cutscene:wait(2.5)
         cutscene:text("* ... [wait:5]Father Alvin...?", "frown")
 
         noelle:setFacing("right")
         kris:setFacing("left")
 
         cutscene:text("* K-Kris...? [wait:5]Why is it so...", "nervous_b")
-        cutscene:text("* DARK in there...?", "nervous")
+        cutscene:text("* ... [wait:5]DARK in there...?", "nervous")
 
         noelle:setFacing("up")
         kris:setFacing("up")
 
-        cutscene:wait(1)
+        cutscene:wait(2)
 
         noelle:setFacing("left")
         kris:setFacing("left")
@@ -219,17 +219,23 @@ return {
             skiprunback = true
         })
 
-        for i, character in ipairs(transition.characters) do
-            if not transition.con == 9 then
-                character:addFX(ColorMaskFX({0, 0, 0}, 0.6))
-            end
-        end
+        local mask = ColorMaskFX({0, 0, 0}, 0.6)
+
+        transition.character_data[1].sprite_1:addFX(mask)
+        transition.character_data[2].sprite_1:addFX(mask)
 
         transition.layer = 99999
         Game.world:addChild(transition)
     
         local waiting = true
         local endData = nil
+
+        transition.loading_callback = function()
+            Game.world.timer:tween(2, mask, {amount = 0}, "linear", function ()
+                transition.character_data[1].sprite_1:removeFX(mask)
+                transition.character_data[2].sprite_1:removeFX(mask)
+            end)
+        end
     
         transition.land_callback = function()
             cutscene:loadMap("basin/start")
@@ -256,9 +262,7 @@ return {
             end
         end
 
-        cutscene:interpolateFollowers()
-
-        cutscene:attachCamera()
-        cutscene:attachFollowers()
+        cutscene:endCutscene()
+        cutscene:gotoCutscene("basin.intro")
     end,
 }
