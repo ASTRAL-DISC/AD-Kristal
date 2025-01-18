@@ -1,5 +1,5 @@
 return {
-  version = "1.10",
+  version = "1.11",
   luaversion = "5.1",
   tiledversion = "1.11.0",
   class = "",
@@ -307,19 +307,6 @@ return {
           shape = "point",
           x = 623,
           y = 697,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 55,
-          name = "kris2",
-          type = "",
-          shape = "point",
-          x = 596.333,
-          y = 664.333,
           width = 0,
           height = 0,
           rotation = 0,
