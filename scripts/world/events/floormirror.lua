@@ -1,14 +1,26 @@
 -- original library by AcousticJamm, modified for Dark Place and modified here
 local FloorMirror, super = Class(Event, "floormirror")
 
-function FloorMirror:init(data)
+Utils.hook(Actor, "init", function(orig, self)
+    orig(self)
+
     self.floor_mirror_sprites =  {
         ["walk/down"] = "walk/down",
         ["walk/up"] = "walk/up",
         ["walk/left"] = "walk/left",
         ["walk/right"] = "walk/right",
     }
+end)
 
+Utils.hook(Actor, "getFloorMirrorSprites", function(orig, self)
+    return self.floor_mirror_sprites
+end)
+
+Utils.hook(Actor, "getFloorMirrorSprite", function(orig, self, sprite)
+    return self:getFloorMirrorSprites()[sprite]
+end)
+
+function FloorMirror:init(data)
     super.init(self, data.x, data.y, data.width, data.height)
 
     local properties = data.properties or {}
