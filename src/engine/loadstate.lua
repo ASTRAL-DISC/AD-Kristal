@@ -17,12 +17,11 @@ function Loading:enter(from, dir)
     self.w = self.logo:getWidth()
     self.h = self.logo:getHeight()
 
+    self.warn = love.audio.newSource("assets/sounds/ominous.wav", "static")
+
     if not Kristal.Config["skipIntro"] then
         self.noise = love.audio.newSource("assets/sounds/ad_intro.ogg", "static")
         self.end_noise = love.audio.newSource("assets/sounds/ad_intro_end.ogg", "static")
-        self.noise:play()
-    else
-        self:beginLoad()
     end
 
     self.siner = 0
@@ -40,6 +39,8 @@ function Loading:enter(from, dir)
     self.key_check = not Kristal.Args["wait"]
 
     self.fader_alpha = 0
+
+    self:beginLoad()
 end
 
 function Loading:beginLoad()
@@ -60,20 +61,27 @@ function Loading:beginLoad()
 end
 
 function Loading:update()
-    if self.load_complete and self.key_check and (self.animation_done or Kristal.Config["skipIntro"]) then
-        -- create a console
-        Kristal.Console = Console()
-        Kristal.Stage:addChild(Kristal.Console)
-        -- create the debug system
-        Kristal.DebugSystem = DebugSystem()
-        Kristal.Stage:addChild(Kristal.DebugSystem)
-        REGISTRY_LOADED = true
-        if Kristal.Args["test"] then
-            Gamestate.switch(Kristal.States["Testing"])
-        elseif AUTO_MOD_START and TARGET_MOD then
-            Kristal.loadMod(TARGET_MOD)
+    if self.load_complete then
+        if not Kristal.Mods.getMod("astraldisc") or not TARGET_MOD then
+            self.warn:play()
+            Gamestate.switch(Kristal.States["NoDisc"])
         else
-            Gamestate.switch(Kristal.States["MainMenu"])
+            if self.key_check and (self.animation_done or Kristal.Config["skipIntro"]) then
+                -- create a console
+                Kristal.Console = Console()
+                Kristal.Stage:addChild(Kristal.Console)
+                -- create the debug system
+                Kristal.DebugSystem = DebugSystem()
+                Kristal.Stage:addChild(Kristal.DebugSystem)
+                REGISTRY_LOADED = true
+                if Kristal.Args["test"] then
+                    Gamestate.switch(Kristal.States["Testing"])
+                elseif AUTO_MOD_START and TARGET_MOD then
+                    Kristal.loadMod(TARGET_MOD)
+                else
+                    Gamestate.switch(Kristal.States["MainMenu"])
+                end
+            end
         end
     end
 end
@@ -103,127 +111,126 @@ function Loading:drawSprite(image, x, y, alpha)
 end
 
 function Loading:draw()
-    if Kristal.Config["skipIntro"] then
-        love.graphics.push()
-        love.graphics.translate(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-        love.graphics.scale(2, 2)
-        self:drawSprite(self.logo, 0, 0, 1)
-        love.graphics.pop()
-        return
-    end
+    if self.load_complete and (Kristal.Mods.getMod("astraldisc") or TARGET_MOD) then
+        if Kristal.Config["skipIntro"] then
+            love.graphics.push()
+            love.graphics.translate(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+            love.graphics.scale(2, 2)
+            self:drawSprite(self.logo, 0, 0, 1)
+            love.graphics.pop()
+            return
+        end
 
-    local dt_mult = DT * 15
+        local dt_mult = DT * 15
 
-    -- We need to draw the logo on a canvas
-    local logo_canvas = Draw.pushCanvas(320, 240)
-    love.graphics.clear()
+        -- We need to draw the logo on a canvas
+        local logo_canvas = Draw.pushCanvas(320, 240)
+        love.graphics.clear()
 
-    if (self.animation_phase == 0) then
-        self.siner = self.siner + 1 * dt_mult
-        self.factor = self.factor - (0.003 + (self.siner / 900)) * dt_mult
-        if (self.factor < 0) then
-            self.factor = 0
-            self.animation_phase = 1
-            if not self.loading and not self.load_complete then
-                self:beginLoad()
+        if (self.animation_phase == 0) then
+            self.noise:play()
+            self.siner = self.siner + 1 * dt_mult
+            self.factor = self.factor - (0.003 + (self.siner / 900)) * dt_mult
+            if (self.factor < 0) then
+                self.factor = 0
+                self.animation_phase = 1
+            end
+            for i = 0, self.h - 1 do
+                self.ia = ((self.siner / 25) - (math.abs((i - (self.h / 2))) * 0.05))
+                self.xoff = ((40 * math.sin(((self.siner / 5) + (i / 3)))) * self.factor)
+                self.xoff2 = ((40 * math.sin((((self.siner / 5) + (i / 3)) + 0.6))) * self.factor)
+                self.xoff3 = ((40 * math.sin((((self.siner / 5) + (i / 3)) + 1.2))) * self.factor)
+                self:drawScissor(self.logo, 0, i, self.w, 2, (self.x + self.xoff), (self.y + i), ((1 - self.factor) / 2))
+                self:drawScissor(self.logo, 0, i, self.w, 2, (self.x + self.xoff2), (self.y + i), ((1 - self.factor) / 2))
+                self:drawScissor(self.logo, 0, i, self.w, 2, (self.x + self.xoff3), (self.y + i), ((1 - self.factor) / 2))
             end
         end
-        for i = 0, self.h - 1 do
-            self.ia = ((self.siner / 25) - (math.abs((i - (self.h / 2))) * 0.05))
-            self.xoff = ((40 * math.sin(((self.siner / 5) + (i / 3)))) * self.factor)
-            self.xoff2 = ((40 * math.sin((((self.siner / 5) + (i / 3)) + 0.6))) * self.factor)
-            self.xoff3 = ((40 * math.sin((((self.siner / 5) + (i / 3)) + 1.2))) * self.factor)
-            self:drawScissor(self.logo, 0, i, self.w, 2, (self.x + self.xoff), (self.y + i), ((1 - self.factor) / 2))
-            self:drawScissor(self.logo, 0, i, self.w, 2, (self.x + self.xoff2), (self.y + i), ((1 - self.factor) / 2))
-            self:drawScissor(self.logo, 0, i, self.w, 2, (self.x + self.xoff3), (self.y + i), ((1 - self.factor) / 2))
+        if (self.animation_phase == 1) then
+            self:drawSprite(self.logo, self.x + (self.w / 2), self.y + (self.h / 2), self.logo_alpha)
+            self.animation_phase_timer = self.animation_phase_timer + 1 * dt_mult
+            if (self.animation_phase_timer >= 40) then
+                self.siner = 0
+                self.factor = 0
+                self.animation_phase = 2
+                self.end_noise:play()
+            end
         end
+        if (self.animation_phase == 2) then
+            if (self.animation_phase_plus == 0) then
+                self.siner = self.siner + 0.5 * dt_mult
+            end
+            if (self.siner >= 20) then
+                self.animation_phase_plus = 1
+            end
+            if (self.animation_phase_plus == 1) then
+                self.siner = self.siner + 0.5 * dt_mult
+                self.logo_alpha = self.logo_alpha - 0.02 * dt_mult
+                self.logo_alpha_2 = self.logo_alpha_2 - 0.08 * dt_mult
+            end
+
+            self:drawSprite(self.logo, self.x + (self.w / 2), self.y + (self.h / 2), self.logo_alpha_2)
+            self.mina = (self.siner / 30)
+            if (self.mina >= 0.14) then
+                self.mina = 0.14
+            end
+            self.factor2 = self.factor2 + 0.05 * dt_mult
+            for i = 0, 9 do
+                self:drawSprite(self.logo,
+                                ((self.x + (self.w / 2)) - (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                ((self.y + (self.h / 2)) - (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                (self.mina * self.logo_alpha))
+                self:drawSprite(self.logo,
+                                ((self.x + (self.w / 2)) + (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                ((self.y + (self.h / 2)) - (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                (self.mina * self.logo_alpha))
+                self:drawSprite(self.logo,
+                                ((self.x + (self.w / 2)) - (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                ((self.y + (self.h / 2)) + (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                (self.mina * self.logo_alpha))
+                self:drawSprite(self.logo,
+                                ((self.x + (self.w / 2)) + (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                ((self.y + (self.h / 2)) + (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
+                                (self.mina * self.logo_alpha))
+            end
+            self:drawSprite(self.logo_heart, self.x + (self.w / 2), self.y + (self.h / 2), self.logo_alpha)
+            if (self.logo_alpha <= -0.5 and self.skipped == false) then
+                self.animation_done = true
+            end
+        end
+
+        -- Reset canvas to draw to
+        Draw.popCanvas()
+
+        -- Draw the canvas on the screen scaled by 2x
+        Draw.setColor(1, 1, 1, 1)
+        Draw.draw(logo_canvas, 0, 0, 0, 2, 2)
+
+        if self.skipped then
+            -- Draw the screen fade
+            Draw.setColor(0, 0, 0, self.fader_alpha)
+            love.graphics.rectangle("fill", 0, 0, 640, 480)
+
+            if self.fader_alpha > 1 then
+                self.animation_done = true
+                self.noise:stop()
+                self.end_noise:stop()
+            end
+
+            -- Change the fade opacity for the next frame
+            self.fader_alpha = math.max(0, self.fader_alpha + (0.04 * dt_mult))
+            self.noise:setVolume(math.max(0, 1 - self.fader_alpha))
+            self.end_noise:setVolume(math.max(0, 1 - self.fader_alpha))
+        end
+
+        -- Reset the draw color
+        Draw.setColor(1, 1, 1, 1)
     end
-    if (self.animation_phase == 1) then
-        self:drawSprite(self.logo, self.x + (self.w / 2), self.y + (self.h / 2), self.logo_alpha)
-        self.animation_phase_timer = self.animation_phase_timer + 1 * dt_mult
-        if (self.animation_phase_timer >= 30) and self.load_complete then
-            self.siner = 0
-            self.factor = 0
-            self.animation_phase = 2
-            self.end_noise:play()
-        end
-    end
-    if (self.animation_phase == 2) then
-        if (self.animation_phase_plus == 0) then
-            self.siner = self.siner + 0.5 * dt_mult
-        end
-        if (self.siner >= 20) then
-            self.animation_phase_plus = 1
-        end
-        if (self.animation_phase_plus == 1) then
-            self.siner = self.siner + 0.5 * dt_mult
-            self.logo_alpha = self.logo_alpha - 0.02 * dt_mult
-            self.logo_alpha_2 = self.logo_alpha_2 - 0.08 * dt_mult
-        end
-
-        self:drawSprite(self.logo, self.x + (self.w / 2), self.y + (self.h / 2), self.logo_alpha_2)
-        self.mina = (self.siner / 30)
-        if (self.mina >= 0.14) then
-            self.mina = 0.14
-        end
-        self.factor2 = self.factor2 + 0.05 * dt_mult
-        for i = 0, 9 do
-            self:drawSprite(self.logo,
-                            ((self.x + (self.w / 2)) - (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            ((self.y + (self.h / 2)) - (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            (self.mina * self.logo_alpha))
-            self:drawSprite(self.logo,
-                            ((self.x + (self.w / 2)) + (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            ((self.y + (self.h / 2)) - (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            (self.mina * self.logo_alpha))
-            self:drawSprite(self.logo,
-                            ((self.x + (self.w / 2)) - (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            ((self.y + (self.h / 2)) + (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            (self.mina * self.logo_alpha))
-            self:drawSprite(self.logo,
-                            ((self.x + (self.w / 2)) + (math.sin(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            ((self.y + (self.h / 2)) + (math.cos(((self.siner / 8) + (i / 2))) * (i * self.factor2))),
-                            (self.mina * self.logo_alpha))
-        end
-        self:drawSprite(self.logo_heart, self.x + (self.w / 2), self.y + (self.h / 2), self.logo_alpha)
-        if (self.logo_alpha <= -0.5 and self.skipped == false) then
-            self.animation_done = true
-        end
-    end
-
-    -- Reset canvas to draw to
-    Draw.popCanvas()
-
-    -- Draw the canvas on the screen scaled by 2x
-    Draw.setColor(1, 1, 1, 1)
-    Draw.draw(logo_canvas, 0, 0, 0, 2, 2)
-
-    if self.skipped then
-        -- Draw the screen fade
-        Draw.setColor(0, 0, 0, self.fader_alpha)
-        love.graphics.rectangle("fill", 0, 0, 640, 480)
-
-        if self.fader_alpha > 1 then
-            self.animation_done = true
-            self.noise:stop()
-            self.end_noise:stop()
-        end
-
-        -- Change the fade opacity for the next frame
-        self.fader_alpha = math.max(0, self.fader_alpha + (0.04 * dt_mult))
-        self.noise:setVolume(math.max(0, 1 - self.fader_alpha))
-        self.end_noise:setVolume(math.max(0, 1 - self.fader_alpha))
-    end
-
-    -- Reset the draw color
-    Draw.setColor(1, 1, 1, 1)
 end
 
-function Loading:onKeyPressed(key)
-    self.key_check = true
-    self.skipped = true
-    if not self.loading and not self.load_complete then
-        self:beginLoad()
+function Loading:onKeyPressed(key, is_repeat)
+    if Input.isConfirm(key) and not is_repeat then
+        self.key_check = true
+        self.skipped = true
     end
 end
 

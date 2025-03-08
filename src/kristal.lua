@@ -8,6 +8,7 @@ if not HOTSWAPPING then
     Kristal.Shaders = require("src.engine.shaders")
     Kristal.States = {
         ["Loading"] = require("src.engine.loadstate"),
+        ["NoDisc"] = require("src.nodiscstate"),
         ["MainMenu"] = require("src.engine.menu.mainmenu"),
         ["Game"] = require("src.engine.game.game"),
         ["Testing"] = require("src.teststate"),
