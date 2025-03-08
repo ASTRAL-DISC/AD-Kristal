@@ -863,7 +863,7 @@ return {
             return spr
         end
 
-        cutscene:text("* I [wait:15][func:reveal][facec:comet/dark/neutral,-28,-18][wait:4s]am the [color:green]Roaring Knight[color:reset].", "angry_closed", comet, {
+        cutscene:text("* I [wait:15][func:reveal][facec:comet_dw/neutral,-28,-18][wait:4s]am the [color:green]Roaring Knight[color:reset].", "angry_closed", comet, {
             functions = {
                 reveal = function()
                     Game.world.timer:script(function(wait)
