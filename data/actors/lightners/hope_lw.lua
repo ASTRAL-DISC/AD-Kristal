@@ -1,9 +1,9 @@
-local actor, super = Class(Actor, "fluen_lw")
+local actor, super = Class(Actor, "hope_lw")
 
 function actor:init()
     super.init(self)
 
-    self.name = "Fluen"
+    self.name = "Hope"
 
     self.width = 21
     self.height = 43
@@ -12,7 +12,7 @@ function actor:init()
 
     self.color = {1, 0, 1}
 
-    self.path = "npcs/lightners/fluen/light"
+    self.path = "npcs/lightners/hope/light"
     self.default = "phone"
 
     self.voice = nil

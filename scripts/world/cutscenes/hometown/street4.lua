@@ -62,7 +62,7 @@ return {
         cutscene:text("* Did it work?")
     end,
 
-    fluen = function(cutscene, event)
+    hope = function(cutscene, event)
         local player = Game.world.player
         local interact_count = event:getFlag("interact_count", 0)
         interact_count = interact_count + 1

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="42">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="42">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -147,8 +147,8 @@
   </object>
   <object id="41" name="npc" x="278.39" y="707.364">
    <properties>
-    <property name="actor" value="fluen_lw"/>
-    <property name="cutscene" value="hometown/street4.fluen"/>
+    <property name="actor" value="hope_lw"/>
+    <property name="cutscene" value="hometown/street4.hope"/>
    </properties>
    <point/>
   </object>
