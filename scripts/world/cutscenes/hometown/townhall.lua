@@ -585,7 +585,13 @@ return {
         cutscene:wait(1/3)
         flash_vfx = false
     
-        Assets.playSound("fountain_make")
+        do
+            local fmake = Assets.playSound("fountain_make", 1, DT/BASE_DT)
+            cutscene:during(function ()
+                if not fmake:isPlaying() then return false end
+                fmake:setPitch(DT/BASE_DT)
+            end)
+        end
         comet:removeFX(mask)
         comet:setAnimation("fountain/stab")
         susie:removeFX(mask)
@@ -625,7 +631,13 @@ return {
 
         Assets.playSound("closet_impact")
         Assets.stopSound("fountain_make")
-        Assets.playSound("neo_fountain_make")
+        do
+            local neofmake = Assets.playSound("neo_fountain_make", 1, DT/BASE_DT)
+            cutscene:during(function ()
+                if not neofmake:isPlaying() then return false end
+                neofmake:setPitch(DT/BASE_DT)
+            end)
+        end
         comet:setAnimation("fountain/stab_b")
         cutscene:shakeCamera(2)
         Game.world.timer:tween(1, fmpillar, {mult = 4/3}, "out-elastic")
@@ -641,7 +653,13 @@ return {
 
         Assets.playSound("closet_impact", 1, 0.8)
         Assets.stopSound("neo_fountain_make")
-        Assets.playSound("darker_fountain_make")
+        do
+            local darkerfmake = Assets.playSound("darker_fountain_make", 1, DT/BASE_DT)
+            cutscene:during(function ()
+                if not darkerfmake:isPlaying() then return false end
+                darkerfmake:setPitch(DT/BASE_DT)
+            end)
+        end
         comet:setAnimation("fountain/stab_c")
         cutscene:shakeCamera(4)
         Game.world.timer:tween(1, fmpillar, {mult = 5/3}, "out-elastic")
