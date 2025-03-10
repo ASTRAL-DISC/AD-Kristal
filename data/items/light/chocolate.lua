@@ -22,7 +22,7 @@ end
 function item:onWorldUse()
     Game.world:startCutscene(function(cutscene)
         cutscene:text("* You took the chocolate from \nyour pocket.")
-        cutscene:text("* You remember these as one of those cheap chocolates with a soapy aftertaste.")
+        cutscene:text("* You remember it as one of those cheap chocolates with a soapy aftertaste.")
         cutscene:text("* ...[wait:5]\n* Your dad used to buy them frequently.")
         cutscene:text("* Eat it anyway?")
 
