@@ -6,35 +6,23 @@ function Seam:init()
     self.encounter_text = "* Hee hee...[wait:5]\n* Welcome,[wait:5] travellers."
     self.shop_text = "[emote:talk]* Take your time...[wait:5]\n* Ain't like it's\nbetter spent."
     self.leaving_text = "* See you again.[wait:5]\n* Or not.\n* Ha ha ha ha..."
-    -- Shown when you're in the BUY menu
+
     self.buy_menu_text = "[emote:talk]What do\nyou like\nto buy?"
-    -- Shown when you're about to buy something.
     self.buy_confirmation_text = "Buy it for\n%s ?"
-    -- Shown when you refuse to buy something
     self.buy_refuse_text = "What,\nnot good\nenough?"
-    -- Shown when you buy something
     self.buy_text = "[emote:laugh]Thanks for\nthat."
-    -- Shown when you buy something and it goes in your storage
     self.buy_storage_text = "[emote:laugh]Thanks, it'll\nbe in your\nSTORAGE."
-    -- Shown when you don't have enough money to buy something
     self.buy_too_expensive_text = "[emote:impatient]Not\nenough\nmoney."
-    -- Shown when you don't have enough space to buy something.
     self.buy_no_space_text = "[emote:impatient]You're\ncarrying\ntoo much."
-    -- Shown when something doesn't have a sell price
-    self.sell_no_price_text = "[emote:impatient]Why would\nYou sell\nthis?"
-    -- Shown when you're in the SELL menu
+
+    self.sell_no_price_text = "[emote:impatient]Why would\nyou sell\nthis?"
     self.sell_menu_text = "[emote:talk]What kind\nof junk\nyou got?"
-    -- Shown when you try to sell an empty spot
     self.sell_nothing_text = "That's\nnothing."
-    -- Shown when you're about to sell something.
     self.sell_confirmation_text = "Sell it for\n%s ?"
-    -- Shown when you refuse to sell something
     self.sell_refuse_text = "No?"
-    -- Shown when you sell something
     self.sell_text = "That's it\nfor that."
-    -- Shown when you have nothing in a storage
     self.sell_no_storage_text = "[emote:impatient]You don't\nhave\nanything!"
-    -- Shown when you enter the talk menu.
+    
     self.talk_text = "[emote:talk]Don't have\nanything\nbetter\nto do."
 
     self.sell_options_text["items"]   = "[emote:talk]Alright,\ngive me\nan ITEM."
@@ -46,11 +34,6 @@ function Seam:init()
     self:registerItem("darkburger")
     self:registerItem("amber_card")
     self:registerItem("spookysword")
-
-    --[[self:registerTalk("Shadow Crystal")
-    self:registerTalk("About Halojack")
-    self:registerTalk("Enlightement")
-    self:registerTalk("Spamton and Jevil")]]
 
     self.shopkeeper:setActor("shopkeepers/seam")
     self.shopkeeper.sprite:setPosition(-24, 12)

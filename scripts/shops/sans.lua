@@ -14,7 +14,6 @@ function Sans:init()
     self.buy_storage_text = "[emote:talk]there\nwe go."
     self.buy_too_expensive_text = "[emote:closed]you don't\nhave money\nfor this."
     self.buy_no_space_text = "[emote:side]you're\ncarrying\ntoo much."
-    --self.buy_confirming = true
 
     self.deny_text = {
         ["SELLMENU"] = {
