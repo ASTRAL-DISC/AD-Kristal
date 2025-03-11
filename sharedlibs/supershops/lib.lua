@@ -4,8 +4,6 @@ function Lib:init()
 	Utils.hook(Item, "getDiscountPrice", function(orig, self, id)
 		return false
 	end)
-    
-    print("[Super Shops] Loaded Super Shops")
 	if Mod.libs["magical-glass"] and Kristal.getLibConfig("super_shops", "magical-glass") then
 		print("[Super Shops] Magical Glass detected and changes allowed.")
 		if LightShop then
