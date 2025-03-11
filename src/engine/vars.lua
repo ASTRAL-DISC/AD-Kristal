@@ -89,6 +89,8 @@ MUSIC_VOLUMES = {
     ["thrashmachine"] = 0.6,
 }
 MUSIC_PITCHES = {
+    ["mod_menu"] = 0.95,
+    ["menu"] = 0.95,
     ["THE_HOLY"] = 0.9,
     ["hometown"] = 0.97,
     ["flashback_excerpt"] = 0.95,
