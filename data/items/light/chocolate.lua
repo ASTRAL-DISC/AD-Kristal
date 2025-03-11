@@ -12,6 +12,7 @@ function item:init()
     self.light = true
 
     self.check = "A chocolate bar bought from a local store.\n* It's cheap."
+    self.shop = "Cheap,\nnostalgic\nchoco-bar."
 
     self.usable_in = "all"
 

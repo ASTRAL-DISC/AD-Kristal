@@ -9,6 +9,7 @@ function item:init()
     self.light = true
 
     self.check = "Good ol' apple."
+    self.shop = "Good ol' apple.\nDelicious\ntreat."
 
     self.usable_in = "all"
     
