@@ -8,21 +8,14 @@ function Sans:init()
     Game.money = Game.lw_money
 
     self.currency_text = "$%d"
-    self.encounter_text = "[emote:idle]* heya, [wait:5]kid.[wait:5]\nwelcome to sans's."
-    self.leaving_text = "* take it easy."
+    self.encounter_text = "[emote:idle]* heya, [wait:5]kid.[wait:5]\n* welcome to sans's."
+    self.leaving_text = "[emote:wink]* take it easy."
     self.buy_confirmation_text = "Buy it for\n%s ?"
-    self.buy_refuse_text = "didn't\nneed it\nanyway."
-    self.buy_text = "bone apettit."
-    self.buy_storage_text = "there\nwe go."
-    self.buy_too_expensive_text = "you don't\nhave money\nfor this."
-    self.buy_no_space_text = "you're\ncarrying\ntoo much."
-    self.sell_no_price_text = "why would\nyou sell\nthis?"
-    self.sell_menu_text = "i'm a seller,[wait:5]\nnot a buyer."
-    self.sell_nothing_text = "nothing\nto give."
-    self.sell_confirmation_text = "sell it for\n%s ?"
-    self.sell_refuse_text = "i'd\nrather\nhold on\nto this."
-    self.sell_text = "there\nwe go."
-    self.sell_no_storage_text = "nothing\nin there."
+    self.buy_refuse_text = "[emote:eyelids_side]didn't\nneed it\nanyway."
+    self.buy_text = "[emote:wink]bone apettit."
+    self.buy_storage_text = "[emote:talk]there\nwe go."
+    self.buy_too_expensive_text = "[emote:closed]you don't\nhave money\nfor this."
+    self.buy_no_space_text = "[emote:side]you're\ncarrying\ntoo much."
     --self.buy_confirming = true
 
     self.deny_text = {
@@ -32,10 +25,10 @@ function Sans:init()
         }
     }
 
-    self:registerItem("light/chocolate", { stock = 1, price = 2, description = "ITEM\nChoco-bar.\nDelicious\ntreat", name = "Chocolate" })
-    self:registerItem("light/apple", { price = 5, description = "ITEM\nGood ol'\nred apple", name = "Apple" })
-    self:registerItem("manual", { price = 8, description = "ITEM\nAn apple that \nisn't an apple", name = "Pineapple" })
-    self:registerItem("manual", { price = 10, name = "Crab apple", description = "ITEM\nA grouchy\napple\n(Expensive)" })
+    self:registerItem("light/chocolate", {stock = 1})
+    self:registerItem("light/apple")
+    self:registerItem("manual", {price = 8, description = "ITEM\nAn apple that \nisn't an apple", name = "Pineapple"})
+    self:registerItem("manual", {price = 10, name = "Crab Apple", description = "ITEM\nA grouchy\napple\n(Expensive)"})
     
     self:registerTalk("About You") --1
     self:registerTalk("Store") --2
@@ -43,23 +36,25 @@ function Sans:init()
     self:registerTalk("We know each other") --4
 
     if Game.inventory:hasItem("light/chocolate") then
-        self:registerTalkAfter("Chocolate (NEW)", 1, "chocolate_new", nil, COLORS.yellow)
         self:registerTalkAfter("Chocolate", 1, "chocolate", nil, COLORS.white)
     end
 
-    self:registerTalkAfter("Mom (NEW)", 1, "mom_new", nil, COLORS.yellow)
-    self:registerTalkAfter("Mom", 1, "mom", nil, COLORS.white)
-    self:registerTalkAfter("What's up (NEW)", 3)
-    self:registerTalkAfter("What's up", 3, "wassup_new", nil, COLORS.white) --can be either COLORS.white or {255, 255, 255} which is white in RGB colors.
-    self:registerTalkAfter("Different timelines (NEW)", 4)
-    self:registerTalkAfter("Different timelines", 4, "timelines_new", nil, COLORS.white)
+    if Game.chapter == 3 then
+        self:registerTalkAfter("Mom (NEW)", 1, "mom_new", nil, COLORS.yellow)
+        self:registerTalkAfter("Mom", 1, "mom", nil, COLORS.white)
+        self:registerTalkAfter("What's up (NEW)", 3, nil, nil, COLORS.yellow)
+        self:registerTalkAfter("What's up", 3, "wassup_new", nil, COLORS.white)
+        self:registerTalkAfter("Different timelines (NEW)", 4, nil, nil, COLORS.yellow)
+        self:registerTalkAfter("Different timelines", 4, "timelines_new", nil, COLORS.white)
+    elseif Game.chapter == 4 then
+        self:registerTalkAfter("Dad (NEW)", 2, "dad_new", nil, COLORS.yellow)
+        self:registerTalkAfter("Dad", 2, nil, nil, COLORS.white)
+    end
 
     self.shopkeeper:setActor("shopkeepers/sans")
     self.shopkeeper.sprite:setPosition( -24, 12)
-    self.shopkeeper.slide = true
+    self.shopkeeper.slide = false
     self.shop_music = nil
-
-    self.bonus_game = true
 end
 
 function Sans:postInit()
@@ -239,27 +234,27 @@ function Sans:onStateChange(old, new)
     -----------------------------ADDED STUFF----------------------------
     local buymenutext = Utils.pick({ 1, 2 })
     if (buymenutext == 1) then
-        self.buy_menu_text = "do you\neven have\nmoney?"
+        self.buy_menu_text = "[emote:eyelids]do you\neven have\nmoney?"
     elseif (buymenutext == 2) then
-        self.buy_menu_text = "what would\nyou like\nto buy?"
+        self.buy_menu_text = "[emote:idle]anything you\nlike?"
     end
     local shopmenutext = Utils.pick({ 1, 2 })
     if (shopmenutext == 1) then
-        self.shop_text = "[emote:idle]* it's ok, i won't judge."
+        self.shop_text = "[emote:wink]* it's ok, [wait:5]i won't judge."
     elseif (shopmenutext == 2) then
-        self.shop_text = "[emote:idle]* what would you like to buy?"
+        self.shop_text = "[emote:idle]* here to buy?[wait:5]\n* that's a surprise."
     end
     local talkmenutext = Utils.pick({ 1, 2 })
     if (talkmenutext == 1) then
-        self.talk_text = "[emote:idle]it's not like I'm doing anything."
+        self.talk_text = "[emote:eyelids_side]not like I'm doing anything."
     elseif (talkmenutext == 2) then
-        self.talk_text = "[emote:idle]since when\nwere you\na chatty?"
+        self.talk_text = "[emote:idle]since when\nwere you\nso chatty?"
     end
 end
 
 function Sans:draw()
     self:drawBackground()
-    super.super.draw(self)
+    super.super.super.draw(self)
     love.graphics.setFont(self.font)
     if self.state == "MAINMENU" then
         love.graphics.setColor(COLORS.white)
@@ -501,138 +496,42 @@ end
 
 function Sans:startTalk(talk)
     if talk == "About You" then
-        if #Game.party == 1 then
-            self:startDialogue({
-                "* about me?[wait:5][emote:wink] just a lazy guy.[wait:5] new in town.",
-                "[emote:talk]* i got a job here after getting in contact with the previous owner.",
-                "[emote:closed]* kinda just happened.",
-                "[emote:talk]* ...huh?[wait:5] you want to know more?",
-                "[emote:side]* sorry,[wait:5] can't remember anything\nelse to say.",
-                "[emote:talk]* maybe you could use some groceries?"
-            })
-        else
-            self:startDialogue({
-                "* about me?[wait:5][emote:wink] just a lazy guy.[wait:5] new in town.",
-                "[emote:talk]* i got a job here after getting in contact with the previous owner.",
-                "[emote:closed]* kinda just happened.",
-                "[emote:talk]* ...huh?[wait:5] you want to know more?",
-                "[emote:side]* sorry,[wait:5] can't remember anything\nelse to say.",
-                "[emote:talk]* maybe you guys could use some groceries?"
-            })
-        end
+        self:startCutscene("sans.aboutyou")
         self:setFlag("mom_new", true)
     elseif talk == "Chocolate (NEW)" then
-        self:startDialogue({
-            "* huh?[wait:5] you want more chocolate?",
-            "* too bad,[wait:5] kid.[wait:10]\n[emote:eyelids]* that was the last one.",
-            "[emote:eyelids_side]* an angry officer came here right before you and bought a huge amount of chocolate.",
-            "[emote:talk]* you'll have to wait for more stock to arrive." -- <- putting a "," here preserves the last emote used. It's weird.
-        })
-
+        self:startCutscene("sans.chocolate")
         self:setFlag("chocolate", true)
-
     elseif talk == "Chocolate" then
-        self:startDialogue({
-            "[emote:talk]* sorry, [wait:5]you'll have to wait for more stock to arrive.",
-        })
+        self:startCutscene("sans.nochocolate")
     elseif talk == "Mom (NEW)" then
-        --this flag overwrite the "Mom (NEW)" with just "Mom" which can be found below. Needs to be set at registerTalkAfter.
-        self:startDialogue({
-            "* what?[wait:5]\n* what would a skeleton like me know about your mom?",
-            "[emote:closed]* hell if i know.",
-            "[emote:side]* kid,[wait:5] if there's anyone who knows about her,[wait:5] it's you.",
-            "[emote:talk]* ... what's with that look?",
-            "[emote:closed]* welp,[wait:5] she's a very nice lady.[wait:5]\n* comes here often.",
-            "[emote:wink]* there's nothing wrong with a lady coming to buy groceries,[wait:5] aight."
-        })
-
+        self:startCutscene("sans.mom")
         self:setFlag("mom", true)
-        
     elseif talk == "Mom" then
-        self:startDialogue({
-            "* want to buy some apples?"
-        })
+        self:startCutscene("sans.placeholder")
     elseif talk == "Store" then
-        self:startDialogue({
-            "[emote:closed]* it's nice in here,[wait:5] isn't it?",
-            "[emote:talk]* i mean,[wait:5] hey,[wait:5] you don't see many grocery stores in this town.",
-            "[emote:side]* which is...[wait:5] a very weird thing,[wait:5] don't ya think?",
-            "[emote:talk]* heh, [wait:5]kidding,[wait:5] this place is small,\n[wait:5]i know.[wait:5]\n* welp,[wait:5] it means less competition.",
-            "[emote:wink]* so good for me."
-        })
+        self:startCutscene("sans.store")
     elseif talk == "See brother" then
-        self:startDialogue({
-            "* the meeting with my brother?",
-            "[emote:side]* oh i see,[wait:5] you still remember this thing.",
-            "[emote:eyelids_side]* sorry,[wait:5] it'll have to wait.[wait:10]\n* he's not feeling up to it today.",
-            "[emote:closed]* maybe one more day, [wait:5]maybe one more year.\n[wait:5]* who knows.",
-            "[emote:talk]* do you need something else?"
-        })
+        self:startCutscene("sans.brother")
     elseif talk == "What's up (NEW)" then
-        self:startDialogue({
-            "[emote:wink]* the [color:yellow][wait:5]c[wait:5]e[wait:5]i[wait:5]l[wait:5]i[wait:5]n[wait:5]g[wait:5][color:white].[sound:joke][wait:5]",
-            "[emote:talk]* ...",
-            "[emote:eyelids]* c'mon, [wait:5]not even a smirk?",
-            "[emote:talk]* party pooper."
-        })
-
+        self:startCutscene("sans.wassup_new")
         self:setFlag("wassup_new", true)
-
     elseif talk == "What's up" then
-        self:startDialogue({
-            "[emote:closed]* i guess things are fine.",
-            "[emote:talk]* how about you? [wait:5]surprised you have the time to chat.",
-            "[emote:wink]* shouldn't you be doing school projects or something?",
-        })
+        self:startCutscene("sans.wassup")
     elseif talk == "We know each other" then
-        self:startDialogue({
-            "[emote:wink]* i mean,[wait:5] yeah.[wait:5]\n* considering we talked yesterday,[wait:5]\ni guess we do know each other.",
-            "[emote:talk]* ...",
-            "[emote:talk]* huh. [wait:5]you know me from before?",
-            "[emote:side]* funny,[wait:5] kid.[wait:5]\n* especially considering i'm new to this town.[wait:5] came here like last week.",
-            "[emote:eyelids]* could it be, [wait:5]huh.",
-            "[emote:wink]* have i become a famous celebrity without knowing?",
-            "[emote:talk]* ... hell nah.[wait:5]\n* that seems like too much work."
-        })
+        self:startCutscene("sans.iknowyou")
     elseif talk == "Different timelines (NEW)" then
-        self:startDialogue({
-            "[emote:closed]* oh,[wait:5] yeah,[wait:5] yeah.[wait:5]\n* i know about this.",
-            "[emote:talk]* i used to be into quantum physics and sci-fi when i was younger.",
-            "[emote:side]* i even remember a dream i had once where there were many clones of myself...",
-            "[emote:talk]* ...",
-            "[emote:eyelids_side]* not gonna lie,[wait:5] that was a very weird experience.",
-            "[emote:talk]* uh,[wait:5] speaking of which...",
-            "[emote:talk]* do you like scary sci-fi stuff,[wait:5] kid?\n[wait:5][emote:wink]* i feel like you do.",
-            "[emote:talk]* ok, [wait:5]ok.[wait:5]\n* did ya know that if you go back \nin time and meet your younger self,[wait:5] a temporal paradox happens?",
-            "[emote:eyelids_side]* and you simply disappear.[wait:10]\n* from all timelines.",
-            "[emote:talk]* you go [wait:5]\"poof\".[wait:8]\n* just like that...",
-            "[emote:closed]* ... [wait:5]and every trace of your existence is completely erased.",
-            "[emote:talk]* ...",
-            "[emote:wink]* i have to say...[wait:5] i'd hate if something like that happened to me.[wait:10]\n* what'd be of my brother if he didn't have me around?",
-            "[emote:eyelids_side]* i'm such a good older brother to him.",
-            "[emote:talk]* oh,[wait:5] anyways.[wait:10]\n* what were we talking about?"
-        })
-
+        self:startCutscene("sans.timelines_new")
         self:setFlag("timelines_new", true)
-
     elseif talk == "Different timelines" then
-        self:startDialogue({
-            "[emote:talk]* still interested in that, [wait:5]kid?",
-            "[emote:eyelids_side]* reminds me that i got this old quantum physics book...",
-            "[emote:wink]* i could let you borrow it, [wait:5]though you might find some pages [color:yellow]humerus[color:reset]... [sound:joke][wait:5]",
-            "[emote:side]* ... [wait:5]i used it as pun writing practice.\n[wait:5][emote:eyelids]* ignore those if it's not your\ncup o' tea.",
-            "[emote:talk]* huh? [wait:5]when you'll be borrowing it?",
-            "[emote:closed]* might take a while. [wait:5]who knows.",
-            "[emote:wink]* gotta remove all the dust first.\n[wait:5]* maybe when you see my brother, [wait:5]you can have your afternoon read.",
-        })
+        self:startCutscene("sans.timelines")
     end
 end
 
 function Sans:buyItem(current_item)
+    super.super.buyItem(self,current_item)
     if (current_item.options["price"] or 0) > Game.lw_money then
         self:setRightText(self.buy_too_expensive_text)
     else
-
         Game.lw_money = Game.lw_money - (current_item.options["price"] or 0)
 
         if current_item.options["stock"] then
