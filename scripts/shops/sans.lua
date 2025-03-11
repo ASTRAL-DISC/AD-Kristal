@@ -3,9 +3,9 @@ local Sans, super = Class(Shop, "sans")
 function Sans:init()
     super.init(self)
 
-    self.background = "ui/shop/sans"
-
     Game.money = Game.lw_money
+
+    self.background = "ui/shop/sans"
 
     self.currency_text = "$%d"
     self.encounter_text = "[emote:idle]* heya, [wait:5]kid.[wait:5]\n* welcome to sans's."
@@ -528,11 +528,10 @@ function Sans:startTalk(talk)
 end
 
 function Sans:buyItem(current_item)
-    super.super.buyItem(self,current_item)
     if (current_item.options["price"] or 0) > Game.lw_money then
         self:setRightText(self.buy_too_expensive_text)
     else
-        Game.lw_money = Game.lw_money - (current_item.options["price"] or 0)
+        Game.money = Game.lw_money - (current_item.options["price"] or 0)
 
         if current_item.options["stock"] then
             current_item.options["stock"] = current_item.options["stock"] - 1
