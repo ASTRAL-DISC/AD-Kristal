@@ -3,11 +3,9 @@ local Sans, super = Class(Shop, "sans")
 function Sans:init()
     super.init(self)
 
-    Game.money = Game.lw_money
-
     self.background = "ui/shop/sans"
 
-    self.currency_text = "$%d"
+    self.currency_text = "%d $"
     self.encounter_text = "[emote:idle]* heya, [wait:5]kid.[wait:5]\n* welcome to sans's."
     self.leaving_text = "[emote:wink]* take it easy."
     self.buy_confirmation_text = "Buy it for\n%s ?"
@@ -148,12 +146,31 @@ function Sans:onStateChange(old, new)
         self.right_box.visible = true
         self.info_box.visible = false
         self.dialogue_text.width = 372
+
+        local shopmenutext = Utils.pick({ 1, 2 })
+        if (shopmenutext == 1) then
+            self.shop_text = "[emote:idle]* it's ok, [wait:5]i won't judge."
+        elseif (shopmenutext == 2) then
+            self.shop_text = "[emote:idle]* here to buy?[wait:5]\n* that's a surprise."
+        end
         self:setDialogueText(self.shop_text)
         self:setRightText("")
         --sprite:setAnimation("idle")
     elseif new == "BUYMENU" then
         self:setDialogueText("")
+
+        local buymenutext = Utils.pick({ 1, 2 })
+        if self:getMoney() < 2 then
+            self.buy_menu_text = "[emote:eyelids]do you\neven have\nmoney?"
+        else
+            if (buymenutext == 1) then
+                self.buy_menu_text = "[emote:idle]help yourself."
+            elseif (buymenutext == 2) then
+                self.buy_menu_text = "[emote:idle]anything you like?"
+            end
+        end
         self:setRightText(self.buy_menu_text)
+
         self.large_box.visible = false
         self.left_box.visible = true
         self.right_box.visible = true
@@ -198,7 +215,15 @@ function Sans:onStateChange(old, new)
         self.item_offset = 0
     elseif new == "TALKMENU" then
         self:setDialogueText("")
+
+        local talkmenutext = Utils.pick({ 1, 2 })
+        if (talkmenutext == 1) then
+            self.talk_text = "[emote:idle]not like I'm doing anything."
+        elseif (talkmenutext == 2) then
+            self.talk_text = "[emote:idle]since when\nwere you\nso chatty?"
+        end
         self:setRightText(self.talk_text)
+
         self.large_box.visible = false
         self.left_box.visible = true
         self.right_box.visible = true
@@ -230,25 +255,14 @@ function Sans:onStateChange(old, new)
         self.left_box.visible = false
         self.right_box.visible = false
         self.info_box.visible = false
-    end
-    -----------------------------ADDED STUFF----------------------------
-    local buymenutext = Utils.pick({ 1, 2 })
-    if (buymenutext == 1) then
-        self.buy_menu_text = "[emote:eyelids]do you\neven have\nmoney?"
-    elseif (buymenutext == 2) then
-        self.buy_menu_text = "[emote:idle]anything you\nlike?"
-    end
-    local shopmenutext = Utils.pick({ 1, 2 })
-    if (shopmenutext == 1) then
-        self.shop_text = "[emote:wink]* it's ok, [wait:5]i won't judge."
-    elseif (shopmenutext == 2) then
-        self.shop_text = "[emote:idle]* here to buy?[wait:5]\n* that's a surprise."
-    end
-    local talkmenutext = Utils.pick({ 1, 2 })
-    if (talkmenutext == 1) then
-        self.talk_text = "[emote:eyelids_side]not like I'm doing anything."
-    elseif (talkmenutext == 2) then
-        self.talk_text = "[emote:idle]since when\nwere you\nso chatty?"
+    elseif new == "CUTSCENE" then
+        self.large_box.visible = true
+        self.left_box.visible = false
+        self.right_box.visible = false
+        self.info_box.visible = false
+        self.dialogue_text.width = 598
+        self:setDialogueText("")
+        self:setRightText("")
     end
 end
 
@@ -488,7 +502,7 @@ function Sans:draw()
         self.state == "TALKMENU" then
         love.graphics.setColor(COLORS.white)
         love.graphics.setFont(self.font)
-        love.graphics.print(string.format(self.currency_text, Game.money), 440, 420)
+        love.graphics.print(string.format(self.currency_text, self:getMoney()), 440, 420)
     end
     love.graphics.setColor(0, 0, 0, self.fade_alpha)
     love.graphics.rectangle("fill", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -528,11 +542,9 @@ function Sans:startTalk(talk)
 end
 
 function Sans:buyItem(current_item)
-    if (current_item.options["price"] or 0) > Game.lw_money then
+    if (current_item.options["price"] or 0) > self:getMoney() then
         self:setRightText(self.buy_too_expensive_text)
     else
-        Game.money = Game.lw_money - (current_item.options["price"] or 0)
-
         if current_item.options["stock"] then
             current_item.options["stock"] = current_item.options["stock"] - 1
             self:setFlag(current_item.options["flag"], current_item.options["stock"])
@@ -540,8 +552,10 @@ function Sans:buyItem(current_item)
         local new_item = Registry.createItem(current_item.item.id)
         new_item:load(current_item.item:save())
         if Game.inventory:addItem(new_item) then
-            Assets.playSound("item")
+            Assets.playSound("buyitem")
             self:setRightText(self.buy_text)
+
+            self:removeMoney(current_item.options["price"] or 0)
         else
             self:setRightText(self.buy_no_space_text)
         end
@@ -554,10 +568,20 @@ function Sans:buyItem(current_item)
     end
 end
 
-function Sans:onLeave()
-    self:startDialogue(self.leaving_text, "LEAVING")
-    Game.lw_money = Game.money
-    Game:setFlag("exit_shop", true)
+function Sans:getMoney()
+    return Game.lw_money
+end
+
+function Sans:setMoney(amount)
+    Game.lw_money = amount
+end
+
+function Sans:addMoney(amount)
+    self:setMoney(self:getMoney() + amount)
+end
+
+function Sans:removeMoney(amount)
+    self:setMoney(self:getMoney() - amount)
 end
 
 return Sans
