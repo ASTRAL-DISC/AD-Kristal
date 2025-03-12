@@ -37,7 +37,7 @@ return {
             Game.state = "EXIT"
             Game.fader:fadeOut(function()
                 Kristal.swapIntoMod("credits")
-            end, {speed = 0.1})
+            end, {speed = 0.3})
         else
             cutscene:text("* Maybe another time.")
         end
