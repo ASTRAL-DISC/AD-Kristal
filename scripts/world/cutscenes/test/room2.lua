@@ -34,6 +34,7 @@ return {
         cutscene:text("* See credits sequence?")
         local choice = cutscene:choicer({"Yes", "No"}) == 1
         if choice then
+            Game.state = "EXIT"
             Game.fader:fadeOut(function()
                 Kristal.swapIntoMod("credits")
             end, {speed = 0.1})
