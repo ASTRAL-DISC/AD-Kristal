@@ -5,13 +5,13 @@ return {
         black.alpha = 1
         Game.world:spawnObject(black, "below_ui")
 
-        Game.world.music:play("flowbeet", 0.9, 0.97)
+        --Game.world.music:play("flowbeet", 0.9)
         black:fadeOutAndRemove(1)
 
         cutscene:wait(2)
         local kris = cutscene:getCharacter("kris")
         cutscene:walkToSpeed(kris, "end", 2)
-        cutscene:wait(5.8)
+        cutscene:wait(6.5)
         Game.world.camera:panToSpeed("end", 2)
     end
 }

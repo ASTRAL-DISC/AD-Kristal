@@ -57,7 +57,6 @@ return {
             mteen.physics.gravity = 0.8
     
             mteen:setSprite("shocked")
-            mteen:shake(4)
             mteen:alert(0.3, {play_sound = false})
 
             wait(0.4)
