@@ -93,22 +93,21 @@ function actor:init()
         ["battle/victory"] = {0, 0},
 
         -- Cutscene offsets
-        ["eye_widen"] = {0, 0},
-        ["eye_widen_look"] = {0, 0},
-        ["smile_look"] = {0, 0},
+        ["eye_widen"] = {-1, -1},
+        ["eye_widen_look"] = {-1, -1},
+        ["smile_look"] = {-1, -1},
 
-        ["happy"] = {0, 0},
-        ["laugh"] = {0, 0},
+        ["happy"] = {-1, -1},
+        ["laugh"] = {-1, -1},
 
         ["shocked"] = {-4, 1},
-        ["shocked_left"] = {-4, 1},
 
         ["look_down"] = {-1, 0},
         ["look_down_smile"] = {-1, 0},
         ["look_left"] = {-1, 0},
 
-        ["fell"] = {-14, 29},
-        ["fell_look"] = {-14, 29},
+        ["fell"] = {-5, 15},
+        ["fell_look"] = {-5, 15},
     }
 end
 
