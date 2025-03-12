@@ -1100,6 +1100,14 @@ function Kristal.quickReload(mode)
     end)
 end
 
+function Kristal.swapIntoMod(id)
+    Gamestate.switch({})
+    Kristal.clearModState()
+    Kristal.loadAssets("", "mods", "", function()
+        Kristal.loadMod(id)
+    end)
+end
+
 --- Clears all currently loaded assets. Called internally in the Loading state.
 ---@param include_mods boolean Whether to clear loaded mods.
 function Kristal.clearAssets(include_mods)
