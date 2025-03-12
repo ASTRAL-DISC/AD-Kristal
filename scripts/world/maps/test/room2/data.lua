@@ -10,9 +10,9 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 14,
+  nextobjectid = 15,
   properties = {
-    ["name"] = "Test Map - Room 2"
+    ["name"] = "Test Room 2"
   },
   tilesets = {
     {
@@ -268,6 +268,21 @@ return {
           visible = true,
           properties = {
             ["cutscene"] = "test/room2.completion"
+          }
+        },
+        {
+          id = 14,
+          name = "chest",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 120,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["money"] = "5000"
           }
         }
       }
