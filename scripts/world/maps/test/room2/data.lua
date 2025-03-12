@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 15,
+  nextobjectid = 16,
   properties = {
     ["name"] = "Test Room 2"
   },
@@ -41,7 +41,7 @@ return {
       encoding = "lua",
       data = {
         0, 0, 0, 0, 22, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 24, 0,
-        0, 0, 0, 0, 22, 23, 23, 21, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 24, 0,
+        0, 0, 0, 0, 22, 23, 23, 21, 23, 23, 23, 23, 23, 23, 23, 23, 23, 21, 24, 0,
         0, 0, 0, 0, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 0,
         0, 0, 0, 0, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 0,
         0, 0, 0, 0, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 0,
@@ -283,6 +283,21 @@ return {
           visible = true,
           properties = {
             ["money"] = "5000"
+          }
+        },
+        {
+          id = 15,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 680,
+          y = 80,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "test/room2.credits"
           }
         }
       }

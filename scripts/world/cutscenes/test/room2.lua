@@ -28,5 +28,17 @@ return {
                 cutscene:text("* Use it wisely.")
             end
         end
+    end,
+
+    credits = function (cutscene, event)
+        cutscene:text("* See credits sequence?")
+        local choice = cutscene:choicer({"Yes", "No"}) == 1
+        if choice then
+            Game.fader:fadeOut(function()
+                Kristal.swapIntoMod("credits")
+            end, {speed = 0.1})
+        else
+            cutscene:text("* Maybe another time.")
+        end
     end
 }

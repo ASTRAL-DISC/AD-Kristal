@@ -1,7 +1,7 @@
 .vscode/
 
 mods/*
-!mods/example/
+!mods/credits/
 !mods/astraldisc/
 
 build/
