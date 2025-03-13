@@ -11,13 +11,13 @@ function Sans:init()
     self.buy_confirmation_text = "Buy it for\n%s ?"
     self.buy_refuse_text = "[emote:eyelids_side]didn't\nneed it\nanyway."
     self.buy_text = "[emote:wink]bone apettit."
-    self.buy_storage_text = "[emote:talk]there\nwe go."
+    self.buy_storage_text = "[emote:idle]there\nwe go."
     self.buy_too_expensive_text = "[emote:closed]you don't\nhave money\nfor this."
     self.buy_no_space_text = "[emote:side]you're\ncarrying\ntoo much."
 
     self.deny_text = {
         ["SELLMENU"] = {
-            "[emote:eyelids_side]* sorry,[wait:5] not happening.[wait:5]\n[emote:talk]* i need to pay bills.",
+            "[emote:eyelids_side]* sorry,[wait:5] not happening.[wait:5]\n[emote:idle]* i need to pay bills.",
             "[emote:wink]* all proceeds go to my socks collection."
         }
     }
