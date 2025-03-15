@@ -13,35 +13,24 @@ function actor:init(style)
 end
 
 function actor:initChapter1()
-    -- Display name (optional)
     self.name = "Ralsei"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 23
     self.height = 43
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {2, 31, 19, 14}
 
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {0, 1, 0}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/ralsei/dark_ch1"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "walk"
 
-    -- Sound to play when this actor speaks (optional)
     self.voice = "ralsei"
-    -- Path to this actor's portrait for dialogue (optional)
     self.portrait_path = "face/ralsei_hat"
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = {-15, -10}
 
-    -- Whether this actor as a follower will blush when close to the player
     self.can_blush = true
 
-    -- Table of sprite animations
     self.animations = {
         -- Battle animations
         ["battle/idle"]         = {"battle/idle", 0.2, true},
@@ -77,7 +66,6 @@ function actor:initChapter1()
 
     }
 
-    -- Tables of sprites to change into in mirrors
     self.mirror_sprites = {
         ["walk/down"] = "walk/up",
         ["walk/up"] = "walk/down",
@@ -95,7 +83,6 @@ function actor:initChapter1()
         ["walk_unhappy/right"] = "walk_unhappy/right",
     }
 
-    -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
@@ -123,7 +110,7 @@ function actor:initChapter1()
         ["battle/defend"] = {-3, -2},
 
         ["battle/defeat"] = {-3, -2},
-        ["battle/hurt"] = {-13, -2}, -- does this exist? Bor's answer: yes, it does.
+        ["battle/hurt"] = {-13, -2},
 
         ["battle/intro"] = {-3, -2},
         ["battle/victory"] = {-3, -2},
@@ -141,39 +128,26 @@ function actor:initChapter1()
 end
 
 function actor:initChapter2()
-    -- Display name (optional)
     self.name = "Ralsei"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 21
     self.height = 40
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {1, 28, 19, 14}
-    
-    -- A table that defines where the Soul should be placed on this actor if they are a player.
-    -- First value is x, second value is y.
+
     self.soul_offset = {10.5, 24}
 
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {0, 1, 0}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/ralsei/dark"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "walk"
 
-    -- Sound to play when this actor speaks (optional)
     self.voice = "ralsei"
-    -- Path to this actor's portrait for dialogue (optional)
     self.portrait_path = "face/ralsei"
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = {-15, -10}
 
-    -- Whether this actor as a follower will blush when close to the player
     self.can_blush = true
 
-    -- Table of sprite animations
     self.animations = {
         -- Movement animations
         ["slide"]               = {"slide", 4/30, true},
@@ -219,7 +193,6 @@ function actor:initChapter2()
         ["choir/idle"] = {"choir/idle", 4/30, true},
     }
 
-    -- Tables of sprites to change into in mirrors
     self.mirror_sprites = {
         ["walk/down"] = "walk/up",
         ["walk/up"] = "walk/down",
@@ -236,8 +209,7 @@ function actor:initChapter2()
         ["walk_blush/left"] = "walk_blush/left",
         ["walk_blush/right"] = "walk_blush/right",
     }
-
-    -- Table of sprite offsets (indexed by sprite name)
+    
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},

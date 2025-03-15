@@ -3,44 +3,33 @@ local character, super = Class(PartyMember, "susie")
 function character:init()
     super.init(self)
 
-    -- Display name
     self.name = "Susie"
 
-    -- Actor (handles sprites)
     self:setActor("susie")
     self:setLightActor("susie_lw")
     self:setDarkTransitionActor("susie_dark_transition")
 
-    -- Display level (saved to the save file)
     self.level = Game.chapter
-    -- Default title / class (saved to the save file)
     if Game.chapter == 3 then
         self.title = "Sleepover Buddy\nMarathons violent\nmovies with you."
     else
         self.title = "Dark Knight\nDoes damage using\ndark energy."
     end
 
-    -- Determines which character the soul comes from (higher number = higher priority)
     self.soul_priority = 1
-    -- The color of this character's soul (optional, defaults to red)
     self.soul_color = {1, 0, 0}
 
-    -- Whether the party member can act / use spells
     self.has_act = false
     self.has_spells = true
 
-    -- Whether the party member can use their X-Action
     self.has_xact = true
-    -- X-Action name (displayed in this character's spell menu)
     self.xact_name = "S-Action"
 
-    -- Spells
     self:addSpell("rude_buster")
     if Game.chapter >= 2 then
         self:addSpell("ultimate_heal")
     end
 
-    -- Current health (saved to the save file)
     if Game.chapter == 3 then
         self.health = 190
     elseif Game.chapter == 4 then
@@ -55,7 +44,6 @@ function character:init()
         self.health = 540
     end
 
-    -- Base stats (saved to the save file)
     if Game.chapter == 3 then
         self.stats = {
             health = 190,
@@ -122,60 +110,40 @@ function character:init()
             health = 526,
         }
     end
-    
-    -- Party members which will also get stronger when this character gets stronger, even if they're not in the party
+
     self.stronger_absent = {"kris", "susie", "ralsei"}
 
-    -- Weapon icon in equip menu
     self.weapon_icon = "ui/menu/equip/axe"
 
-    -- Equipment (saved to the save file)
     self:setWeapon("mane_ax")
     if Game.chapter >= 2 then
         self:setArmor(1, "amber_card")
         self:setArmor(2, "amber_card")
     end
 
-    -- Default light world equipment item IDs (saves current equipment)
     self.lw_weapon_default = "light/pencil"
     self.lw_armor_default = "light/bandage"
 
-    -- Character color (for action box outline and hp bar)
     self.color = {1, 0, 1}
-    -- Damage color (for the number when attacking enemies) (defaults to the main color)
     self.dmg_color = {0.8, 0.6, 0.8}
-    -- Attack bar color (for the target bar used in attack mode) (defaults to the main color)
     self.attack_bar_color = {234/255, 121/255, 200/255}
-    -- Attack box color (for the attack area in attack mode) (defaults to darkened main color)
     self.attack_box_color = {0.5, 0, 0.5}
-    -- X-Action color (for the color of X-Action menu items) (defaults to the main color)
     self.xact_color = {1, 0.5, 1}
 
-    -- Head icon in the equip / power menu
     self.menu_icon = "party/susie/head"
-    -- Path to head icons used in battle
     self.head_icons = "party/susie/icon"
-    -- Name sprite (optional)
     self.name_sprite = "party/susie/name"
 
-    -- Effect shown above enemy after attacking it
     self.attack_sprite = "effects/attack/mash"
-    -- Sound played when this character attacks
     self.attack_sound = "laz_c"
-    -- Pitch of the attack sound
     self.attack_pitch = 0.9
 
-    -- Battle position offset (optional)
     self.battle_offset = {3, 1}
-    -- Head icon position offset (optional)
     self.head_icon_offset = nil
-    -- Menu icon position offset (optional)
     self.menu_icon_offset = nil
 
-    -- Message shown on gameover (optional)
-    self.gameover_message = nil -- Handled by getGameOverMessage for Susie
-
-    -- Character flags (saved to the save file)
+    self.gameover_message = nil
+    
     self.flags = {
         ["auto_attack"] = false,
         ["beta_used"] = 0,

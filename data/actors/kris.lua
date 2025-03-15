@@ -3,39 +3,26 @@ local actor, super = Class(Actor, "kris")
 function actor:init()
     super.init(self)
 
-    -- Display name (optional)
     self.name = "Kris"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 19
     self.height = 37
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {0, 25, 19, 14}
 
-    -- A table that defines where the Soul should be placed on this actor if they are a player.
-    -- First value is x, second value is y.
     self.soul_offset = {10, 24}
 
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {0, 1, 1}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/kris/dark"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "walk"
 
-    -- Sound to play when this actor speaks (optional)
     self.voice = nil
-    -- Path to this actor's portrait for dialogue (optional)
     self.portrait_path = nil
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = nil
 
-    -- Whether this actor as a follower will blush when close to the player
     self.can_blush = false
-
-    -- Table of sprite animations
+    
     self.animations = {
         -- Movement animations
         ["slide"]               = {"slide", 4/30, true},
@@ -88,7 +75,6 @@ function actor:init()
         self.animations["battle/transition"] = {"walk/right", 0, true}
     end
 
-    -- Tables of sprites to change into in mirrors
     self.mirror_sprites = {
         ["walk/down"] = "walk/up",
         ["walk/up"] = "walk/down",
@@ -96,7 +82,6 @@ function actor:init()
         ["walk/right"] = "walk/right",
     }
 
-    -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
         -- Movement offsets
         ["walk/left"] = {0, 0},
@@ -154,16 +139,15 @@ function actor:init()
 
         ["t_pose"] = {-4, 0},
 
-        --Cutscene
         ["wakeup"] = {-3, 0},
         ["sit_look_right"] = {-3, 0},
+
         ["pirouette"] = {-3, -1},
 
         --Battle (soulless)
         ["battle_soulless/idle"] = {-5, -1},
         ["battle_soulless/idle_b"] = {-12, -1},
         ["battle_soulless/idle_c"] = {-15, -1},
-        ["battle_soulless/idle_d"] = {-15, -1},
         ["battle_soulless/defeat"] = {-5, 0},
         ["battle_soulless/defeat_look_right"] = {-5, 0},
         ["battle_soulless/defeat_sit"] = {-5, 0},

@@ -3,39 +3,26 @@ local actor, super = Class(Actor, "noelle")
 function actor:init()
     super.init(self)
 
-    -- Display name (optional)
     self.name = "Noelle"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 23
     self.height = 46
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {2, 33, 19, 14}
 
-    -- A table that defines where the Soul should be placed on this actor if they are a player.
-    -- First value is x, second value is y.
     self.soul_offset = {11.5, 28}
 
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {1, 1, 0}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/noelle/dark"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "walk"
 
-    -- Sound to play when this actor speaks (optional)
     self.voice = "noelle"
-    -- Path to this actor's portrait for dialogue (optional)
     self.portrait_path = "face/noelle"
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = {-12, -10}
 
-    -- Whether this actor as a follower will blush when close to the player
     self.can_blush = false
 
-    -- Table of sprite animations
     self.animations = {
         -- Battle animations
         ["battle/idle"]         = {"battle/idle", 0.2, true},
@@ -68,7 +55,7 @@ function actor:init()
         ["fall"] = {"fall", 4/30, true},
         ["jump_ball"] = {"jump_ball", 1/15, true},
 
-        --Iceslide
+        -- Iceslide
         ["iceslide/up"] = {"iceslide/up", 0, false},
         ["iceslide/down"] = {"iceslide/down", 0, false},
         ["iceslide/left"] = {"iceslide/left", 0, false},
@@ -81,7 +68,6 @@ function actor:init()
         ["choir/single_note"] = {"choir/single_note", 4/30, true},
     }
 
-    -- Alternate animations to use for Noelle weird mode (false to disable the animation)
     self.animations_alt = {
         -- Battle animations
         ["battle/idle"]         = {"battle_alt/idle", 0.2, true},
@@ -97,7 +83,6 @@ function actor:init()
         ["battle/victory"]      = {"battle_alt/pray", 5/30, true},
     }
 
-    -- Tables of sprites to change into in mirrors
     self.mirror_sprites = {
         ["walk/down"] = "walk/up",
         ["walk/up"] = "walk/down",
@@ -138,7 +123,6 @@ function actor:init()
         ["walk_mad/right"] = "walk_mad/right",
     }
 
-    -- Table of sprite offsets (indexed by sprite name)
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
@@ -287,7 +271,6 @@ function actor:init()
 end
 
 function actor:getAnimation(anim)
-    -- If the weird route flag is set and an alt animation is defined, use it instead
     if Game:getPartyMember("noelle"):getFlag("weird", false) and self.animations_alt[anim] ~= nil then
         return self.animations_alt[anim] or nil
     else
@@ -309,7 +292,7 @@ function actor:onSetAnimation(sprite, anim, keep_anim)
 end
 
 function actor:getDefault()
-    if Game:getFlag("noelle_switch") then
+    if Game:getPartyMember("noelle"):getFlag("switch") then
         return "walk_happy"
     else
         return "walk"

@@ -5,47 +5,34 @@ function actor:init(style)
 
     local susie_style = style or Game:getConfig("susieStyle")
 
-    -- Display name (optional)
     self.name = "Susie"
 
-    -- Width and height for this actor, used to determine its center
     self.width = 25
     self.height = 43
 
-    -- Hitbox for this actor in the overworld (optional, uses width and height by default)
     self.hitbox = {3, 31, 19, 14}
-    
-    -- A table that defines where the Soul should be placed on this actor if they are a player.
-    -- First value is x, second value is y.
+
     self.soul_offset = {12.5, 24}
 
-    -- Color for this actor used in outline areas (optional, defaults to red)
     self.color = {1, 0, 1}
 
-    -- Path to this actor's sprites (defaults to "")
     self.path = "party/susie/dark"
-    -- This actor's default sprite or animation, relative to the path (defaults to "")
     if susie_style == 1 then
         self.default = "walk_bangs"
     else
         self.default = "walk"
     end
 
-    -- Sound to play when this actor speaks (optional)
     self.voice = "susie"
-    -- Path to this actor's portrait for dialogue (optional)
     if susie_style == 1 then
         self.portrait_path = "face/susie_bangs"
     else
         self.portrait_path = "face/susie"
     end
-    -- Offset position for this actor's portrait (optional)
     self.portrait_offset = {-5, 0}
 
-    -- Whether this actor as a follower will blush when close to the player
     self.can_blush = false
 
-    -- Table of sprite animations
     self.animations = {
         -- Movement animations
         ["slide"]               = {"slide", 4/30, true},
@@ -131,7 +118,6 @@ function actor:init(style)
         self.animations["battle/transition"] = {"bangs_wall_right", 0, true}
     end
 
-    -- Tables of sprites to change into in mirrors
     self.mirror_sprites = {
         ["walk/down"] = "walk/up",
         ["walk/up"] = "walk/down",
@@ -153,8 +139,7 @@ function actor:init(style)
         ["walk_bangs_unhappy/left"] = "walk_bangs_unhappy/left",
         ["walk_bangs_unhappy/right"] = "walk_bangs_unhappy/right",
     }
-
-    -- Table of sprite offsets (indexed by sprite name)
+    
     self.offsets = {
         -- Movement offsets
         ["walk/down"] = {0, 0},
