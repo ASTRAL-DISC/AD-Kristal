@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="69" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="9" nextobjectid="54">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="69" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="9" nextobjectid="54">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -91,28 +91,34 @@
     <property name="marker" value="entry"/>
    </properties>
   </object>
-  <object id="31" name="transition_extended" x="2121" y="199" width="79" height="18">
+  <object id="31" name="transition" x="2121" y="199" width="79" height="18">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/library/lobby"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
-  <object id="32" name="transition_extended" x="603" y="201" width="76" height="20">
+  <object id="32" name="transition" x="603" y="201" width="76" height="20">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/police"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
-  <object id="33" name="transition_extended" x="1323" y="198" width="76" height="20">
+  <object id="33" name="transition" x="1323" y="198" width="76" height="20">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/hospital/lobby"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="51" name="npc" x="396.667" y="319.333">

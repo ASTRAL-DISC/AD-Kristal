@@ -44,7 +44,7 @@ end
 
 function actor:onWorldUpdate(chara)
 	local music = Music.getPlaying()[1]
-	if Game.world.map.id == "castletown/cafe2" and music and music.current == "funky_normal" then
+	if Game.world.map.id == "castletown/cafe" and music and music.current == "funky_normal" then
 		if chara.sprite.anim == "sing_stop" and (music:tell() > 38.57 and music:tell() < 84.48) then
 			chara:setAnimation("sing")
 		elseif chara.sprite.anim == "sing" and (music:tell() > 0 and music:tell() < 38.57) then

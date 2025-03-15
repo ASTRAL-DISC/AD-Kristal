@@ -1,5 +1,5 @@
 return {
-  version = "1.11",
+  version = "1.10",
   luaversion = "5.1",
   tiledversion = "1.11.0",
   class = "",
@@ -303,7 +303,7 @@ return {
       objects = {
         {
           id = 14,
-          name = "transition_extended",
+          name = "transition_special",
           type = "",
           shape = "rectangle",
           x = -40,
@@ -313,7 +313,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["ch3map"] = "castletown/main",
+            ["ch3map"] = "castletown/main2",
             ["ch4map"] = "castletown/main2",
             ["ch5map"] = "castletown/main2",
             ["ch6map"] = "castletown/main2",

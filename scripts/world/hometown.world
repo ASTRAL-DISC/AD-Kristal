@@ -81,7 +81,7 @@
             "fileName": "maps/hometown/lagoon/lagoon.tmx",
             "height": 480,
             "width": 1240,
-            "x": 3360,
+            "x": 4240,
             "y": -2160
         },
         {
@@ -145,21 +145,98 @@
             "height": 480,
             "width": 640,
             "x": 2960,
-            "y": 1240
+            "y": 1760
         },
         {
             "fileName": "maps/hometown/townhall/hallway/hallway.tmx",
             "height": 480,
             "width": 1120,
             "x": 2960,
-            "y": 720
+            "y": 1200
         },
         {
             "fileName": "maps/hometown/townhall/mayorsoffice/mayorsoffice.tmx",
             "height": 480,
             "width": 640,
-            "x": 4120,
-            "y": 720
+            "x": 4160,
+            "y": 1000
+        },
+        {
+            "fileName": "maps/hometown/townhall/hallway2/hallway2.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 3480,
+            "y": 680
+        },
+        {
+            "fileName": "maps/hometown/conbini/conbini.tmx",
+            "height": 480,
+            "width": 920,
+            "x": 5520,
+            "y": 40
+        },
+        {
+            "fileName": "maps/hometown/diner/diner.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -120,
+            "y": 80
+        },
+        {
+            "fileName": "maps/hometown/flowershop/floor1/floor1.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 3480,
+            "y": -2200
+        },
+        {
+            "fileName": "maps/hometown/flowershop/floor2/floor2.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 3480,
+            "y": -2760
+        },
+        {
+            "fileName": "maps/hometown/hospital/lobby/lobby.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -1280,
+            "y": -640
+        },
+        {
+            "fileName": "maps/hometown/hospital/room/room.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -1120,
+            "y": -1720
+        },
+        {
+            "fileName": "maps/hometown/hospital/corridor/corridor.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -1440,
+            "y": -1160
+        },
+        {
+            "fileName": "maps/hometown/hospital/rudyroom/rudyroom.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -1800,
+            "y": -1720
+        },
+        {
+            "fileName": "maps/hometown/apartments/lobby/lobby.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 4840,
+            "y": 1120
+        },
+        {
+            "fileName": "maps/hometown/apartments/hall/hall.tmx",
+            "height": 480,
+            "width": 1000,
+            "x": 5000,
+            "y": 600
         }
     ],
     "onlyShowAdjacentMaps": false,

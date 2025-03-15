@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="9" nextobjectid="25">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="9" nextobjectid="25">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -48,13 +48,14 @@
   <object id="1" gid="33" x="121" y="392" width="158" height="112"/>
  </objectgroup>
  <objectgroup color="#ff00ff" id="5" name="objects">
-  <object id="17" name="transition_extended" x="280" y="480" width="80" height="40">
+  <object id="17" name="transition_special" x="280" y="480" width="80" height="40">
    <properties>
-    <property name="ch3map" value="castletown/main"/>
+    <property name="ch3map" value="castletown/main2"/>
     <property name="ch4map" value="castletown/main2"/>
     <property name="ch5map" value="castletown/main2"/>
     <property name="ch6map" value="castletown/main2"/>
     <property name="ch7map" value="castletown/main2"/>
+    <property name="facing" value="down"/>
     <property name="marker" value="entry_bakery"/>
    </properties>
   </object>

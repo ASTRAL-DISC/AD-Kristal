@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="26">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="26">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -35,12 +35,14 @@
   <object id="23" x="200" y="200" width="49.3333" height="18"/>
  </objectgroup>
  <objectgroup color="#ff55ff" id="5" name="objects">
-  <object id="17" name="transition_extended" x="279.333" y="480" width="80.6667" height="40">
+  <object id="17" name="transition" x="279.333" y="480" width="80.6667" height="40">
    <properties>
-    <property name="door" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/street3"/>
     <property name="marker" value="entry_diner"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="20" gid="49" x="40" y="418" width="560" height="182"/>

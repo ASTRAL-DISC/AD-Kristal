@@ -369,7 +369,7 @@ return {
 
         if not susie then return end
 
-        local transition = Game.world.map:getEvent("transition_extended")
+        local transition = Game.world.map:getEvent("transition_special")
         transition:remove()
 
         kris:moveTo("kris")

@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -299,7 +299,7 @@ return {
         },
         {
           id = 20,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 280,
@@ -309,10 +309,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "down",
             ["map"] = "hometown/hospital/corridor",
-            ["marker"] = "entry_rudy"
+            ["marker"] = "entry_rudy",
+            ["sound"] = "doorclose"
           }
         },
         {

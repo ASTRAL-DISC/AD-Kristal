@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="14" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="54">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="32" height="14" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="54">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -85,20 +85,24 @@
     <property name="cutscene" value="hometown/dreemurr.phone"/>
    </properties>
   </object>
-  <object id="43" name="transition_extended" x="1126.67" y="280" width="33.3333" height="108">
+  <object id="43" name="transition" x="1126.67" y="280" width="33.3333" height="108">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/torhouse/outside"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
-  <object id="45" name="transition_extended" x="88" y="280" width="40" height="133">
+  <object id="45" name="transition" x="88" y="280" width="40" height="133">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="left"/>
     <property name="map" value="hometown/torhouse/bathroom"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="53" name="script" x="1105.5" y="337.5" width="19" height="102.5">

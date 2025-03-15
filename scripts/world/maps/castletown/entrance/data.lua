@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -366,7 +366,7 @@ return {
       objects = {
         {
           id = 15,
-          name = "transition_extended",
+          name = "transition_special",
           type = "",
           shape = "rectangle",
           x = 200,

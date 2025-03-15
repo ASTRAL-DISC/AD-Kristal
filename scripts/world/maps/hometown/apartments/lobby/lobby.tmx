@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="30">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="30">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -48,12 +48,14 @@
     <property name="sound" value="escaped"/>
    </properties>
   </object>
-  <object id="16" name="transition_extended" x="272.612" y="470.897" width="94.7767" height="9.10322">
+  <object id="16" name="transition" x="272.612" y="470.897" width="94.7767" height="9.10322">
    <properties>
-    <property name="door" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/street3"/>
     <property name="marker" value="entry_apartments"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="17" name="npc" x="532.245" y="246.398">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="86" height="16" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="112">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="86" height="16" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="112">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -125,13 +125,15 @@
     <property name="marker" value="entry"/>
    </properties>
   </object>
-  <object id="61" name="transition_extended" x="2298.5" y="344.5" width="77.5" height="11.5">
+  <object id="61" name="transition" x="2298.5" y="344.5" width="77.5" height="11.5">
    <properties>
     <property name="cond" value="Game.chapter == 5 or Game.chapter == 7"/>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/flowershop/floor1"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="64" name="transition" x="2003.5" y="309.5" width="42.5" height="23.5">

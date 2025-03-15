@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -710,7 +710,7 @@ return {
         },
         {
           id = 61,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 2298.5,
@@ -721,10 +721,12 @@ return {
           visible = true,
           properties = {
             ["cond"] = "Game.chapter == 5 or Game.chapter == 7",
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/flowershop/floor1",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         },
         {

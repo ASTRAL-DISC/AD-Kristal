@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -441,7 +441,7 @@ return {
         },
         {
           id = 31,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 2121,
@@ -451,15 +451,17 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/library/lobby",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         },
         {
           id = 32,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 603,
@@ -469,15 +471,17 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/police",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         },
         {
           id = 33,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 1323,
@@ -487,10 +491,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/hospital/lobby",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         },
         {

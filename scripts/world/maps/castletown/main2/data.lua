@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -794,7 +794,7 @@ return {
         },
         {
           id = 88,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 958,
@@ -804,12 +804,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["ch3map"] = "castletown/cafe",
-            ["ch4map"] = "castletown/cafe2",
-            ["ch5map"] = "castletown/cafe2",
-            ["ch6map"] = "castletown/cafe2",
-            ["ch7map"] = "castletown/cafe2",
             ["facing"] = "up",
+            ["map"] = "castletown/cafe",
             ["marker"] = "entry"
           }
         },

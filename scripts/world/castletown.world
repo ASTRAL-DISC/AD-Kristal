@@ -4,15 +4,15 @@
             "fileName": "maps/castletown/main/main.tmx",
             "height": 1600,
             "width": 1520,
-            "x": 0,
-            "y": 0
+            "x": -2520,
+            "y": 2096
         },
         {
             "fileName": "maps/castletown/main2/main2.tmx",
             "height": 1920,
             "width": 1680,
-            "x": -120,
-            "y": 2360
+            "x": -80,
+            "y": 56
         },
         {
             "fileName": "maps/castletown/front/front.tmx",
@@ -26,28 +26,28 @@
             "height": 480,
             "width": 640,
             "x": 440,
-            "y": 1720
+            "y": 2056
         },
         {
             "fileName": "maps/castletown/tutorial/tutorial.tmx",
             "height": 480,
             "width": 1400,
-            "x": 1600,
-            "y": 840
+            "x": 1736,
+            "y": 1216
         },
         {
             "fileName": "maps/castletown/east/east.tmx",
             "height": 480,
             "width": 640,
-            "x": 3080,
-            "y": 840
+            "x": 3256,
+            "y": 1220
         },
         {
             "fileName": "maps/castletown/west/west.tmx",
             "height": 480,
             "width": 640,
-            "x": -720,
-            "y": 880
+            "x": -825,
+            "y": 1256
         },
         {
             "fileName": "maps/castletown/dungeon/dungeon.tmx",
@@ -81,22 +81,15 @@
             "fileName": "maps/castletown/dojo/dojo.tmx",
             "height": 480,
             "width": 640,
-            "x": -720,
-            "y": 280
-        },
-        {
-            "fileName": "maps/castletown/cafe/cafe.tmx",
-            "height": 480,
-            "width": 640,
-            "x": 1240,
-            "y": -560
+            "x": -401,
+            "y": -510
         },
         {
             "fileName": "maps/castletown/bakery/bakery.tmx",
             "height": 480,
             "width": 640,
-            "x": 1640,
-            "y": 0
+            "x": 1084,
+            "y": 1812
         },
         {
             "fileName": "maps/castletown/rooms/kris/kris.tmx",
@@ -139,6 +132,13 @@
             "width": 1440,
             "x": 1160,
             "y": 1800
+        },
+        {
+            "fileName": "maps/castletown/cafe/cafe.tmx",
+            "height": 480,
+            "width": 1440,
+            "x": 1328,
+            "y": -524
         }
     ],
     "onlyShowAdjacentMaps": false,

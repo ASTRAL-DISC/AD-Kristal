@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="11" nextobjectid="24">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="11" nextobjectid="24">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -113,9 +113,9 @@
     <property name="marker" value="entry"/>
    </properties>
   </object>
-  <object id="20" name="transition_extended" x="440" y="1000" width="160" height="40">
+  <object id="20" name="transition_special" x="440" y="1000" width="160" height="40">
    <properties>
-    <property name="ch3map" value="castletown/main"/>
+    <property name="ch3map" value="castletown/main2"/>
     <property name="ch4map" value="castletown/main2"/>
     <property name="ch5map" value="castletown/main2"/>
     <property name="ch6map" value="castletown/main2"/>

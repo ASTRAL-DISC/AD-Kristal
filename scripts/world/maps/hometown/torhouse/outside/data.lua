@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -279,7 +279,7 @@ return {
       objects = {
         {
           id = 11,
-          name = "transition_extended",
+          name = "transition_special",
           type = "",
           shape = "rectangle",
           x = 301.667,
@@ -294,9 +294,11 @@ return {
             ["ch5map"] = "hometown/torhouse/floor1",
             ["ch6map"] = "hometown/torhouse/floor1",
             ["ch7map"] = "hometown/torhouse/floor1",
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "left",
-            ["marker"] = "entry2"
+            ["marker"] = "entry2",
+            ["sound"] = "dooropen"
           }
         },
         {
