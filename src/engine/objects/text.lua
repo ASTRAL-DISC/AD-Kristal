@@ -8,6 +8,7 @@ Text.COLORS = {
     ["red"] = COLORS.red,
     ["blue"] = COLORS.blue,
     ["yellow"] = COLORS.yellow,
+    ["orange"] = COLORS.orange,
     ["green"] = COLORS.lime,
     ["white"] = COLORS.white,
     ["black"] = COLORS.black,
