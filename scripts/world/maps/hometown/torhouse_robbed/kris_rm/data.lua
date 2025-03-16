@@ -401,7 +401,7 @@ return {
         },
         {
           id = 27,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 292,
@@ -411,10 +411,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "down",
             ["map"] = "hometown/torhouse_robbed/floor2",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         }
       }

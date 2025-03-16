@@ -1,0 +1,69 @@
+{
+    "maps": [
+        {
+            "fileName": "maps/hometown_dark/torhouse/outside/outside.tmx",
+            "height": 800,
+            "width": 640,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "fileName": "maps/hometown_dark/torhouse/kris_rm/kris_rm.tmx",
+            "height": 480,
+            "width": 640,
+            "x": 80,
+            "y": -1640
+        },
+        {
+            "fileName": "maps/hometown_dark/torhouse/floor1/floor1.tmx",
+            "height": 560,
+            "width": 1280,
+            "x": -320,
+            "y": -600
+        },
+        {
+            "fileName": "maps/hometown_dark/torhouse/floor2/floor2.tmx",
+            "height": 480,
+            "width": 1080,
+            "x": -200,
+            "y": -1120
+        },
+        {
+            "fileName": "maps/hometown_dark/torhouse/bathroom/bathroom.tmx",
+            "height": 480,
+            "width": 520,
+            "x": -880,
+            "y": -520
+        },
+        {
+            "fileName": "maps/hometown_dark/street4/street4.tmx",
+            "height": 1000,
+            "width": 1520,
+            "x": 0,
+            "y": 3000
+        },
+        {
+            "fileName": "maps/hometown_dark/street3/street3.tmx",
+            "height": 640,
+            "width": 4080,
+            "x": -840,
+            "y": 2280
+        },
+        {
+            "fileName": "maps/hometown_dark/street2/street2.tmx",
+            "height": 480,
+            "width": 2760,
+            "x": -1000,
+            "y": 1680
+        },
+        {
+            "fileName": "maps/hometown_dark/street/street.tmx",
+            "height": 640,
+            "width": 3440,
+            "x": -320,
+            "y": 920
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}

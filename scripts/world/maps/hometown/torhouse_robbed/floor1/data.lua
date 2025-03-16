@@ -506,7 +506,7 @@ return {
         },
         {
           id = 43,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 1126.67,
@@ -516,15 +516,17 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "down",
             ["map"] = "hometown/torhouse/outside",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         },
         {
           id = 45,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 88,
@@ -534,10 +536,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "left",
             ["map"] = "hometown/torhouse_robbed/bathroom",
-            ["marker"] = "entry"
+            ["marker"] = "entry",
+            ["sound"] = "dooropen"
           }
         }
       }

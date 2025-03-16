@@ -283,7 +283,7 @@ return {
       objects = {
         {
           id = 11,
-          name = "transition_extended",
+          name = "transition",
           type = "",
           shape = "rectangle",
           x = 301.667,
@@ -293,10 +293,12 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["door"] = true,
+            ["exit_delay"] = 1,
+            ["exit_sound"] = "doorclose",
             ["facing"] = "left",
             ["map"] = "hometown_dark/torhouse/floor1",
-            ["marker"] = "entry2"
+            ["marker"] = "entry2",
+            ["sound"] = "dooropen"
           }
         },
         {

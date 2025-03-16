@@ -57,12 +57,14 @@
   </object>
  </objectgroup>
  <objectgroup color="#ff007f" id="4" name="objects">
-  <object id="11" name="transition_extended" x="301.667" y="289.333" width="68" height="48">
+  <object id="11" name="transition" x="301.667" y="289.333" width="68" height="48">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="left"/>
     <property name="map" value="hometown_dark/torhouse/floor1"/>
     <property name="marker" value="entry2"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="13" name="transition" x="240" y="774.667" width="200" height="25.3333">

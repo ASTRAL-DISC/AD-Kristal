@@ -93,12 +93,14 @@
     <property name="cutscene" value="hometown/dreemurr.window"/>
    </properties>
   </object>
-  <object id="27" name="transition_extended" x="292" y="467" width="78" height="13">
+  <object id="27" name="transition" x="292" y="467" width="78" height="13">
    <properties>
-    <property name="door" type="bool" value="true"/>
+    <property name="exit_delay" type="int" value="1"/>
+    <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/torhouse_robbed/floor2"/>
     <property name="marker" value="entry"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
  </objectgroup>

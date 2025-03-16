@@ -663,25 +663,6 @@ return {
           }
         },
         {
-          id = 61,
-          name = "transition_extended",
-          type = "",
-          shape = "rectangle",
-          x = 2298.5,
-          y = 344.5,
-          width = 77.5,
-          height = 11.5,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cond"] = "Game.chapter == 5 or Game.chapter == 7",
-            ["door"] = true,
-            ["facing"] = "up",
-            ["map"] = "hometown/flowershop/floor1",
-            ["marker"] = "entry"
-          }
-        },
-        {
           id = 64,
           name = "transition",
           type = "",
