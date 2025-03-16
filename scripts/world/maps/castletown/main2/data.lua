@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 23,
-  nextobjectid = 167,
+  nextobjectid = 170,
   backgroundcolor = { 0, 0, 0 },
   properties = {
     ["border"] = "castle",
@@ -1020,22 +1020,6 @@ return {
           }
         },
         {
-          id = 164,
-          name = "npc",
-          type = "",
-          shape = "point",
-          x = 1560,
-          y = 880,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "drizzly",
-            ["cutscene"] = "castletown/main2.drizzly"
-          }
-        },
-        {
           id = 165,
           name = "",
           type = "",
@@ -1062,6 +1046,57 @@ return {
           gid = 324,
           visible = true,
           properties = {}
+        },
+        {
+          id = 167,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 949,
+          y = 491,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "plugboy",
+            ["cutscene"] = "placeholder.text",
+            ["sprite"] = "suit",
+            ["talksprite"] = "suit"
+          }
+        },
+        {
+          id = 168,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 346,
+          y = 677,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "suit_werewire",
+            ["cutscene"] = "placeholder.text",
+            ["facing"] = "right"
+          }
+        },
+        {
+          id = 169,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 532,
+          y = 1198,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "ponman",
+            ["cutscene"] = "placeholder.text"
+          }
         }
       }
     },

@@ -77,7 +77,7 @@
   </object>
   <object id="16" name="interactable" x="160" y="200" width="80" height="40">
    <properties>
-    <property name="cutscene" value="_door.locked"/>
+    <property name="cutscene" value="placeholder.door"/>
    </properties>
   </object>
   <object id="21" name="interactable" x="560" y="200" width="120" height="40">

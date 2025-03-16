@@ -513,7 +513,7 @@ return {
           properties = {
             ["actor"] = "rainykid",
             ["cond"] = "Game.chapter == 4 and Game:getFlag(\"ch4_rain\")",
-            ["cutscene"] = "_door.placeholder",
+            ["cutscene"] = "placeholder.text",
             ["path"] = "rainykid",
             ["progress"] = "2",
             ["reverse_progress"] = "true",

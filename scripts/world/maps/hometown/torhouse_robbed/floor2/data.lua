@@ -341,7 +341,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["cutscene"] = "_door.locked"
+            ["cutscene"] = "placeholder.door"
           }
         },
         {

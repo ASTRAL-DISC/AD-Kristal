@@ -25,7 +25,9 @@ function actor:init()
 
     self.animations = {}
     
-    self.offsets = {}
+    self.offsets = {
+        ["talk"] = {0, 0}
+    }
 end
 
 return actor

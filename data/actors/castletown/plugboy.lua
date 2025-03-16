@@ -8,13 +8,13 @@ function actor:init()
     self.width = 28
     self.height = 31
 
-    self.hitbox = {3, 13, 20, 18}
+    self.hitbox = {1, 13, 18, 18}
 
     self.color = {1, 1, 0}
 
     self.flip = "right"
 
-    self.path = "npcs/plugboy"
+    self.path = "npcs/castletown/plugboy"
     self.default = "idle"
 
     self.voice = nil

@@ -125,7 +125,7 @@
    <properties>
     <property name="actor" value="rainykid"/>
     <property name="cond" value="Game.chapter == 4 and Game:getFlag(&quot;ch4_rain&quot;)"/>
-    <property name="cutscene" value="_door.placeholder"/>
+    <property name="cutscene" value="placeholder.text"/>
     <property name="path" value="rainykid"/>
     <property name="progress" value="2"/>
     <property name="reverse_progress" value="true"/>
