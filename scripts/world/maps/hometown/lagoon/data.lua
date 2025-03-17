@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 31,
+  nextobjectid = 33,
   properties = {
     ["border"] = "leaves",
     ["light"] = "true",
@@ -343,6 +343,21 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 32,
+          name = "bird",
+          type = "",
+          shape = "point",
+          x = 698,
+          y = 267,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["sleeping"] = true
+          }
         }
       }
     },

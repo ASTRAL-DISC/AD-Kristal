@@ -3,6 +3,8 @@ local Bird, super = Class(Event, "bird")
 function Bird:init(data)
     super.init(self, data.x, data.y, data.width, data.height)
 
+	local properties = data.properties or {}
+
 	self:setScale(2)
 
 	self.sprite = ActorSprite("bird")
@@ -11,6 +13,14 @@ function Bird:init(data)
 
 	self.solid = false
 	self.flying = false
+	self.sleeping = properties["sleeping"] or false
+
+	if self.sleeping then
+		self.sprite:setAnimation("sleep")
+		self.solid = true
+		local width, height = self.sprite:getSize()
+    	self:setHitbox(-10, 1, width, math.floor(height / 4) * 2)
+	end
 end
 
 function Bird:update()
@@ -18,23 +28,55 @@ function Bird:update()
 	local player = Game.world.player
     local distance = Utils.dist(player.x, player.y, self.x, self.y)
 	local fly_dist = Utils.clampMap(distance, 30, 130, 1, 0)
-	if fly_dist > 0 and (not self.flying) then
-		self.flying = true
-		self.sprite:setAnimation("fly")
-		local snd = Assets.stopAndPlaySound("birdfly", 0.6)
-        snd:setPitch(1 + Utils.random(0.15))
-		if player.x > self.x then
-			self:slideTo(self.x - 200, self.y - Game.world.height, 2, "in-quad", function()
-				self:remove()
-				self:setFlag("dont_load", true)
-			end)
-		else
-			self.flip_x = true
-			self:slideTo(self.x + 200, self.y - Game.world.height, 2, "in-quad", function()
-				self:remove()
-				self:setFlag("dont_load", true)
-			end)
+	if not self.sleeping then
+		if fly_dist > 0 and not self.flying then
+			self.flying = true
+			self.sprite:setAnimation("fly")
+			local snd = Assets.stopAndPlaySound("birdfly", 0.6)
+			snd:setPitch(1 + Utils.random(0.15))
+			if player.x > self.x then
+				self:slideTo(self.x - 200, self.y - Game.world.height, 2, "in-quad", function()
+					self:remove()
+					self:setFlag("dont_load", true)
+				end)
+			else
+				self.flip_x = true
+				self:slideTo(self.x + 200, self.y - Game.world.height, 2, "in-quad", function()
+					self:remove()
+					self:setFlag("dont_load", true)
+				end)
+			end
 		end
+	end
+end
+
+function Bird:onInteract(player, dir)
+	if self.sleeping then
+		Game.world:startCutscene(function(cutscene)
+			self.sprite.sleeping = false
+			self.sprite:setSprite("wake")
+			self:shake(3)
+			local snd = Assets.stopAndPlaySound("crow")
+			snd:setPitch(1 + Utils.random(0.15))
+			cutscene:wait(0.5)
+			self.solid = false
+			self:setLayer(500)
+			self.sprite:setAnimation("fly")
+			local snd = Assets.stopAndPlaySound("birdfly", 0.6)
+			snd:setPitch(1 + Utils.random(0.15))
+			if player.x > self.x then
+				self:slideTo(self.x - 200, self.y - Game.world.height, 2, "in-quad", function()
+					self:remove()
+					self:setFlag("dont_load", true)
+				end)
+			else
+				self.flip_x = true
+				self:slideTo(self.x + 200, self.y - Game.world.height, 2, "in-quad", function()
+					self:remove()
+					self:setFlag("dont_load", true)
+				end)
+			end
+		end)
 	end
 end
 
