@@ -52,9 +52,12 @@ end
 function Bird:onInteract(player, dir)
 	if self.sleeping then
 		Game.world:startCutscene(function(cutscene)
-			if self.sprite.sleeping then
-				self.sprite.sleeping = false
+			for _,z in ipairs(self.sprite.zzz) do
+				if z then
+					z:remove()
+				end
 			end
+			self.sprite.z_spawn_rate = 0
 			self.sprite:setSprite("wake")
 			self:shake(3)
 			local snd = Assets.stopAndPlaySound("crow")
@@ -62,7 +65,9 @@ function Bird:onInteract(player, dir)
 			cutscene:wait(0.5)
 			self:setFlag("dont_load", true)
 			self.solid = false
-			self:setLayer(190)
+			if dir ~= "up" then
+				self:setLayer(190)
+			end
 			self.sprite:setAnimation("fly")
 			local snd = Assets.stopAndPlaySound("birdfly", 0.6)
 			snd:setPitch(1 + Utils.random(0.15))

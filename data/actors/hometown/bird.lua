@@ -55,6 +55,7 @@ function actor:onSpriteUpdate(sprite)
         if sprite.z_spawn_timer >= 0 then
             sprite.z_spawn_timer = sprite.z_spawn_timer - DTMULT
         else
+            sprite.zzz = {}
             local z = Sprite("effects/bird_z", sprite.width/2 + 2, sprite.height/2 - 15)
             z:setScale(1)
             z.physics.direction = math.rad(math.random(-60))
@@ -65,6 +66,7 @@ function actor:onSpriteUpdate(sprite)
                 z:fadeOutSpeedAndRemove(0.1)
             end)
             z.layer = WORLD_LAYERS["above_events"]
+            table.insert(sprite.zzz, z)
             sprite:addChild(z)
             sprite.z_spawn_timer = sprite.z_spawn_rate * 30
         end
