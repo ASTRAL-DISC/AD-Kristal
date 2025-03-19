@@ -31,19 +31,18 @@ function Bird:update()
 	if not self.sleeping then
 		if fly_dist > 0 and not self.flying then
 			self.flying = true
+			self:setFlag("dont_load", true)
 			self.sprite:setAnimation("fly")
 			local snd = Assets.stopAndPlaySound("birdfly", 0.6)
 			snd:setPitch(1 + Utils.random(0.15))
 			if player.x > self.x then
 				self:slideTo(self.x - 200, self.y - Game.world.height, 2, "in-quad", function()
 					self:remove()
-					self:setFlag("dont_load", true)
 				end)
 			else
 				self.flip_x = true
 				self:slideTo(self.x + 200, self.y - Game.world.height, 2, "in-quad", function()
 					self:remove()
-					self:setFlag("dont_load", true)
 				end)
 			end
 		end
@@ -53,27 +52,28 @@ end
 function Bird:onInteract(player, dir)
 	if self.sleeping then
 		Game.world:startCutscene(function(cutscene)
-			self.sprite.sleeping = false
+			if self.sprite.sleeping then
+				self.sprite.sleeping = false
+			end
 			self.sprite:setSprite("wake")
 			self:shake(3)
 			local snd = Assets.stopAndPlaySound("crow")
 			snd:setPitch(1 + Utils.random(0.15))
 			cutscene:wait(0.5)
+			self:setFlag("dont_load", true)
 			self.solid = false
-			self:setLayer(500)
+			self:setLayer(190)
 			self.sprite:setAnimation("fly")
 			local snd = Assets.stopAndPlaySound("birdfly", 0.6)
 			snd:setPitch(1 + Utils.random(0.15))
 			if player.x > self.x then
 				self:slideTo(self.x - 200, self.y - Game.world.height, 2, "in-quad", function()
 					self:remove()
-					self:setFlag("dont_load", true)
 				end)
 			else
 				self.flip_x = true
 				self:slideTo(self.x + 200, self.y - Game.world.height, 2, "in-quad", function()
 					self:remove()
-					self:setFlag("dont_load", true)
 				end)
 			end
 		end)
