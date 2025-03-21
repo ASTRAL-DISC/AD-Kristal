@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="36" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="109">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="36" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="11" nextobjectid="117">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -24,6 +24,67 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <imagelayer id="7" name="stage">
+  <image source="../../../../../assets/sprites/world/castle_town/cafe_stage.png" width="640" height="200"/>
+ </imagelayer>
+ <objectgroup color="#55557f" id="9" name="objects_performers">
+  <object id="109" name="npc" x="158" y="159.023">
+   <properties>
+    <property name="actor" value="tasque_manager"/>
+    <property name="animation" value="sing_stop"/>
+    <property name="cond" value="Game:hasRecruit(&quot;tasque_manager&quot;)"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="110" name="npc" x="285.5" y="131.523">
+   <properties>
+    <property name="actor" value="kk"/>
+    <property name="animation" value="cymbal"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="111" name="deltadrums" x="285" y="118.356">
+   <point/>
+  </object>
+  <object id="112" name="npc" x="408" y="157.523">
+   <properties>
+    <property name="actor" value="sweet"/>
+    <property name="animation" value="sing_stop"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="113" name="npc" x="525" y="159.023">
+   <properties>
+    <property name="actor" value="shadowguy"/>
+    <property name="animation" value="play_stop"/>
+    <property name="cond" value="Game:hasRecruit(&quot;shadowguy&quot;)"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#55ffff" id="10" name="objects_notes">
+  <object id="114" name="notegenerator" x="172.67" y="26">
+   <properties>
+    <property name="srctell" type="float" value="7.67"/>
+    <property name="srctell2" type="float" value="23.22"/>
+    <property name="srctell3" type="float" value="38.57"/>
+    <property name="srctell4" type="float" value="84.48"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="115" name="notegenerator" x="368.33" y="68">
+   <properties>
+    <property name="dir" value="225"/>
+    <property name="spawn_rate" type="float" value="1.9"/>
+    <property name="srctell" type="float" value="38.57"/>
+    <property name="srctell2" type="float" value="84.48"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#aa55ff" id="8" name="objects_curtain">
+  <object id="116" name="cafecurtain" x="68" y="0" width="520" height="160"/>
+ </objectgroup>
  <imagelayer id="2" name="bg">
   <image source="../../../../../assets/sprites/world/castle_town/castle_cafe_ch4.png" width="1440" height="480"/>
  </imagelayer>
@@ -103,57 +164,6 @@
     <property name="actor" value="swatchling"/>
     <property name="cond" value="Game:hasRecruit(&quot;swatchling&quot;)"/>
     <property name="sprite" value="right"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="32" name="npc" x="158" y="159">
-   <properties>
-    <property name="actor" value="tasque_manager"/>
-    <property name="animation" value="sing_stop"/>
-    <property name="cond" value="Game:hasRecruit(&quot;tasque_manager&quot;)"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="33" name="notegenerator" x="172.67" y="26">
-   <properties>
-    <property name="srctell" type="float" value="7.67"/>
-    <property name="srctell2" type="float" value="23.22"/>
-    <property name="srctell3" type="float" value="38.57"/>
-    <property name="srctell4" type="float" value="84.48"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="34" name="npc" x="285.5" y="131.5">
-   <properties>
-    <property name="actor" value="kk"/>
-    <property name="animation" value="cymbal"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="35" name="deltadrums" x="285" y="118.333">
-   <point/>
-  </object>
-  <object id="36" name="npc" x="408" y="157.5">
-   <properties>
-    <property name="actor" value="sweet"/>
-    <property name="animation" value="sing_stop"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="37" name="notegenerator" x="368.33" y="68">
-   <properties>
-    <property name="dir" value="225"/>
-    <property name="spawn_rate" type="float" value="1.9"/>
-    <property name="srctell" type="float" value="38.57"/>
-    <property name="srctell2" type="float" value="84.48"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="38" name="npc" x="525" y="159">
-   <properties>
-    <property name="actor" value="shadowguy"/>
-    <property name="animation" value="play_stop"/>
-    <property name="cond" value="Game:hasRecruit(&quot;shadowguy&quot;)"/>
    </properties>
    <point/>
   </object>

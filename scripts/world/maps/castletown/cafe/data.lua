@@ -9,8 +9,8 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 7,
-  nextobjectid = 109,
+  nextlayerid = 11,
+  nextobjectid = 117,
   properties = {
     ["border"] = "castle",
     ["music"] = "funky_normal"
@@ -54,6 +54,198 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "imagelayer",
+      image = "../../../../../assets/sprites/world/castle_town/cafe_stage.png",
+      id = 7,
+      name = "stage",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      repeatx = false,
+      repeaty = false,
+      properties = {}
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 9,
+      name = "objects_performers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 109,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 158,
+          y = 159.023,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "tasque_manager",
+            ["animation"] = "sing_stop",
+            ["cond"] = "Game:hasRecruit(\"tasque_manager\")"
+          }
+        },
+        {
+          id = 110,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 285.5,
+          y = 131.523,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "kk",
+            ["animation"] = "cymbal"
+          }
+        },
+        {
+          id = 111,
+          name = "deltadrums",
+          type = "",
+          shape = "point",
+          x = 285,
+          y = 118.356,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 112,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 408,
+          y = 157.523,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "sweet",
+            ["animation"] = "sing_stop"
+          }
+        },
+        {
+          id = 113,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 525,
+          y = 159.023,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "shadowguy",
+            ["animation"] = "play_stop",
+            ["cond"] = "Game:hasRecruit(\"shadowguy\")"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 10,
+      name = "objects_notes",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 114,
+          name = "notegenerator",
+          type = "",
+          shape = "point",
+          x = 172.67,
+          y = 26,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["srctell"] = 7.67,
+            ["srctell2"] = 23.22,
+            ["srctell3"] = 38.57,
+            ["srctell4"] = 84.48
+          }
+        },
+        {
+          id = 115,
+          name = "notegenerator",
+          type = "",
+          shape = "point",
+          x = 368.33,
+          y = 68,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["dir"] = "225",
+            ["spawn_rate"] = 1.9,
+            ["srctell"] = 38.57,
+            ["srctell2"] = 84.48
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 8,
+      name = "objects_curtain",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 116,
+          name = "cafecurtain",
+          type = "",
+          shape = "rectangle",
+          x = 68,
+          y = 0,
+          width = 520,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
       }
     },
     {
@@ -505,121 +697,6 @@ return {
             ["actor"] = "swatchling",
             ["cond"] = "Game:hasRecruit(\"swatchling\")",
             ["sprite"] = "right"
-          }
-        },
-        {
-          id = 32,
-          name = "npc",
-          type = "",
-          shape = "point",
-          x = 158,
-          y = 159,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "tasque_manager",
-            ["animation"] = "sing_stop",
-            ["cond"] = "Game:hasRecruit(\"tasque_manager\")"
-          }
-        },
-        {
-          id = 33,
-          name = "notegenerator",
-          type = "",
-          shape = "point",
-          x = 172.67,
-          y = 26,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["srctell"] = 7.67,
-            ["srctell2"] = 23.22,
-            ["srctell3"] = 38.57,
-            ["srctell4"] = 84.48
-          }
-        },
-        {
-          id = 34,
-          name = "npc",
-          type = "",
-          shape = "point",
-          x = 285.5,
-          y = 131.5,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "kk",
-            ["animation"] = "cymbal"
-          }
-        },
-        {
-          id = 35,
-          name = "deltadrums",
-          type = "",
-          shape = "point",
-          x = 285,
-          y = 118.333,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 36,
-          name = "npc",
-          type = "",
-          shape = "point",
-          x = 408,
-          y = 157.5,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "sweet",
-            ["animation"] = "sing_stop"
-          }
-        },
-        {
-          id = 37,
-          name = "notegenerator",
-          type = "",
-          shape = "point",
-          x = 368.33,
-          y = 68,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["dir"] = "225",
-            ["spawn_rate"] = 1.9,
-            ["srctell"] = 38.57,
-            ["srctell2"] = 84.48
-          }
-        },
-        {
-          id = 38,
-          name = "npc",
-          type = "",
-          shape = "point",
-          x = 525,
-          y = 159,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["actor"] = "shadowguy",
-            ["animation"] = "play_stop",
-            ["cond"] = "Game:hasRecruit(\"shadowguy\")"
           }
         },
         {

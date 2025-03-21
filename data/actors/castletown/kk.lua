@@ -28,7 +28,7 @@ end
 function actor:musicAnim(sprite, wait, beat_delay)
     while true do
         local music = Music.getPlaying()[1]
-        if music and MUSIC_BPM[music.current] then
+        if (music and music.current == "funky_normal") and MUSIC_BPM[music.current] then
             local beat = music.source:tell() / (60 / MUSIC_BPM[music.current])
             sprite:setFrame(math.floor(beat / beat_delay) + 1)
         end

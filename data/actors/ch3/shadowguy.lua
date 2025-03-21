@@ -50,7 +50,7 @@ end
 function actor:musicAnim(sprite, wait, beat_delay)
     while true do
         local music = Music.getPlaying()[1]
-        if music and MUSIC_BPM[music.current] then
+        if (music and music.current == "funky_normal") and MUSIC_BPM[music.current] then
             local beat = music.source:tell() / (60 / MUSIC_BPM[music.current])
             sprite:setFrame(math.floor(beat / beat_delay) + 1)
         end
@@ -64,7 +64,7 @@ end
 
 function actor:onWorldUpdate(chara)
 	local music = Music.getPlaying()[1]
-	if Game.world.map.id == "castletown/cafe" and music and music.current == "funky_normal" then
+	if Game.world.map.id == "castletown/cafe" and (music and music.current == "funky_normal") then
 		if chara.sprite.anim == "play_stop" and (music:tell() > 23.32 and music:tell() < 84.48) then
 			chara:setAnimation("play")
 		elseif chara.sprite.anim == "play" and (music:tell() > 0 and music:tell() < 23.32) then

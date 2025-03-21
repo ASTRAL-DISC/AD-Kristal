@@ -13,6 +13,7 @@ function NoteGenerator:init(data)
     self.spawn_timer = self.spawn_rate * 30
 
     -- MUST be float properties in tiled
+    self.music = properties["music"] or "funky_normal"
     self.srctell = properties["srctell"] or nil
     self.srctell2 = properties["srctell2"] or nil
     self.srctell3 = properties["srctell3"] or nil
@@ -39,7 +40,7 @@ function NoteGenerator:update()
 
         local music = Music.getPlaying()[1]
         
-        if music then
+        if music and music.current == self.music then
             if self.srctell and self.srctell2 then
                 if self.srctell3 and self.srctell4 then
                     if (music:tell() > self.srctell and music:tell() < self.srctell2) or (music:tell() > self.srctell3 and music:tell() < self.srctell4) then
