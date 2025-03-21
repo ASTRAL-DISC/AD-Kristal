@@ -79,6 +79,7 @@ end
 
 function LightTransition.cutscene(cutscene, self, player)
 	--taken and modified from Dark Place
+	Game.world.music:fade(0, 0.8)
 	cutscene:detachFollowers()
 	local event = self.parent
 	local settings = self.cutsceneSettings

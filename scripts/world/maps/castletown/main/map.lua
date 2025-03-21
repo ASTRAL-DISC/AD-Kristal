@@ -1,6 +1,6 @@
-local Main2, super = Class(Map)
+local Main, super = Class(Map)
 
-function Main2:onEnter()
+function Main:onEnter()
     super.onEnter(self)
     if #Game.party == 2 and not Game:hasPartyMember("ralsei") then
         Game:addPartyMember("ralsei")
@@ -8,4 +8,4 @@ function Main2:onEnter()
     end
 end
 
-return Main2
+return Main

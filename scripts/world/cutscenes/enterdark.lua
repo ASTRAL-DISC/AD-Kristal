@@ -172,6 +172,7 @@ return function(cutscene, event)
                 kris.visible = false
             end
         end
+        Game.world.music:stop()
     end
 
     transition.end_callback = function(transition, data)
