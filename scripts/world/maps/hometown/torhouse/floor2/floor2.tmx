@@ -90,7 +90,6 @@
   </object>
   <object id="33" name="transition" x="560.75" y="200" width="78.5" height="40">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/torhouse/kris_rm"/>

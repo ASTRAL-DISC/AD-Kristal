@@ -37,7 +37,6 @@
  <objectgroup color="#ff55ff" id="5" name="objects">
   <object id="17" name="transition" x="279.333" y="480" width="80.6667" height="40">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/street3"/>

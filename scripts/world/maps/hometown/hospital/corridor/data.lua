@@ -276,7 +276,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/hospital/rudyroom",
@@ -296,7 +295,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/hospital/room",
@@ -316,7 +314,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "down",
             ["map"] = "hometown/hospital/lobby",

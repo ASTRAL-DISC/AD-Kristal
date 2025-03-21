@@ -93,7 +93,6 @@
   </object>
   <object id="31" name="transition" x="2121" y="199" width="79" height="18">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/library/lobby"/>
@@ -103,7 +102,6 @@
   </object>
   <object id="32" name="transition" x="603" y="201" width="76" height="20">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/police"/>
@@ -113,7 +111,6 @@
   </object>
   <object id="33" name="transition" x="1323" y="198" width="76" height="20">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/hospital/lobby"/>

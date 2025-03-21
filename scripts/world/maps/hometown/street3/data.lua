@@ -938,7 +938,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/diner",
@@ -958,7 +957,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/icee",
@@ -979,7 +977,6 @@ return {
           visible = true,
           properties = {
             ["cond"] = "Game.chapter >= 4 and Game:hasPartyMember(\"susie\")",
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/apartments/lobby",

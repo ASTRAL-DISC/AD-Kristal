@@ -65,7 +65,6 @@
   </object>
   <object id="27" name="transition" x="135.818" y="175.766" width="79.7339" height="13.5142">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/hospital/corridor"/>
@@ -76,7 +75,6 @@
   <object id="28" gid="50" x="119.989" y="342.007" width="398" height="50"/>
   <object id="29" name="transition" x="280" y="480" width="80" height="40">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/street2"/>

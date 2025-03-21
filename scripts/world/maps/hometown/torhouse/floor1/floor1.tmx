@@ -87,7 +87,6 @@
   </object>
   <object id="43" name="transition" x="1126.67" y="280" width="33.3333" height="108">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/torhouse/outside"/>
@@ -97,7 +96,6 @@
   </object>
   <object id="45" name="transition" x="88" y="280" width="40" height="133">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="left"/>
     <property name="map" value="hometown/torhouse/bathroom"/>

@@ -40,7 +40,6 @@
  <objectgroup color="#ff55ff" id="5" name="objects">
   <object id="19" name="transition" x="160" y="160" width="80" height="33.2429">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/hospital/rudyroom"/>
@@ -50,7 +49,6 @@
   </object>
   <object id="20" name="transition" x="400" y="160" width="80" height="33.9186">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/hospital/room"/>
@@ -60,7 +58,6 @@
   </object>
   <object id="22" name="transition" x="280" y="392.434" width="80" height="38.7816">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/hospital/lobby"/>

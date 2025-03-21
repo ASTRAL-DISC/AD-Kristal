@@ -128,7 +128,6 @@
   <object id="61" name="transition" x="2298.5" y="344.5" width="77.5" height="11.5">
    <properties>
     <property name="cond" value="Game.chapter == 5 or Game.chapter == 7"/>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/flowershop/floor1"/>

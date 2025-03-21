@@ -58,12 +58,11 @@
   </object>
   <object id="20" name="transition" x="280" y="480" width="80" height="40">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/hospital/corridor"/>
     <property name="marker" value="entry_rudy"/>
-    <property name="sound" value="doorclose"/>
+    <property name="sound" value="dooropen"/>
    </properties>
   </object>
   <object id="21" name="flowers" x="444" y="236">

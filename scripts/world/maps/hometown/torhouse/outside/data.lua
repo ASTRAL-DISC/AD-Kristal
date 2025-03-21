@@ -294,7 +294,6 @@ return {
             ["ch5map"] = "hometown/torhouse/floor1",
             ["ch6map"] = "hometown/torhouse/floor1",
             ["ch7map"] = "hometown/torhouse/floor1",
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "left",
             ["marker"] = "entry2",

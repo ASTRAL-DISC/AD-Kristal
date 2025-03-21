@@ -49,7 +49,6 @@
   <object id="22" gid="54" x="40.1243" y="320.01" width="210" height="114"/>
   <object id="27" name="transition" x="280" y="480" width="80" height="40">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="down"/>
     <property name="map" value="hometown/street"/>

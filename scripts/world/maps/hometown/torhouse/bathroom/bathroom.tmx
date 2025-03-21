@@ -42,7 +42,6 @@
  <objectgroup color="#ff007f" id="4" name="objects">
   <object id="9" name="transition" x="427.989" y="194.779" width="36" height="120">
    <properties>
-    <property name="exit_delay" type="int" value="1"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="right"/>
     <property name="map" value="hometown/torhouse/floor1"/>

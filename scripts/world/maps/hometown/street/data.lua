@@ -721,7 +721,6 @@ return {
           visible = true,
           properties = {
             ["cond"] = "Game.chapter == 5 or Game.chapter == 7",
-            ["exit_delay"] = 1,
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/flowershop/floor1",
