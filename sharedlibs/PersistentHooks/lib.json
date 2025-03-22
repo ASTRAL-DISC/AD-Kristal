@@ -1,0 +1,10 @@
+{
+    "id": "persistent_hooks",
+    "authors": [
+        "HUECYCLES"
+    ],
+    "version": "v1.0.0",
+    "engineVer": "v0.10.0-dev",
+
+    "config": {}
+}
