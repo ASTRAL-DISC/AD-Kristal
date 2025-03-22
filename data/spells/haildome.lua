@@ -11,7 +11,7 @@ function spell:init()
     -- Battle description
     self.effect = "Raise\nShield"
     -- Menu description
-    self.description = "Raises a temporary hail shield to one ally."
+    self.description = "Raises a hail shield to one ally."
 
     -- TP cost
     self.cost = 40
