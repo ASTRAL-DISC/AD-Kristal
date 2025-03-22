@@ -29,6 +29,10 @@ function character:init()
     self:addSpell("heal_prayer")
     self:addSpell("sleep_mist")
     self:addSpell("ice_shock")
+    if Game.chapter >= 4 then
+        self:addSpell("polar_revive")
+        self:addSpell("haildome")
+    end
 
     if Game.chapter == 2 or Game.chapter == 3 then
         self.health = 90

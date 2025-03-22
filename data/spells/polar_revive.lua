@@ -14,7 +14,7 @@ function spell:init()
     self.description = "Revives one ally to full health."
 
     -- TP cost
-    self.cost = 64
+    self.cost = 55
 
     -- Target mode (ally, party, enemy, enemies, or none)
     self.target = "ally"

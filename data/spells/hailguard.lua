@@ -9,7 +9,7 @@ function spell:init()
     self.cast_name = nil
 
     -- Battle description
-    self.effect = "Raise\nShield"
+    self.effect = "Shields\nAll"
     -- Menu description
     self.description = "Raises a temporary hail shield to all party members."
 
