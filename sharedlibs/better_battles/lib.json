@@ -1,0 +1,18 @@
+{
+    "id": "better_battles",
+    "version": "v7.0",
+    "engineVer": "v0.8.1",
+    "authors": [
+        "AcousticJamm",
+        "FireRainV"
+    ],
+	"config": {
+		//Back attacks
+		"back_attack": true,
+		
+		// Skill button
+		"skill_button": true,
+		"magic_name": "Magic",
+        "magic_description": "Cast\nSpells"
+	},
+}
