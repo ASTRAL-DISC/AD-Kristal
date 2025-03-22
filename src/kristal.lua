@@ -1108,6 +1108,75 @@ function Kristal.swapIntoMod(id)
     end)
 end
 
+--[[function Kristal.uraBossCheck()
+    local data
+    local uraboss
+    local chapter = Game.chapter - 1
+
+    if chapter == 3 then
+        uraboss = "halojack"
+    elseif chapter == 4 then
+        uraboss = "beltrowel"
+    elseif chapter == 5 then
+        uraboss = "blitz"
+    elseif chapter == 6 then
+        uraboss = "gauze"
+    elseif chapter == 7 then
+        uraboss = "minerva"
+    end
+
+    for i = 1, 3 do
+        if love.filesystem.getInfo("saves/astraldisc/ch".. chapter .."/file_".. i ..".json") then
+            data = JSON.decode(love.filesystem.read("saves/astraldisc/ch".. chapter .."/file_".. i ..".json"))
+        end
+
+        if data and data.flags["beat_sb"] == true then
+            if not Game:getFlag("beat_"..uraboss) and not Game:getFlag("shadow_crystals", chapter) then
+                Game:setFlag("beat_"..uraboss, true)
+                Game:setFlag("shadow_crystals", chapter)
+            end
+        end
+    end
+end]]
+
+function Kristal.transferCompletionData()
+    local completion
+    local chapter = Game.chapter - 1
+    
+    if love.filesystem.getInfo("saves/astraldisc/ch".. chapter .."/completion_".. Game.save_id ..".json") then
+        completion = JSON.decode(love.filesystem.read("saves/astraldisc/ch".. chapter .."/completion_".. Game.save_id ..".json"))
+    end
+
+    if completion then
+        Game.lw_money = completion.lw_money
+        Game.money = completion.money
+        Game.xp = completion.xp
+        Game.flags = completion.flags
+        Game.playtime = completion.playtime
+        
+        for id, data in pairs(completion.recruits_data) do
+            Game.recruits_data[id]:load(data)
+        end
+        for id, data in pairs(completion.party_data) do
+            Game.party_data[id]:load(data)
+        end
+
+        if completion.inventory then
+            Game.inventory:load(completion.inventory)
+        else
+            local default_inv = Kristal.getModOption("inventory") or {}
+            if not Game.light and not default_inv["key_items"] then
+                default_inv["key_items"] = {"cell_phone"}
+            end
+            for storage,items in pairs(default_inv) do
+                for i,item in ipairs(items) do
+                    Game.inventory:setItem(storage, i, item)
+                end
+            end
+        end
+    end
+end
+
 --- Clears all currently loaded assets. Called internally in the Loading state.
 ---@param include_mods boolean Whether to clear loaded mods.
 function Kristal.clearAssets(include_mods)
