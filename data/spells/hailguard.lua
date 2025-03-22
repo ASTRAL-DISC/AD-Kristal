@@ -9,9 +9,9 @@ function spell:init()
     self.cast_name = nil
 
     -- Battle description
-    self.effect = "Shields\nAll"
+    self.effect = "Shield\nAll Once"
     -- Menu description
-    self.description = "Raises a temporary hail shield to all party members."
+    self.description = "Raises a hail shield to all allies.\nCan only be used once per battle."
 
     -- TP cost
     self.cost = 60
