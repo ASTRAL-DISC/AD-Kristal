@@ -125,7 +125,7 @@ function character:init()
     else
         self.menu_icon = "party/ralsei/head"
     end
-    self.head_icons = "party/ralsei/icon"
+    self.head_icons = "party/ralsei/icon_nohat"
     self.name_sprite = "party/ralsei/name"
 
     self.attack_sprite = "effects/attack/slap_r"
@@ -133,7 +133,7 @@ function character:init()
     self.attack_pitch = 1.15
 
     self.battle_offset = {2, 6}
-    self.head_icon_offset = nil
+    self.head_icon_offset = {-4, 0}
     self.menu_icon_offset = nil
 
     self.gameover_message = {
@@ -155,14 +155,6 @@ function character:getTitle()
         end
     end
     return super.getTitle(self)
-end
-
-function character:getHeadIcons()
-    if Game.chapter >= 4 then
-        return "party/ralsei/icon_nohat"
-    else
-        return "party/ralsei/icon"
-    end
 end
 
 function character:onLevelUp(level)
