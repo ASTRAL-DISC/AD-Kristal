@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="20" height="24" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="37">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="20" height="24" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="38">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -124,6 +124,13 @@ you.</property>
     <property name="text1">* I Am the Wall Guardian.[wait:5]
 * This Wall is Off Limits for you
 no-good wall slammers.</property>
+   </properties>
+   <point/>
+  </object>
+  <object id="37" name="npc" x="480" y="160">
+   <properties>
+    <property name="actor" value="hue"/>
+    <property name="animation" value="balloon"/>
    </properties>
    <point/>
   </object>
