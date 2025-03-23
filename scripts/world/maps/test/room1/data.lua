@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 38,
+  nextobjectid = 39,
   properties = {
     ["name"] = "Test Room 1"
   },
@@ -500,7 +500,7 @@ return {
           name = "npc",
           type = "",
           shape = "point",
-          x = 480,
+          x = 400,
           y = 160,
           width = 0,
           height = 0,
@@ -508,6 +508,22 @@ return {
           visible = true,
           properties = {
             ["actor"] = "hue",
+            ["animation"] = "balloon"
+          }
+        },
+        {
+          id = 38,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 480,
+          y = 160,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "lizzy",
             ["animation"] = "balloon"
           }
         }

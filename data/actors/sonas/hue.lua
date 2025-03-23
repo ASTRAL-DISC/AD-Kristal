@@ -26,7 +26,7 @@ function actor:init()
     self.offsets = {
         ["idle"] = {0, 0},
         ["sit"] = {4, 4},
-        ["balloon"] = {1, -17},
+        ["balloon"] = {1, -19},
     }
 end
 

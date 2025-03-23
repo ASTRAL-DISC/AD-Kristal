@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="20" height="24" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="38">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="20" height="24" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="39">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -127,9 +127,16 @@ no-good wall slammers.</property>
    </properties>
    <point/>
   </object>
-  <object id="37" name="npc" x="480" y="160">
+  <object id="37" name="npc" x="400" y="160">
    <properties>
     <property name="actor" value="hue"/>
+    <property name="animation" value="balloon"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" name="npc" x="480" y="160">
+   <properties>
+    <property name="actor" value="lizzy"/>
     <property name="animation" value="balloon"/>
    </properties>
    <point/>
