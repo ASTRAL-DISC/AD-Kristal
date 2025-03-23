@@ -5,10 +5,10 @@ function actor:init()
 
     self.name = "Hue"
 
-    self.width = 31
-    self.height = 38
+    self.width = 30
+    self.height = 49
 
-    self.hitbox = {5, 23, 18, 15}
+    self.hitbox = {5, 23, 19, 20}
 
     self.path = "npcs/sonas/hue"
     self.default = "idle"
