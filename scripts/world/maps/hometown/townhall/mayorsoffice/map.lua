@@ -17,7 +17,7 @@ function MayorsOffice:onEnter()
         else
             if Game.world:getCharacter("comet_lw") then
                 local comet = Game.world:getCharacter("comet_lw")
-                comet.layer = Game.world:getLayer("3") + 1
+                comet.layer = 0.6
             end
         end
     elseif Game.chapter == 6 then

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.11" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="43" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="44" columns="0">
  <editorsettings>
   <export target="hometown_stuff.lua" format="lua"/>
  </editorsettings>
@@ -63,9 +63,6 @@
  </tile>
  <tile id="32">
   <image source="../../../assets/sprites/world/hometown/townhall/townhall_plant.png" width="56" height="100"/>
- </tile>
- <tile id="34">
-  <image source="../../../assets/sprites/world/hometown/townhall/mayor_desk.png" width="208" height="88"/>
  </tile>
  <tile id="35">
   <image source="../../../assets/sprites/world/hometown/townhall/mayor_chair.png" width="52" height="84"/>
@@ -132,5 +129,11 @@
  </tile>
  <tile id="62">
   <image source="../../../assets/sprites/world/hometown/apartments/wetfloor_sign.png" width="44" height="52"/>
+ </tile>
+ <tile id="63">
+  <image source="../../../assets/sprites/world/hometown/townhall/mayor_desk.png" width="208" height="92"/>
+ </tile>
+ <tile id="64">
+  <image source="../../../assets/sprites/world/hometown/townhall/mayor_computer.png" width="42" height="34"/>
  </tile>
 </tileset>

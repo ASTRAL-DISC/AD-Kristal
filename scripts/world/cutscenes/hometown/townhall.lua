@@ -273,7 +273,7 @@ return {
         cutscene:setTextboxTop(false)
         cutscene:text("* Yes, [wait:5]now if you'll excuse me...", "neutral", comet)
         comet:setSprite("desk")
-        comet.layer = Game.world:getLayer("3") + 1
+        comet.layer = 0.6
         cutscene:text("* I've decided to end the visiting period. [wait:5]You may go now.", "neutral", comet)
         cutscene:wait(0.5)
         noelle:setFacing("down")

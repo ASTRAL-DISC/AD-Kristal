@@ -1,5 +1,5 @@
 return {
-  version = "1.11",
+  version = "1.10",
   luaversion = "5.1",
   tiledversion = "1.11.0",
   name = "hometown_stuff",
@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 43,
+  tilecount = 44,
   tiles = {
     {
       id = 0,
@@ -144,12 +144,6 @@ return {
       image = "../../../assets/sprites/world/hometown/townhall/townhall_plant.png",
       width = 56,
       height = 100
-    },
-    {
-      id = 34,
-      image = "../../../assets/sprites/world/hometown/townhall/mayor_desk.png",
-      width = 208,
-      height = 88
     },
     {
       id = 35,
@@ -282,6 +276,18 @@ return {
       image = "../../../assets/sprites/world/hometown/apartments/wetfloor_sign.png",
       width = 44,
       height = 52
+    },
+    {
+      id = 63,
+      image = "../../../assets/sprites/world/hometown/townhall/mayor_desk.png",
+      width = 208,
+      height = 92
+    },
+    {
+      id = 64,
+      image = "../../../assets/sprites/world/hometown/townhall/mayor_computer.png",
+      width = 42,
+      height = 34
     }
   }
 }

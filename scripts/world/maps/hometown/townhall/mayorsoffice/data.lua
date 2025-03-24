@@ -9,8 +9,8 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 20,
-  nextobjectid = 76,
+  nextlayerid = 22,
+  nextobjectid = 79,
   properties = {
     ["border"] = "leaves",
     ["inside"] = true,
@@ -445,7 +445,7 @@ return {
       type = "objectgroup",
       draworder = "topdown",
       id = 7,
-      name = "objects",
+      name = "objects_party",
       class = "",
       visible = true,
       opacity = 1,
@@ -567,20 +567,6 @@ return {
           properties = {}
         },
         {
-          id = 40,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 215.667,
-          y = 258,
-          width = 208,
-          height = 88,
-          rotation = 0,
-          gid = 35,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 42,
           name = "",
           type = "",
@@ -613,6 +599,65 @@ return {
             ["cutscene"] = "hometown/townhall.nosusie",
             ["facing"] = "up"
           }
+        },
+        {
+          id = 76,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 216.5,
+          y = 257.5,
+          width = 208,
+          height = 92,
+          rotation = 0,
+          gid = 64,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 21,
+      name = "objects_comet",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 20,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 77,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288.503,
+          y = 199.503,
+          width = 42,
+          height = 34,
+          rotation = 0,
+          gid = 65,
+          visible = true,
+          properties = {}
         }
       }
     },
