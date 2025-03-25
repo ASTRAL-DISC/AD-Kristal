@@ -1,0 +1,313 @@
+return {
+  version = "1.10",
+  luaversion = "5.1",
+  tiledversion = "1.11.0",
+  class = "",
+  orientation = "orthogonal",
+  renderorder = "right-down",
+  width = 16,
+  height = 12,
+  tilewidth = 40,
+  tileheight = 40,
+  nextlayerid = 10,
+  nextobjectid = 17,
+  properties = {
+    ["border"] = "leaves",
+    ["light"] = "true",
+    ["music"] = "hometown",
+    ["name"] = "Hometown - ICE'E"
+  },
+  tilesets = {
+    {
+      name = "hometown_stuff",
+      firstgid = 1,
+      filename = "../../../tilesets/hometown_stuff.tsx",
+      exportfilename = "../../../tilesets/hometown_stuff.lua"
+    }
+  },
+  layers = {
+    {
+      type = "imagelayer",
+      image = "../../../../../assets/sprites/world/hometown/icee/ice_e_pizza_bg.png",
+      id = 3,
+      name = "bg",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      repeatx = false,
+      repeaty = false,
+      properties = {}
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 5,
+      name = "collision",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 1,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 345.267,
+          y = 360,
+          width = 214.733,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 2,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 560,
+          y = 194.643,
+          width = 40,
+          height = 165.357,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 63.2583,
+          y = 160,
+          width = 496.742,
+          height = 33.973,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 4,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 23,
+          y = 193.973,
+          width = 40,
+          height = 166.027,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 63.928,
+          y = 360,
+          width = 199.33,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 400,
+          width = 23.928,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 8,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 344.598,
+          y = 400,
+          width = 55.4023,
+          height = 120,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 9,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 72.324,
+          y = 193.534,
+          width = 93.0836,
+          height = 18.081,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 15,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 63.2583,
+          y = 251.204,
+          width = 138.081,
+          height = 108.796,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 16,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 421,
+          y = 251.937,
+          width = 138.081,
+          height = 108.3,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 6,
+      name = "markers",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 10,
+          name = "entry",
+          type = "",
+          shape = "point",
+          x = 304,
+          y = 440,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "spawn",
+          type = "",
+          shape = "point",
+          x = 280,
+          y = 280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 7,
+      name = "objects_party",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 12,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 71,
+          y = 360,
+          width = 482,
+          height = 124,
+          rotation = 0,
+          gid = 52,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 14,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 265,
+          y = 480,
+          width = 80,
+          height = 28.6157,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["exit_sound"] = "doorclose",
+            ["facing"] = "down",
+            ["map"] = "hometown/street3",
+            ["marker"] = "entry_icee",
+            ["sound"] = "dooropen"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 9,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 13,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 95,
+          y = 360,
+          width = 434,
+          height = 120,
+          rotation = 0,
+          gid = 51,
+          visible = true,
+          properties = {}
+        }
+      }
+    }
+  }
+}

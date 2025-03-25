@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="10" nextobjectid="17">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+  <property name="name" value="Hometown - ICE'E"/>
+ </properties>
+ <tileset firstgid="1" source="../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="3" name="bg">
+  <image source="../../../../../assets/sprites/world/hometown/icee/ice_e_pizza_bg.png" width="610" height="478"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="5" name="collision">
+  <object id="1" x="345.267" y="360" width="214.733" height="40"/>
+  <object id="2" x="560" y="194.643" width="40" height="165.357"/>
+  <object id="3" x="63.2583" y="160" width="496.742" height="33.973"/>
+  <object id="4" x="23" y="193.973" width="40" height="166.027"/>
+  <object id="5" x="63.928" y="360" width="199.33" height="40"/>
+  <object id="7" x="240" y="400" width="23.928" height="120"/>
+  <object id="8" x="344.598" y="400" width="55.4023" height="120"/>
+  <object id="9" x="72.324" y="193.534" width="93.0836" height="18.081"/>
+  <object id="15" x="63.2583" y="251.204" width="138.081" height="108.796"/>
+  <object id="16" x="421" y="251.937" width="138.081" height="108.3"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="6" name="markers">
+  <object id="10" name="entry" x="304" y="440">
+   <point/>
+  </object>
+  <object id="11" name="spawn" x="280" y="280">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="7" name="objects_party">
+  <object id="12" gid="52" x="71" y="360" width="482" height="124"/>
+  <object id="14" name="transition" x="265" y="480" width="80" height="28.6157">
+   <properties>
+    <property name="exit_sound" value="doorclose"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street3"/>
+    <property name="marker" value="entry_icee"/>
+    <property name="sound" value="dooropen"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="objects">
+  <object id="13" gid="51" x="95" y="360" width="434" height="120"/>
+ </objectgroup>
+</map>
