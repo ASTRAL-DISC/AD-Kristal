@@ -453,7 +453,9 @@ end
 
 ---@param light? boolean
 ---@param past? boolean
-function PartyMember:getActor(light, past)
+---@param depths? boolean
+---@param quest? boolean
+function PartyMember:getActor(light, past, depths, quest)
     if light == nil then
         light = Game.light
     end
@@ -462,10 +464,22 @@ function PartyMember:getActor(light, past)
         past = Game.past
     end
 
+    if depths == nil then
+        depths = Game.depths
+    end
+
+    if quest == nil then
+        quest = Game.quest
+    end
+
     if light then
         return self.lw_actor or self.actor
     elseif past then
         return self.past_actor or self.actor
+    elseif depths then
+        return self.depths_actor or self.actor
+    elseif quest then
+        return self.quest_actor or self.actor
     else
         return self.actor
     end
