@@ -38,7 +38,7 @@ function WeatherHandler:init(typer, sfx, child, intensity, overlay)
     if self.type == "thunder" then
        if self.sfx then self.weathersounds:play("heavy_rain", 2, 1) end
     end
-    if self.type == "rain" then if self.sfx then self.weathersounds:play("light_rain", 2, 1) end end
+    if self.type == "rain" then if self.sfx then self.weathersounds:play("light_rain", 0.5, 1) end end
     if self.type == "snow" then
         self:jingleBell()
     end
@@ -57,14 +57,14 @@ function WeatherHandler:postInit()
 end
 
 function WeatherHandler:jingleBell()
+    local music = Music.getPlaying()[1]
     local function beatToSound(beat)
         if beat % 12 < 0.25 then
-            local snd = Assets.playSound("jinglebell", 0.5, 0.97)
+            local snd = Assets.playSound("jinglebell", 0.5, MUSIC_PITCHES[music.current])
             snd:setLooping(true)
         end
     end
 
-    local music = Music.getPlaying()[1]
     if music and MUSIC_BPM[music.current] then
         local beat = music.source:tell() / (60 / MUSIC_BPM[music.current])
         beatToSound(beat)
