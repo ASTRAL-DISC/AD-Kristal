@@ -9,6 +9,7 @@ function character:init()
     self:setLightActor("kris_lw")
     self:setDarkTransitionActor("kris_dark_transition")
     self:setPastActor("kris_past")
+    self:setDepthsActor("kris_depths")
     self:setQuestActor("quest/kris")
 
     self.quest_sprite = "party/kris/quest/walk/down_1"
