@@ -9,6 +9,9 @@ function character:init()
     self:setLightActor("noelle_lw")
     self:setDarkTransitionActor("noelle_dark_transition")
     self:setPastActor("noelle_past")
+    self:setQuestActor("quest/noelle")
+
+    self.quest_sprite = "party/noelle/quest/walk/down_1"
 
     self.level = Game.chapter
     if Game.chapter >= 4 then
@@ -195,6 +198,10 @@ function character:drawPowerStat(index, x, y, menu)
 		end
 		return true
     end
+end
+
+function character:getQuestOffset()
+    return -1, -3
 end
 
 return character

@@ -10,6 +10,9 @@ function character:init()
     self:setActor("berdly")
     self:setLightActor("berdly_lw")
     self:setDarkTransitionActor("berdly_dark_transition")
+    self:setQuestActor("quest/berdly")
+
+    self.quest_sprite = "party/berdly/quest/walk/down_1"
 
     -- Display level (saved to the save file)
     self.level = Game.chapter
@@ -150,6 +153,10 @@ function character:drawPowerStat(index, x, y, menu)
 		end
         return true
     end
+end
+
+function character:getQuestOffset()
+    return 0, -2
 end
 
 return character

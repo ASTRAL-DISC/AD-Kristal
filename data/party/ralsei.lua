@@ -8,6 +8,9 @@ function character:init()
     self.name = "Ralsei"
 
     self:setActor("ralsei")
+    self:setQuestActor("quest/ralsei")
+
+    self.quest_sprite = "party/ralsei/quest/walk/down_1"
 
     self.level = Game.chapter
     if Game.chapter == 1 then
@@ -210,6 +213,10 @@ function character:drawPowerStat(index, x, y, menu)
         love.graphics.print("Guts:", x, y)
         return true
     end
+end
+
+function character:getQuestOffset()
+    return 0, -2
 end
 
 return character

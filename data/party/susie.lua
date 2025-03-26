@@ -8,6 +8,9 @@ function character:init()
     self:setActor("susie")
     self:setLightActor("susie_lw")
     self:setDarkTransitionActor("susie_dark_transition")
+    self:setQuestActor("quest/susie")
+
+    self.quest_sprite = "party/susie/quest/walk/down_1"
 
     self.level = Game.chapter
     if Game.chapter == 3 then
@@ -255,6 +258,10 @@ function character:drawPowerStat(index, x, y, menu)
         Draw.draw(icon, x+110, y+6, 0, 2, 2)
         return true
     end
+end
+
+function character:getQuestOffset()
+    return 0, -2
 end
 
 return character

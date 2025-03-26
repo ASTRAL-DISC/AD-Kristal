@@ -512,6 +512,24 @@ function PartyMember:setPastActor(actor)
     self.past_actor = actor
 end
 
+--- Changes this party member's Past World actor
+---@param actor string|Actor
+function PartyMember:setDepthsActor(actor)
+    if type(actor) == "string" then
+        actor = Registry.createActor(actor)
+    end
+    self.depths_actor = actor
+end
+
+--- Changes this party member's Past World actor
+---@param actor string|Actor
+function PartyMember:setQuestActor(actor)
+    if type(actor) == "string" then
+        actor = Registry.createActor(actor)
+    end
+    self.quest_actor = actor
+end
+
 function PartyMember:getSpells()
     return self.spells
 end

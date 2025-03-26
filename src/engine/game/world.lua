@@ -901,6 +901,8 @@ function World:setupMap(map, ...)
 
     Game:setLight(self.map.light)
     Game:setPast(self.map.past)
+    Game:setDepths(self.map.depths)
+    Game:setQuest(self.map.quest)
 
     self.width = self.map.width * self.map.tile_width
     self.height = self.map.height * self.map.tile_height

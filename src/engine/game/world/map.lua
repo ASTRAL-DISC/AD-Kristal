@@ -30,6 +30,8 @@ function Map:init(world, data)
 
     self.light = data and data.properties and data.properties["light"] or false
     self.past = data and data.properties and data.properties["past"] or false
+    self.depths = data and data.properties and data.properties["depths"] or false
+    self.quest = data and data.properties and data.properties["quest"] or false
 
     self.border = data and data.properties and data.properties["border"]
 

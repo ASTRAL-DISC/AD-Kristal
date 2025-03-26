@@ -42,6 +42,8 @@
 ---@field is_new_file       boolean
 ---
 ---@field past             boolean
+---@field depths           boolean
+---@field quest            boolean
 local Game = {}
 
 function Game:clear()
@@ -585,6 +587,44 @@ end
 ---@return boolean
 function Game:isPast()
     return self.past
+end
+
+---@param depths? boolean
+function Game:setDepths(depths)
+    depths = depths or false
+
+    if not self.started then
+        self.depths = depths
+        return
+    end
+
+    if self.depths == depths then return end
+
+    self.depths = depths
+end
+
+---@return boolean
+function Game:isDepths()
+    return self.depths
+end
+
+---@param quest? boolean
+function Game:setQuest(quest)
+    quest = quest or false
+
+    if not self.started then
+        self.quest = quest
+        return
+    end
+
+    if self.quest == quest then return end
+
+    self.quest = quest
+end
+
+---@return boolean
+function Game:isQuest()
+    return self.quest
 end
 
 ---@param x? number

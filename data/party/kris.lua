@@ -9,6 +9,9 @@ function character:init()
     self:setLightActor("kris_lw")
     self:setDarkTransitionActor("kris_dark_transition")
     self:setPastActor("kris_past")
+    self:setQuestActor("quest/kris")
+
+    self.quest_sprite = "party/kris/quest/walk/down_1"
 
     self.level = Game.chapter
     if Game.chapter == 1 then
@@ -225,6 +228,10 @@ function character:drawPowerStat(index, x, y, menu)
 		end
 		return true
     end
+end
+
+function character:getQuestOffset()
+    return -1, 0
 end
 
 return character
