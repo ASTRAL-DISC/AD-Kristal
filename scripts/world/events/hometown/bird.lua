@@ -56,6 +56,7 @@ function Bird:onInteract(player, dir)
 				if z then
 					z:remove()
 				end
+				print(Utils.dump(z))
 			end
 			self.sprite.z_spawn_rate = 0
 			self.sprite:setSprite("wake")
@@ -63,7 +64,7 @@ function Bird:onInteract(player, dir)
 			local snd = Assets.stopAndPlaySound("crow")
 			snd:setPitch(1 + Utils.random(0.15))
 			cutscene:wait(0.5)
-			self:setFlag("dont_load", true)
+			--self:setFlag("dont_load", true)
 			self.solid = false
 			if dir ~= "up" then
 				self:setLayer(190)

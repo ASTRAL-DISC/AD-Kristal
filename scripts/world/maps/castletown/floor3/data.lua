@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 9,
-  nextobjectid = 45,
+  nextobjectid = 46,
   backgroundcolor = { 0, 0, 0 },
   properties = {
     ["border"] = "castle",
@@ -244,20 +244,6 @@ return {
           }
         },
         {
-          id = 27,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 694,
-          y = 280,
-          width = 78,
-          height = 136,
-          rotation = 0,
-          gid = 197,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 29,
           name = "",
           type = "",
@@ -268,6 +254,20 @@ return {
           height = 106,
           rotation = 0,
           gid = 199,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 45,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 693,
+          y = 280,
+          width = 78,
+          height = 136,
+          rotation = 0,
+          gid = 197,
           visible = true,
           properties = {}
         }

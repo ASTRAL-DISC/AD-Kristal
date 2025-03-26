@@ -44,6 +44,7 @@ end
 function actor:onSpriteInit(sprite)
     sprite.sleeping = false
 
+    sprite.zzz = {}
     sprite.z_spawn_rate = 0.4
     sprite.z_remove_after = 0.8
     sprite.z_spawn_timer = sprite.z_spawn_rate * 30
@@ -55,7 +56,6 @@ function actor:onSpriteUpdate(sprite)
         if sprite.z_spawn_timer >= 0 then
             sprite.z_spawn_timer = sprite.z_spawn_timer - DTMULT
         else
-            sprite.zzz = {}
             local z = Sprite("effects/bird_z", sprite.width/2 + 2, sprite.height/2 - 15)
             z:setScale(1)
             z.physics.direction = math.rad(math.random(-60))
