@@ -9,7 +9,15 @@ function UIBox:init(x, y, width, height, skin)
     self.top_frame    = 0
     self.corner_frame = 0
 
-    self.skin = skin or Kristal.callEvent(KRISTAL_EVENT.getUISkin) or (Game:isLight() and "light") or (Game:isPast() and "light") or"dark"
+    if Game:isLight() or Game:isPast() then
+        self.skin = "light"
+    elseif Game:isQuest() then
+        self.skin = "quest"
+    elseif Game:isDepths() then
+        self.skin = "depths"
+    else
+        self.skin = skin or Kristal.callEvent(KRISTAL_EVENT.getUISkin) or "dark"
+    end
     self.fill_color = {0,0,0}
 
     self.left   = Assets.getFramesOrTexture("ui/box/" .. self.skin .. "/left")
