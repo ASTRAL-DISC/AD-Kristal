@@ -31,10 +31,10 @@
   <object id="6" x="-40" y="0" width="40" height="480"/>
  </objectgroup>
  <objectgroup color="#55aaff" id="2" name="markers">
-  <object id="1" name="spawn" x="320" y="240">
+  <object id="1" name="spawn" x="320" y="320">
    <point/>
   </object>
-  <object id="8" name="mike" x="320" y="40">
+  <object id="8" name="bouquet" x="320" y="-40">
    <point/>
   </object>
  </objectgroup>

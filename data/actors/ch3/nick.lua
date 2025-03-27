@@ -21,7 +21,16 @@ function actor:init()
 
     self.animations = {}
     
-    self.offsets = {}
+    self.offsets = {
+        ["walk/down"] = {0, 0},
+        ["walk/left"] = {0, 0},
+        ["walk/right"] = {0, 0},
+        ["walk/up"] = {0, 0},
+
+        -- Cutscene offsets
+        ["shock"] = {-8, 2},
+        ["shock_look"] = {-8, 2},
+    }
 end
 
 return actor

@@ -1,7 +1,7 @@
 return {
     newsletters = function (cutscene, event)
         if Game.chapter == 3 then
-            local x, y = cutscene:getMarker("mike")
+            --[[local x, y = cutscene:getMarker("mike")
 
             Game.world:spawnNPC("mike", x, y, {animation = "miku/flowers_walk"})
             local mike = cutscene:getCharacter("mike")
@@ -21,7 +21,32 @@ return {
             mike:setAnimation("miku/flowers_throw")
             cutscene:wait(function() return mike.sprite.frame == 4 end)
             mike:addChild(bouquet)
-            bouquet.physics.speed_y = -6
+            bouquet.physics.speed_y = -6]]
+
+            local x, y = cutscene:getMarker("spawn")
+            local x2, y2 = cutscene:getMarker("bouquet")
+
+            Game.world:spawnNPC("nick", x, y, {facing = "down"})
+            local nick = cutscene:getCharacter("nick")
+
+            local bouquet = Sprite("misc/bouquet", x2 + nick.width, y2)
+            bouquet:setScale(2)
+            bouquet:setOrigin(0.5, 0.5)
+            bouquet:setLayer(nick.layer + 1)
+
+            cutscene:wait(3)
+            Assets.playSound("fall")
+            Game.world:addChild(bouquet)
+            bouquet.physics.speed_y = 9
+            bouquet.physics.friction = 0.04
+
+            cutscene:wait(function() return bouquet.y > 130 end)
+            nick:setSprite("shock_look")
+            nick:shake(4)
+
+            cutscene:wait(0.3)
+            bouquet:explode()
+            nick:explode()
         elseif Game.chapter == 5 then
             local x, y = cutscene:getMarker("spawn")
 

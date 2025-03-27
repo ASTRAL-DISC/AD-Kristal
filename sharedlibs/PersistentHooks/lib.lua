@@ -38,7 +38,7 @@ function Lib:loadBattleHooks()
         return tbl
     end)
 
-    Utils.hooks(Battle, "onStateChange", function(orig, self, old, new)
+    Utils.hook(Battle, "onStateChange", function(orig, self, old, new)
         orig(self, old, new)
         
         if self.discoball then
