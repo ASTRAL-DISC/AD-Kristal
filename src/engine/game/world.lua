@@ -265,6 +265,10 @@ function World:createMenu()
     if menu then return menu end
     if Game:isLight() then
         menu = LightMenu()
+    elseif Game:isQuest() then
+        menu = QuestMenu()
+    --[[elseif Game:isDepths() then
+        menu = DepthsMenu()]]
     else
         menu = DarkMenu()
     end
@@ -372,8 +376,30 @@ function World:onKeyPressed(key)
             end
         end
         if key == "h" then
-            for _,party in ipairs(Game.party) do
-                party:heal(math.huge)
+            if Game.battle then
+                for _,party in ipairs(Game.battle.party) do
+                    party:heal(math.huge)
+                end
+            else
+                for i, chara in ipairs(Game.party) do
+                    local prev_health = chara:getHealth()
+                    chara:heal(math.huge, false)
+                    local amount = chara:getHealth() - prev_health
+        
+                    if not Game:isLight() and Game.world.healthbar then
+                        local actionbox = Game.world.healthbar.action_boxes[i]
+                        local text
+                        if prev_health < chara:getStat("health") then
+                            text = HPText("+" .. amount, Game.world.healthbar.x + actionbox.x + 69, Game.world.healthbar.y + actionbox.y + 15)
+                        else
+                            text = HPText("MAX", Game.world.healthbar.x + actionbox.x + 69, Game.world.healthbar.y + actionbox.y + 15)
+                        end
+                        text.layer = WORLD_LAYERS["ui"] + 1
+                        Game.world:addChild(text)
+                    end
+                end
+
+                Assets.stopAndPlaySound("power")
             end
         end
         if key == "b" then
@@ -1100,9 +1126,22 @@ function World:mapTransition(...)
             Game:setBorder(Kristal.callEvent(KRISTAL_EVENT.onMapBorder, self.map, map_border) or map_border, 1)
         end
     end
-    self:fadeInto(function()
-        self:loadMap(Utils.unpack(args))
-    end)
+
+    if Game:isQuest() then
+        Game.world:startCutscene(function(cutscene)
+            local transition = QuestTransition()
+            transition.layer = Game.world.map.smallscreen.layer - 1000
+            Game.stage:addChild(transition)
+            cutscene:wait(function() return transition.timer >= 0.5 end)
+            cutscene:after(function ()
+                self:loadMap(Utils.unpack(args))
+            end)
+        end)
+    else
+        self:fadeInto(function()
+            self:loadMap(Utils.unpack(args))
+        end)
+    end
 end
 
 --- Fades the world out and into another piece of content
