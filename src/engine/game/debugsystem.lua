@@ -559,6 +559,22 @@ function DebugSystem:registerSubMenus()
         end)
     end
 
+    self:registerOption("main", "Give Money", "Give money to party.", function ()
+        self.window = DebugWindow("Enter Money", "Enter the money amount you'd like.", "input", function (text)
+            local money = tonumber(text)
+            if money then
+                if Game:isLight() then
+                    Game.lw_money = Game.lw_money + money
+                else
+                    Game.money = Game.money + money
+                end
+                Assets.stopAndPlaySound("cash")
+            end
+        end)
+        self.window:setPosition(Input.getCurrentCursorPosition())
+        self:addChild(self.window)
+    end)
+
     self:registerMenu("select_map", "Select Map", "search")
     -- Registry.map_data instead of Registry.maps
     for id, _ in pairs(Registry.map_data) do
