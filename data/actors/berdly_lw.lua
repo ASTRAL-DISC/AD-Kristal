@@ -53,6 +53,9 @@ function actor:init()
         ["laugh"] = {0, 0},
 
         ["book_point"] = {-18, 1},
+
+        ["sit_book"] = {-8, -8},
+        ["sit_book_squint"] = {-8, -8},
     }
 end
 

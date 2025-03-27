@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 14,
+  nextobjectid = 16,
   properties = {
     ["border"] = "none",
     ["music"] = "none"
@@ -191,7 +191,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["cutscene"] = "test/nothing/newsletters.mike_flowers"
+            ["cutscene"] = "test/nothing.newsletters"
           }
         }
       }

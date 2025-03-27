@@ -26,6 +26,7 @@ function actor:init()
     self.animations = {
         -- Cutscene animations
         ["sit"] = {"sit", 0.25, true},
+        ["sit_front_dandelion"] = {"sit_front_dandelion", 0.25, false},
 
         ["soul/up"] = {"soul/up", 0.15, false},
         ["soul/up_soulshine"] = {"soul/up_soulshine", 0.2, false},
@@ -53,6 +54,9 @@ function actor:init()
         ["fallen"] = {-8, 16},
         
         ["sit"] = {-4, -8},
+        ["sit_front"] = {-8, -8},
+        ["sit_front_down"] = {-8, -8},
+        ["sit_front_dandelion"] = {-8, -8},
 
         ["ghostwalk_lf"] = {-4, 3},
         ["ghostwalk_lu"] = {-4, 3},
