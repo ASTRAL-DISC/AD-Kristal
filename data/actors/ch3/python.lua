@@ -8,7 +8,7 @@ function actor:init()
     self.width = 66
     self.height = 67
 
-    self.hitbox = {4, 4, 58, 67}
+    self.hitbox = {20, 50, 36, 17}
 
     self.color = {1, 0, 0}
 

@@ -8,7 +8,7 @@ function actor:init()
     self.width = 37
     self.height = 40
 
-    self.hitbox = {2, 43, 19, 14}
+    self.hitbox = {9, 30, 19, 10}
 	
 	self.flip = "right"
 

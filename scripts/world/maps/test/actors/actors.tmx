@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="35">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="music" value="greenroom"/>
+ </properties>
+ <tileset firstgid="1" source="../../../tilesets/castle_pink.tsx"/>
+ <layer id="3" name="tiles" width="32" height="16">
+  <data encoding="csv">
+0,18,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,20,0,
+0,22,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,24,0,
+0,26,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,28,0,
+0,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,8,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,0,
+0,14,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,16,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="4" name="deltarune" width="32" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,30,31,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,34,35,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,38,39,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup color="#5555ff" id="2" name="collision">
+  <object id="6" x="40" y="80" width="1200" height="40"/>
+  <object id="7" x="0" y="120" width="40" height="480"/>
+  <object id="8" x="40" y="600" width="1200" height="40"/>
+  <object id="9" x="1240" y="120" width="40" height="480"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="5" name="markers">
+  <object id="10" name="spawn" x="139.969" y="179.471">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="6" name="objects">
+  <object id="11" name="npc" x="240" y="200">
+   <properties>
+    <property name="actor" value="mike"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="13" name="npc" x="360" y="200">
+   <properties>
+    <property name="actor" value="nick"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="15" name="npc" x="560" y="200">
+   <properties>
+    <property name="actor" value="vee"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="16" name="npc" x="480" y="200">
+   <properties>
+    <property name="actor" value="lola"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" name="npc" x="640" y="200">
+   <properties>
+    <property name="actor" value="rhyth"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="npc" x="760" y="200">
+   <properties>
+    <property name="actor" value="python"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" name="npc" x="880" y="200">
+   <properties>
+    <property name="actor" value="tsuntsun"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="21" name="npc" x="1000" y="200">
+   <properties>
+    <property name="actor" value="bonika"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="22" name="npc" x="1120" y="200">
+   <properties>
+    <property name="actor" value="spoilert"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="23" name="npc" x="120" y="400">
+   <properties>
+    <property name="actor" value="gospiel"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="24" name="npc" x="240" y="400">
+   <properties>
+    <property name="actor" value="mesmer"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="25" name="npc" x="360" y="400">
+   <properties>
+    <property name="actor" value="bishop"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="29" name="npc" x="720" y="400">
+   <properties>
+    <property name="actor" value="wickerman"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="31" name="npc" x="960" y="400">
+   <properties>
+    <property name="actor" value="firefly"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

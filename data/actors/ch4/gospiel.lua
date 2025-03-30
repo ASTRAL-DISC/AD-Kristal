@@ -8,7 +8,7 @@ function actor:init()
     self.width = 26
     self.height = 68
 
-    self.hitbox = {2, 43, 19, 14}
+    self.hitbox = {2, 50, 21, 18}
 
     self.path = "npcs/ch4/gospiel"
 
@@ -32,7 +32,6 @@ function actor:init()
         ["hands_tremble"] = {0, 0},
         ["hands_tremble_look"] = {0, 0},
     }
-	
 end
 
 return actor

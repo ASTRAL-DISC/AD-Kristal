@@ -5,10 +5,10 @@ function actor:init()
 
     self.name = "Nick"
 
-    self.width = 24
-    self.height = 69
+    self.width = 41
+    self.height = 75
 
-    self.hitbox = {-1, 51, 19, 14}
+    self.hitbox = {9, 60, 24, 15}
 
     self.color = Utils.hexToRgb("#eb991b")
 
@@ -22,12 +22,15 @@ function actor:init()
     self.animations = {}
     
     self.offsets = {
-        ["walk/down"] = {0, 0},
-        ["walk/left"] = {0, 0},
-        ["walk/right"] = {0, 0},
-        ["walk/up"] = {0, 0},
+        ["walk/down"] = {0, -1},
+        ["walk/left"] = {0, -1},
+        ["walk/right"] = {0, -1},
+        ["walk/up"] = {0, -1},
 
         -- Cutscene offsets
+        ["gesture"] = {2, -1},
+        ["surprise_eye"] = {-9, -1},
+        ["bow"] = {0, -1},
         ["shock"] = {-8, 2},
         ["shock_look"] = {-8, 2},
     }
