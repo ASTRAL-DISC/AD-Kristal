@@ -59,4 +59,20 @@ function actor:init()
     }
 end
 
+function actor:getDefault()
+    if Game:getPartyMember("berdly"):getFlag("scar") then
+        return "walk_scar"
+    else
+        return "walk"
+    end
+end
+
+function actor:getPortraitPath()
+    if Game:getPartyMember("berdly"):getFlag("scar") then
+        return "face/berdly_scar"
+    else
+        return "face/berdly"
+    end
+end
+
 return actor
