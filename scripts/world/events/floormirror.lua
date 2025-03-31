@@ -64,25 +64,26 @@ function FloorMirror:drawMirror()
 end
 
 function FloorMirror:drawCharacter(chara)
-    love.graphics.push()
-
-    chara:preDraw()
-    local oyd = chara.y - self.bottom
-    love.graphics.translate(0, -oyd + self.offset)
-    local oldsprite = string.sub(chara.sprite.texture_path, #chara.sprite.path + 2)
-    local t = Utils.split(oldsprite, "_")
-    local pathless = t[1]
-    local frame = t[2]
-    local newsprite = oldsprite
-    local mirror = chara.actor:getFloorMirrorSprites()
-    if mirror and mirror[pathless] then
-        newsprite = mirror[pathless] .. "_" .. frame
+    if chara.sprite and not chara.actor.no_reflection then
+        love.graphics.push()
+        chara:preDraw()
+        local oyd = chara.y - self.bottom
+        love.graphics.translate(0, -oyd + self.offset)
+        local oldsprite = string.sub(chara.sprite.texture_path, #chara.sprite.path + 2)
+        local t = Utils.split(oldsprite, "_")
+        local pathless = t[1]
+        local frame = t[2]
+        local newsprite = oldsprite
+        local mirror = chara.actor:getFloorMirrorSprites()
+        if mirror and mirror[pathless] then
+            newsprite = mirror[pathless] .. "_" .. frame
+        end
+        chara.sprite:setTextureExact(chara.actor.path .. "/" .. newsprite)
+        chara:draw()
+        chara:postDraw()
+        chara.sprite:setTextureExact(chara.actor.path .. "/" .. oldsprite)
+        love.graphics.pop()
     end
-    chara.sprite:setTextureExact(chara.actor.path .. "/" .. newsprite)
-    chara:draw()
-    chara:postDraw()
-    chara.sprite:setTextureExact(chara.actor.path .. "/" .. oldsprite)
-    love.graphics.pop()
 end
 
 function FloorMirror:drawEvent(event)
