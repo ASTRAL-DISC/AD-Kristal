@@ -26,7 +26,7 @@ function actor:init()
             while true do
                 for i = 1, 3 do
                     sprite:setFrame(i)
-                    sprite:shake(1, 0, 0.4)
+                    sprite:shake(2)
                     wait(1)
                 end
             end
