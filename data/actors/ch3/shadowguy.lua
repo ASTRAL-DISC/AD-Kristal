@@ -45,6 +45,7 @@ function actor:init()
 	}
 	
 	self.timer = 0
+	self.no_reflection = true
 end
 
 function actor:musicAnim(sprite, wait, beat_delay)
