@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 7,
-  nextobjectid = 35,
+  nextobjectid = 36,
   properties = {
     ["music"] = "greenroom"
   },
@@ -413,6 +413,22 @@ return {
           visible = true,
           properties = {
             ["actor"] = "firefly"
+          }
+        },
+        {
+          id = 35,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 480,
+          y = 400,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "freestyle",
+            ["cutscene"] = "test/actors.freestyle"
           }
         }
       }
