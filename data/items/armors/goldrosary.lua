@@ -40,4 +40,8 @@ function item:init()
 	}
 end
 
+function item:convertToLightEquip(chara)
+    return "light/cross_necklace"
+end
+
 return item

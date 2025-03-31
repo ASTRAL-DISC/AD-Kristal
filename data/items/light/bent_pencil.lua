@@ -8,8 +8,6 @@ function item:init()
     self.type = "weapon"
 
     self.light = true
-
-    -- Light world check text
     self.check = "Weapon 1 AT\n* A bent pencil forming the shape of a sheep."
 
     self.usable_in = "all"

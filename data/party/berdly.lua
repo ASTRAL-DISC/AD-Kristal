@@ -45,8 +45,8 @@ function character:init()
     self:setArmor(1, "smartscouter")
     self:setArmor(2, "royalpin")
 
-    --self.lw_weapon_default = "light/pen"
-    --self.lw_armor_default = "light/glasses"
+    self.lw_weapon_default = "light/pen"
+    self.lw_armor_default = "light/glasses"
 
     self.color = Utils.hexToRgb("#31b081")
     self.dmg_color = Utils.hexToRgb("#31b081")
@@ -69,7 +69,7 @@ function character:init()
     self.gameover_message = nil
 
     self.flags = {
-        ["scar"] = true
+        ["scar"] = false
     }
 end
 
