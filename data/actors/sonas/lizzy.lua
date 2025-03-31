@@ -33,7 +33,7 @@ function actor:onSpriteInit(sprite)
     sprite.siner = 0
     sprite.float_speed = 3
     sprite.floating = false
-    sprite.sweat_timer = 0
+    --sprite.sweat_timer = 0
 end
 
 function actor:onSpriteUpdate(sprite)
@@ -42,7 +42,7 @@ function actor:onSpriteUpdate(sprite)
         sprite.siner = sprite.siner + DT * sprite.float_speed
         sprite.y = math.sin(sprite.siner) * 6
 
-        if sprite.sweat_timer >= 0 then
+        --[[if sprite.sweat_timer >= 0 then
             sprite.sweat_timer = sprite.sweat_timer - DTMULT
         else
             local x, y = sprite.x/2 + 34, sprite.y/2 + 22
@@ -50,7 +50,7 @@ function actor:onSpriteUpdate(sprite)
             sweat.layer = sprite.layer + 1
             sprite:addChild(sweat)
             sprite.sweat_timer = 0.2 * 30
-        end
+        end]]
     end
 end
 
