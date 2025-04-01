@@ -23,6 +23,8 @@ function actor:init()
 
     self.animations = {
         ["wave"] = {"wave", 0.05, false},
+        ["wave_only"] = {"wave_only", 0.05, false},
+        ["wave_loop"] = {"wave_loop", 0.1, true},
         ["up_flip"] = {"up_flip", 0.1, true},
         ["sleep"] = {"sleep", 0.35, true},
         ["crawl"] = {"crawl", 0.2, true},
@@ -58,13 +60,21 @@ function actor:init()
         ["walk_stone/up"] = {0, 0},
 		
         ["wave"] = {-2, -3},
+        ["wave_only"] = {-2, -3},
+        ["wave_loop"] = {-2, -3},
+
         ["sleep"] = {-2, 6},
+
         ["stool"] = {-2, 6},
         ["stool_look"] = {-2, 6},
+
         ["crawl"] = {-2, 6},
+
         ["fall"] = {-2, 6},
         ["fell"] = {-2, 6},
+
         ["pose"] = {-2, 0},
+        
         ["relax"] = {-2, 6},
     }
 end

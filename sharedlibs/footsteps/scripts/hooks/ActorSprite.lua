@@ -1,4 +1,4 @@
-local ActorSprite, super = Class(ActorSprite)
+local ActorSprite, super = Class(ActorSprite, true)
 
 function ActorSprite:update()
     if self.actor:preSpriteUpdate(self) then
