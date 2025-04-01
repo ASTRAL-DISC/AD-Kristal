@@ -76,7 +76,11 @@ function FloorMirror:drawCharacter(chara)
         local newsprite = oldsprite
         local mirror = chara.actor:getFloorMirrorSprites()
         if mirror and mirror[pathless] then
-            newsprite = mirror[pathless] .. "_" .. frame
+            if frame then
+                newsprite = mirror[pathless] .. "_" .. frame
+            else
+                newsprite = mirror[pathless]
+            end
         end
         chara.sprite:setTextureExact(chara.actor.path .. "/" .. newsprite)
         chara:draw()
