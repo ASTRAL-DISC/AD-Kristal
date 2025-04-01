@@ -5,8 +5,8 @@ function actor:init()
 
     self.name = "Lancer"
 
-    self.width = 36
-    self.height = 35
+    self.width = 30
+    self.height = 34
 
     self.hitbox = {7, 20, 22, 15}
 
@@ -71,11 +71,11 @@ function actor:init()
         ["crawl"] = {-2, 6},
 
         ["fall"] = {-2, 6},
-        ["fell"] = {-2, 6},
+        ["fell"] = {-3, 13},
 
-        ["pose"] = {-2, 0},
-        
-        ["relax"] = {-2, 6},
+        ["pose"] = {4, 0},
+
+        ["relax"] = {-15, -6},
     }
 end
 
