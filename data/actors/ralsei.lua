@@ -280,6 +280,11 @@ function actor:initChapter2()
         -- Choir Minigame
         ["choir/hold"] = {-10, -6},
         ["choir/idle"] = {-5, -6},
+
+        -- Outfits
+        ["outfits/melon"] = {0, 0},
+        ["outfits/swap"] = {0, 0},
+        ["outfits/halloween"] = {0, 0},
     }
 
     self.spotlight = {

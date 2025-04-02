@@ -257,6 +257,10 @@ function actor:init()
         ["iceslide/down"] = {-7, 0},
         ["iceslide/left"] = {0, -2},
         ["iceslide/right"] = {0, -2},
+
+        -- Outfits
+        ["outfits/halloween"] = {0, 0},
+        ["outfits/halloween_look"] = {0, 0},
     }
 
     self.spotlight = {

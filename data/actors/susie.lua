@@ -80,6 +80,8 @@ function actor:init(style)
 
         ["kris_tug"] = {"kris_tug", 2/30, true},
 
+        ["outfits/melon"] = {"outfits/melon", 4/30, true},
+
         ["iceslide/up"] = {"iceslide/up", 0, false},
         ["iceslide/down"] = {"iceslide/down", 0, false},
         ["iceslide/left"] = {"iceslide/left", 0, false},
@@ -257,6 +259,12 @@ function actor:init(style)
         ["iceslide/down"] = {0, 0},
         ["iceslide/left"] = {-2, 1},
         ["iceslide/right"] = {-2, 1},
+
+        -- Outfits
+        ["outfits/cowboy"] = {-1, -6},
+        ["outfits/melon"] = {-2, 3},
+        ["outfits/swap"] = {0, -1},
+        ["outfits/halloween"] = {-4, -6},
 
         -- Battle (eyes version)
         ["battle_eyes/idle"] = {-22, -1},

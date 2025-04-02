@@ -144,6 +144,12 @@ function actor:init()
 
         ["pirouette"] = {-3, -1},
 
+        -- Outfits
+        ["outfits/cowboy"] = {-4, -4},
+        ["outfits/melon"] = {-2, -10},
+        ["outfits/swap"] = {0, 0},
+        ["outfits/halloween"] = {-26, 0},
+
         --Battle (soulless)
         ["battle_soulless/idle"] = {-5, -1},
         ["battle_soulless/idle_b"] = {-12, -1},
