@@ -262,7 +262,7 @@ function actor:init(style)
 
         -- Outfits
         ["outfits/cowboy"] = {-1, -6},
-        ["outfits/melon"] = {-2, 3},
+        ["outfits/melon"] = {-8, 3},
         ["outfits/swap"] = {0, -1},
         ["outfits/halloween"] = {-4, -6},
 

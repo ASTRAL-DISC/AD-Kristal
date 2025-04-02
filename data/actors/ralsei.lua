@@ -282,9 +282,9 @@ function actor:initChapter2()
         ["choir/idle"] = {-5, -6},
 
         -- Outfits
-        ["outfits/melon"] = {0, 0},
+        ["outfits/melon"] = {-1, -8},
         ["outfits/swap"] = {0, 0},
-        ["outfits/halloween"] = {0, 0},
+        ["outfits/halloween"] = {-13, -1},
     }
 
     self.spotlight = {
