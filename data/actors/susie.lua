@@ -261,6 +261,7 @@ function actor:init(style)
         ["iceslide/right"] = {-2, 1},
 
         -- Outfits
+        ["outfits/care"] = {0, 0},
         ["outfits/cowboy"] = {-1, -6},
         ["outfits/melon"] = {-8, 3},
         ["outfits/swap"] = {0, -1},
