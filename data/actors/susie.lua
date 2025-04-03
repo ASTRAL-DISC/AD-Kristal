@@ -70,7 +70,8 @@ function actor:init(style)
         ["diagonal_kick_right"] = {"diagonal_kick_right", 4/30, false},
         ["diagonal_kick_left"] = {"diagonal_kick_left", 4/30, false},
 
-        ["blink"] = {"blink", 1/30, true},
+        ["sleep"] = {"sleep", 8/30, true},
+
         ["shock_down_flip"] = {"shock_down_flip", 1/10, true},
         ["red_carpet"] = {"red_carpet", 2/30, true},
         ["dance"] = {"dance", 4/30, true},
@@ -247,7 +248,8 @@ function actor:init(style)
         ["diagonal_kick_right"] = {-5, -1},
         ["diagonal_kick_left"] = {-3, -1},
 
-        ["blink"] = {-18, -12},
+        ["sleep"] = {-18, 20},
+        ["blink"] = {-18, 20},
         ["red_carpet"] = {0, -2},
         ["dance"] = {0, 0},
         ["flailing"] = {0, -2},
