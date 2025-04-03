@@ -1139,50 +1139,43 @@ end
     end
 end]]
 
----@return boolean completion Whether the loader mod is loading a completion file or not.
-function Kristal.isCompletion()
-    return USING_COMPLETION_FILES
-end
-
 ---@param chapter number The chapter to load completion data from.
 function Kristal.loadCompletionData(chapter)
-    if Kristal.isCompletion() then
-        local completion
+    local completion
 
-        if love.filesystem.getInfo("saves/astraldisc/ch".. chapter .."/completion_".. Game.save_id ..".json") then
-            completion = JSON.decode(love.filesystem.read("saves/astraldisc/ch".. chapter .."/completion_".. Game.save_id ..".json"))
+    if love.filesystem.getInfo("saves/astraldisc/ch".. chapter .."/completion_".. Game.save_id ..".json") then
+        completion = JSON.decode(love.filesystem.read("saves/astraldisc/ch".. chapter .."/completion_".. Game.save_id ..".json"))
+    end
+
+    if completion then
+        Game.lw_money = completion.lw_money
+        Game.money = completion.money
+        Game.xp = completion.xp
+        Game.flags = completion.flags
+        Game.playtime = completion.playtime
+        
+        for id, data in pairs(completion.recruits_data) do
+            Game.recruits_data[id]:load(data)
+        end
+        for id, data in pairs(completion.party_data) do
+            Game.party_data[id]:load(data)
         end
 
-        if completion then
-            Game.lw_money = completion.lw_money
-            Game.money = completion.money
-            Game.xp = completion.xp
-            Game.flags = completion.flags
-            Game.playtime = completion.playtime
-            
-            for id, data in pairs(completion.recruits_data) do
-                Game.recruits_data[id]:load(data)
-            end
-            for id, data in pairs(completion.party_data) do
-                Game.party_data[id]:load(data)
-            end
-
-            if completion.inventory then
-                Game.inventory:load(completion.inventory)
-            else
-                local default_inv = Kristal.getModOption("inventory") or {}
-                if not Game.light and not default_inv["key_items"] then
-                    default_inv["key_items"] = {"cell_phone"}
-                end
-                for storage,items in pairs(default_inv) do
-                    for i,item in ipairs(items) do
-                        Game.inventory:setItem(storage, i, item)
-                    end
-                end
-            end
+        if completion.inventory then
+            Game.inventory:load(completion.inventory)
         else
-            error("No completion data found for CHAPTER " .. chapter".")
+            local default_inv = Kristal.getModOption("inventory") or {}
+            if not Game.light and not default_inv["key_items"] then
+                default_inv["key_items"] = {"cell_phone"}
+            end
+            for storage,items in pairs(default_inv) do
+                for i,item in ipairs(items) do
+                    Game.inventory:setItem(storage, i, item)
+                end
+            end
         end
+    else
+        error("No completion data found for CHAPTER " .. chapter".")
     end
 end
 
