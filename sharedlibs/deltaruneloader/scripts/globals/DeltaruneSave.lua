@@ -462,10 +462,7 @@ function DeltaruneSave:load()
     if self.chapter >= 2 then
         loadStorage(inventory, "storage", self.inventory.storage)
     end
-
-    if self.shadow_crystals > 0 and not inventory:hasItem("shadowcrystal") then
-        inventory:addItem("shadowcrystal")
-    end
+    
     Game:setFlag("shadow_crystals", self.shadow_crystals)
 
     if self.chapter >= 2 then
