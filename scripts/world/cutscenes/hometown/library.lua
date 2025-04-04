@@ -1,5 +1,11 @@
 return {
-    bookshelf1 = function(cutscene, event)
+	normal = function(cutscene, event)
+		cutscene:setSpeaker(event)
+        cutscene:text("* I love reading.")
+		cutscene:text("* Especially. [wait:5]Books.") -- placeholder
+    end,
+
+    bookshelf = function(cutscene, event)
         cutscene:text("* How To Care For A Human")
 		cutscene:text("* (It's a book for monsters on\nhow to care for humans.)")
 		local choice = cutscene:choicer({"Look in\nthe back", "Look\ninside"})
@@ -11,6 +17,7 @@ return {
 			cutscene:text("* (... [wait:5]looks like your mother\ntook it out repeatedly many years ago.)")
 		end
     end,
+
     bookshelf2 = function(cutscene, event)
         cutscene:text("* (It's Book 1 about SOULS. [wait:5]Read it?)")
 		local choice = cutscene:choicer({"Read", "Don't"})
@@ -63,22 +70,6 @@ return {
 			cutscene:text("* (You reluctantly put it back, [wait:5]before anyone could see you sniffing books.)")
 			cutscene:text("* (The imagery stays with you, [wait:5]though.)")
 		end
-    end,
-	goner = function(cutscene, event)
-		local normal = cutscene:getCharacter("normal_npc")
-        cutscene:setSpeaker("normal_npc")
-		cutscene:setSprite("normal_npc", "talk")
-		cutscene:text("* So, [wait:5]have you read everything?")
-		cutscene:text("* ...Fascinating.")
-		cutscene:text("* I love reading books.\n[wait:5]* Especially the books upstairs.")
-		cutscene:text("* Have you found what you were looking for? [wait:5]Knowledge is a wondrous thing.")
-		cutscene:text("* Keep your voice down, [wait:5]though. [wait:5]We're at a library.")
-		cutscene:text("* Not only that...")
-		cutscene:wait(1.5)
-		cutscene:setSprite("normal_npc", "talk_goner")
-		cutscene:text("* I have a feeling someone might be listening.")
-		Assets.playSound("mysterygo")
-		normal:remove()
     end,
 	bookshelf6 = function(cutscene, event)
         cutscene:text("* (It's Book 3 about SOULS. [wait:5]Read it?)")

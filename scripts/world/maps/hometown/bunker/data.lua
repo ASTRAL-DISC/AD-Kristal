@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.0",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -14,7 +14,7 @@ return {
   properties = {
     ["border"] = "leaves",
     ["light"] = "true",
-    ["music"] = "mus_birdnoise"
+    ["music"] = "birdnoise"
   },
   tilesets = {
     {

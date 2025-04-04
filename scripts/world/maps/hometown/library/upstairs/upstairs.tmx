@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="29">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+ </properties>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/library/upstairs.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collision">
+  <object id="1" x="400" y="400" width="45.3573" height="120"/>
+  <object id="2" x="526.027" y="400" width="33.973" height="120"/>
+  <object id="3" x="560" y="360" width="40" height="40"/>
+  <object id="6" x="52" y="360" width="40" height="40"/>
+  <object id="7" x="93.2134" y="400" width="306.787" height="40"/>
+  <object id="8" x="92.054" y="320" width="467.946" height="40"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="4" name="markers">
+  <object id="10" name="entry" x="480" y="425">
+   <point/>
+  </object>
+  <object id="12" name="spawn" x="440.64" y="383.719">
+   <point/>
+  </object>
+  <object id="27" name="normal" x="224.341" y="388">
+   <point/>
+  </object>
+  <object id="28" name="normal2" x="141" y="388">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="13" name="transition" x="446" y="480" width="80" height="40">
+   <properties>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/library/lobby"/>
+    <property name="marker" value="entry3"/>
+    <property name="sound" value="escaped"/>
+   </properties>
+  </object>
+  <object id="18" name="interactable" x="177.402" y="320" width="62.5887" height="40">
+   <properties>
+    <property name="cond" value="Game.chapter &gt;= 5"/>
+    <property name="cutscene" value="hometown/library.bookshelf5"/>
+   </properties>
+  </object>
+  <object id="21" name="interactable" x="411" y="320" width="62.5887" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/library.bookshelf2"/>
+   </properties>
+  </object>
+  <object id="22" name="interactable" x="489" y="320" width="62.5887" height="40">
+   <properties>
+    <property name="cutscene" value="hometown/library.bookshelf"/>
+   </properties>
+  </object>
+  <object id="23" name="interactable" x="333" y="320" width="62.5887" height="40">
+   <properties>
+    <property name="cond" value="Game.chapter &gt;= 3"/>
+    <property name="cutscene" value="hometown/library.bookshelf3"/>
+   </properties>
+  </object>
+  <object id="24" name="interactable" x="255" y="320" width="62.5887" height="40">
+   <properties>
+    <property name="cond" value="Game.chapter &gt;= 4"/>
+    <property name="cutscene" value="hometown/library.bookshelf4"/>
+   </properties>
+  </object>
+  <object id="25" name="interactable" x="102" y="320" width="62.5887" height="40">
+   <properties>
+    <property name="cond" value="Game.chapter &gt;= 6"/>
+    <property name="cutscene" value="hometown/library.bookshelf6"/>
+   </properties>
+  </object>
+  <object id="26" name="npc" x="300" y="388">
+   <properties>
+    <property name="actor" value="normal"/>
+    <property name="cutscene" value="hometown/library.normal"/>
+    <property name="facing" value="right"/>
+    <property name="flagcheck" value="!epilogue"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

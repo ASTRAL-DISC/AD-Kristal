@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="45" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="46" columns="0">
  <editorsettings>
   <export target="hometown_stuff.lua" format="lua"/>
  </editorsettings>
@@ -138,5 +138,8 @@
  </tile>
  <tile id="65">
   <image source="../../../assets/sprites/world/hometown/townhall_layer2.png" width="418" height="204"/>
+ </tile>
+ <tile id="66">
+  <image source="../../../assets/sprites/world/hometown/library/lobby_layer_b.png" width="640" height="480"/>
  </tile>
 </tileset>

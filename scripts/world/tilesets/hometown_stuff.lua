@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 45,
+  tilecount = 46,
   tiles = {
     {
       id = 0,
@@ -294,6 +294,12 @@ return {
       image = "../../../assets/sprites/world/hometown/townhall_layer2.png",
       width = 418,
       height = 204
+    },
+    {
+      id = 66,
+      image = "../../../assets/sprites/world/hometown/library/lobby_layer_b.png",
+      width = 640,
+      height = 480
     }
   }
 }
