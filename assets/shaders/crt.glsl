@@ -22,9 +22,9 @@ vec2 crt(vec2 coord, float bend)
 vec3 sampleSplit(vec2 coord, Image texture)
 {
     vec3 frag;
-    frag.r = Texel(texture, vec2(coord.x - 0.01 * sin(time), coord.y)).r;
+    frag.r = Texel(texture, vec2(coord.x - 0.001 * sin(time), coord.y)).r;
     frag.g = Texel(texture, vec2(coord.x, coord.y)).g;
-    frag.b = Texel(texture, vec2(coord.x + 0.01 * sin(time), coord.y)).b;
+    frag.b = Texel(texture, vec2(coord.x + 0.001 * sin(time), coord.y)).b;
     return frag;
 }
 
