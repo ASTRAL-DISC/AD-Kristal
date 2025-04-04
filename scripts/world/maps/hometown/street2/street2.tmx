@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="69" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="9" nextobjectid="54">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="69" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="9" nextobjectid="59">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -13,6 +13,7 @@
  <tileset firstgid="24597" source="../../../tilesets/towntiles.tsx"/>
  <tileset firstgid="25227" source="../../../tilesets/hometown_up.tsx"/>
  <tileset firstgid="25857" source="../../../tilesets/hometown_stuff.tsx"/>
+ <tileset firstgid="25922" source="../../../tilesets/hometown_stuff.tsx"/>
  <layer id="1" name="tiles" width="69" height="12">
   <data encoding="csv">
 9018,9019,9020,9021,9022,9023,9024,9025,9026,9027,9028,9029,9030,9031,9032,9033,9034,9035,9036,9037,9038,9039,9040,9041,9042,9043,9044,9045,9046,9047,9048,9049,9050,9051,9052,9053,9054,9055,9056,9057,9058,9059,9060,9061,9062,9063,9064,9065,9066,9067,9068,9069,9070,9071,9072,9073,9074,9075,9076,9077,9078,9079,9080,9081,9082,9083,9084,9085,9086,
@@ -42,9 +43,14 @@
   <object id="25" x="262" y="229">
    <polygon points="0,0 -68,210 -97,212 -15,-5"/>
   </object>
-  <object id="34" x="687" y="175" width="194" height="39"/>
+  <object id="34" x="666" y="175" width="215" height="39"/>
   <object id="35" x="1128" y="-1" width="190" height="238"/>
   <object id="36" x="881" y="-1" width="245" height="240"/>
+  <object id="57" x="600" y="200" width="80" height="16.6667">
+   <properties>
+    <property name="cond" value="Game.chapter == 4"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#5500ff" id="3" name="markers">
   <object id="14" name="entry" x="1819" y="92">
@@ -100,8 +106,9 @@
     <property name="sound" value="dooropen"/>
    </properties>
   </object>
-  <object id="32" name="transition" x="603" y="201" width="76" height="20">
+  <object id="32" name="transition" x="603" y="201" width="62" height="20">
    <properties>
+    <property name="cond" value="Game.chapter ~= 4"/>
     <property name="exit_sound" value="doorclose"/>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/police"/>
@@ -136,6 +143,16 @@
     <property name="scalex" type="float" value="2"/>
     <property name="scaley" type="float" value="2"/>
     <property name="texture" value="effects/rainypool"/>
+   </properties>
+  </object>
+  <object id="54" gid="25989" x="606" y="210" width="60" height="86">
+   <properties>
+    <property name="cond" value="Game.chapter == 4"/>
+   </properties>
+  </object>
+  <object id="55" gid="25991" x="704" y="184" width="158" height="70">
+   <properties>
+    <property name="cond" value="Game.chapter == 4"/>
    </properties>
   </object>
  </objectgroup>
@@ -204,6 +221,12 @@
     <property name="cond" value="Game.chapter == 5"/>
    </properties>
    <point/>
+  </object>
+  <object id="58" name="interactable" x="602.333" y="189" width="63" height="36.3333">
+   <properties>
+    <property name="cond" value="Game.chapter == 4"/>
+    <property name="cutscene" value="hometown/street2.policestation"/>
+   </properties>
   </object>
  </objectgroup>
  <layer id="5" name="up" width="69" height="12">

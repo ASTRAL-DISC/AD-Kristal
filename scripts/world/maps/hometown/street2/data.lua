@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 9,
-  nextobjectid = 54,
+  nextobjectid = 59,
   properties = {
     ["border"] = "leaves",
     ["light"] = "true",
@@ -39,6 +39,12 @@ return {
     {
       name = "hometown_stuff",
       firstgid = 25857,
+      filename = "../../../tilesets/hometown_stuff.tsx",
+      exportfilename = "../../../tilesets/hometown_stuff.lua"
+    },
+    {
+      name = "hometown_stuff",
+      firstgid = 25922,
       filename = "../../../tilesets/hometown_stuff.tsx",
       exportfilename = "../../../tilesets/hometown_stuff.lua"
     }
@@ -231,9 +237,9 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 687,
+          x = 666,
           y = 175,
-          width = 194,
+          width = 215,
           height = 39,
           rotation = 0,
           visible = true,
@@ -264,6 +270,21 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 57,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 600,
+          y = 200,
+          width = 80,
+          height = 16.6667,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 4"
+          }
         }
       }
     },
@@ -465,11 +486,12 @@ return {
           shape = "rectangle",
           x = 603,
           y = 201,
-          width = 76,
+          width = 62,
           height = 20,
           rotation = 0,
           visible = true,
           properties = {
+            ["cond"] = "Game.chapter ~= 4",
             ["exit_sound"] = "doorclose",
             ["facing"] = "up",
             ["map"] = "hometown/police",
@@ -533,6 +555,38 @@ return {
             ["scalex"] = 2,
             ["scaley"] = 2,
             ["texture"] = "effects/rainypool"
+          }
+        },
+        {
+          id = 54,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 606,
+          y = 210,
+          width = 60,
+          height = 86,
+          rotation = 0,
+          gid = 25989,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 4"
+          }
+        },
+        {
+          id = 55,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 704,
+          y = 184,
+          width = 158,
+          height = 70,
+          rotation = 0,
+          gid = 25991,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 4"
           }
         }
       }
@@ -732,6 +786,22 @@ return {
           visible = true,
           properties = {
             ["cond"] = "Game.chapter == 5"
+          }
+        },
+        {
+          id = 58,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 602.333,
+          y = 189,
+          width = 63,
+          height = 36.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 4",
+            ["cutscene"] = "hometown/street2.policestation"
           }
         }
       }

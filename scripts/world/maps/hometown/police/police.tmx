@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="7" nextobjectid="45">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+ </properties>
+ <tileset firstgid="1" source="../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../assets/sprites/world/hometown/police/base.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collision">
+  <object id="2" x="240" y="400" width="40" height="120"/>
+  <object id="4" x="120" y="344.598" width="40" height="55.4023"/>
+  <object id="5" x="160" y="400" width="80" height="40"/>
+  <object id="8" x="400" y="360" width="80" height="40"/>
+  <object id="9" x="457" y="260.58" width="62.7687" height="99.4203"/>
+  <object id="10" x="360" y="360" width="40" height="160"/>
+  <object id="16" x="520" y="153.793" width="40" height="126.207"/>
+  <object id="18" x="360" y="200" width="80" height="5.84702"/>
+  <object id="19" name="jail_collision" x="440" y="200" width="80" height="5.84702"/>
+  <object id="21" x="120" y="191" width="89.3753" height="156.342"/>
+  <object id="24" x="210.715" y="151.294" width="147.946" height="48.036"/>
+  <object id="25" x="354.643" y="113.303" width="165.357" height="40"/>
+  <object id="39" x="253.803" y="265.857" width="142.639" height="59.6003"/>
+  <object id="40" x="293.314" y="262.509" width="63.6183" height="30.135"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="4" name="markers">
+  <object id="27" name="entry" x="320" y="400">
+   <point/>
+  </object>
+  <object id="28" name="spawn" x="274.153" y="371.384">
+   <point/>
+  </object>
+  <object id="29" name="gaybaby" x="481.382" y="179.462">
+   <point/>
+  </object>
+  <object id="43" name="susie" x="440" y="240">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects_party" visible="0">
+  <object id="30" name="transition" x="280" y="480" width="80" height="40">
+   <properties>
+    <property name="exit_sound" value="doorclose"/>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street2"/>
+    <property name="marker" value="entry_police"/>
+    <property name="sound" value="dooropen"/>
+   </properties>
+  </object>
+  <object id="31" name="jail" x="354.643" y="70.2853" width="165.357" height="130.715"/>
+  <object id="32" gid="71" x="240" y="340" width="170" height="118">
+   <properties>
+    <property name="cond" value="Game:getFlag(&quot;undyne_break_table&quot;) == nil or Game:getFlag(&quot;undyne_break_table&quot;) == false"/>
+   </properties>
+  </object>
+  <object id="33" gid="72" x="240" y="340" width="170" height="118">
+   <properties>
+    <property name="cond" value="Game:getFlag(&quot;undyne_break_table&quot;) == true"/>
+   </properties>
+  </object>
+  <object id="36" name="boombox" x="184.158" y="161.39">
+   <point/>
+  </object>
+  <object id="38" name="interactable" x="440" y="200" width="80" height="13.883">
+   <properties>
+    <property name="cutscene" value="hometown/police.jail"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ffaaff" id="6" name="objects">
+  <object id="35" name="interactable" x="242.679" y="260.76" width="160" height="80">
+   <properties>
+    <property name="cutscene" value="hometown/police.table"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

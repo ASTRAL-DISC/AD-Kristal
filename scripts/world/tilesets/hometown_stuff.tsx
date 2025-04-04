@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="46" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="51" columns="0">
  <editorsettings>
   <export target="hometown_stuff.lua" format="lua"/>
  </editorsettings>
@@ -141,5 +141,24 @@
  </tile>
  <tile id="66">
   <image source="../../../assets/sprites/world/hometown/library/lobby_layer_b.png" width="640" height="480"/>
+ </tile>
+ <tile id="67">
+  <image source="../../../assets/sprites/world/hometown/police/sign_1.png" width="60" height="86"/>
+  <animation>
+   <frame tileid="67" duration="400"/>
+   <frame tileid="68" duration="400"/>
+  </animation>
+ </tile>
+ <tile id="68">
+  <image source="../../../assets/sprites/world/hometown/police/sign_2.png" width="60" height="86"/>
+ </tile>
+ <tile id="69">
+  <image source="../../../assets/sprites/world/hometown/police/policewindow_closed.png" width="158" height="70"/>
+ </tile>
+ <tile id="70">
+  <image source="../../../assets/sprites/world/hometown/police/table.png" width="170" height="118"/>
+ </tile>
+ <tile id="71">
+  <image source="../../../assets/sprites/world/hometown/police/table_broken.png" width="170" height="118"/>
  </tile>
 </tileset>

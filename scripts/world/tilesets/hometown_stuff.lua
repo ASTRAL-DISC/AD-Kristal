@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 46,
+  tilecount = 51,
   tiles = {
     {
       id = 0,
@@ -300,6 +300,46 @@ return {
       image = "../../../assets/sprites/world/hometown/library/lobby_layer_b.png",
       width = 640,
       height = 480
+    },
+    {
+      id = 67,
+      image = "../../../assets/sprites/world/hometown/police/sign_1.png",
+      width = 60,
+      height = 86,
+      animation = {
+        {
+          tileid = 67,
+          duration = 400
+        },
+        {
+          tileid = 68,
+          duration = 400
+        }
+      }
+    },
+    {
+      id = 68,
+      image = "../../../assets/sprites/world/hometown/police/sign_2.png",
+      width = 60,
+      height = 86
+    },
+    {
+      id = 69,
+      image = "../../../assets/sprites/world/hometown/police/policewindow_closed.png",
+      width = 158,
+      height = 70
+    },
+    {
+      id = 70,
+      image = "../../../assets/sprites/world/hometown/police/table.png",
+      width = 170,
+      height = 118
+    },
+    {
+      id = 71,
+      image = "../../../assets/sprites/world/hometown/police/table_broken.png",
+      width = 170,
+      height = 118
     }
   }
 }
