@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 70,
+  tilecount = 71,
   tiles = {
     {
       id = 3,
@@ -556,6 +556,12 @@ return {
       image = "../../../assets/sprites/world/castle_town/cafe_table_4.png",
       width = 92,
       height = 70
+    },
+    {
+      id = 75,
+      image = "../../../assets/sprites/world/castle_town/jewel_shop_wip.png",
+      width = 160,
+      height = 222
     }
   }
 }

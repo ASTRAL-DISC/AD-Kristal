@@ -1,7 +1,13 @@
 return {
     savepoint = function(cutscene, event)
-        cutscene:text("* (You are filled with a certain power...)")
+        if Game.chapter == 4 then
+            cutscene:text("* After the dark night, [wait:5]the sun shines brightly.")
+            cutscene:text("* This once empty town is beginning to feel like a city!")
+        else
+            cutscene:text("* Placeholder!")
+        end
     end,
+
     manual = function(cutscene, event)
         cutscene:text("* (It's a manual. Read a topic?)")
         local tip = cutscene:choicer({"Recruits", "Item storage", "Controls", "Do not read"})
@@ -23,13 +29,16 @@ return {
             cutscene:text("* (There's no time to read books.)")
         end
     end,
+
     fountain = function(cutscene, event)
         cutscene:text("* A fountain. [wait:5]An iridescent liquid flows through.")
         cutscene:text("* It's strangely satisfying to watch.")
     end,
+
     fountain_sign = function(cutscene, event)
         cutscene:text("* \"Welcome to "..Game.save_name.."TOWN!\"")
     end,
+
     wayfer = function(cutscene, event)
         local interact_count = event:getFlag("interact_count", 0)
         interact_count = interact_count + 1
@@ -40,39 +49,13 @@ return {
             cutscene:text("* Gotta get the..... [wait:10]JUICE!!!")
         else
             cutscene:setSpeaker(event)
-            cutscene:text("* Today I've heard of something called a \"[color:yellow]Credits Sequence[color:reset]\".")
+            cutscene:text("* Today I heard of something called \"rosewater\".")
             cutscene:text("* Does it have any [wait:10]JUICE?")
-
-            Game.world.music:pause()
-            local black = Rectangle(0, 0, Game.world.width, Game.world.height)
-            black:setColor(0, 0, 0)
-            black.alpha = 0
-            Game.world:spawnObject(black, "below_ui")
-            Game.world.timer:tween(1, black, {alpha = 1})
-
-            cutscene:wait(2)
-
-            local theme = "ch3_credits"
-            local credits = CreditsTest(theme)
-            credits:setLayer(black.layer + 1)
-            Game.world:addChild(credits)
-            cutscene:wait(function() return credits:isRemoved() end)
-
-            black:fadeOutAndRemove(1)
-            cutscene:wait(1)
-            Game.world.music:resume()
-            Game:setBorder("castle")
-            cutscene:text("* How was that for JUICE?!")
         end
     end,
-    jewel = function(cutscene, event)
+
+    rudinn_block = function(cutscene, event)
         cutscene:setSpeaker(event)
-        cutscene:text("* We're still working on the jewel shop, [wait:5]sorry!")
-        cutscene:text("* Maybe you can enter it in a different chapter of life...?")
-    end,
-    drizzly = function(cutscene, event)
-        cutscene:setSpeaker(event)
-        cutscene:text("* ...")
-        cutscene:text("* ... [wait:5]Who are you?")
+        cutscene:text("* We're still working on this shop, [wait:5]sorry!")
     end,
 }
