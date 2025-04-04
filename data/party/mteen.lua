@@ -24,17 +24,17 @@ function character:init()
     self:addSpell("sleep_mist")
     self:addSpell("ice_shock")
 
-    self.health = 130
+    self.health = 150
 
     self.stats = {
-        health = 130,
+        health = 150,
         attack = 10,
         defense = 3,
         magic = 8
     }
 
     self.max_stats = {
-        health = 188
+        health = 230
     }
 
     self.weapon_icon = "ui/menu/equip/staff"

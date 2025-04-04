@@ -49,42 +49,42 @@ function character:init()
 
     if Game.chapter == 3 then
         self.stats = {
-            health = 190,
+            health = 180,
             attack = 18,
             defense = 2,
             magic = 3
         }
     elseif Game.chapter == 4 then
         self.stats = {
-            health = 240,
+            health = 230,
             attack = 20,
             defense = 2,
             magic = 5
         }
     elseif Game.chapter == 5 then
         self.stats = {
-            health = 300,
+            health = 290,
             attack = 22,
             defense = 2,
             magic = 7
         }
     elseif Game.chapter == 6 then
         self.stats = {
-            health = 370,
+            health = 360,
             attack = 24,
             defense = 4,
             magic = 9
         }
     elseif Game.chapter == 7 then
         self.stats = {
-            health = 450,
+            health = 440,
             attack = 27,
             defense = 5,
             magic = 12
         }
     elseif Game:getFlag("epilogue") then
         self.stats = {
-            health = 540,
+            health = 530,
             attack = 30,
             defense = 6,
             magic = 14
@@ -94,23 +94,23 @@ function character:init()
     -- Max stats from level-ups
     if Game.chapter == 3 then
         self.max_stats = {
-            health = 266,
+            health = 230,
         }
     elseif Game.chapter == 4 then
         self.max_stats = {
-            health = 316,
+            health = 290,
         }
     elseif Game.chapter == 5 then
         self.max_stats = {
-            health = 376,
+            health = 360,
         }
     elseif Game.chapter == 6 then
         self.max_stats = {
-            health = 446,
+            health = 440,
         }
     elseif Game.chapter == 7 then
         self.max_stats = {
-            health = 526,
+            health = 530,
         }
     end
 

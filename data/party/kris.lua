@@ -53,28 +53,28 @@ function character:init()
         }
     elseif Game.chapter == 4 then
         self.stats = {
-            health = 210,
+            health = 200,
             attack = 16,
             defense = 2,
             magic = 0
         }
     elseif Game.chapter == 5 then
         self.stats = {
-            health = 270,
+            health = 260,
             attack = 18,
             defense = 2,
             magic = 0
         }
     elseif Game.chapter == 6 then
         self.stats = {
-            health = 340,
+            health = 330,
             attack = 20,
             defense = 2,
             magic = 0
         }
     elseif Game.chapter == 7 then
         self.stats = {
-            health = 420,
+            health = 410,
             attack = 22,
             defense = 2,
             magic = 0
@@ -83,27 +83,27 @@ function character:init()
 
     if Game.chapter == 3 then
         self.max_stats = {
-            health = 210,
+            health = 200,
             attack = 16,
         }
     elseif Game.chapter == 4 then
         self.max_stats = {
-            health = 265,
+            health = 260,
             attack = 18,
         }
     elseif Game.chapter == 5 then
         self.max_stats = {
-            health = 310,
+            health = 330,
             attack = 20,
         }
     elseif Game.chapter == 6 then
         self.max_stats = {
-            health = 380,
+            health = 410,
 			attack = 22,
         }
     elseif Game.chapter == 7 then
         self.max_stats = {
-            health = 440,
+            health = 490,
 			attack = 24,
         }
     end
