@@ -258,6 +258,13 @@
             "width": 640,
             "x": 6480,
             "y": -1520
+        },
+        {
+            "fileName": "maps/hometown/police/police.tmx",
+            "height": 480,
+            "width": 640,
+            "x": -320,
+            "y": -640
         }
     ],
     "onlyShowAdjacentMaps": false,
