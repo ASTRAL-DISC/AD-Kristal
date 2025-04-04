@@ -97,10 +97,10 @@ function MainMenu:enter()
     self.mod_list:buildModList()
 
     self.ver_string = "v" .. tostring(Kristal.Version)
-    local trimmed_commit = GitFinder:fetchTrimmedCommit()
+    --[[local trimmed_commit = GitFinder:fetchTrimmedCommit()
     if trimmed_commit then
         self.ver_string = self.ver_string .. " (" .. trimmed_commit .. ")"
-    end
+    end]]
 
     if not self.music:isPlaying() then
         self.music:play("mod_menu", 1, 0.95)
@@ -121,7 +121,7 @@ function MainMenu:enter()
         instance = 1
     })
 
-    GitFinder:fetchLatestCommit(function(status, body, headers)
+    --[[GitFinder:fetchLatestCommit(function(status, body, headers)
         local current_commit = GitFinder:fetchCurrentCommit()
         if current_commit ~= body then
             self.ver_string = "v" .. tostring(Kristal.Version)
@@ -130,7 +130,7 @@ function MainMenu:enter()
             end
             self.ver_string = self.ver_string .. " (outdated!)"
         end
-    end)
+    end)]]
 end
 
 function MainMenu:leave()
