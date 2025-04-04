@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 44,
+  tilecount = 45,
   tiles = {
     {
       id = 0,
@@ -288,6 +288,12 @@ return {
       image = "../../../assets/sprites/world/hometown/townhall/mayor_computer.png",
       width = 42,
       height = 34
+    },
+    {
+      id = 65,
+      image = "../../../assets/sprites/world/hometown/townhall_layer2.png",
+      width = 418,
+      height = 204
     }
   }
 }

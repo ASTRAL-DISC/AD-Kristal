@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 8,
-  nextobjectid = 42,
+  nextobjectid = 43,
   properties = {
     ["border"] = "leaves",
     ["light"] = "true",
@@ -23,6 +23,12 @@ return {
       firstgid = 1,
       filename = "../../../tilesets/hometown_map.tsx",
       exportfilename = "../../../tilesets/hometown_map.lua"
+    },
+    {
+      name = "hometown_stuff",
+      firstgid = 24597,
+      filename = "../../../tilesets/hometown_stuff.tsx",
+      exportfilename = "../../../tilesets/hometown_stuff.lua"
     }
   },
   layers = {
@@ -116,9 +122,9 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1200,
+          x = 1204,
           y = 0,
-          width = 200,
+          width = 196,
           height = 320,
           rotation = 0,
           visible = true,
@@ -131,7 +137,7 @@ return {
           shape = "rectangle",
           x = 960,
           y = 0,
-          width = 160,
+          width = 168.667,
           height = 320,
           rotation = 0,
           visible = true,
@@ -207,7 +213,7 @@ return {
           x = 1120,
           y = 0,
           width = 80,
-          height = 200,
+          height = 162.667,
           rotation = 0,
           visible = true,
           properties = {}
@@ -387,9 +393,9 @@ return {
           name = "transition",
           type = "",
           shape = "rectangle",
-          x = 1120,
-          y = 240,
-          width = 80,
+          x = 1128.67,
+          y = 94,
+          width = 74.6667,
           height = 80,
           rotation = 0,
           visible = true,
@@ -576,6 +582,20 @@ return {
           properties = {
             ["cond"] = "Game.chapter == 6"
           }
+        },
+        {
+          id = 42,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 960,
+          y = 204,
+          width = 418,
+          height = 204,
+          rotation = 0,
+          gid = 24662,
+          visible = true,
+          properties = {}
         }
       }
     }

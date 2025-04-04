@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="42">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="43">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -10,6 +10,7 @@
   <property name="name" value="Hometown Street 4"/>
  </properties>
  <tileset firstgid="1" source="../../../tilesets/hometown_map.tsx"/>
+ <tileset firstgid="24597" source="../../../tilesets/hometown_stuff.tsx"/>
  <layer id="1" name="tiles" width="38" height="25">
   <data encoding="csv">
 10901,10902,10903,10904,10905,10906,10907,10908,10909,10910,10911,10912,10913,10914,10915,10916,10917,10918,10919,10920,10921,10922,10923,10924,10925,10926,10927,10928,10929,10930,10931,10932,10933,10934,10935,10936,10937,10938,
@@ -42,8 +43,8 @@
  <objectgroup color="#0000ff" id="2" name="collision">
   <object id="6" x="0" y="0" width="720" height="320"/>
   <object id="9" x="1400" y="0" width="120" height="600"/>
-  <object id="11" x="1200" y="0" width="200" height="320"/>
-  <object id="12" x="960" y="0" width="160" height="320"/>
+  <object id="11" x="1204" y="0" width="196" height="320"/>
+  <object id="12" x="960" y="0" width="168.667" height="320"/>
   <object id="13" x="960" y="1000">
    <polygon points="0,0 0,-80 80,-160 80,-320 160,-400 560,-400 560,0"/>
   </object>
@@ -53,7 +54,7 @@
   <object id="15" x="400" y="680">
    <polygon points="0,0 40,-40 40,-360 -400,-360 -400,0"/>
   </object>
-  <object id="17" x="1120" y="0" width="80" height="200"/>
+  <object id="17" x="1120" y="0" width="80" height="162.667"/>
   <object id="19" x="720" y="320">
    <polygon points="0,0 40,39 40,234 0,351 -280,351 -280,39 -240,0"/>
   </object>
@@ -97,7 +98,7 @@
     <property name="marker" value="entry"/>
    </properties>
   </object>
-  <object id="27" name="transition" x="1120" y="240" width="80" height="80">
+  <object id="27" name="transition" x="1128.67" y="94" width="74.6667" height="80">
    <properties>
     <property name="facing" value="up"/>
     <property name="map" value="hometown/townhall/lobby"/>
@@ -178,5 +179,6 @@
    </properties>
    <point/>
   </object>
+  <object id="42" gid="24662" x="960" y="204" width="418" height="204"/>
  </objectgroup>
 </map>
