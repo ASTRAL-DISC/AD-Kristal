@@ -69,13 +69,13 @@ return {
         event:setFlag("interact_count", interact_count)
         if player.facing == "right" then
             cutscene:setSpeaker(event)
-            cutscene:text("* ...Don't read my texts, [wait:5]please.")
+            cutscene:text("* ... Mind your own business.")
         elseif interact_count == 1 then
             cutscene:setSpeaker(event)
-            cutscene:text("* ...Why are you looking at me like that...?")
+            cutscene:text("* ... Why are you looking at me like that?")
         else
             cutscene:setSpeaker(event)
-            cutscene:text("* I'm busy. [wait:5]Please go away...")
+            cutscene:text("* I'm busy. [wait:5]Please go away.")
         end
     end,
 

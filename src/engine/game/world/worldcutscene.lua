@@ -33,6 +33,11 @@ function WorldCutscene:init(world, group, id, ...)
     self.textbox_speaker = nil
     self.textbox_top = nil
 
+    self.recttextbox = nil
+    self.recttextbox_actor = nil
+    self.recttextbox_speaker = nil
+    self.recttextbox_top = nil
+
     self.choicebox = nil
     self.choice = 0
 
@@ -525,10 +530,35 @@ function WorldCutscene:setSpeaker(actor, talk)
     end
 end
 
+function WorldCutscene:setRectSpeaker(actor, talk)
+    if isClass(actor) and actor:includes(Character) then
+        if talk ~= false then
+            self.recttextbox_speaker = actor.sprite
+        end
+        self.recttextbox_actor = actor.actor
+    elseif type(actor) == "string" and talk ~= false then
+        local chara = self:getCharacter(actor)
+        if chara then
+            self.recttextbox_speaker = chara.sprite
+            self.recttextbox_actor = chara.actor
+        else
+            self.recttextbox_speaker = nil
+            self.recttextbox_actor = actor
+        end
+    else
+        self.recttextbox_speaker = nil
+        self.recttextbox_actor = actor
+    end
+end
+
 --- Sets whether the textbox should appear at the top of the screen or the bottom.
 ---@param top boolean Whether the textbox should appear at the top of the screen.
 function WorldCutscene:setTextboxTop(top)
     self.textbox_top = top
+end
+
+function WorldCutscene:setRectTextboxTop(top)
+    self.recttextbox_top = top
 end
 
 ---@param self WorldCutscene
@@ -845,6 +875,106 @@ function WorldCutscene:closeText()
     if self.textchoicebox then
         self.textchoicebox:remove()
         self.textchoicebox = nil
+    end
+end
+
+local function waitForRectTextbox(self) return not self.recttextbox or self.recttextbox:isDone() end
+function WorldCutscene:rectText(text, actor, options)
+    if type(actor) == "table" and not isClass(actor) then
+        options = actor
+        actor = nil
+    end
+
+    options = options or {}
+
+    self:closeRectText()
+
+    local width, height = 529, 103
+    if Game:isLight() then
+        width, height = 530, 104
+    end
+
+    self.recttextbox = RectTextbox(56, 344, width, height)
+    self.recttextbox.layer = WORLD_LAYERS["textbox"]
+    self.world:addChild(self.recttextbox)
+    self.recttextbox:setParallax(0, 0)
+
+    if type(actor) == "string" then
+        actor = self:getCharacter(actor) or actor
+    end
+
+    local speaker = self.recttextbox_speaker
+    if not speaker and isClass(actor) and actor:includes(Character) then
+        speaker = actor.sprite
+    end
+
+    if options["talk"] ~= false then
+        self.recttextbox.text.talk_sprite = speaker
+    end
+
+    actor = actor or self.recttextbox_actor
+    if isClass(actor) and actor:includes(Character) then
+        actor = actor.actor
+    end
+    if actor then
+        self.recttextbox:setActor(actor)
+    end
+
+    if options["top"] == nil and self.recttextbox_top == nil then
+        local _, player_y = self.world.player:localToScreenPos()
+        options["top"] = player_y > 260
+    end
+    if options["top"] or (options["top"] == nil and self.recttextbox_top) then
+       self.recttextbox.y = 42
+    end
+
+    self.recttextbox.active = true
+    self.recttextbox.visible = true
+
+    if options["functions"] then
+        for id,func in pairs(options["functions"]) do
+            self.recttextbox:addFunction(id, func)
+        end
+    end
+
+    if options["font"] then
+        if type(options["font"]) == "table" then
+            -- {font, size}
+            self.recttextbox:setFont(options["font"][1], options["font"][2])
+        else
+            self.recttextbox:setFont(options["font"])
+        end
+    end
+
+    if options["align"] then
+        self.recttextbox:setAlign(options["align"])
+    end
+
+    self.recttextbox:setSkippable(options["skip"] or options["skip"] == nil)
+    self.recttextbox:setAdvance(options["advance"] or options["advance"] == nil)
+    self.recttextbox:setAuto(options["auto"])
+
+    self.recttextbox:setText(text, function()
+        self.recttextbox:remove()
+        self:tryResume()
+    end)
+
+    local wait = options["wait"] or options["wait"] == nil
+    if not self.recttextbox.text.can_advance then
+        wait = options["wait"] -- By default, don't wait if the textbox can't advance
+    end
+
+    if wait then
+        return self:wait(waitForRectTextbox)
+    else
+        return waitForRectTextbox, self.recttextbox
+    end
+end
+
+function WorldCutscene:closeRectText()
+    if self.recttextbox then
+        self.recttextbox:remove()
+        self.recttextbox = nil
     end
 end
 
