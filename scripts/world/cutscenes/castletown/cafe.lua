@@ -47,7 +47,7 @@ return {
         if choice == 1 then
             Assets.playSound("ui_select")
             cutscene:after(function()
-                Game.world:openMenu(JukeboxMenu())
+                Game.world:openMenu(JukeboxMenu(true))
             end)
         else
             cutscene:text("* You decided to leave the jukebox in its undamaged\nstate.")
