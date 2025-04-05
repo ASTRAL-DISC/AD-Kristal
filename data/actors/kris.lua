@@ -148,6 +148,7 @@ function actor:init()
         ["outfits/care"] = {0, 0},
         ["outfits/care_b"] = {0, -3},
         ["outfits/cowboy"] = {-4, -4},
+        ["outfits/redcarpet"] = {0, 0},
         ["outfits/melon"] = {-2, -10},
         ["outfits/swap"] = {0, 0},
         ["outfits/halloween"] = {-26, 0},

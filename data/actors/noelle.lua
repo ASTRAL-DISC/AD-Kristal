@@ -260,7 +260,7 @@ function actor:init()
 
         -- Outfits
         ["outfits/halloween"] = {0, 0},
-        ["outfits/halloween_look"] = {0, 0},
+        ["outfits/halloween_look"] = {1, -1},
     }
 
     self.spotlight = {
