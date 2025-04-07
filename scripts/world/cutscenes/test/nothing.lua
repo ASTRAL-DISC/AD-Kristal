@@ -47,6 +47,8 @@ return {
             cutscene:wait(0.3)
             bouquet:explode()
             nick:explode()
+        elseif Game.chapter == 4 then
+            cutscene:text("* I guess we'll just walk home...?\n* In the rain?", "surprise_smile", "noelle_lw")
         elseif Game.chapter == 5 then
             local x, y = cutscene:getMarker("spawn")
 
