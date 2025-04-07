@@ -38,7 +38,7 @@ function WeatherHandler:init(typer, sfx, child, intensity, overlay)
     if self.type == "thunder" then
        if self.sfx then self.weathersounds:play("heavy_rain", 2, 1) end
     end
-    if self.type == "rain" then if self.sfx then self.weathersounds:play("light_rain", 0.5, 1) end end
+    if self.type == "rain" then if self.sfx then self.weathersounds:play("light_rain", 2, 1) end end
     if self.type == "snow" then
         self:jingleBell()
     end
