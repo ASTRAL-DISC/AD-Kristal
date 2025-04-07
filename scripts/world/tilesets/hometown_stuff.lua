@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.11.0",
+  tiledversion = "1.11.2",
   name = "hometown_stuff",
   class = "",
   tilewidth = 1690,
@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 51,
+  tilecount = 56,
   tiles = {
     {
       id = 0,
@@ -340,6 +340,36 @@ return {
       image = "../../../assets/sprites/world/hometown/police/table_broken.png",
       width = 170,
       height = 118
+    },
+    {
+      id = 72,
+      image = "../../../assets/sprites/world/hometown/church/altar.png",
+      width = 88,
+      height = 114
+    },
+    {
+      id = 73,
+      image = "../../../assets/sprites/world/hometown/church/altar_b.png",
+      width = 88,
+      height = 114
+    },
+    {
+      id = 74,
+      image = "../../../assets/sprites/world/hometown/church/flowers.png",
+      width = 74,
+      height = 84
+    },
+    {
+      id = 75,
+      image = "../../../assets/sprites/world/hometown/church/pew.png",
+      width = 138,
+      height = 58
+    },
+    {
+      id = 76,
+      image = "../../../assets/sprites/world/hometown/church/pillar.png",
+      width = 78,
+      height = 258
     }
   }
 }

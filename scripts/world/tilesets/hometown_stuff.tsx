@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="51" columns="0">
+<tileset version="1.10" tiledversion="1.11.2" name="hometown_stuff" tilewidth="1690" tileheight="840" tilecount="56" columns="0">
  <editorsettings>
   <export target="hometown_stuff.lua" format="lua"/>
  </editorsettings>
@@ -160,5 +160,20 @@
  </tile>
  <tile id="71">
   <image source="../../../assets/sprites/world/hometown/police/table_broken.png" width="170" height="118"/>
+ </tile>
+ <tile id="72">
+  <image source="../../../assets/sprites/world/hometown/church/altar.png" width="88" height="114"/>
+ </tile>
+ <tile id="73">
+  <image source="../../../assets/sprites/world/hometown/church/altar_b.png" width="88" height="114"/>
+ </tile>
+ <tile id="74">
+  <image source="../../../assets/sprites/world/hometown/church/flowers.png" width="74" height="84"/>
+ </tile>
+ <tile id="75">
+  <image source="../../../assets/sprites/world/hometown/church/pew.png" width="138" height="58"/>
+ </tile>
+ <tile id="76">
+  <image source="../../../assets/sprites/world/hometown/church/pillar.png" width="78" height="258"/>
  </tile>
 </tileset>
