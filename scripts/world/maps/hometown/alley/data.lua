@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.1",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 5,
-  nextobjectid = 9,
+  nextobjectid = 19,
   properties = {
     ["border"] = "leaves",
     ["light"] = "true",
@@ -132,7 +132,7 @@ return {
           x = 360,
           y = 160,
           width = 40,
-          height = 240,
+          height = 223.333,
           rotation = 0,
           visible = true,
           properties = {}
@@ -197,6 +197,109 @@ return {
             ["facing"] = "down",
             ["map"] = "hometown/street3",
             ["marker"] = "entry3"
+          }
+        },
+        {
+          id = 9,
+          name = "milksaucer",
+          type = "",
+          shape = "point",
+          x = 261,
+          y = 238,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 11,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 337,
+          width = 40,
+          height = 46,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/alley.trashcan"
+          }
+        },
+        {
+          id = 12,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 280,
+          width = 40,
+          height = 46,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/alley.trashcan"
+          }
+        },
+        {
+          id = 13,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 227,
+          width = 40,
+          height = 46,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/alley.trashflowers"
+          }
+        },
+        {
+          id = 15,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 122,
+          width = 40,
+          height = 46,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/alley.trashflowers"
+          }
+        },
+        {
+          id = 17,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 174,
+          width = 40,
+          height = 46,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/alley.trashflowers"
+          }
+        },
+        {
+          id = 18,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 120,
+          width = 112.667,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "hometown/alley.spraypaint"
           }
         }
       }
