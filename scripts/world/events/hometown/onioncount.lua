@@ -9,10 +9,12 @@ function OnionCount:init(data)
 end
 
 function OnionCount:onCollide(chara)
-    self.onion_timer = self.onion_timer + 1 * DT
-    if self.onion_timer > 200/30 and not Game.world:hasCutscene() then
-        Game.world:startCutscene("hometown/lagoon.onion")
-        self:remove()
+    if chara.actor.id == "kris" then
+        self.onion_timer = self.onion_timer + 1
+        if self.onion_timer > 200/30 and not Game.world:hasCutscene() then
+            Game.world:startCutscene("hometown/lagoon.onion")
+            self:remove()
+        end
     end
 end
 
