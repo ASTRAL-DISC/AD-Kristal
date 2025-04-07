@@ -1,6 +1,6 @@
 local ColorShadowFX, super = Class(FXBase)
 
-function ColorShadowFX:init(alpha, color, highlight, scale, priority)
+function ColorShadowFX:init(alpha, color, highlight, scale, priority, no_shadow)
     super.init(self, priority)
 
     self.alpha = alpha or 0.75
@@ -9,6 +9,7 @@ function ColorShadowFX:init(alpha, color, highlight, scale, priority)
     self.scale = scale or 1
 
     self.shadow_offset = 0 -- for the fountain
+    self.no_shadow = no_shadow or false
 end
 
 function ColorShadowFX:getAlpha()
@@ -87,9 +88,11 @@ function ColorShadowFX:draw(texture)
     end
 
     local ox, oy, ow, oh = self:getObjectBounds()
-
-    Draw.setColor(0, 0, 0, alpha)
-    Draw.draw(texture, ox, oy+oh + (self.shadow_offset * sy), 0, 1, -self:getScale(), ox, oy+oh)
+    
+    if not self.no_shadow then
+        Draw.setColor(0, 0, 0, alpha)
+        Draw.draw(texture, ox, oy+oh + (self.shadow_offset * sy), 0, 1, -self:getScale(), ox, oy+oh)
+    end
 end
 
 return ColorShadowFX
