@@ -136,7 +136,7 @@ return {
 
     door1 = function(cutscene, event)
         Assets.playSound("knock")
-        cutscene:text("* (Knock knock knock.)")
+        cutscene:text("* (Knock knock knock...)")
         cutscene:text("* Hey, dearie~ [wait:5]Kindly take your knocking somewhere else.")
         cutscene:text("* People are trying to work here, [wait:5]ahuhuhu!")
     end,
@@ -148,13 +148,13 @@ return {
 
     door2 = function(cutscene, event)
         Assets.playSound("knock")
-        cutscene:text("* (Knock knock knock.)")
+        cutscene:text("* (Knock knock knock...)")
         cutscene:text("* (No answer, [wait:5]except for the\nfaint sound of pen to paper.)")
     end,
 
     door3 = function(cutscene, event)
         Assets.playSound("knock")
-        cutscene:text("* (Knock knock knock.)")
+        cutscene:text("* (Knock knock knock...)")
         cutscene:text("* (...)")
         cutscene:text("* (This might be the supply closet.)")
     end,
