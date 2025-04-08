@@ -9,7 +9,7 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 8,
+  nextlayerid = 9,
   nextobjectid = 21,
   properties = {
     ["border"] = "leaves",
@@ -260,7 +260,7 @@ return {
       type = "objectgroup",
       draworder = "topdown",
       id = 5,
-      name = "objects",
+      name = "objects_party",
       class = "",
       visible = true,
       opacity = 1,
@@ -335,36 +335,19 @@ return {
       }
     },
     {
-      type = "imagelayer",
-      image = "../../../../../../assets/sprites/world/hometown/church/lobby_stainedlight.png",
-      id = 7,
-      name = "stainedlight",
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 8,
+      name = "objects",
       class = "",
       visible = true,
-      opacity = 0.15,
+      opacity = 1,
       offsetx = 0,
       offsety = 0,
       parallaxx = 1,
       parallaxy = 1,
-      repeatx = false,
-      repeaty = false,
-      properties = {}
-    },
-    {
-      type = "imagelayer",
-      image = "../../../../../../assets/sprites/world/hometown/church/lobby_overlay.png",
-      id = 6,
-      name = "overlay",
-      class = "",
-      visible = true,
-      opacity = 0.5,
-      offsetx = 0,
-      offsety = 0,
-      parallaxx = 1,
-      parallaxy = 1,
-      repeatx = false,
-      repeaty = false,
-      properties = {}
+      properties = {},
+      objects = {}
     }
   }
 }

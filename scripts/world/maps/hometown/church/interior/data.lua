@@ -9,7 +9,7 @@ return {
   height = 23,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 12,
+  nextlayerid = 13,
   nextobjectid = 78,
   properties = {
     ["border"] = "leaves",
@@ -679,7 +679,7 @@ return {
       type = "objectgroup",
       draworder = "topdown",
       id = 5,
-      name = "objects",
+      name = "objects_party",
       class = "",
       visible = true,
       opacity = 1,
@@ -718,8 +718,7 @@ return {
           gid = 74,
           visible = true,
           properties = {
-            ["cond"] = "Game.chapter >= 4",
-            ["flagcheck"] = "ch4_gathered"
+            ["cond"] = "Game:getFlag(\"ch4_gathered\") and Game.chapter >= 4"
           }
         },
         {
@@ -938,52 +937,19 @@ return {
       }
     },
     {
-      type = "imagelayer",
-      image = "../../../../../../assets/sprites/world/hometown/church/bg_stainedlight.png",
-      id = 7,
-      name = "stainedlight",
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 12,
+      name = "objects",
       class = "",
       visible = true,
-      opacity = 0.12,
+      opacity = 1,
       offsetx = 0,
       offsety = 0,
       parallaxx = 1,
       parallaxy = 1,
-      repeatx = false,
-      repeaty = false,
-      properties = {}
-    },
-    {
-      type = "imagelayer",
-      image = "../../../../../../assets/sprites/world/hometown/church/bg_overlay.png",
-      id = 6,
-      name = "overlay",
-      class = "",
-      visible = true,
-      opacity = 0.51,
-      offsetx = 0,
-      offsety = 0,
-      parallaxx = 1,
-      parallaxy = 1,
-      repeatx = false,
-      repeaty = false,
-      properties = {}
-    },
-    {
-      type = "imagelayer",
-      image = "../../../../../../assets/sprites/world/hometown/church/bg_shadow.png",
-      id = 10,
-      name = "shadow_over",
-      class = "",
-      visible = true,
-      opacity = 0.37,
-      offsetx = 0,
-      offsety = 0,
-      parallaxx = 1,
-      parallaxy = 1,
-      repeatx = false,
-      repeaty = false,
-      properties = {}
+      properties = {},
+      objects = {}
     }
   }
 }

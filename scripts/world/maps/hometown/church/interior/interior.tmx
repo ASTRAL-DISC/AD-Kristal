@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="23" tilewidth="40" tileheight="40" infinite="0" nextlayerid="12" nextobjectid="78">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="23" tilewidth="40" tileheight="40" infinite="0" nextlayerid="13" nextobjectid="78">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -75,7 +75,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup color="#ff55ff" id="5" name="objects">
+ <objectgroup color="#ff55ff" id="5" name="objects_party">
   <object id="6" gid="73" x="276.045" y="394.023" width="88" height="114">
    <properties>
     <property name="flagcheck" value="!ch4_gathered"/>
@@ -83,8 +83,7 @@
   </object>
   <object id="7" gid="74" x="276.05" y="394.02" width="88" height="114">
    <properties>
-    <property name="cond" value="Game.chapter &gt;= 4"/>
-    <property name="flagcheck" value="ch4_gathered"/>
+    <property name="cond" value="Game:getFlag(&quot;ch4_gathered&quot;) and Game.chapter &gt;= 4"/>
    </properties>
   </object>
   <object id="8" gid="77" x="518.01" y="584.01" width="78" height="258"/>
@@ -109,13 +108,5 @@
   <object id="76" gid="76" x="367.998" y="624.01" width="138" height="58"/>
   <object id="77" gid="76" x="367.998" y="704.01" width="138" height="58"/>
  </objectgroup>
- <imagelayer id="7" name="stainedlight" opacity="0.12">
-  <image source="../../../../../../assets/sprites/world/hometown/church/bg_stainedlight.png" width="640" height="920"/>
- </imagelayer>
- <imagelayer id="6" name="overlay" opacity="0.51">
-  <image source="../../../../../../assets/sprites/world/hometown/church/bg_overlay.png" width="640" height="920"/>
- </imagelayer>
- <imagelayer id="10" name="shadow_over" opacity="0.37">
-  <image source="../../../../../../assets/sprites/world/hometown/church/bg_shadow.png" width="640" height="920"/>
- </imagelayer>
+ <objectgroup id="12" name="objects"/>
 </map>
