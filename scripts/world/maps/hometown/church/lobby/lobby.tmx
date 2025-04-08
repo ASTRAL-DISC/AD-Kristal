@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="21">
+ <editorsettings>
+  <export target="data.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="border" value="leaves"/>
+  <property name="inside" type="bool" value="true"/>
+  <property name="light" value="true"/>
+  <property name="music" value="hometown"/>
+ </properties>
+ <tileset firstgid="1" source="../../../../tilesets/hometown_stuff.tsx"/>
+ <imagelayer id="2" name="bg">
+  <image source="../../../../../../assets/sprites/world/hometown/church/lobby.png" width="640" height="480"/>
+ </imagelayer>
+ <objectgroup color="#5555ff" id="3" name="collision">
+  <object id="1" x="120" y="135" width="162.189" height="40"/>
+  <object id="2" x="355" y="135" width="162.189" height="40"/>
+  <object id="3" x="128" y="174.484" width="147.537" height="20.2105"/>
+  <object id="4" x="280.926" y="117.895" width="74.1053" height="37.7263"/>
+  <object id="6" x="519" y="160" width="40" height="240"/>
+  <object id="7" x="360" y="400" width="160" height="40"/>
+  <object id="8" x="360" y="440" width="40" height="80"/>
+  <object id="9" x="240" y="400" width="40" height="120"/>
+  <object id="10" x="120" y="400" width="120" height="40"/>
+  <object id="11" x="80" y="160" width="40" height="240"/>
+  <object id="19" x="120" y="369.432" width="65.8526" height="30.5684"/>
+  <object id="20" x="458.189" y="370.105" width="60.4632" height="29.8947"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="4" name="markers">
+  <object id="12" name="entry" x="320" y="400">
+   <point/>
+  </object>
+  <object id="13" name="entry2" x="320" y="212">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff55ff" id="5" name="objects">
+  <object id="14" name="transition" x="280" y="480" width="80" height="40">
+   <properties>
+    <property name="facing" value="down"/>
+    <property name="map" value="hometown/street4"/>
+    <property name="marker" value="entry_church"/>
+   </properties>
+  </object>
+  <object id="16" name="transition" x="282.274" y="154.947" width="72.7579" height="12.8">
+   <properties>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/church/interior"/>
+    <property name="marker" value="entry"/>
+   </properties>
+  </object>
+  <object id="17" gid="75" x="121.989" y="392.989" width="74" height="84"/>
+  <object id="18" gid="75" x="440.642" y="392.989" width="74" height="84"/>
+ </objectgroup>
+ <imagelayer id="7" name="stainedlight" opacity="0.15">
+  <image source="../../../../../../assets/sprites/world/hometown/church/lobby_stainedlight.png" width="640" height="480"/>
+ </imagelayer>
+ <imagelayer id="6" name="overlay" opacity="0.5">
+  <image source="../../../../../../assets/sprites/world/hometown/church/lobby_overlay.png" width="640" height="480"/>
+ </imagelayer>
+</map>

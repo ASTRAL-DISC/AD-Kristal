@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.11.0",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 8,
-  nextobjectid = 43,
+  nextobjectid = 53,
   properties = {
     ["border"] = "leaves",
     ["light"] = "true",
@@ -219,26 +219,94 @@ return {
           properties = {}
         },
         {
-          id = 19,
+          id = 44,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 635.333,
+          y = 468,
+          width = 94.6667,
+          height = 188,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 45,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 462,
+          y = 476,
+          width = 96,
+          height = 179.333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 46,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 442.667,
+          y = 489.333,
+          width = 19.3333,
+          height = 139.333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 47,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 558,
+          y = 369.333,
+          width = 76,
+          height = 217.333,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 48,
           name = "",
           type = "",
           shape = "polygon",
-          x = 720,
-          y = 320,
+          x = 704.667,
+          y = 320.667,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
-            { x = 40, y = 39 },
-            { x = 40, y = 234 },
-            { x = 0, y = 351 },
-            { x = -280, y = 351 },
-            { x = -280, y = 39 },
-            { x = -240, y = 0 }
+            { x = 45.3333, y = 47.3333 },
+            { x = 46, y = 224.667 },
+            { x = 36, y = 227.333 },
+            { x = 24.6667, y = 216.667 },
+            { x = 24.6667, y = 144.667 },
+            { x = -68, y = 146 },
+            { x = -68.6667, y = -1.33333 }
           },
           properties = {}
+        },
+        {
+          id = 51,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 556.667,
+          y = 586,
+          width = 77.3333,
+          height = 60.6667,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 5"
+          }
         }
       }
     },
@@ -315,6 +383,19 @@ return {
           shape = "point",
           x = 840,
           y = 400,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 52,
+          name = "entry_church",
+          type = "",
+          shape = "point",
+          x = 596,
+          y = 680,
           width = 0,
           height = 0,
           rotation = 0,
@@ -505,6 +586,24 @@ return {
           properties = {
             ["actor"] = "hope_lw",
             ["cutscene"] = "hometown/street4.hope"
+          }
+        },
+        {
+          id = 50,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 559.333,
+          y = 623.333,
+          width = 75.3333,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cond"] = "Game.chapter == 4 or Game.chapter == 6 or Game.chapter == 7",
+            ["facing"] = "up",
+            ["map"] = "hometown/church/lobby",
+            ["marker"] = "entry"
           }
         }
       }

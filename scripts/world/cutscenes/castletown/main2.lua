@@ -1,7 +1,6 @@
 return {
     savepoint = function(cutscene, event)
         if Game.chapter == 4 then
-            cutscene:text("* After the dark night, [wait:5]the sun shines brightly.")
             cutscene:text("* This once empty town is beginning to feel like a city!")
         else
             cutscene:text("* Placeholder!")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="43">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="38" height="25" tilewidth="40" tileheight="40" infinite="0" nextlayerid="8" nextobjectid="53">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -55,8 +55,17 @@
    <polygon points="0,0 40,-40 40,-360 -400,-360 -400,0"/>
   </object>
   <object id="17" x="1120" y="0" width="80" height="162.667"/>
-  <object id="19" x="720" y="320">
-   <polygon points="0,0 40,39 40,234 0,351 -280,351 -280,39 -240,0"/>
+  <object id="44" x="635.333" y="468" width="94.6667" height="188"/>
+  <object id="45" x="462" y="476" width="96" height="179.333"/>
+  <object id="46" x="442.667" y="489.333" width="19.3333" height="139.333"/>
+  <object id="47" x="558" y="369.333" width="76" height="217.333"/>
+  <object id="48" x="704.667" y="320.667">
+   <polygon points="0,0 45.3333,47.3333 46,224.667 36,227.333 24.6667,216.667 24.6667,144.667 -68,146 -68.6667,-1.33333"/>
+  </object>
+  <object id="51" x="556.667" y="586" width="77.3333" height="60.6667">
+   <properties>
+    <property name="cond" value="Game.chapter == 5"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup color="#5500ff" id="3" name="markers">
@@ -73,6 +82,9 @@
    <point/>
   </object>
   <object id="29" name="spawn" x="840" y="400">
+   <point/>
+  </object>
+  <object id="52" name="entry_church" x="596" y="680">
    <point/>
   </object>
  </objectgroup>
@@ -152,6 +164,14 @@
     <property name="cutscene" value="hometown/street4.hope"/>
    </properties>
    <point/>
+  </object>
+  <object id="50" name="transition" x="559.333" y="623.333" width="75.3333" height="24">
+   <properties>
+    <property name="cond" value="Game.chapter == 4 or Game.chapter == 6 or Game.chapter == 7"/>
+    <property name="facing" value="up"/>
+    <property name="map" value="hometown/church/lobby"/>
+    <property name="marker" value="entry"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup color="#ffaaff" id="7" name="objects">
