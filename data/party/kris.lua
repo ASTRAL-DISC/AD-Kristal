@@ -35,13 +35,13 @@ function character:init()
     if Game.chapter == 3 then
         self.health = 160
     elseif Game.chapter == 4 then
-        self.health = 210
+        self.health = 200
     elseif Game.chapter == 5 then
-        self.health = 270
+        self.health = 260
     elseif Game.chapter == 6 then
-        self.health = 340
+        self.health = 330
     elseif Game.chapter == 7 then
-        self.health = 420
+        self.health = 410
     end
 
     if Game.chapter == 3 then
