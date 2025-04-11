@@ -1,4 +1,4 @@
-local Shadowguys, super = Class(Encounter)
+local Shadowguys, super = Class(Encounter, "shadowguys")
 
 function Shadowguys:init()
     super.init(self)

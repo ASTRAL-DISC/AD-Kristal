@@ -1,4 +1,4 @@
-local Dummy, super = Class(EnemyBattler)
+local Dummy, super = Class(EnemyBattler, "dummy")
 
 function Dummy:init()
     super.init(self)
