@@ -66,7 +66,7 @@ function character:init()
 
     self.gameover_message = {
         "Y-Yo...[wait:5]\nAre you okay?!",
-        "Stay with\nme, [wait:5]here! [wait:5]Hey!"
+        "Stay with me,\n[wait:5]here! [wait:5]Hey!"
     }
 end
 

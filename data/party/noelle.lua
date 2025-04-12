@@ -164,8 +164,8 @@ end
 function character:getGameOverMessage(main)
     if main.id == "kris" then
         return {
-            main.name.."...[wait:5]\nc-can you hear me?!",
-            "Please...[wait:5]\nThis isn't funny...!"
+            main.name.."... [wait:5]c-can\nyou hear me?!",
+            "Please... [wait:5]This\nisn't funny...!"
         }
     else
         return {

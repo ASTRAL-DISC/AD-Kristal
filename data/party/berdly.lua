@@ -102,7 +102,7 @@ end
 function character:getGameOverMessage(main)
     return {
         "It's too early\nto give in!",
-        "Y-You can't\nlose now, [wait:5]" .. main.name"...!"
+        "Y-You can't\nlose now, [wait:5]" .. main.name.."!"
     }
 end
 
