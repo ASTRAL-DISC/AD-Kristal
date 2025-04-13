@@ -17,8 +17,6 @@ function BlueSoul:init(x, y)
 
     self.can_invert = true
     self.cooldown = 0
-
-    self.wave = nil
 end
 
 function BlueSoul:invertGravity()
@@ -60,12 +58,6 @@ function BlueSoul:update()
 end
 
 function BlueSoul:doMovement()
-    local wave = self.wave
-
-    if wave then
-        super.doMovement(self)
-    end
-    
     local speed = (self.speed + 1)
 
     if (Input.down("cancel")) then
