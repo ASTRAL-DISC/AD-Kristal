@@ -38,12 +38,6 @@ function GreenSoul:init(x, y)
     self.drain_timer = 0
 
 	self.teaching = false
-	self.wave = nil
-end
-
-function GreenSoul:onWaveStart()
-    local wave = self.wave
-    local arena = Game.battle.arena
 end
 
 function GreenSoul:bubble()
@@ -99,12 +93,6 @@ function GreenSoul:update()
 end
 
 function GreenSoul:doMovement()
-	local wave = self.wave
-
-    if wave then
-        super.doMovement(self)
-    end
-	
 	if Input.down("cancel") then
         self.shield_speed = 0.3
     else
