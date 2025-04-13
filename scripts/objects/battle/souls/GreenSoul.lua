@@ -66,16 +66,22 @@ function GreenSoul:setShieldRotation(direction)
 end
 
 function GreenSoul:turnShield(direction)
-	if self.turn_handle then
-		Game.battle.timer:cancel(self.turn_handle)
-	end
+    if self.turn_handle then
+        Game.battle.timer:cancel(self.turn_handle)
+    end
 
-	local val = self.directions[direction]
+    local val = self.directions[direction]
 
-	if type(val) == "table" then val = val[1] end
+    if type(val) == "table" then val = val[1] end
 
-	self.shield.direction = direction
-	self.turn_handle = Game.battle.timer:tween(self.shield_speed, self.shield, {rotation = self.rotation + Utils.angleDiff(math.rad(val), self.rotation)}, "out-quart")
+    val = math.rad(val)
+    if (val - self.shield.rotation) > math.pi then
+        self.shield.rotation = self.shield.rotation + 2 * math.pi
+    elseif (val - self.shield.rotation) < - math.pi then
+        self.shield.rotation = self.shield.rotation - 2 * math.pi
+    end
+    self.shield.direction = direction
+    self.turn_handle = Game.battle.timer:tween(self.shield_speed, self.shield, {rotation = val}, "out-quart")
 end
 
 function GreenSoul:update()
