@@ -36,7 +36,7 @@ function GonerBackground:update()
     end
     self.music:setPitch(self.music_pitch)
 
-    super:update(self)
+    super.update(self)
 end
 
 return GonerBackground

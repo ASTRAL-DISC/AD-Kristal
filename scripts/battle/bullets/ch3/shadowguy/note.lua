@@ -1,7 +1,7 @@
 local Note, super = Class(Bullet)
 
 function Note:init(x, y)
-    super:init(self, x, y)
+    super.init(self, x, y)
 
     self:setSprite("bullets/ch3/shadowguy/note", 4/60, true)
 	self:setScale(2.5)
@@ -15,7 +15,7 @@ end
 local count = 0.04
 
 function Note:update()
-	super:update(self)
+	super.update(self)
 	
 	local curve = self.curve
 	

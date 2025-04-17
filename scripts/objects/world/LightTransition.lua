@@ -3,7 +3,7 @@ local LightTransition, super = Class(Object)
 
 function LightTransition:init(x, y, data)
 	local data = data or {}
-	super:init(self, x, y, 100, 35)
+	super.init(self, x, y, 100, 35)
 	
 	self.circle = Assets.getTexture("world/events/castletown/dwexit/lightcircle")
 	self.pillar = Assets.getTexture("world/events/castletown/dwexit/lightpillar")

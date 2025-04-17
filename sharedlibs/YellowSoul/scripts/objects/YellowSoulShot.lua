@@ -1,7 +1,7 @@
 local Shot, super = Class(Object)
 
 function Shot:init(x, y, angle)
-    super:init(self, x, y)
+    super.init(self, x, y)
     self.layer = BATTLE_LAYERS["above_bullets"]
     self.rotation = angle
     self:setOrigin(0, 0.5)
@@ -18,7 +18,7 @@ function Shot:init(x, y, angle)
 end
 
 function Shot:update()
-    super:update(self)
+    super.update(self)
     local sx, sy = self:localToScreenPos()
     if (sx >  SCREEN_WIDTH + self.sprite.width)
     or (sx <             0 - self.sprite.width)
@@ -55,7 +55,7 @@ function Shot:update()
 end
 
 function Shot:draw()
-    super:draw(self)
+    super.draw(self)
     if DEBUG_RENDER then
         self.collider:draw(1,0,0)
     end

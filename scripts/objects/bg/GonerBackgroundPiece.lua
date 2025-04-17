@@ -33,7 +33,7 @@ function GonerBackgroundPiece:update()
         end
     end
 
-    super:update(self)
+    super.update(self)
 end
 
 function GonerBackgroundPiece:draw()

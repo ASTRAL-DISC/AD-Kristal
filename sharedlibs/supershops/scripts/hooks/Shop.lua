@@ -1,7 +1,7 @@
 local Shop, super = Class(Shop)
 
 function Shop:init()
-	super:init(self)
+	super.init(self)
 	
 	self.current_x = 1
 	self.current_y = 1
@@ -234,7 +234,7 @@ function Shop:setState(state, reason)
 		return
 	end
 	
-	super:setState(self, state, reason)
+	super.setState(self, state, reason)
 end
 
 function Shop:doesDeny(state)
@@ -606,7 +606,7 @@ function Shop:onKeyPressed(key, is_repeat)
         end
 	end
 
-	super:onKeyPressed(self, key, is_repeat)
+	super.onKeyPressed(self, key, is_repeat)
 	
 	self:updatePrices()
 end
@@ -615,7 +615,7 @@ function Shop:onStateChange(old,new)
 	Game.key_repeat = false
 	self.bonus_timer = 0
 	self.loyalty_confirming = false
-	super:onStateChange(self, old, new)
+	super.onStateChange(self, old, new)
 	self.loyalty_confirming = false
 	if old == "BUYMENU" and self.bonus_money > 0 and self.bonus_game then
 		self:setState("BONUSCONFIRM")
@@ -809,7 +809,7 @@ function Shop:buyItemLoyalty(current_item)
 end
 
 function Shop:update()
-	super:update(self)
+	super.update(self)
 	
 	if self.state == "BONUS" then
 		if self.bonus_selected then

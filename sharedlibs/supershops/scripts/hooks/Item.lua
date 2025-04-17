@@ -1,7 +1,7 @@
 local Item, super = Class(Item)
 
 function Item:init()
-	super:init(self)
+	super.init(self)
 	
 	self.loyalty_price = 0
 end

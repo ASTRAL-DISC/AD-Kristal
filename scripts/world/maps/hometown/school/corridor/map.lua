@@ -1,7 +1,7 @@
 local Corridor, super = Class(Map)
 
 function Corridor:load()
-    super:load(self)
+    super.load(self)
 end
 
 function Corridor:onEnter()

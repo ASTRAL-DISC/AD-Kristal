@@ -2,7 +2,7 @@
 local Shadow, super = Class(Event, "shadow")
 
 function Shadow:init(data)
-    super:init(self, data.x, data.y, data.w, data.h)
+    super.init(self, data.x, data.y, data.w, data.h)
 	
 	local properties = data.properties or {}
 
@@ -31,7 +31,7 @@ function Shadow:drawCharacter(object)
 end
 
 function Shadow:draw()
-    super:draw(self)
+    super.draw(self)
 
     Draw.pushCanvas(self.canvas)
     love.graphics.clear()

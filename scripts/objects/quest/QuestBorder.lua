@@ -1,7 +1,7 @@
 local QuestBorder, super = Class(Object)
 
 function QuestBorder:init()
-    super:init(self, 0, 0, 320, 240)
+    super.init(self, 0, 0, 320, 240)
     self:setScale(2)
     self:setOrigin(0, 0)
 

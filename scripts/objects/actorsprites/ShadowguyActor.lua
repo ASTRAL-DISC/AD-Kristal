@@ -2,7 +2,7 @@
 local ShadowguyActor, super = Class(ActorSprite)
 
 function ShadowguyActor:init(actor)
-    super:init(self, actor)
+    super.init(self, actor)
 	
 	self.draw_children_below = 0
 	self.draw_children_above = 1
@@ -18,7 +18,7 @@ function ShadowguyActor:init(actor)
 end
 
 -- function ShadowguyActor:update()
-	-- super:update(self)
+	-- super.update(self)
 	
 	-- self.socks.anim_routine = self.anim_routine
 -- end

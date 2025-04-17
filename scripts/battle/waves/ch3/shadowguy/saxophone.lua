@@ -187,7 +187,7 @@ local function drawCurve(wave)
 end
 
 function Saxophone:draw()
-	super:draw(self)
+	super.draw(self)
 
 	for k,wave in ipairs(self.waves) do
 		drawCurve(wave)

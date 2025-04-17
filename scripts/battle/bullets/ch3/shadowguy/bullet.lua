@@ -1,7 +1,7 @@
 local Bullet, super = Class(Bullet)
 
 function Bullet:init(x, y)
-    super:init(self, x, y)
+    super.init(self, x, y)
 
     self:setSprite("bullets/ch3/shadowguy/bullet", 4/60, true)
     self:setHitbox(0, 0, 15, 7)
@@ -13,7 +13,7 @@ function Bullet:init(x, y)
 end
 
 function Bullet:update()
-	super:update(self)
+	super.update(self)
 	
 	if self._destroy then return end
 	

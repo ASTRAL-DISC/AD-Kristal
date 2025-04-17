@@ -2,7 +2,7 @@
 local BlueSoul, super = Class(Soul)
 
 function BlueSoul:init(x, y)
-    super:init(self, x, y)
+    super.init(self, x, y)
 
     self.color = COLORS.blue
     self.speed = 5

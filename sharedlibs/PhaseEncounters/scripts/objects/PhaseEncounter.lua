@@ -1,7 +1,7 @@
 local PhaseEncounter, super = Class(Encounter)
 
 function PhaseEncounter:init()
-    super:init(self)
+    super.init(self)
 
     self.phases = {}
     self.current_phase = 1
@@ -61,7 +61,7 @@ function PhaseEncounter:getEncounterText()
             return text
         end
     end
-    return super:getEncounterText(self)
+    return super.getEncounterText(self)
 end
 
 function PhaseEncounter:getDialogueFromData(dialogue_data)
