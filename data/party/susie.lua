@@ -49,7 +49,7 @@ function character:init()
 
     if Game.chapter == 3 then
         self.stats = {
-            health = 180,
+            health = 190,
             attack = 18,
             defense = 2,
             magic = 3
