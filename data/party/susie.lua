@@ -13,11 +13,7 @@ function character:init()
     self.quest_sprite = "party/susie/quest/walk/down_1"
 
     self.level = Game.chapter
-    if Game.chapter == 3 then
-        self.title = "Sleepover Buddy\nMarathons violent\nmovies with you."
-    else
-        self.title = "Dark Knight\nDoes damage using\ndark energy."
-    end
+    self.title = "Dark Knight\nDoes damage using\ndark energy."
 
     self.soul_priority = 1
     self.soul_color = {1, 0, 0}
@@ -149,8 +145,8 @@ function character:init()
     
     self.flags = {
         ["auto_attack"] = false,
+        ["eyes"] = false,
         ["beta_used"] = 0,
-        ["eyes"] = false
     }
 end
 

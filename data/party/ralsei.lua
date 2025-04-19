@@ -18,7 +18,7 @@ function character:init()
     elseif Game.chapter == 2 then
         self.title = "Dark Prince\nDark-World being.\nHas friends now."
     elseif Game.chapter >= 3 then
-        self.title = "Scout Prince\nHas friends and\nsubjects."
+        self.title = "Sweet Prince\nHas friends and\nsubjects."
     end
 
     self.soul_priority = -1

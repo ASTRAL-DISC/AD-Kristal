@@ -40,7 +40,7 @@ function character:init()
     if Game.chapter == 2 or Game.chapter == 3 then
         self.health = 90
     elseif Game.chapter == 4 then
-        self.health = 120
+        self.health = 140
     elseif Game.chapter == 5 then
         self.health = 210
     elseif Game.chapter >= 6 then
@@ -56,7 +56,7 @@ function character:init()
         }
     elseif Game.chapter == 4 then
         self.stats = {
-            health = 120,
+            health = 140,
             attack = 5,
             defense = 3,
             magic = 13
@@ -146,7 +146,7 @@ function character:getTitle()
         return prefix.."Frostmancer\nFreezes the enemy."
     elseif Game:getFlag("moss_found#4") or Game:getFlag("moss_found#5") then
         return prefix.."Moss Friendly\nAdmires moss from afar."
-    elseif Game:getFlag("snowgraved") or self:getFlag("weird") then
+    elseif DeltaruneSave.snowgrave or self:getFlag("weird") then
         return prefix.."Glacial Mage\nLooks for strength."
     else
         return super.getTitle(self)

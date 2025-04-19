@@ -9,7 +9,7 @@ function character:init()
     --self:setLightActor("mteen_lw")
 
     self.level = Game.chapter
-    self.title = "Caretaker\nGuides the herd to\nrighteousness."
+    self.title = "Caretaker\nGuides the herd to\nsafety."
 
     self.soul_priority = 0
     self.soul_color = {1, 0, 0}
@@ -22,19 +22,18 @@ function character:init()
 
     self:addSpell("heal_prayer")
     self:addSpell("sleep_mist")
-    self:addSpell("ice_shock")
 
-    self.health = 150
+    self.health = 130
 
     self.stats = {
-        health = 150,
+        health = 130,
         attack = 10,
         defense = 3,
         magic = 8
     }
 
     self.max_stats = {
-        health = 230
+        health = 220
     }
 
     self.weapon_icon = "ui/menu/equip/staff"
