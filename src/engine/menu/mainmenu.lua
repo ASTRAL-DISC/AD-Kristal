@@ -103,7 +103,7 @@ function MainMenu:enter()
     end]]
 
     if not self.music:isPlaying() then
-        self.music:play("mod_menu", 1, 0.95)
+        self.music:play("AUDIO_DEVICE", 1, 0.666)
     end
 
     if #Kristal.Mods.failed_mods > 0 then
@@ -459,7 +459,7 @@ function MainMenu:drawVersion()
             end
         end
     else
-        local full_ver = "Kristal: " .. self.ver_string
+        local full_ver = "DEVICE: " .. self.ver_string
 
         if self.selected_mod.version then
             ver_y = ver_y - self.small_font:getHeight()
@@ -467,7 +467,7 @@ function MainMenu:drawVersion()
         end
 
         love.graphics.setFont(self.small_font)
-        Draw.setColor(1, 1, 1, 0.5)
+        Draw.setColor(0, 0.8, 0, 0.5)
         love.graphics.print(full_ver, 4, ver_y)
     end
 
