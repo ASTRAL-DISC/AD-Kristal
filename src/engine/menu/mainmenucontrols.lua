@@ -59,8 +59,8 @@ end
 function MainMenuControls:registerMainPage()
     local page = {}
 
-    page.title = "KRISTAL"
-    page.mod = "KRISTAL"
+    page.title = "DEVICE"
+    page.mod = "DEVICE"
     page.entries = {}
 
     for _, keybind in ipairs(Input.order) do
@@ -390,12 +390,12 @@ function MainMenuControls:draw()
     local font = Assets.getFont("main")
 
     love.graphics.setFont(font)
-    Draw.setColor(COLORS.silver)
-    Draw.printShadow("( OPTIONS )", 0, 0, 2, "center", 640)
+    Draw.setColor(0, 0.5, 0, 1)
+    Draw.printShadow("OPTIONS", 0, 0, 2, "center", 640)
 
-    Draw.setColor(1, 1, 1)
+    Draw.setColor(0, 0.8, 0)
     Draw.printShadow(""..self.control_menu:upper().." CONTROLS", 0, 48, 2, "center", 640)
-    Draw.setColor(COLORS.silver)
+    Draw.setColor(0, 0.5, 0)
     Draw.printShadow("("..selected_page.title..")", 0, 74, 2, "center", 640)
     Draw.setColor(1, 1, 1)
 
@@ -423,23 +423,23 @@ function MainMenuControls:draw()
     y_offset = y_offset + 1
 
     if self.control_menu == "gamepad" then
-        Draw.printShadow("Configure Deadzone",  menu_x, menu_y + (32 * y_offset))
+        Draw.printShadow("CONFIGURE DEADZONE",  menu_x, menu_y + (32 * y_offset))
         y_offset = y_offset + 1
     end
 
-    Draw.printShadow("Reset to defaults", menu_x, menu_y + (32 * y_offset))
-    Draw.printShadow("Back", menu_x, menu_y + (32 * (y_offset + 1)))
+    Draw.printShadow("RESET TO DEFAULTS", menu_x, menu_y + (32 * y_offset))
+    Draw.printShadow("BACK", menu_x, menu_y + (32 * (y_offset + 1)))
 
     if height < total_height then
         -- Draw the scrollbar background (lighter than the others since it's against black)
-        Draw.setColor({1, 1, 1, 0.5})
+        Draw.setColor({0, 0.5, 0, 0.5})
         love.graphics.rectangle("fill", menu_x + width, 0, 4, menu_y + height - self.scroll_y)
 
         local scrollbar_height = (height / total_height) * height
         local scrollbar_y = (-self.scroll_y / (total_height - height)) * (height - scrollbar_height)
 
         Draw.popScissor()
-        Draw.setColor(1, 1, 1, 1)
+        Draw.setColor(0, 0.8, 0, 1)
         love.graphics.rectangle("fill", menu_x + width, menu_y + scrollbar_y - self.scroll_y, 4, scrollbar_height)
     else
         Draw.popScissor()
@@ -458,14 +458,14 @@ function MainMenuControls:draw()
             end
         end
 
-        Draw.setColor(COLORS.silver)
+        Draw.setColor(0, 0.5, 0, 1)
         Draw.draw(Assets.getTexture("kristal/menu_arrow_right"), 320 + (mod_width / 2) + 8 + r_offset, 78, 0, 2, 2)
         Draw.draw(Assets.getTexture("kristal/menu_arrow_left"), 320 - (mod_width / 2) - 26 + l_offset, 78, 0, 2, 2)
     end
 
-    Draw.setColor(COLORS.silver)
-    Draw.printShadow("CTRL+ALT+SHIFT+T to reset binds.", 0, 480 - 32, 2, "center", 640)
-    Draw.setColor(1, 1, 1)
+    Draw.setColor(0, 0.5, 0, 1)
+    Draw.printShadow("CTRL+ALT+SHIFT+T TO RESET BINDS.", 0, 480 - 32, 2, "center", 640)
+    Draw.setColor(0, 0.8, 0)
 end
 
 -------------------------------------------------------------------------------
@@ -498,7 +498,7 @@ function MainMenuControls:drawKeyBindMenu(name, menu_x, menu_y, y_offset)
             drawstr = "     "
             btn = Input.getButtonTexture(v)
         end
-        local color = {1, 1, 1, 1}
+        local color = {0, 0.8, 0, 1}
         if self.selecting_key or self.rebinding then
             if self.selected_option == (y_offset + 1) then
                 color = {0.5, 0.5, 0.5, 1}
@@ -507,7 +507,7 @@ function MainMenuControls:drawKeyBindMenu(name, menu_x, menu_y, y_offset)
         if (self.selected_option == (y_offset + 1)) and (i == self.selected_bind) then
             color = {1, 1, 1, 1}
             if self.rebinding then
-                color = {0, 1, 1, 1}
+                color = {1, 0, 0, 1}
 
                 if self.rebinding_shift or self.rebinding_ctrl or self.rebinding_alt or self.rebinding_cmd then
                     drawstr = ""

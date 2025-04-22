@@ -30,7 +30,7 @@ end
 function MainMenuModError:draw()
     local failed_mods = Kristal.Mods.failed_mods or {}
     local plural = #failed_mods == 1 and "mod" or "mods"
-    Draw.printShadow({{255, 255, 0}, tostring(#failed_mods), {255, 255, 255}, " " .. plural .. " failed to load!"}, -1, 96, 2, "center", 640)
+    Draw.printShadow({{255, 255, 0}, tostring(#failed_mods), {255, 255, 255}, " " .. plural .. " FAILED TO LOAD."}, -1, 96, 2, "center", 640)
 
     local moderrors = 0
     local liberrors = 0
@@ -46,7 +46,7 @@ function MainMenuModError:draw()
     local y = 128
 
     if moderrors > 0 then
-        Draw.printShadow({"The following mods have invalid ", {196, 196, 196}, "mod.json", {255, 255, 255}, " files:"}, -1, y, 2, "center", 640)
+        Draw.printShadow({"THE FOLLOWING CHAPTERS HAVE INVALID ", {196, 196, 196}, "mod.json", {255, 255, 255}, " FILES:"}, -1, y, 2, "center", 640)
 
         y = y + 64
 
@@ -60,7 +60,7 @@ function MainMenuModError:draw()
     end
 
     if liberrors > 0 then
-        Draw.printShadow({"The following mods use invalid ", {196, 196, 196}, "lib.json", {255, 255, 255}, " files:"}, -1, y, 2, "center", 640)
+        Draw.printShadow({"THE FOLLOWING CHAPTERS USE INVALID ", {196, 196, 196}, "lib.json", {255, 255, 255}, " FILES:"}, -1, y, 2, "center", 640)
 
         y = y + 64
 
@@ -73,10 +73,10 @@ function MainMenuModError:draw()
 
         y = y + 32
 
-        Draw.printShadow("See console for errors.", -1, y, 2, "center", 640)
+        Draw.printShadow("SEE CONSOLE FOR ERRORS.", -1, y, 2, "center", 640)
     end
 
-    Draw.printShadow("Got it", -1, 454 - 8, 2, "center", 640)
+    Draw.printShadow("Understood", -1, 454 - 8, 2, "center", 640)
 end
 
 return MainMenuModError

@@ -18,14 +18,87 @@ function MainMenuCredits:init(menu)
 
     self.pages = {
         {
-            "Kristal Engine",
+            "ASTRAL DISC",
             {
-                {"Lead Developers", COLORS.silver},
+                {"DIRECTORS", {0, 0.5, 0, 1}},
+                "HUECYCLES",
+                "Lisspeed",
+                "",
+                {"TEAM", {0, 0.5, 0, 1}},
+                "WIL-TZY",
+                "J.A.R.U.",
+                "Trashcat",
+                "Eribetra",
+            },
+            {
+                {"TEAM", {0, 0.5, 0, 1}},
+                "SHAZ0S",
+                "spectacledraws",
+                "Bunniapa",
+                "Nebytou",
+                "Linkerbee",
+                "Jo",
+                "SnowyBoi64",
+                "Mimmmky"
+            }
+        },
+        {
+            "ASTRAL DISC",
+            {
+                {"TEAM", {0, 0.5, 0, 1}},
+                "Rata",
+                "L Void",
+                "lex3x",
+                "Wilkus Milkus",
+                "surreal",
+                "xnq",
+                "Kittblush",
+                "marineflames",
+            },
+            {
+                {"TEAM", {0, 0.5, 0, 1}},
+                "Marnie",
+                "Seabeam",
+                "TC's Ghost",
+                "",
+                {"ADDITIONAL HELP", {0, 0.5, 0, 1}},
+                "Bor",
+                "Astromity",
+                "NE0Nbandit",
+            },
+        },
+        {
+            "ASTRAL DISC",
+            {
+                {"ADDITIONAL HELP", {0, 0.5, 0, 1}},
+                "KateBulka",
+                "Creepa-Bot Inc.",
+                "sylladexter",
+                "punkipatch",
+                "toosday",
+                "bep_celeste",
+            },
+            {
+                {"RESOURCES", {0, 0.5, 0, 1}},
+                "Spriter's Resource",
+                "Freesound",
+                "Looperman",
+                "ShaderToy",
+                "",
+                {"SPECIAL THANKS", {0, 0.5, 0, 1}},
+                "Kristal Community",
+                "HUECYCLES's Cats",
+            },
+        },
+        {
+            "THE DEVICE",
+            {
+                {"LEAD DEVELOPERS", {0, 0.5, 0, 1}},
                 "NyakoFox",
                 "SylviBlossom",
                 "vitellary",
                 "",
-                {"Assets", COLORS.silver},
+                {"ASSETS", {0, 0.5, 0, 1}},
                 "Toby Fox",
                 "Temmie Chang",
                 "DELTARUNE team",
@@ -33,7 +106,7 @@ function MainMenuCredits:init(menu)
                 "",
             },
             {
-                {"GitHub Contributors", COLORS.silver},
+                {"GITHUB CONTRIBUTORS", {0, 0.5, 0, 1}},
                 "AcousticJamm",
                 "Agent 7",
                 "AlexGamingSW",
@@ -42,14 +115,14 @@ function MainMenuCredits:init(menu)
                 "Dobby233Liu",
                 "FireRainV",
                 "HUECYCLES",
-                "Lionmeow",
-                "Luna"
+                "Lionmeow"
             }
         },
         {
-            "Kristal Engine",
+            "THE DEVICE",
             {
-                {"GitHub Contributors", COLORS.silver},
+                {"GITHUB CONTRIBUTORS", {0, 0.5, 0, 1}},
+                "Luna",
                 "J.A.R.U.",
                 "MCdeDaxia",
                 "MrOinky",
@@ -57,13 +130,11 @@ function MainMenuCredits:init(menu)
                 "Simbel",
                 "sjl057",
                 "skarph",
-                "TFLTV",
-                "WIL-TZY",
-                ""
+                "TFLTV"
             },
             {
-                {"GitHub Contributors", COLORS.silver},
-                "",
+                {"GITHUB CONTRIBUTORS", {0, 0.5, 0, 1}},
+                "WIL-TZY",
                 "",
                 "",
                 "",
@@ -155,10 +226,10 @@ function MainMenuCredits:draw()
     local title = page[1]:upper()
     local title_width = menu_font:getWidth(title)
 
-    Draw.setColor(COLORS.silver)
-    Draw.printShadow("( CREDITS )", 0, 0, 2, "center", 640)
+    Draw.setColor(0, 0.5, 0, 1)
+    Draw.printShadow("CREDITS", 0, 0, 2, "center", 640)
 
-    Draw.setColor(1, 1, 1)
+    Draw.setColor(0, 0.8, 0)
     Draw.printShadow(title, 0, 48, 2, "center", 640)
 
     if #self.pages > 1 then
@@ -173,16 +244,16 @@ function MainMenuCredits:draw()
         end
 
         if self.selected_page >= #self.pages then
-            Draw.setColor(COLORS.silver, 0.5)
+            Draw.setColor(0, 0.5, 0, 0.5)
         else
-            Draw.setColor(COLORS.white)
+            Draw.setColor(0, 0.8, 0, 1)
         end
         Draw.draw(Assets.getTexture("kristal/menu_arrow_right"), 320 + (title_width / 2) + 8 + r_offset, 52, 0, 2, 2)
 
         if self.selected_page == 1 then
-            Draw.setColor(COLORS.silver, 0.5)
+            Draw.setColor(0, 0.5, 0, 0.5)
         else
-            Draw.setColor(COLORS.white)
+            Draw.setColor(0, 0.8, 0, 1)
         end
         Draw.draw(Assets.getTexture("kristal/menu_arrow_left"), 320 - (title_width / 2) - 26 + l_offset, 52, 0, 2, 2)
 
@@ -193,7 +264,7 @@ function MainMenuCredits:draw()
     local right_column = page[3] or {}
 
     for index, value in ipairs(left_column) do
-        local color = {1, 1, 1, 1}
+        local color = {0, 0.8, 0, 1}
         local offset = 0
         if type(value) == "table" then
             color = value[2]
@@ -205,7 +276,7 @@ function MainMenuCredits:draw()
         Draw.printShadow(value, 32 + offset, 64 + (32 * index))
     end
     for index, value in ipairs(right_column) do
-        local color = {1, 1, 1, 1}
+        local color = {0, 0.8, 0, 1}
         local offset = 0
         if type(value) == "table" then
             color = value[2]
@@ -217,8 +288,8 @@ function MainMenuCredits:draw()
         Draw.printShadow(value, 0, 64 + (32 * index), 2, "right", 640 - 32 + offset)
     end
 
-    Draw.setColor(1, 1, 1)
-    Draw.printShadow("Back", 0, 454 - 8, 2, "center", 640)
+    Draw.setColor(0, 0.8, 0)
+    Draw.printShadow("BACK", 0, 454 - 8, 2, "center", 640)
 end
 
 return MainMenuCredits

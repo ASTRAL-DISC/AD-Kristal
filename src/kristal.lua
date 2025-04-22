@@ -1498,7 +1498,7 @@ function Kristal.processDynamicBorder()
     if Kristal.getState() == Game then
         return Game:getBorder()
     elseif Kristal.getState() == MainMenu then
-        return ImageBorder("castle")
+        return DEVICE_BORDER()
     end
 end
 

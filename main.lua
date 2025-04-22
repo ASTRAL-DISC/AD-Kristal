@@ -246,6 +246,10 @@ Shopkeeper = require("src.engine.game.shop.shopkeeper")
 Border = require("src.engine.border")
 ImageBorder = require("src.engine.imageborder")
 
+DEVICE_BORDER = require("borders.device")
+BATTLE_BORDER = require("borders.battle")
+QUEST_BORDER = require("borders.quest")
+
 GameOver = require("src.engine.game.gameover")
 
 Legend = require("src.engine.game.legend")

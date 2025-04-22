@@ -49,10 +49,10 @@ function MainMenuDeadzone:update()
 end
 
 function MainMenuDeadzone:draw()
-    Draw.setColor(COLORS.silver)
-    Draw.printShadow("( OPTIONS )", 0, 0, 2, "center", 640)
+    Draw.setColor(0, 0.5, 0, 1)
+    Draw.printShadow("OPTIONS", 0, 0, 2, "center", 640)
 
-    Draw.setColor(1, 1, 1)
+    Draw.setColor(0, 0.8, 0)
     Draw.printShadow("DEADZONE CONFIG", 0, 48, 2, "center", 640)
 
     love.graphics.setLineStyle("rough")
@@ -75,7 +75,7 @@ function MainMenuDeadzone:draw()
         love.graphics.circle("fill", x, y, radius)
         Draw.setColor(0.16, 0.16, 0.16)
         love.graphics.circle("fill", x, y, radius * deadzone)
-        Draw.setColor(1, 1, 1)
+        Draw.setColor(0, 0.8, 0)
         love.graphics.circle("line", x, y, radius)
 
         local magnitude = math.sqrt(stick_x * stick_x + stick_y * stick_y)
@@ -100,7 +100,7 @@ function MainMenuDeadzone:draw()
 
     local function drawSlider(index, type, x, y)
         if self.selected_option == index and self.state == "SLIDER" then
-            Draw.setColor(0, 1, 1)
+            Draw.setColor(0, 0.8, 0)
         else
             Draw.setColor(1, 1, 1)
         end
@@ -117,9 +117,9 @@ function MainMenuDeadzone:draw()
     drawSlider(1, "left", 152, 296)
     drawSlider(2, "right", 392, 296)
 
-    Draw.setColor(1, 1, 1)
+    Draw.setColor(0, 0.8, 0)
 
-    Draw.printShadow("Back", 286, 364)
+    Draw.printShadow("BACK", 286, 364)
 
     self.state_manager:draw()
 end
