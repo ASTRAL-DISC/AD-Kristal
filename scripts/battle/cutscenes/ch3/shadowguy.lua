@@ -53,7 +53,7 @@ local function shootHearts(self, battler, timer, mark)
 end
 
 return {
-	shoothearts_x = function(cutscene, battler, self)
+	x_knocksocks = function(cutscene, battler, self)
 		local continueAct = true
 		local finished = false
 		

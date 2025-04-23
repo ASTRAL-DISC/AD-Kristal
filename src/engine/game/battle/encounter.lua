@@ -8,6 +8,8 @@
 ---@field background            boolean
 ---@field hide_world            boolean
 ---
+---@field use_border            boolean
+---
 ---@field music                 string?
 ---
 ---@field default_xactions      boolean
@@ -33,6 +35,9 @@ function Encounter:init()
     -- The music used for this encounter
     self.music = "battle"
 
+    -- Whether the "battle" border should be used
+    self.use_border = true
+
     -- Whether characters have the X-Action option in their spell menu
     self.default_xactions = Game:getConfig("partyActions")
 
@@ -51,7 +56,11 @@ end
 --- *(Override)* Called in [`Battle:postInit()`](lua://Battle.postInit). \
 --- *If this function returns `true`, then the battle will not override any state changes made here.*
 ---@return boolean?
-function Encounter:onBattleInit() end
+function Encounter:onBattleInit()
+    if self.use_border then
+        Game:setBorder(BATTLE_BORDER())
+    end
+end
 --- *(Override)* Called when the battle enters the `"INTRO"` state and the characters do their starting animations.
 function Encounter:onBattleStart() end
 --- *(Override)* Called when the battle is completed and the victory text (if presesnt) is advanced, just before the transition out.
@@ -122,7 +131,12 @@ function Encounter:onPartyCancel(state_reason, party_index) end
 function Encounter:onGameOver() end
 --- *(Override)* Called just before returning to the world.
 ---@param events Character  A list of enemy events in the world that are linked to the enemies in battle.
-function Encounter:onReturnToWorld(events) end
+function Encounter:onReturnToWorld(events)
+    if self.use_border then
+        local border = Game.world.map:getBorder()
+        Game:setBorder(border)
+    end
+end
 
 --- *(Override)* Called whenever dialogue is about to start, if this returns a value, it will be unpacked and passed
 --- into [`Battle:startCutscene(...)`](lua://Battle.startCutscene), as an alternative to standard dialogue.

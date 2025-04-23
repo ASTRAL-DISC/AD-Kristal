@@ -62,9 +62,9 @@ function Snake:addPart(after)
 	body.direction = nil
 
 	if lastPart then
-		body:setSprite("bullets/python/snake_tail", 0.25, true)
+		body:setSprite("bullets/ch3/python/snake_tail", 0.25, true)
 		body.is_tail = true
-		lastPart:setSprite("bullets/python/snake", 0.25, true)
+		lastPart:setSprite("bullets/ch3/python/snake", 0.25, true)
 		lastPart.is_tail = false
 
 		if after then

@@ -27,8 +27,8 @@ function Shadowguy:init()
 	}
 	self.low_health_text = "* Shadowguy's form is fading away."
 	
-	self:registerAct("ShootHearts")
-	self:registerAct("ShootHeartsX", nil, "all")
+	self:registerAct("KnockSocks")
+	self:registerAct("X-KnockSocks", nil, "all")
 	
 	local socks = Sprite("enemies/ch3/shadowguy/socks", self.width * .5, self.height * .5)
 	socks.visible = false
@@ -49,16 +49,24 @@ function Shadowguy:getDamageSound()
 end
 
 function Shadowguy:onActStart(battler, name)
-	if name ~= "ShootHeartsX" then
-		return super.onActStart(self, battler, name)
+	if name == "KnockSocks" then
+		if battler.chara.id == "kris" then
+			battler:setActSprite("enemies/ch3/shadowguy/shoothearts/kris", 8, 0, 0, false)
+		elseif battler.chara.id == "susie" then
+			battler:setActSprite("enemies/ch3/shadowguy/shoothearts/susie", 0, 0, 0, false)
+		elseif battler.chara.id == "ralsei" then
+			battler:setActSprite("enemies/ch3/shadowguy/shoothearts/ralsei", 6, 0, 0, false)
+		end
+	elseif name == "X-KnockSocks" then
+		return Game.battle:startActCutscene("ch3/shadowguy", "x_knocksocks")
 	else
-		return Game.battle:startActCutscene("shadowguy", "shoothearts_x")
+		return super.onActStart(self, battler, name)
 	end
 end
 
 function Shadowguy:onAct(battler, name)
-    if name == "ShootHearts" then
-        self:addMercy(30)
+    if name == "KnockSocks" then
+        self:addMercy(20)
         return "* "..battler.chara.name.." pointed at Shadowguy!"
 	end
 	
@@ -66,7 +74,7 @@ function Shadowguy:onAct(battler, name)
 end
 
 function Shadowguy:getXAction(battler)
-    return "ShootHearts"
+    return "KnockSocks"
 end
 
 function Shadowguy:getEnemyDialogue()
