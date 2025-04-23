@@ -8,8 +8,6 @@
 ---@field background            boolean
 ---@field hide_world            boolean
 ---
----@field use_border            boolean
----
 ---@field music                 string?
 ---
 ---@field default_xactions      boolean
@@ -35,9 +33,6 @@ function Encounter:init()
     -- The music used for this encounter
     self.music = "battle"
 
-    -- Whether the "battle" border should be used
-    self.use_border = true
-
     -- Whether characters have the X-Action option in their spell menu
     self.default_xactions = Game:getConfig("partyActions")
 
@@ -57,7 +52,7 @@ end
 --- *If this function returns `true`, then the battle will not override any state changes made here.*
 ---@return boolean?
 function Encounter:onBattleInit()
-    if self.use_border then
+    if self.background then
         Game:setBorder(BATTLE_BORDER())
     end
 end
@@ -132,7 +127,7 @@ function Encounter:onGameOver() end
 --- *(Override)* Called just before returning to the world.
 ---@param events Character  A list of enemy events in the world that are linked to the enemies in battle.
 function Encounter:onReturnToWorld(events)
-    if self.use_border then
+    if self.background then
         local border = Game.world.map:getBorder()
         Game:setBorder(border)
     end
