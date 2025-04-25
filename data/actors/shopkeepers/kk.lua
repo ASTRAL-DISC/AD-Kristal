@@ -5,8 +5,8 @@ function actor:init()
 
     self.name = "K_K"
 
-    self.width = 144
-    self.height = 93
+    self.width = 320
+    self.height = 120
 
     self.path = "shopkeepers/kk"
     self.default = "idle"
@@ -14,36 +14,35 @@ function actor:init()
     self.miniface = "face/mini/kk"
 
     self.animations = {
-        ["idle"] = {"idle", function(sprite, wait)
-            while true do
-                sprite:setFrame(1)
-                wait(0.5)
-                for i = 2, 4 do
-                    sprite:setFrame(i)
-                    wait(4/30)
-                end
-            end
-        end}
-    }
-
-    self.talk_sprites = {
-        ["talk"] = 0.15,
+        ["idle"] = {"idle", 0, true},
+        ["talk"] = {"talk", 0, true}
     }
 end
 
 function actor:onSpriteInit(sprite)
-    sprite.body = Sprite(self.path.."/body", sprite.x - 18, sprite.y + 25)
-    sprite.body:setLayer(sprite.layer - 1)
-    sprite.body:play(0.1, true)
-    sprite:addChild(sprite.body)
+    super.onSpriteInit(sprite)
+
+    sprite.siner = 0
+
+    sprite.body = Assets.getFrames(self.path.."/body")
+    sprite.head = Assets.getFrames(self.path.."/head")
+    sprite.talk = Assets.getFrames(self.path.."/head_talk")
 end
 
-function actor:onSetSprite(sprite, texture, keep_anim)
-    if texture == "idle_1" then
-        sprite.body:stop()
-    elseif texture == "idle" then
-        sprite.body:play(0.1, true)
+function actor:onSpriteDraw(sprite)
+    super.onSpriteDraw(sprite)
+	
+	if Game.shop.music:isPlaying() then
+        sprite.siner = sprite.siner + DTMULT
     end
+	
+    Draw.draw(sprite.body[math.floor(sprite.siner/6) % #sprite.body + 1], 0, 0, 0, 1, 1, 0, 0)
+    if sprite.anim == "idle" then
+        Draw.draw(sprite.head[math.floor(sprite.siner/6) % #sprite.head + 1], 0, 0, 0, 1, 1, 0, 0)
+    end
+	if sprite.anim == "talk" then
+        Draw.draw(sprite.talk[math.floor(sprite.siner/6) % #sprite.talk + 1], 0, 0, 0, 1, 1, 0, 0)
+	end
 end
 
 function actor:onTalkStart(text, sprite)

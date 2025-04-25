@@ -32,14 +32,14 @@ function SCC:init()
     }
 
     -- Sweet
-    self.shopkeeper.actors[1]:setPosition(-24, 0)
+    self.shopkeeper.actors[1]:setPosition(0, 0)
 
     -- Capn
-    self.shopkeeper.actors[2]:setPosition(-180, -80)
+    self.shopkeeper.actors[2]:setPosition(0, 0)
     self.shopkeeper.actors[2].layer = self.shopkeeper.actors[1].layer - 1
 
     -- K_K
-    self.shopkeeper.actors[3]:setPosition(202, -46)
+    self.shopkeeper.actors[3]:setPosition(0, 0)
     self.shopkeeper.actors[3].layer = self.shopkeeper.actors[1].layer + 1
 
     self.background = "ui/shop/scc"
@@ -145,9 +145,6 @@ function SCC:onStateChange(old, new)
         self.right_text:setText("")
 		self:setState("MAINMENU")
         self.dialogue_text:resetState()
-		self.shopkeeper.actors[1]:set("idle")
-        self.shopkeeper.actors[2]:set("idle")
-        self.shopkeeper.actors[3]:set("idle")
     end
     if new == "LANCERMENU" then
         self:clearMiniface()
@@ -158,9 +155,6 @@ function SCC:onStateChange(old, new)
 	elseif new == "MUSICMENU" then
         self:clearMiniface()
         self.state = "MUSICMENU"
-        self.shopkeeper.actors[1]:set("idle_1")
-        self.shopkeeper.actors[2]:set("idle_1")
-        self.shopkeeper.actors[3]:set("idle_1")
         self.background_sprite:stop()
         if self.music:isPlaying() then
             self.music:stop()
@@ -182,9 +176,6 @@ function SCC:onStateChange(old, new)
         self.right_text:setText("")
 		self:setState("MAINMENU")
         self.dialogue_text:resetState()
-		self.shopkeeper.actors[1]:set("idle")
-        self.shopkeeper.actors[2]:set("idle")
-        self.shopkeeper.actors[3]:set("idle")
     end
 end
 

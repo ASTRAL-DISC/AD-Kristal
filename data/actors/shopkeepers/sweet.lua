@@ -5,8 +5,8 @@ function actor:init()
 
     self.name = "Sweet"
 
-    self.width = 84
-    self.height = 86
+    self.width = 320
+    self.height = 120
 
     self.path = "shopkeepers/sweet"
     self.default = "idle"
@@ -14,19 +14,34 @@ function actor:init()
     self.miniface = "face/mini/sweet"
 
     self.animations = {
-        ["idle"] = {"idle", 0.18, true}
+        ["idle"] = {"idle", 0, true},
+        ["talk"] = {"talk", 0, true},
+        ["happy"] = {"happy", 0, true}
     }
+end
 
-    self.talk_sprites = {
-        ["talk"] = 0.15,
-        ["happy"] = 0,
-    }
-    
-    self.offsets = {
-        ["idle"] = {0, 0},
-        ["talk"] = {3, 0},
-        ["happy"] = {3, 0},
-    }
+function actor:onSpriteInit(sprite)
+    super.onSpriteInit(sprite)
+
+    sprite.siner = 0
+
+    sprite.body = Assets.getFrames(self.path.."/sweet")
+    sprite.talk = Assets.getFrames(self.path.."/sweet_talk")
+    sprite.happy = Assets.getTexture(self.path.."/sweet_happy")
+end
+
+function actor:onSpriteDraw(sprite)
+    super.onSpriteDraw(sprite)
+	
+	if Game.shop.music:isPlaying() then
+        sprite.siner = sprite.siner + DTMULT
+    end
+    if sprite.anim == "idle" then
+        Draw.draw(sprite.body[math.floor(sprite.siner/6) % #sprite.body + 1], 0, 0, 0, 1, 1, 0, 0)
+    end
+	if sprite.anim == "talk" then
+        Draw.draw(sprite.talk[math.floor(sprite.siner/6) % #sprite.talk + 1], 0, 0, 0, 1, 1, 0, 0)
+	end
 end
 
 function actor:onTalkStart(text, sprite)
