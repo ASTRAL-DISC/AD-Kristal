@@ -3,8 +3,6 @@ local SCC, super = Class(Shop, "scc")
 function SCC:init()
     super.init(self)
 
-    self.font2 = Assets.getFont("plain")
-
     self.shopkeeper:remove()
 
     self.shopkeeper = MultiShopkeeper()
@@ -45,62 +43,11 @@ function SCC:init()
     self.background = "ui/shop/scc"
     self.shop_music = "cyber_shop"
     self.hide_storage_text = true
-
-    --miniface
-    self.minifaces = {}
-    self.miniface_path = "face/mini"
-end
-
-function SCC:clearMiniface()
-    if #self.minifaces > 0 then
-        for _,miniface in ipairs(self.minifaces) do
-            miniface:remove()
-        end
-    end
 end
 
 function SCC:postInit()
-    super.postInit(self)
+    super.super.postInit(self)
     self.background_sprite:play(5/30, true)
-
-    self:processReplacements()
-
-    self.dialogue_text:remove()
-
-    self.dialogue_text = DialogueText(nil, 30, 270, 372, 194)
-
-    local emoteCommand = function(text, node)
-        self:onEmote(node.arguments[1])
-    end
-
-    local minifaceCommand = function(text, node)
-        local x_offset = tonumber(node.arguments[2]) or 0
-        local y_offset = tonumber(node.arguments[3]) or 0
-        local x_scale = tonumber(node.arguments[4]) or 2
-        local y_scale = tonumber(node.arguments[5]) or 2
-        local y = self.dialogue_text.state.current_y
-        local miniface = Sprite(nil, 30 + x_offset, 270 + y + y_offset)
-        miniface:setScale(x_scale, y_scale)
-        miniface:setSprite(self.miniface_path.. "/" ..node.arguments[1])
-        miniface:setLayer(SHOP_LAYERS["dialogue"])
-        miniface:play(4/30)
-        if #self.minifaces > 0 then -- check if there's already a face added
-            local last_face = self.minifaces[#self.minifaces] -- get the last miniface in the table
-            last_face:stop() -- stop it
-        end
-        self:addChild(miniface)
-        table.insert(self.minifaces, miniface)
-        self.dialogue_text.state.indent_mode = true
-        self.dialogue_text.state.indent_length = miniface.width * miniface.scale_x + 15
-        self.dialogue_text.state.current_x = self.dialogue_text.state.indent_length + self.dialogue_text.state.spacing
-    end
-
-    self.dialogue_text:registerCommand("miniface", minifaceCommand)
-    self.dialogue_text:registerCommand("emote", emoteCommand)
-
-    self.dialogue_text:setLayer(SHOP_LAYERS["dialogue"])
-    self:addChild(self.dialogue_text)
-    self:setDialogueText("")
 end
 
 function SCC:onEmote(emote)
@@ -130,11 +77,9 @@ end
 
 function SCC:onStateChange(old, new)
 	if not (old == "DIALOGUE" and new == "TALKMENU") then
-        self:clearMiniface()
         self.background_sprite:play(5/30, true)
 		super.onStateChange(self, old, new)
     else
-        self:clearMiniface()
         self.background_sprite:play(5/30, true)
         self.large_box.visible = false
         self.left_box.visible = true
@@ -176,6 +121,15 @@ function SCC:onStateChange(old, new)
         self.right_text:setText("")
 		self:setState("MAINMENU")
         self.dialogue_text:resetState()
+    elseif new == "CUTSCENE" then
+        self:clearMiniface()
+        self.large_box.visible = true
+        self.left_box.visible = false
+        self.right_box.visible = false
+        self.info_box.visible = false
+        self.dialogue_text.width = 598
+        self:setDialogueText("")
+        self:setRightText("")
     end
 end
 
@@ -226,27 +180,6 @@ function SCC:onKeyPressed(key, is_repeat)
             self:setState("MAINMENU")
         end
     end
-end
-
-function Shop:enterSellMenu(sell_data)
-    if not sell_data then
-        self:setRightText(self.sell_no_storage_text)
-    elseif not Game.inventory:getStorage(sell_data[2]) then
-        self:setRightText(self.sell_no_storage_text)
-    elseif Game.inventory:getItemCount(sell_data[2], false) == 0 then
-        self:setRightText(self.sell_no_storage_text)
-    else
-        self:setState("SELLING", sell_data)
-    end
-end
-
-function SCC:update()
-    if not self.dialogue_text:isTyping() then
-        for _,miniface in ipairs(self.minifaces) do
-            miniface:stop()
-        end
-    end
-    super.update(self)
 end
 
 function SCC:draw()

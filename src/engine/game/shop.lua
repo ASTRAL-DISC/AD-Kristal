@@ -236,6 +236,17 @@ function Shop:init()
     self.hide_price = false
 
     self.leave_options = {}
+
+    self.minifaces = {}
+    self.miniface_path = "face/mini"
+end
+
+function Shop:clearMiniface()
+    if #self.minifaces > 0 then
+        for _,miniface in ipairs(self.minifaces) do
+            miniface:remove()
+        end
+    end
 end
 
 --- A function that runs later than `Shop:init()`, primarily setting up UI elements of the shop. \
@@ -314,7 +325,32 @@ function Shop:postInit()
         indent_string = self:getIndentString()
     })
 
+    local minifaceCommand = function(text, node, dry)
+        local ox = tonumber(node.arguments[2]) or 0
+        local oy = tonumber(node.arguments[3]) or 0
+        local x_scale = tonumber(node.arguments[4]) or 2
+        local y_scale = tonumber(node.arguments[5]) or 2
+        local y = self.dialogue_text.state.current_y
+        if (not dry) then
+            local miniface = Sprite(nil, 30 + ox, 270 + y + oy)
+            miniface:setScale(x_scale, y_scale)
+            miniface:setSprite(self.miniface_path.. "/" ..node.arguments[1])
+            miniface:play(4/30)
+            miniface:setLayer(SHOP_LAYERS["dialogue"])
+            if #self.minifaces > 0 then
+                local last_face = self.minifaces[#self.minifaces]
+                last_face:stop()
+            end
+            self:addChild(miniface)
+            table.insert(self.minifaces, miniface)
+            self.dialogue_text.state.indent_mode = true
+            self.dialogue_text.state.indent_length = miniface.width * miniface.scale_x + 15
+            self.dialogue_text.state.current_x = self.dialogue_text.state.indent_length + self.dialogue_text.state.spacing
+        end
+    end
+
     self.dialogue_text:registerCommand("emote", emoteCommand)
+    self.dialogue_text:registerCommand("miniface", minifaceCommand)
 
     self.dialogue_text:setLayer(SHOP_LAYERS["dialogue"])
     self:addChild(self.dialogue_text)
@@ -326,7 +362,32 @@ function Shop:postInit()
         indent_string = self:getIndentString()
     })
 
+    local minifaceRight = function(text, node, dry)
+        local ox = tonumber(node.arguments[2]) or 0
+        local oy = tonumber(node.arguments[3]) or 0
+        local x_scale = tonumber(node.arguments[4]) or 2
+        local y_scale = tonumber(node.arguments[5]) or 2
+        local y = self.right_text.state.current_y
+        if (not dry) then
+            local miniface = Sprite(nil, 30 + 420 + ox, 270 + y + oy)
+            miniface:setScale(x_scale, y_scale)
+            miniface:setSprite(self.miniface_path.. "/" ..node.arguments[1])
+            miniface:play(4/30)
+            miniface:setLayer(SHOP_LAYERS["dialogue"])
+            if #self.minifaces > 0 then
+                local last_face = self.minifaces[#self.minifaces]
+                last_face:stop()
+            end
+            self:addChild(miniface)
+            table.insert(self.minifaces, miniface)
+            self.right_text.state.indent_mode = true
+            self.right_text.state.indent_length = miniface.width * miniface.scale_x + 15
+            self.right_text.state.current_x = self.right_text.state.indent_length + self.right_text.state.spacing
+        end
+    end
+
     self.right_text:registerCommand("emote", emoteCommand)
+    self.right_text:registerCommand("miniface", minifaceRight)
 
     self.right_text:setLayer(SHOP_LAYERS["dialogue"])
     self:addChild(self.right_text)
@@ -447,9 +508,11 @@ function Shop:onStateChange(old,new)
         self.dialogue_text.width = 372
         self:setDialogueText(self.shop_text)
         self:setRightText("")
+        self:clearMiniface()
     elseif new == "BUYMENU" then
         self:setDialogueText("")
         self:setRightText(self.buy_menu_text)
+        self:clearMiniface()
         self.large_box.visible = false
         self.left_box.visible = true
         self.right_box.visible = true
@@ -467,6 +530,7 @@ function Shop:onStateChange(old,new)
         self.current_selecting = 1
     elseif new == "SELLMENU" then
         self:setDialogueText("")
+        self:clearMiniface()
         if not self.state_reason then
             self:setRightText(self.sell_menu_text)
         end
@@ -476,6 +540,7 @@ function Shop:onStateChange(old,new)
         self.info_box.visible = false
     elseif new == "SELLING" then
         Game.key_repeat = true
+        self:clearMiniface()
         self:setDialogueText("")
         if self.state_reason and type(self.state_reason) == "table" then
             if self.sell_options_text[self.state_reason[2]] then
@@ -504,8 +569,10 @@ function Shop:onStateChange(old,new)
         end
         self:processReplacements()
         self:onTalk()
+        self:clearMiniface()
     elseif new == "LEAVE" then
         self:setRightText("")
+        self:clearMiniface()
         self.large_box.visible = true
         self.left_box.visible = false
         self.right_box.visible = false
@@ -514,12 +581,14 @@ function Shop:onStateChange(old,new)
     elseif new == "LEAVING" then
         self:setRightText("")
         self:setDialogueText("")
+        self:clearMiniface()
         self.large_box.visible = true
         self.left_box.visible = false
         self.right_box.visible = false
         self.info_box.visible = false
         self:leave()
     elseif new == "DIALOGUE" then
+        self:clearMiniface()
         self.dialogue_text.width = 598
         self:setRightText("")
         self.large_box.visible = true
@@ -695,6 +764,12 @@ function Shop:processReplacements()
 end
 
 function Shop:update()
+    if not self.dialogue_text:isTyping() then
+        for _,miniface in ipairs(self.minifaces) do
+            miniface:stop()
+        end
+    end
+
     -- Update talk sprites
     for _,object in ipairs(self.talk_dialogue) do
         if self.shopkeeper.talk_sprite then
@@ -1088,19 +1163,24 @@ function Shop:onKeyPressed(key, is_repeat)
         end
     elseif self.state == "BUYMENU" then
         if self.buy_confirming then
+            self:clearMiniface()
             if Input.isConfirm(key) then
                 self.buy_confirming = false
                 local current_item = self.items[self.current_selecting]
                 if self.current_selecting_choice == 1 then
+                    self:clearMiniface()
                     self:buyItem(current_item)
                 elseif self.current_selecting_choice == 2 then
+                    self:clearMiniface()
                     self:setRightText(self.buy_refuse_text)
                 else
+                    self:clearMiniface()
                     self:setRightText("What?????[wait:5]\ndid you\ndo????")
                 end
             elseif Input.isCancel(key) then
                 self.buy_confirming = false
                 self:setRightText(self.buy_refuse_text)
+                self:clearMiniface()
             elseif Input.is("up", key) or Input.is("down", key) then
                 if self.current_selecting_choice == 1 then
                     self.current_selecting_choice = 2
@@ -1121,6 +1201,7 @@ function Shop:onKeyPressed(key, is_repeat)
                     end
                     self.buy_confirming = true
                     self.current_selecting_choice = 1
+                    self:clearMiniface()
                     self:setRightText("")
                 end
             elseif Input.isCancel(key) then
@@ -1190,11 +1271,14 @@ function Shop:onKeyPressed(key, is_repeat)
                         if self.item_current_selecting == 0 or Game.inventory:getItemCount(self.state_reason[2], false) == 0 then
                             self:setRightText(self.sell_everything_text)
                             self:setState("SELLMENU", true)
+                            self:clearMiniface()
                         end
                     elseif self.current_selecting_choice == 2 then
                         self:setRightText(self.sell_refuse_text)
+                        self:clearMiniface()
                     else
                         self:setRightText("What?????[wait:5]\ndid you\ndo????")
+                        self:clearMiniface()
                     end
                 elseif Input.isCancel(key) then
                     self.sell_confirming = false
@@ -1215,11 +1299,14 @@ function Shop:onKeyPressed(key, is_repeat)
                             Game.key_repeat = false
                             self.current_selecting_choice = 1
                             self:setRightText("")
+                            self:clearMiniface()
                         else
                             self:setRightText(self.sell_no_price_text)
+                            self:clearMiniface()
                         end
                     else
                         self:setRightText(self.sell_nothing_text)
+                        self:clearMiniface()
                     end
                 elseif Input.isCancel(key) and not is_repeat then
                     self:setState("SELLMENU")
@@ -1273,10 +1360,13 @@ end
 function Shop:enterSellMenu(sell_data)
     if not sell_data then
         self:setRightText(self.sell_no_storage_text)
+        self:clearMiniface()
     elseif not Game.inventory:getStorage(sell_data[2]) then
         self:setRightText(self.sell_no_storage_text)
+        self:clearMiniface()
     elseif Game.inventory:getItemCount(sell_data[2], false) == 0 then
         self:setRightText(self.sell_no_storage_text)
+        self:clearMiniface()
     else
         self:setState("SELLING", sell_data)
     end
@@ -1286,6 +1376,7 @@ end
 ---@param current_item { item: Item, options: table }   The shop entry of the item being purchased.
 function Shop:buyItem(current_item)
     if (current_item.options["price"] or 0) > self:getMoney() then
+        self:clearMiniface()
         self:setRightText(self.buy_too_expensive_text)
     else
         -- Decrement the stock
@@ -1298,6 +1389,7 @@ function Shop:buyItem(current_item)
         local new_item = Registry.createItem(current_item.item.id)
         new_item:load(current_item.item:save())
         if Game.inventory:addItem(new_item) then
+            self:clearMiniface()
             -- Visual/auditorial feedback (did I spell that right?)
             Assets.playSound("locker")
             self:setRightText(self.buy_text)
@@ -1306,6 +1398,7 @@ function Shop:buyItem(current_item)
             -- Remove the money
             self:removeMoney(current_item.options["price"] or 0)
         else
+            self:clearMiniface()
             -- Not enough space, oops
             self:setRightText(self.buy_no_space_text)
         end
@@ -1333,6 +1426,7 @@ function Shop:sellItem(current_item)
     Game.inventory:removeItem(current_item)
 
     Assets.playSound("locker")
+    self:clearMiniface()
     self:setRightText(self.sell_text)
 end
 
