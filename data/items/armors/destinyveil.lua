@@ -35,7 +35,7 @@ function item:init()
 		noelle = "H-How would I fight without magic?",
         ralsei = "I've been promoted!",
         susie = "Look at my crown! LOOK.", -- WIP
-        angel = "Now THIS is useful."
+        angel = "Now THIS is useful!"
 	}
     
     self.noelle_magic = nil

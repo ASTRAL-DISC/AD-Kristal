@@ -29,29 +29,18 @@ function item:init()
     self.bonus_name = "GrazeArea"
     self.bonus_icon = "ui/menu/icon/up"
 
-	self.can_equip = {}
+	self.can_equip = {
+        angel = false
+    }
 
     self.reactions = {
-		susie = "Cool...",
+		susie = "Looks cool...",
 		ralsei = "It feels inspired...",
         noelle = "Only half of it?",
-        mteen = "Are we robbing a bank??",
-        berdly = "Not my style, but..."
+        mteen = "Oh, like that movie.",
+        berdly = "Not my style, but...",
+        angel = "WHAT! We can't see..."
     }
-end
-
-function item:getReaction(user_id, reactor_id)
-    if Game:hasPartyMember("susie") and user_id == "ralsei" then
-        if reactor_id == "ralsei" then
-            return "I feel mysterious!"
-        elseif reactor_id == "susie" then
-            return "Don't put the glasses on it!!"
-        else
-            return nil
-        end
-    else
-        return super.getReaction(self, user_id, reactor_id)
-    end
 end
 
 return item

@@ -1,9 +1,9 @@
-local item, super = Class(Item, "soulbandage")
+local item, super = Class(Item, "soggybandage")
 
 function item:init()
     super.init(self)
 
-    self.name = "SoulBandage"
+    self.name = "SoggyBandage"
     self.use_name = nil
 
     self.type = "armor"

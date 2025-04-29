@@ -1,9 +1,9 @@
-local item, super = Class(Item, "console_axe")
+local item, super = Class(Item, "electron_axe")
 
 function item:init()
     super.init(self)
 
-    self.name = "Console Axe"
+    self.name = "Electron Axe"
     self.use_name = nil
 
     self.type = "weapon"
@@ -11,7 +11,7 @@ function item:init()
 
     self.effect = ""
     self.shop = ""
-    self.description = "A LED axe, perfect for gaming.\nIncreases resistance to ELEC-type attacks."
+    self.description = "A LED axe. Increases resistance to ELEC-type attacks."
 
     self.price = 0
     self.can_sell = false
@@ -25,8 +25,8 @@ function item:init()
         defense = 3,
         magic = 1,
     }
-    self.bonus_name = "Console"
-    self.bonus_icon = "ui/menu/icon/up"
+    self.bonus_name = "Elec"
+    self.bonus_icon = "ui/menu/icon/armor"
 
 	self.can_equip = {}
 

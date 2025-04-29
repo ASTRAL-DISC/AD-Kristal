@@ -31,9 +31,9 @@ function item:init()
 	self.can_equip = {}
 
     self.reactions = {
-		mteen = "Umm, that's mine, Kris.",
+		mteen = "Um, yeah, that's mine.",
 		noelle = "Oh! This is fancy...",
-        ralsei = "I... I feel weird wearing it.",
+        ralsei = "I... I feel weird.",
         susie = "Looks familiar.",
         berdly = "Interesting trinket.",
         angel = "Guess we're wearing merch?"
