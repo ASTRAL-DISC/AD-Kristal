@@ -284,7 +284,7 @@ function actor:initChapter2()
         -- Outfits
         ["outfits/cowboy"] = {-2, -52},
         ["outfits/care"] = {0, 0},
-        ["outfits/redcarpet"] = {0, 0},
+        ["outfits/redcarpet"] = {1, 0},
         ["outfits/melon"] = {-1, -8},
         ["outfits/swap"] = {0, 0},
         ["outfits/halloween"] = {-13, -1},
