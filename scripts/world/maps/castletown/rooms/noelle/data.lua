@@ -1,7 +1,7 @@
 return {
   version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.11.0",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 25,
+  nextobjectid = 26,
   properties = {
     ["border"] = "castle",
     ["music"] = "castletown"
@@ -305,12 +305,12 @@ return {
           }
         },
         {
-          id = 24,
+          id = 25,
           name = "plush",
           type = "",
           shape = "point",
-          x = 344.667,
-          y = 202,
+          x = 233.074,
+          y = 179.2,
           width = 0,
           height = 0,
           rotation = 0,

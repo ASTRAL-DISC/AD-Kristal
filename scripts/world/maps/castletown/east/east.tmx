@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="13">
+<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#000000" nextlayerid="6" nextobjectid="14">
  <editorsettings>
   <export target="../east_door.lua" format="lua"/>
  </editorsettings>
@@ -56,6 +56,14 @@
     <property name="text">* (It seems to be locked.)[wait:5]
 * (It may never open again.)</property>
    </properties>
+  </object>
+  <object id="13" name="plush" x="200" y="339">
+   <properties>
+    <property name="flagcheck" value="!noelle_plush"/>
+    <property name="plushflag" value="noelle_plush"/>
+    <property name="sprite" value="noelle"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>

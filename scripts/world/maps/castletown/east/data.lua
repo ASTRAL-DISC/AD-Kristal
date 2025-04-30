@@ -1,7 +1,7 @@
 return {
-  version = "1.10",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 13,
+  nextobjectid = 14,
   backgroundcolor = { 0, 0, 0 },
   properties = {
     ["border"] = "castle",
@@ -234,6 +234,23 @@ return {
           visible = true,
           properties = {
             ["text"] = "* (It seems to be locked.)[wait:5]\n* (It may never open again.)"
+          }
+        },
+        {
+          id = 13,
+          name = "plush",
+          type = "",
+          shape = "point",
+          x = 200,
+          y = 339,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["flagcheck"] = "!noelle_plush",
+            ["plushflag"] = "noelle_plush",
+            ["sprite"] = "noelle"
           }
         }
       }

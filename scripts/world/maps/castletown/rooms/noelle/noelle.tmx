@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="25">
+<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="26">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -42,7 +42,7 @@
     <property name="marker" value="entry_noelle"/>
    </properties>
   </object>
-  <object id="24" name="plush" x="344.667" y="202">
+  <object id="25" name="plush" x="233.074" y="179.2">
    <properties>
     <property name="flagcheck" value="noelle_plush"/>
     <property name="sprite" value="noelle"/>
