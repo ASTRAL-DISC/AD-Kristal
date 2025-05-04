@@ -21,23 +21,6 @@ function Device:draw()
         love.graphics.line(0, -120 + (i * 50) - math.floor(self.offset), BORDER_WIDTH * BORDER_SCALE, -120 + (i * 50) - math.floor(self.offset))
         love.graphics.line(-140 + (i * 50) - math.floor(self.offset), 0, -140 + (i * 50) - math.floor(self.offset), BORDER_HEIGHT * BORDER_SCALE)
     end
-
-    Draw.setColor(0, 0, 0, 0.3 * BORDER_ALPHA)
-
-    local offset = (Kristal.getTime() * 30)
-    local rect_amount = 9
-    local rect_height = 6
-    for i = 1, rect_amount do
-        -- Oscillation effect
-        local final_rect_height = (2 + math.sin(offset / 30)) * i * rect_height
-        love.graphics.rectangle("fill", 0, 0, BORDER_WIDTH * BORDER_SCALE, final_rect_height)
-    end
-
-    for i = 1, rect_amount do
-        -- Oscillation effect
-        local final_rect_height = (2 + math.sin(offset / 30)) * i * rect_height
-        love.graphics.rectangle("fill", 0, BORDER_HEIGHT * BORDER_SCALE, BORDER_WIDTH * BORDER_SCALE, -final_rect_height)
-    end
 end
 
 return Device
