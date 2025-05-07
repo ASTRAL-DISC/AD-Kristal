@@ -38,7 +38,7 @@ function MainMenuCredits:init(menu)
                 "Nebytou",
                 "Linkerbee",
                 "Jo",
-                "SnowyBoi64",
+                "WoeNelly",
                 "Mimmmky"
             }
         },
