@@ -261,8 +261,7 @@ return {
                 char:setFacing("down")
             end
         end
-
-        cutscene:endCutscene()
+        
         cutscene:gotoCutscene("basin.intro")
     end,
 }
