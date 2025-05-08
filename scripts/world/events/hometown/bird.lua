@@ -1,7 +1,7 @@
 local Bird, super = Class(Event, "bird")
 
 function Bird:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
 	local properties = data.properties or {}
 

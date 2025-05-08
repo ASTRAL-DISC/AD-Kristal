@@ -1,7 +1,7 @@
 local Boombox, super = Class(Event, "boombox")
 
 function Boombox:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
 	self:setScale(1)
     self:setOrigin(0.5, 1)

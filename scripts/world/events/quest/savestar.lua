@@ -1,7 +1,7 @@
 local Savestar, super = Class(Interactable, "savestar")
 
 function Savestar:init(x, y, properties)
-    super.init(self, x, y, nil, nil, properties)
+    super.init(self, x, y, nil, properties)
 
     properties = properties or {}
 

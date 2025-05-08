@@ -3,15 +3,17 @@
 ---@field target table Inherited from parent class
 local TransitionSpecial, super = Class(Transition, "transition_special")
 
-function TransitionSpecial:init(data)
-    super.init(self, data.x, data.y, data.width, data.height, data.properties)
+function TransitionSpecial:init(x, y, shape, properties)
+    super.init(self, x, y, shape)
+
+    properties = properties or {}
 
     -- If none of these properties are found, the transition will happen using the map property instead
-    self.ch3map = data.properties.ch3map
-    self.ch4map = data.properties.ch4map
-    self.ch5map = data.properties.ch5map
-    self.ch6map = data.properties.ch6map
-    self.ch7map = data.properties.ch7map
+    self.ch3map = properties.ch3map
+    self.ch4map = properties.ch4map
+    self.ch5map = properties.ch5map
+    self.ch6map = properties.ch6map
+    self.ch7map = properties.ch7map
 end
 
 function TransitionSpecial:onEnter(chara)

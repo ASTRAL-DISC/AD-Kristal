@@ -2,7 +2,7 @@
 local Note, super = Class(Event, "note")
 
 function Note:init(data)
-    super.init(self, data.x, data.y, 20, 20, data)
+    super.init(self, data.x, data.y, {20, 20})
 
     self.speed = 60
     self.note_position = 0

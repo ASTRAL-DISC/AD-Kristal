@@ -1,7 +1,7 @@
 local ActorColor, super = Class(Event, "actorcolor")
 
-function ActorColor:init(x, y, w, h)
-    super.init(self, x, y, w, h)
+function ActorColor:init(x, y, shape)
+    super.init(self, x, y, shape)
 
     self.solid = false
     self.canvas = love.graphics.newCanvas(self.width, self.height)

@@ -1,7 +1,7 @@
 local Bunker, super = Class(Event, "bunker")
 
 function Bunker:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
 	self:setScale(0.5)
     self:setOrigin(0.5, 0.5)

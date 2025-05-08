@@ -1,7 +1,7 @@
 local ColorShadow, super = Class(Event, "colorshadow")
 
 function ColorShadow:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
     self.solid = false
 

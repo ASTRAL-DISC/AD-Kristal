@@ -1,7 +1,7 @@
 local Jail, super = Class(Event, "jail")
 
 function Jail:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 	
 	self.solid = false
     self.sprite = Sprite("world/events/hometown/police_bars")

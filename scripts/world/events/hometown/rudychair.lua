@@ -1,7 +1,7 @@
 local RudyChair, super = Class(Event, "rudychair")
 
 function RudyChair:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
 	self:setScale(1)
     self:setOrigin(0.5, 0.5)

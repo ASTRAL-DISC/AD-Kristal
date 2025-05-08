@@ -1,9 +1,9 @@
 local WetFloor, super = Class(Event, "wetfloor")
 
-function WetFloor:init(x, y, w, h, properties)
-    super.init(self, x, y, w, h)
+function WetFloor:init(x, y, shape, properties)
+    super.init(self, x, y, shape)
 
-    --self.fall = properties["fall"] or "kris"
+    self.fall = properties["fall"] or "kris"
 end
 
 function WetFloor:onCollide(chara)

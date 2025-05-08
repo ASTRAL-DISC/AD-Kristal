@@ -2,7 +2,7 @@
 local NoteGenerator, super = Class(Event, "notegenerator")
 
 function NoteGenerator:init(data)
-    super.init(self, data.x, data.y, nil, nil, data)
+    super.init(self, data.x, data.y, {nil, nil})
 
     local properties = data.properties or {}
 

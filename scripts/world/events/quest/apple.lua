@@ -1,7 +1,7 @@
 local Apple, super = Class(Event, "apple")
 
 function Apple:init(data)
-    super.init(self, data.center_x, data.center_y, data.width, data.height)
+    super.init(self, data.center_x, data.center_y, {data.width, data.height})
 
     self:setOrigin(0.5, 0.5)
     self:setSprite("world/events/quest/apple", 0.25)

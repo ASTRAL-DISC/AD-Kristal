@@ -2,7 +2,7 @@
 local QueenDoor, super = Class(Event, "queendoor")
 
 function QueenDoor:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
     self.solid = true
 

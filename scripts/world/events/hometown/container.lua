@@ -1,7 +1,7 @@
 local Container, super = Class(Event, "container")
 
 function Container:init(data)
-	super.init(self, data.x, data.y, data.w, data.h)
+	super.init(self, data.x, data.y, {data.w, data.h})
 
     local properties = data.properties or {}
 

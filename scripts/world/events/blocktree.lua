@@ -2,7 +2,7 @@
 local BlockTree, super = Class(Event, "blocktree")
 
 function BlockTree:init(data)
-	super.init(self, data.x, data.y, data.width, data.height)
+	super.init(self, data.x, data.y, {data.width, data.height})
 
 	self.sprites = Assets.getFramesOrTexture("world/events/blocktree/part")
 

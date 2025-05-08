@@ -1,7 +1,7 @@
 local DojoFX, super = Class(Event, "dojofx")
 
 function DojoFX:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
     self.solid = false
 

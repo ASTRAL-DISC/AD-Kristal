@@ -3,7 +3,7 @@
 local Pickup, super = Class(Event, "pickup")
 
 function Pickup:init(data)
-	super.init(self, data.x, data.y, data.w, data.h)
+	super.init(self, data.x, data.y, {data.w, data.h})
 
     properties = data.properties or {}
 

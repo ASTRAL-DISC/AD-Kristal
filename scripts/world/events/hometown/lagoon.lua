@@ -1,7 +1,7 @@
 local Lagoon, super = Class(Event, "lagoon")
 
 function Lagoon:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
 
     if Game.world.map.id == "hometown_dark/lagoon" then
         self.lagoon = Sprite("world/hometown/lagoon_evening", -44, -40)

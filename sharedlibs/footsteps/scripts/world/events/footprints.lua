@@ -1,7 +1,7 @@
 local footprints, super = Class(Event)
 
 function footprints:init(data)
-    super.init(self, data.x, data.y, data.width, data.height)
+    super.init(self, data.x, data.y, {data.width, data.height})
     self.toggle = false
     self.playerbool = data.properties["player"] or false
     self.type = data.properties["type"] or "default"
