@@ -41,7 +41,6 @@ function Loading:enter(from, dir)
     self.fader_alpha = 0
 
     self:beginLoad()
-    self.done_loading = false
 end
 
 function Loading:beginLoad()
@@ -62,12 +61,7 @@ function Loading:beginLoad()
 end
 
 function Loading:update()
-    if self.done_loading then
-        return
-    end
-    
     if self.load_complete then
-        self.done_loading = true
         if not Kristal.Mods.getMod("astraldisc") or not TARGET_MOD then
             self.warn:play()
             Gamestate.switch(Kristal.States["NoDisc"])
