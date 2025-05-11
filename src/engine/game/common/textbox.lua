@@ -232,7 +232,7 @@ function Textbox:setFace(face, ox, oy)
         self.face:setPosition(self.face_x + (ox or 0), self.face_y + (oy or 0))
         self:updateTextBounds()
 
-        self.face:blockFadeTo(face, 0.9, true, function ()
+        self.face:blockFadeTo(face, 0.7, true, function ()
             if not self.face.texture then self.face:setSprite(face) end
         end)
     else
