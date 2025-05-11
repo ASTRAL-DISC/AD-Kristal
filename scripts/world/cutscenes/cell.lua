@@ -36,4 +36,50 @@ return {
             end
         end
     end,
+    him = function(cutscene)
+        Game.world.music:pause()
+        cutscene:during(function ()
+            if Game.world.cutscene.textbox.box.visible then
+                Game.world.cutscene.textbox.box.visible = false
+            end
+        end)
+
+        local black = Rectangle(0, 0, Game.world.width, Game.world.height)
+        black:setColor(COLORS.black)
+        black.alpha = 1
+        Game.world:spawnObject(black, "below_ui")
+
+        Assets.playSound("phone", 0.7)
+        cutscene:text("* (Ring, [wait:5]ring...)")
+        if Game.world:getCellFlag("cell.him", 0) > 0 then
+            cutscene:text("* (No one picked up.)")
+        else
+            cutscene:wait(1)
+
+            local GSTYLE = "[speed:0.4][spacing:6][style:GONER]"
+            cutscene:setSpeaker("gaster")
+
+            cutscene:text(GSTYLE .."[wait:80]TESTING WILL COMMENCE", "apathy")
+            cutscene:text(GSTYLE .."IN THREE\n[wait:40]TWO\n[wait:80]ONE[wait:10].", "apathy")
+            cutscene:text(GSTYLE .."...", "insensitivity")
+            cutscene:text(GSTYLE .."... [wait:40]ARE YOU THERE?", "taciturn")
+            cutscene:text(GSTYLE .."YES, [wait:40]OF COURSE.\n[wait:40]OF COURSE YOU ARE.", "aloof")
+            cutscene:text(GSTYLE .."DESPITE ALL ODDS,\n[wait:40]HOW HAVE YOU BEEN?", "wistful")
+            cutscene:text(GSTYLE .."... PERHAPS\n[wait:40]NOT THE MOST ADEQUATE QUESTION.", "euphoria")
+            cutscene:text(GSTYLE .."APOLOGIES FOR PULLING YOU OUT OF YOUR...", "choleric")
+            cutscene:text(GSTYLE .."COMFORT ZONE.", "apathy")
+            cutscene:text(GSTYLE .."THE FACT YOU CAN CALL IT \"COMFORT\" IS [wait:40]INTRIGUING.", "wistful")
+            cutscene:text(GSTYLE .."PLEASE [wait:40]DO NOT LOOK SO SULLEN.", "insensitivity")
+            cutscene:text(GSTYLE .."I'D LIKE TO SHARE SOMETHING WITH YOU.", "euphoria")
+            cutscene:text(GSTYLE .."BUT...", "aloof")
+            cutscene:text(GSTYLE .."I WORRY.", "worry")
+
+            cutscene:wait(6)
+
+            cutscene:setSpeaker()
+            cutscene:text("* (Click...)")
+            black:fadeOutAndRemove(1)
+            Game.world.music:resume()
+        end
+    end,
 }

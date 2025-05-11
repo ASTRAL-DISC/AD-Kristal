@@ -768,6 +768,8 @@ function WorldCutscene:text(text, portrait, actor, options)
 
     options = options or {}
 
+    local current_face = self.textbox and self.textbox.face.texture_path
+    current_face = current_face and Utils.sub(current_face, 6)
     self:closeText()
 
     local width, height = 529, 103
@@ -779,6 +781,8 @@ function WorldCutscene:text(text, portrait, actor, options)
     self.textbox.layer = WORLD_LAYERS["textbox"]
     self.world:addChild(self.textbox)
     self.textbox:setParallax(0, 0)
+
+    self.textbox.face:setSprite(current_face)
 
     if type(actor) == "string" then
         actor = self:getCharacter(actor) or actor

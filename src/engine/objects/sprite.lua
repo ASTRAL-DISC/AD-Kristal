@@ -64,6 +64,7 @@ function Sprite:init(texture, x, y, width, height, path)
     self.anim_wait_func = function(s) self.anim_waiting = s or 0; coroutine.yield() end
 
     self:resetCrossFade()
+    self:resetBlockFade()
 end
 
 ---@see Object.canDebugSelect
@@ -451,6 +452,53 @@ function Sprite:crossFadeToSpeed(texture, speed, fade_out, after)
     end
 end
 
+--- *(Called internally)* Sets the target texture for the current cross-fade
+---@param texture string|love.Image
+function Sprite:setBlockFadeTexture(texture)
+    if type(texture) == "string" then
+        texture = self:getPath(texture)
+        self.blockfade_texture = Assets.getTexture(texture)
+    else
+        self.blockfade_texture = texture
+    end
+    self.blockfade_texture_path = Assets.getTextureID(texture)
+end
+
+--- Stops the cross-fade on the current sprite
+function Sprite:resetBlockFade()
+    self.blockfade_alpha = 0
+    self.blockfade_texture = nil
+    self.blockfade_texture_path = nil
+    self.blockfade_speed = 0
+    self.blockfade_out = false
+    self.blockfade_after = nil
+end
+
+--- Starts a cross-fade from the current sprite to a new `texture`
+---@param texture   string|love.Image   The texture to fade into
+---@param time?     number              The time, in seconds, that the cross-fade should take (Defaults to `1`)
+---@param fade_out? boolean             Whether the current sprite texture should fade out during the cross-fade (if `false`, it disappears at the end)
+---@param after?    fun(sprite: Sprite) The function to run when the cross-fade is complete
+function Sprite:blockFadeTo(texture, time, fade_out, after)
+    self:blockFadeToSpeed(texture, (1 / (time or 1)) / 30 * (1 - self.blockfade_alpha), fade_out, after)
+end
+
+--- Starts a cross-fade from the current sprite to a new `texture`
+---@param texture   string|love.Image   The texture to fade into
+---@param speed?    number              The speed at which the alpha of both sprites change, meaasured as the alpha value change per frame at 30FPS (Defaults to `0.04`)
+---@param fade_out? boolean             Whether the current sprite texture should fade out during the cross-fade (if `false`, it disappears at the end)
+---@param after?    fun(sprite: Sprite) The function to run when the cross-fade is complete
+function Sprite:blockFadeToSpeed(texture, speed, fade_out, after)
+    self:setBlockFadeTexture(texture)
+    self.blockfade_speed = speed or 0.04
+    self.blockfade_out = fade_out
+    self.blockfade_after = function(self)
+        self:setTexture(texture)
+        self:resetBlockFade()
+        if after then after(self) end
+    end
+end
+
 function Sprite:onClone(src)
     super.onClone(self, src)
 
@@ -469,6 +517,12 @@ function Sprite:update()
         self.crossfade_alpha = Utils.approach(self.crossfade_alpha, 1, self.crossfade_speed*DTMULT)
         if self.crossfade_alpha == 1 and self.crossfade_after then
             self.crossfade_after(self)
+        end
+    end
+    if self.blockfade_speed ~= 0 and self.blockfade_alpha ~= 1 then
+        self.blockfade_alpha = Utils.approach(self.blockfade_alpha, 1, self.blockfade_speed*DTMULT)
+        if self.blockfade_alpha == 1 and self.blockfade_after then
+            self.blockfade_after(self)
         end
     end
     if self.playing then
@@ -510,6 +564,12 @@ function Sprite:draw()
 
             Draw.setColor(r, g, b, Utils.lerp(0, a, self.crossfade_alpha))
             Draw.draw(self.crossfade_texture, ...)
+        elseif self.blockfade_alpha > 0 and self.blockfade_texture ~= nil then
+            Draw.setColor(r, g, b, self.blockfade_out and Utils.lerp(a, 0, math.floor(self.blockfade_alpha * 4) / 4) or a)
+            Draw.draw(self.texture, ...)
+
+            Draw.setColor(r, g, b, Utils.lerp(0, a, math.floor(self.blockfade_alpha * 4) / 4))
+            Draw.draw(self.blockfade_texture, ...)
         else
             Draw.setColor(r, g, b, a)
             Draw.draw(self.texture, ...)
