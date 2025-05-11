@@ -2,7 +2,7 @@
 ---@overload fun(...) : Text
 local Text, super = Class(Object)
 
-Text.COMMANDS = { "color", "font", "style", "shake", "wave", "image", "bind", "button", "offset", "indent", "spacing" }
+Text.COMMANDS = { "color", "font", "style", "shake", "wave", "float", "image", "bind", "button", "offset", "indent", "spacing" }
 
 Text.COLORS = {
     ["red"] = COLORS.red,
@@ -132,6 +132,9 @@ function Text:resetState()
         wave_offset = 0,
         wave_speed = 0,
         wave_direction = 0,
+        float_dist = 0,
+        float_speed = 0,
+        float_phase = 0,
         offset_x = 0,
         offset_y = 0,
         newline = false,
@@ -569,6 +572,11 @@ function Text:processModifier(node, dry)
         self.state.wave_offset = tonumber(node.arguments[2]) or 30
         self.state.wave_speed = tonumber(node.arguments[3]) or 20
         self.draw_every_frame = true
+    elseif node.command == "float" then
+        self.state.float_dist = tonumber(node.arguments[1]) or 5
+        self.state.float_speed = 2 * math.pi * (tonumber(node.arguments[2]) or 1)
+        self.state.float_phase = math.rad(tonumber(node.arguments[3]) or 20)
+        self.draw_every_frame = true
     elseif node.command == "style" then
         if node.arguments[1] == "reset" then
             self.state.style = "none"
@@ -688,6 +696,12 @@ function Text:drawChar(node, state, use_color)
         state.offset_y = yspeed * 0.7
     end
 
+    if (state.float_dist and state.float_dist > 0) then
+        state.offset_y = state.float_dist * math.sin((state.float_speed * Kristal.getTime()) + (state.float_phase * state.typed_characters))
+    else
+        state.offset_y = 0
+    end
+
     local x, y = state.current_x + state.offset_x, state.current_y + state.offset_y
     love.graphics.setFont(font)
 
@@ -777,11 +791,90 @@ function Text:drawChar(node, state, use_color)
         love.graphics.print(node.character, x, y + 2, 0, scale, scale)
         love.graphics.print(node.character, x, y - 2, 0, scale, scale)
         Draw.setColor(mr, mg, mb, ma)
+    elseif state.style == "unused" then
+        local w, h = self:getNodeSize(node, state)
+
+		local t = Kristal.getTime() * 4
+		
+		local sx = math.cos(t) * 2
+		local sy = math.sin(t) * 2
+		
+        love.graphics.print(node.character, x + sx, y + h * .5 - (h) * .5 + sy, 0, scale, scale)
+
+		for i = 1, 32, 6 do
+			local t = Kristal.getTime() * 38
+			local pos = (t + i) % 32
+
+			local x = x + (pos * 1.5)
+			local y = y + pos
+			
+			local alpha = (32 - pos) / 42
+			
+			Draw.setColor(1,1,1, alpha)
+			love.graphics.print(node.character, x, y + h * .5 - (h) * .5, 0, scale, scale)
+		end
+		
+        return true
+    elseif state.style == "depths" then
+        local w, h = self:getNodeSize(node, state)
+
+        for i = 1, 32, 10 do
+			local t = Kristal.getTime() * 38
+			local pos = (t + i) % 32
+
+			local x = x + (pos * 1.5)
+			local y = y + pos
+			
+			local alpha = (32 - pos) / 42
+			
+			Draw.setColor(0.2, 0.2, 0.3, alpha)
+			love.graphics.print(node.character, x, y + h * .5 - (h) * .5, 0, scale, scale)
+		end
+        
+        local canvas = Draw.pushCanvas(w, h, { stencil = false })
+        Draw.setColor(1, 1, 1)
+        
+        love.graphics.print(node.character, 0, 0, 0, scale, scale)
+        Draw.popCanvas()
+
+        local shader = Kristal.Shaders["GradientV"]
+
+        local last_shader = love.graphics.getShader()
+
+        Draw.setColor(0.6, 0.6, 0.7, 0.8)
+        Draw.draw(canvas, x - 2, y - 2)
+
+        Draw.setColor(0.3, 0.3, 0.5, 0.8)
+        Draw.draw(canvas, x + 2, y + 2)
+
+        love.graphics.setShader(shader)
+        shader:sendColor("from", COLORS.white)
+        shader:sendColor("to", COLORS.white or state.color)
+
+        Draw.setColor(1, 1, 1, 1)
+        Draw.draw(canvas, x, y)
+
+        love.graphics.setShader(last_shader)
+    elseif state.style == "spoiler" then
+        Draw.setColor(0.2, 0.2, 0.2)
+
+        local w, h = self:getNodeSize(node, state)
+        love.graphics.rectangle("fill", x, y, w, h)
+
+        return true
+    elseif state.style == "rainbow" then
+		local w, h = self:getNodeSize(node, state)
+
+		Draw.setColor(Utils.hslToRgb((Kristal.getTime() / 2.5) % 1, 1, 0.5))
+
+		love.graphics.print(node.character, x, y + h/2 - (h*scale)/2, 0, scale, scale)
+
+		return true
     end
 end
 
 function Text:isStyleAnimated(style)
-    return style == "GONER" or Kristal.callEvent(KRISTAL_EVENT.isTextStyleAnimated, style, self)
+    return style == "GONER" or style == "unused" or style == "depths" or Kristal.callEvent(KRISTAL_EVENT.isTextStyleAnimated, style, self)
 end
 
 function Text:processStyle(style)
