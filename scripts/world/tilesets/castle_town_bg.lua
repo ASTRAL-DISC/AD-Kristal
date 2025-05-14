@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.11.0",
+  tiledversion = "1.11.2",
   name = "castle_town_bg",
   class = "",
   tilewidth = 640,
@@ -23,7 +23,7 @@ return {
   },
   properties = {},
   wangsets = {},
-  tilecount = 71,
+  tilecount = 74,
   tiles = {
     {
       id = 3,
@@ -525,7 +525,7 @@ return {
       id = 69,
       image = "../../../assets/sprites/world/castle_town/door_kris_moss.png",
       width = 106,
-      height = 128
+      height = 134
     },
     {
       id = 70,
@@ -562,6 +562,24 @@ return {
       image = "../../../assets/sprites/world/castle_town/jewel_shop_wip.png",
       width = 160,
       height = 222
+    },
+    {
+      id = 76,
+      image = "../../../assets/sprites/world/castle_town/room_kris_moss_b.png",
+      width = 78,
+      height = 48
+    },
+    {
+      id = 77,
+      image = "../../../assets/sprites/world/castle_town/room_kris_moss_c.png",
+      width = 52,
+      height = 16
+    },
+    {
+      id = 78,
+      image = "../../../assets/sprites/world/castle_town/room_kris_moss_d.png",
+      width = 74,
+      height = 58
     }
   }
 }

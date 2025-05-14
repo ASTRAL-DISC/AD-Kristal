@@ -1,7 +1,7 @@
 return {
   version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.10.2",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -9,8 +9,8 @@ return {
   height = 12,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 9,
-  nextobjectid = 29,
+  nextlayerid = 10,
+  nextobjectid = 32,
   backgroundcolor = { 0, 0, 0 },
   properties = {
     ["border"] = "castle",
@@ -118,6 +118,38 @@ return {
           gid = 176,
           visible = true,
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 9,
+      name = "objects_alt",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 31,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 239,
+          y = 286,
+          width = 106,
+          height = 134,
+          rotation = 0,
+          gid = 198,
+          visible = true,
+          properties = {
+            ["flagcheck"] = "mossfound >= 5"
+          }
         }
       }
     },

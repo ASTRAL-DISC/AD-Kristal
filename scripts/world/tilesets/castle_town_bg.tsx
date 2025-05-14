@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="castle_town_bg" tilewidth="640" tileheight="320" tilecount="71" columns="0">
+<tileset version="1.10" tiledversion="1.11.2" name="castle_town_bg" tilewidth="640" tileheight="320" tilecount="74" columns="0">
  <editorsettings>
   <export target="castle_town_bg.lua" format="lua"/>
  </editorsettings>
@@ -234,7 +234,7 @@
   <image source="../../../assets/sprites/world/castle_town/door_noelle.png" width="78" height="136"/>
  </tile>
  <tile id="69">
-  <image source="../../../assets/sprites/world/castle_town/door_kris_moss.png" width="106" height="128"/>
+  <image source="../../../assets/sprites/world/castle_town/door_kris_moss.png" width="106" height="134"/>
  </tile>
  <tile id="70">
   <image source="../../../assets/sprites/world/castle_town/door_berdly.png" width="96" height="106"/>
@@ -253,5 +253,14 @@
  </tile>
  <tile id="75">
   <image source="../../../assets/sprites/world/castle_town/jewel_shop_wip.png" width="160" height="222"/>
+ </tile>
+ <tile id="76">
+  <image source="../../../assets/sprites/world/castle_town/room_kris_moss_b.png" width="78" height="48"/>
+ </tile>
+ <tile id="77">
+  <image source="../../../assets/sprites/world/castle_town/room_kris_moss_c.png" width="52" height="16"/>
+ </tile>
+ <tile id="78">
+  <image source="../../../assets/sprites/world/castle_town/room_kris_moss_d.png" width="74" height="58"/>
  </tile>
 </tileset>

@@ -1,7 +1,7 @@
 return {
-  version = "1.11",
+  version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.11.0",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 8,
-  nextobjectid = 22,
+  nextobjectid = 25,
   properties = {
     ["border"] = "castle",
     ["music"] = "castletown"
@@ -80,7 +80,57 @@ return {
           rotation = 0,
           gid = 51,
           visible = true,
-          properties = {}
+          properties = {
+            ["cond"] = "not Game:getFlag(\"mossfound\") >= 3"
+          }
+        },
+        {
+          id = 22,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 422,
+          y = 406,
+          width = 78,
+          height = 48,
+          rotation = 0,
+          gid = 77,
+          visible = true,
+          properties = {
+            ["flagcheck"] = "mossfound >= 3"
+          }
+        },
+        {
+          id = 23,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 370.333,
+          y = 406.333,
+          width = 52,
+          height = 16,
+          rotation = 0,
+          gid = 78,
+          visible = true,
+          properties = {
+            ["flagcheck"] = "mossfound >= 4"
+          }
+        },
+        {
+          id = 24,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 294,
+          y = 480,
+          width = 74,
+          height = 58,
+          rotation = 0,
+          gid = 79,
+          visible = true,
+          properties = {
+            ["flagcheck"] = "mossfound >= 5"
+          }
         }
       }
     },
