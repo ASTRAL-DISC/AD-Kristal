@@ -13,11 +13,7 @@
  </imagelayer>
  <objectgroup id="7" name="objects_room_elements">
   <object id="18" gid="50" x="300" y="206" width="97" height="98"/>
-  <object id="19" gid="51" x="462" y="406" width="38" height="38">
-   <properties>
-    <property name="cond" value="not Game:getFlag(&quot;mossfound&quot;) &gt;= 3"/>
-   </properties>
-  </object>
+  <object id="19" gid="51" x="462" y="406" width="38" height="38"/>
   <object id="22" gid="77" x="422" y="406" width="78" height="48">
    <properties>
     <property name="flagcheck" value="mossfound &gt;= 3"/>

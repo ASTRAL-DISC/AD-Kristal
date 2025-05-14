@@ -80,9 +80,7 @@ return {
           rotation = 0,
           gid = 51,
           visible = true,
-          properties = {
-            ["cond"] = "not Game:getFlag(\"mossfound\") >= 3"
-          }
+          properties = {}
         },
         {
           id = 22,
