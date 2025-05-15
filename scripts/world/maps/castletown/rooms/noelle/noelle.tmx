@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="26">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="28">
  <editorsettings>
   <export target="data.lua" format="lua"/>
  </editorsettings>
@@ -48,6 +48,16 @@
     <property name="sprite" value="noelle"/>
    </properties>
    <point/>
+  </object>
+  <object id="26" name="interactable" x="134" y="172.5" width="58.5" height="52.5">
+   <properties>
+    <property name="cutscene" value="castletown/noelleroom.famicom"/>
+   </properties>
+  </object>
+  <object id="27" name="interactable" x="152" y="250.5" width="26" height="18">
+   <properties>
+    <property name="cutscene" value="castletown/noelleroom.controller"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

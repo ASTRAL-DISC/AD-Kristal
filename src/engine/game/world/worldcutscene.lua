@@ -100,6 +100,14 @@ function WorldCutscene:onEnd()
     super.onEnd(self)
 end
 
+function WorldCutscene:startMinigame(game)
+	Game:startMinigame(game)
+
+	local function waitForGame(self) return (Game.minigame == nil) end
+
+	return self:wait(waitForGame)
+end
+
 --- Gets a specific character currently present in the world.
 ---@param id        string  The actor id of the character to search for.
 ---@param index?    number  The character's index, if they have multiple instances in the world. (Defaults to 1)

@@ -1,5 +1,5 @@
 return {
-  version = "1.11",
+  version = "1.10",
   luaversion = "5.1",
   tiledversion = "1.11.2",
   class = "",
@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 26,
+  nextobjectid = 28,
   properties = {
     ["border"] = "castle",
     ["music"] = "castletown"
@@ -318,6 +318,36 @@ return {
           properties = {
             ["flagcheck"] = "noelle_plush",
             ["sprite"] = "noelle"
+          }
+        },
+        {
+          id = 26,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 134,
+          y = 172.5,
+          width = 58.5,
+          height = 52.5,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "castletown/noelleroom.famicom"
+          }
+        },
+        {
+          id = 27,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 250.5,
+          width = 26,
+          height = 18,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "castletown/noelleroom.controller"
           }
         }
       }

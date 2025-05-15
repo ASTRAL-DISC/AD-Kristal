@@ -150,6 +150,11 @@ OverworldSoul = require("src.engine.game.world.overworldsoul")
 WorldBullet = require("src.engine.game.world.worldbullet")
 ChaserEnemy = require("src.engine.game.world.chaserenemy")
 
+MinigameHandler = require("src.engine.game.minigames.minigamehandler")
+
+RareCats = require("src.engine.game.minigames.rarecats.rarecats")
+RareCatsEntity = require("src.engine.game.minigames.rarecats.rarecatsentity")
+
 SaveMenu = require("src.engine.game.world.ui.savemenu")
 SimpleSaveMenu = require("src.engine.game.world.ui.simplesavemenu")
 LightSaveMenu = require("src.engine.game.world.ui.lightsavemenu")
