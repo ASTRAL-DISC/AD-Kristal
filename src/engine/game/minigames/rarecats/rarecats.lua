@@ -5,8 +5,9 @@ function RareCats:init()
     super.init(self)
 
     self.name = "Rare Cats"
+    self.description = "Click on CATS to get POINTS!\n\n80% --- normal\n15% --- blue ora\n4% --- rock & roll\n0% --- ANGLE WING!!!!\n00000% --- SUPER HOLY ANGlE WING!!!!"
 
-    self.state = "TRANSITION" -- TRANSITION, INTRO, MAIN, WIN, TRANSITIONOUT1, TRANSITIONOUT2, TRANSITIONOUT3
+    self.state = "TRANSITION" -- TRANSITION, INTRO, MAIN, WIN, LOSE, TRANSITIONOUT1, TRANSITIONOUT2, TRANSITIONOUT3
 
     self.timer = Timer()
     self:addChild(self.timer)
@@ -25,15 +26,19 @@ function RareCats:init()
 
     self.font = Assets.getFont("main", 32)
     self.font2 = Assets.getFont("small", 32)
-	
-    self.hud_x, self.hud_y = 230, 484
+
+    self.hud_alpha = 1
+    self.hud_x, self.hud_y = 230, 500
 	
     self.spawn_cat = false
+    self.cat_limit = Utils.pick({20, 40, 60, 80, 100})
+
+    self.hold_timer = 0
 end
 
 function RareCats:postInit()
     self:pauseWorldMusic()
-    Assets.playSound("glitchy_meows", 0.5)
+    Assets.playSound("glitchy_meows", 0.4)
 end
 
 function RareCats:update()
@@ -68,8 +73,26 @@ function RareCats:update()
         if not self.spawn_cat then
             self:summonCat()
         end
-    elseif self.state == "WIN" then
-        self.hud_y = 484
+        if Input.down("cancel") then
+            self.hold_timer = Utils.approach(self.hold_timer, 2, DT)
+
+            if self.hold_timer >= 2 then
+                if self.cat then
+                    self.cat:remove()
+                end
+                if self.music then
+                    self.music:stop()
+                end
+                Assets.playSound("digital", 1, 0.5)
+                if self.state_timer > 1 then
+                    self:setState("TRANSITIONOUT1")
+                end
+            end
+        else
+            self.hold_timer = 0
+        end
+    elseif self.state == "WIN" or self.state == "LOSE" then
+        self.hud_y = 500
         if self.cat then
             self.cat:remove()
         end
@@ -79,6 +102,8 @@ function RareCats:update()
         end
     elseif self.state == "TRANSITIONOUT3" then
         if self.state_timer > 1 then
+            Assets.playSound("glitchy_meows", 0.4)
+            self.cat_limit = Utils.pick({20, 40, 60, 80, 100})
             self:setState("INTRO")
         end
     elseif self.state == "TRANSITIONOUT2" then
@@ -99,17 +124,30 @@ function RareCats:draw()
     love.graphics.setColor(1, 1, 1, self.hud_alpha)
     love.graphics.setFont(self.font2)
 
+    local function holdToQuit()
+        if Input.active_gamepad then
+            love.graphics.setColor(0.3, 0.3, 0.3, self.hud_alpha)
+            love.graphics.printf("Hold    to quit", 160, self.hud_y + 30, SCREEN_WIDTH, "center", 0, 0.5, 0.5, 0.5)
+            love.graphics.draw(Input.getTexture("cancel"), (SCREEN_WIDTH/2) - 16, self.hud_y - 2, 0, 1, 1)
+        else
+            love.graphics.setColor(0.3, 0.3, 0.3, self.hud_alpha)
+            love.graphics.printf("Hold " .. Input.getText("cancel") .. " to quit", 160, self.hud_y + 30, SCREEN_WIDTH, "center", 0, 0.5, 0.5, 0.5)
+        end
+    end
+
     if self.state == "INTRO" or self.state == "MAIN" then
         local score = string.format("%d", self.score)
         local cats_clicked = string.format("%d", self.cats_clicked)
 
         love.graphics.setColor(0.2, 0.2, 0.2, self.hud_alpha)
-        love.graphics.printf("SCORE: "..score, 162, self.hud_y + 8, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
-        love.graphics.printf("CATS CLICKED: "..cats_clicked.."/25", 162, self.hud_y + 30, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+        love.graphics.printf("SCORE: "..score, 162, self.hud_y - 18, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+        love.graphics.printf("CATS CLICKED: "..cats_clicked.."/"..self.cat_limit, 162, self.hud_y + 4, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
 
         love.graphics.setColor(0.5, 0.5, 0.5, self.hud_alpha)
-        love.graphics.printf("SCORE: "..score, 160, self.hud_y + 6, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
-        love.graphics.printf("CATS CLICKED: "..cats_clicked.."/25", 160, self.hud_y + 28, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+        love.graphics.printf("SCORE: "..score, 160, self.hud_y - 20, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+        love.graphics.printf("CATS CLICKED: "..cats_clicked.."/"..self.cat_limit, 160, self.hud_y + 2, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+        
+        holdToQuit()
     end
 	
     local function pressToContinue()
@@ -127,10 +165,23 @@ function RareCats:draw()
     if self.state == "WIN" then
         Draw.setColor(1, 1, 1, self.hud_alpha)
         love.graphics.setFont(self.font)
-        love.graphics.printf("CONGRATULATIONS!!!", 0, 70, SCREEN_WIDTH, "center")
+        love.graphics.printf("YOU WIN!", 0, 70, SCREEN_WIDTH, "center")
 
         local score = string.format("%d", self.score)
-        love.graphics.printf("SCORE: "..score, 0, 220, SCREEN_WIDTH, "center")
+        love.graphics.printf("FINAL SCORE: "..score, 0, 220, SCREEN_WIDTH, "center")
+	
+        love.graphics.setFont(self.font2)
+        Draw.setColor(0.5, 0.5, 0.5, self.hud_alpha)
+        pressToContinue()
+    end
+
+    if self.state == "LOSE" then
+        Draw.setColor(1, 1, 1, self.hud_alpha)
+        love.graphics.setFont(self.font)
+        love.graphics.printf("YOU LOSE!", 0, 70, SCREEN_WIDTH, "center")
+
+        local score = string.format("%d", self.score)
+        love.graphics.printf("FINAL SCORE: "..score - 1997, 0, 220, SCREEN_WIDTH, "center")
 	
         love.graphics.setFont(self.font2)
         Draw.setColor(0.5, 0.5, 0.5, self.hud_alpha)
@@ -140,7 +191,7 @@ end
 
 function RareCats:onKeyPressed(key)
     super.onKeyPressed(self, key)
-    if self.state == "WIN" then
+    if self.state == "WIN" or self.state == "LOSE" then
         if Input.pressed("cancel") then
             self:setState("TRANSITIONOUT1")
         end
@@ -161,6 +212,10 @@ function RareCats:onStateChange(old, new)
     if new == "INTRO" then
     elseif new == "MAIN" then
         self.music:play("minigames/rarecats")
+    elseif new == "WIN" then
+        Assets.playSound("glitchy_meow", 0.4, 1.8 + Utils.random(0.8))
+    elseif new == "LOSE" then
+        Assets.playSound("error", 0.8, 0.4 + Utils.random(0.5))
     elseif new == "TRANSITIONOUT1"then
     elseif new == "TRANSITIONOUT2" then
         self:preEndCleanup()
@@ -177,9 +232,10 @@ function RareCats:summonCat()
     self.cat.physics.speed_x = Utils.pick({-30, 30}) / 10
     self.cat.physics.speed_y = Utils.pick({-30, 30}) / 10
 	
-    if self.cats_clicked >= 25 then
-        self:hardReset()
+    if self.cats_clicked >= self.cat_limit then
+        self.music:stop()
         self.cat.visible = false
+        self:setState("WIN")
     else
         if o <= 700 then
             --Kristal.Console:log("normal")
@@ -211,6 +267,9 @@ function RareCats:summonCat()
             self.cat.sprite:set("cat_007/dance")
             self.cat.sprite:play(1/30, true)
             self.cat.point_value = 3000
+        elseif o == 1000 then
+            self:hardReset()
+            self.cat.visible = false
         end
     end
 	
@@ -230,9 +289,8 @@ function RareCats:hardReset()
     self:addChild(self.friend)
 
     self.timer:after(1, function()
-        Assets.playSound("won")
         self.friend:remove()
-        self:setState("WIN")
+        self:setState("LOSE")
 	end)
 end
 
