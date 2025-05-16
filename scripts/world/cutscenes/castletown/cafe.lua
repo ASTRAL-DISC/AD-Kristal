@@ -8,31 +8,33 @@ return {
                 Game.world:openMenu(RecruitMenuPlace())
             end)
         elseif choice == 2 then
-            if event.interact_count == 1 then
-                cutscene:text("* For the young human, [wait:5]we recommend a chocolate blueberry latte...")
-                cutscene:text("* Boss, [wait:5]please try not to use all of the sugar.")
-            elseif event.interact_count == 2 then
-                if Game:getPartyIndex("noelle") == 2 then
-                    cutscene:text("* For the young deer, [wait:5]we recommend the star fruit smoothie...")
-                    cutscene:text("* Its stellar shape is very reminiscent of yuletide.")
-                elseif Game:getPartyIndex("susie") == 2 then
-                    cutscene:text("* For the young monster, [wait:5]we recommend the blackberry tart...")
-                    cutscene:text("* This way, [wait:5]even if you eat it quickly, [wait:5]you won't notice the stains.")
-                end
-            else
-                if Game:getPartyIndex("ralsei") == 3 then
-                    cutscene:text("* For the young prince, [wait:5]we recommend the vanilla green tea.")
-                    cutscene:text("* ... [wait:5]There's not much to go off besides your color.")
-                elseif Game:getPartyIndex("berdly") == 3 then
-                    cutscene:text("* For the young bluebird, [wait:5]we recommend the chocolate strawberry birds.")
-                    cutscene:text("* ... [wait:5]There is a likeness.")
-                elseif Game:getPartyIndex("noelle") == 3 then
-                    cutscene:text("* For the young deer, [wait:5]we recommend the star fruit smoothie...")
-                    cutscene:text("* Its stellar shape is very reminiscent of yuletide.")
-                end
-                cutscene:after(function()
-                    event.interact_count = 0
-                end)
+            local responses = {
+                kris = {
+                    "* For the young human, [wait:5]we recommend a chocolate blueberry latte...",
+                    "* Boss, [wait:5]please try not to use all of the sugar."
+                },
+                susie = {
+                    "* For the young monster, [wait:5]we recommend the blackberry tart...",
+                    "* This way, [wait:5]even if you eat it quickly, [wait:5]you won't notice the stains."
+                },
+                ralsei = {
+                    "* For the young prince, [wait:5]we recommend the vanilla green tea.",
+                    "* ... [wait:5]There's not much to go off besides your color."
+                },
+                noelle = {
+                    "* For the young deer, [wait:5]we recommend the star fruit smoothie...",
+                    "* Its stellar shape is very reminiscent of yuletide."
+                },
+                berdly = {
+                    "* For the young bluebird, [wait:5]we recommend the chocolate strawberry birds.",
+                    "* ... [wait:5]There is a likeness."
+                },
+            }
+
+            local party = Utils.pick(Game.party)
+
+            for _,rec in pairs(responses[party.id]) do
+                cutscene:text(rec)
             end
         else
             --
