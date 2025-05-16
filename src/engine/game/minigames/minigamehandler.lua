@@ -6,6 +6,7 @@ function MinigameHandler:init()
     super.init(self, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 
     self.name = "Minigame"
+    self.description = "Description"
 end
 
 function MinigameHandler:postInit()

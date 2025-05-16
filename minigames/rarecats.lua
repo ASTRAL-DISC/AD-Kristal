@@ -5,6 +5,7 @@ function RareCatsMinigame:init()
     super.init(self)
 
     self.name = self.name
+    self.description = self.description
 end
 
 return RareCatsMinigame
