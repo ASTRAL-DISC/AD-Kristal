@@ -7,6 +7,7 @@ function MinigameMenu:init(width, height, minigame)
 
 	self.minigame = minigame
 	self.text = "Play " ..Registry.createMinigame(minigame).name.. "?"
+	self.gamedesc = Registry.createMinigame(minigame).description
 
 	self.layer = 100
 	self.alpha = 0
@@ -29,7 +30,8 @@ function MinigameMenu:init(width, height, minigame)
 	self.heart_target_y = 258
 	self.heart:setPosition(self.heart_target_x, self.heart_target_y)
 
-	self.font = Assets.getFont("plain")
+	self.font = Assets.getFont("main")
+	self.font2 = Assets.getFont("plain")
 
 	self.rectangle = Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 	self.rectangle:setColor(0, 0, 0, 0)
@@ -41,6 +43,13 @@ function MinigameMenu:init(width, height, minigame)
 			refuse = "No",
 		},
 	}
+
+	self.music = Game:getActiveMusic()
+	self.old_volume = self.music.volume
+	self.old_pitch = self.music.pitch
+
+	self.music.volume = 0.4
+	self.music.pitch = 0.95
 end
 
 function MinigameMenu:getDrawColor()
@@ -50,8 +59,16 @@ end
 
 function MinigameMenu:draw()
 	super.draw(self)
-	
+
 	Draw.setColor(0.5, 0.5, 0.5, self.alpha)
+	love.graphics.setFont(Assets.getFont("small"))
+	love.graphics.printf("INSTRUCTIONS:", -179, 40, 1000, "center", 0)
+	love.graphics.setFont(self.font2)
+	love.graphics.printf(self.gamedesc, -179, 60, 1000, "center", 0)
+
+	love.graphics.setFont(self.font)
+	
+	Draw.setColor(1, 1, 1, self.alpha)
 	love.graphics.printf(self.text, -179, 184, 1000, "center", 0)
 
 	Draw.setColor(1, 1, 1, self.alpha)
@@ -81,11 +98,15 @@ function MinigameMenu:onKeyPressed()
 			Game:startMinigame(self.minigame)
 			self:fadeTo(0, 0.2, function ()
 				Game.world:closeMenu()
+				self.music.volume = self.old_volume
+				self.music.pitch = self.old_pitch
 			end)
 		elseif self.selected_index == 2 then
 			Assets.playSound("digital", 1, 0.5)
 			self:fadeTo(0, 0.2, function ()
 				Game.world:closeMenu()
+				self.music.volume = self.old_volume
+				self.music.pitch = self.old_pitch
 			end)
 		end
 	end
