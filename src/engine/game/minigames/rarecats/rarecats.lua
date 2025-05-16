@@ -33,6 +33,7 @@ end
 
 function RareCats:postInit()
     self:pauseWorldMusic()
+    Assets.playSound("glitchy_meows", 0.5)
 end
 
 function RareCats:update()
@@ -102,7 +103,10 @@ function RareCats:draw()
         local score = string.format("%d", self.score)
         local cats_clicked = string.format("%d", self.cats_clicked)
 
-		--text
+        love.graphics.setColor(0.2, 0.2, 0.2, self.hud_alpha)
+        love.graphics.printf("SCORE: "..score, 162, self.hud_y + 8, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+        love.graphics.printf("CATS CLICKED: "..cats_clicked.."/25", 162, self.hud_y + 30, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
+
         love.graphics.setColor(0.5, 0.5, 0.5, self.hud_alpha)
         love.graphics.printf("SCORE: "..score, 160, self.hud_y + 6, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
         love.graphics.printf("CATS CLICKED: "..cats_clicked.."/25", 160, self.hud_y + 28, SCREEN_WIDTH, "center", 0, 0.5, 0.5)
@@ -137,10 +141,10 @@ end
 function RareCats:onKeyPressed(key)
     super.onKeyPressed(self, key)
     if self.state == "WIN" then
-        if Input.pressed("confirm") then --quit
+        if Input.pressed("cancel") then
             self:setState("TRANSITIONOUT1")
         end
-        if Input.pressed("cancel") then --restart
+        if Input.pressed("confirm") then
             self:setState("TRANSITIONOUT3")
         end
     end

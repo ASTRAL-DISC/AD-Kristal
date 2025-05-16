@@ -16,10 +16,6 @@ function MinigameMenu:init(width, height, minigame)
 
 	self.selected_index = 1
 
-	self.text_y = 30
-	self.choices_y = 30
-	self.timer = 0
-
 	self.heart = Sprite("player/heart_menu")
 	self.heart.visible = true
 	self.heart:setOrigin(0.5, 0.5)
@@ -56,69 +52,59 @@ function MinigameMenu:draw()
 	super.draw(self)
 	
 	Draw.setColor(0.5, 0.5, 0.5, self.alpha)
-	love.graphics.printf(string.format(self.text, 3), -179, self.text_y + (184), 1000, "center", 0)
+	love.graphics.printf(self.text, -179, 184, 1000, "center", 0)
 
 	Draw.setColor(1, 1, 1, self.alpha)
 	if self.selected_index == 1 then
 		love.graphics.setColor(self:getDrawColor())
 		self.heart.x = 282
-		self.heart.y = self.choices_y + (228) + (16)
+		self.heart.y = 228 + 16
 	end
-	love.graphics.printf(self.options[1].accept, -179, self.choices_y + (228), 1000, "center", 0)
+	love.graphics.printf(self.options[1].accept, -179, 228, 1000, "center", 0)
 	Draw.setColor(1, 1, 1, self.alpha)
 	if self.selected_index == 2 then
 		Draw.setColor(self:getDrawColor())
 		self.heart.x = 289
-		self.heart.y = self.choices_y + (268) + (16)
+		self.heart.y = 268 + 16
 	end
-	love.graphics.printf(self.options[1].refuse, -179, self.choices_y + (268), 1000, "center", 0)
+	love.graphics.printf(self.options[1].refuse, -179, 268, 1000, "center", 0)
 
 	self.heart.alpha = self.alpha
 	self.rectangle.alpha = self.alpha * 0.8
 end
 
-function MinigameMenu:close()
-	Game.world.menu = nil
-    self:remove()
-end
-
-function MinigameMenu:update()
-	super.update(self)
-
-	self.timer = self.timer + DTMULT
-	self.text_y = Utils.ease(10, 30, self.timer/40, "out-cubic")
-	self.choices_y = Utils.ease(10, 30, self.timer/40, "out-cubic")
+function MinigameMenu:onKeyPressed()
 	if Input.pressed("confirm", false) then
 		Input.clear("confirm")
 		if self.selected_index == 1 then
 			Assets.playSound("ui_select")
 			Game:startMinigame(self.minigame)
-			self:close()
+			self:fadeTo(0, 0.2, function ()
+				Game.world:closeMenu()
+			end)
 		elseif self.selected_index == 2 then
 			Assets.playSound("digital", 1, 0.5)
-			self:fadeTo(0, 0.8, function ()
-				self:close()
+			self:fadeTo(0, 0.2, function ()
+				Game.world:closeMenu()
 			end)
 		end
 	end
-	if Game.lock_movement == true then
-		if Input.pressed("up", false) then
-			Assets.playSound("ui_move")
-			if self.selected_index > 1 then
-				self.selected_index = self.selected_index - 1
-			end
+	if Input.pressed("up", false) then
+		Assets.playSound("ui_move")
+		if self.selected_index > 1 then
+			self.selected_index = self.selected_index - 1
 		end
-		if Input.pressed("down", false) then
-			Assets.playSound("ui_move")
-			if self.selected_index < 2 then
-				self.selected_index = self.selected_index + 1
-			end
+	end
+	if Input.pressed("down", false) then
+		Assets.playSound("ui_move")
+		if self.selected_index < 2 then
+			self.selected_index = self.selected_index + 1
 		end
 	end
 end
 
 function MinigameMenu:onAdd()
-	self:fadeTo(1, 0.5)
+	self:fadeTo(1, 0.2)
 	Assets.playSound("digital", 1, 0.9)
 end
 
