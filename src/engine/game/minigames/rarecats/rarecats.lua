@@ -5,7 +5,7 @@ function RareCats:init()
     super.init(self)
 
     self.name = "Rare Cats"
-    self.description = "Click on CATS to get POINTS!\n\n80% --- normal\n15% --- blue ora\n4% --- rock & roll\n0% --- ANGLE WING!!!!\n00000% --- SUPER HOLY ANGlE WING!!!!"
+    self.description = "Click on CATS to get POINTS!\nShare your SCORE with FRIENDs!\nGet them ALL... And?"
 
     self.state = "TRANSITION" -- TRANSITION, INTRO, MAIN, WIN, LOSE, TRANSITIONOUT1, TRANSITIONOUT2, TRANSITIONOUT3
 
