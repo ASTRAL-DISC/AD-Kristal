@@ -6,7 +6,8 @@ function MinigameMenu:init(width, height, minigame)
 	Input.clear("confirm")
 
 	self.minigame = minigame
-	self.text = "Play " ..Registry.createMinigame(minigame).name.. "?"
+	self.minigame_name = Registry.createMinigame(minigame).name
+	self.text = "Play MINIGAME?"
 	self.gamedesc = Registry.createMinigame(minigame).description
 
 	self.layer = 100
@@ -34,7 +35,7 @@ function MinigameMenu:init(width, height, minigame)
 	self.font2 = Assets.getFont("plain")
 
 	self.rectangle = Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
-	self.rectangle:setColor(0, 0, 0, 0)
+	self.rectangle:setColor(0.08, 0.08, 0.08, 0)
 	self:addChild(self.rectangle)
 
 	self.options = {
@@ -50,6 +51,29 @@ function MinigameMenu:init(width, height, minigame)
 
 	self.music.volume = 0.4
 	self.music.pitch = 0.95
+
+	self:drawBorders()
+end
+
+function MinigameMenu:drawBorders()
+	self.border = Sprite("effects/overlay/rhombus_border", 0, 320)
+	self.border:setScale(2)
+	self.border:setColor(0, 0, 0)
+	self.border.alpha = 0
+    self.border.wrap_texture_x = true
+	self.border.layer = 0.14
+    self.border.physics.speed_x = 2
+	self:addChild(self.border)
+
+	self.border_up = Sprite("effects/overlay/rhombus_border", 0, 80)
+	self.border_up:setScale(2)
+	self.border_up:setColor(0, 0, 0)
+	self.border_up.alpha = 0
+	self.border_up.flip_y = true
+    self.border_up.wrap_texture_x = true
+	self.border_up.layer = 0.14
+    self.border_up.physics.speed_x = -2
+	self:addChild(self.border_up)
 end
 
 function MinigameMenu:getDrawColor()
@@ -61,10 +85,8 @@ function MinigameMenu:draw()
 	super.draw(self)
 
 	Draw.setColor(0.5, 0.5, 0.5, self.alpha)
-	love.graphics.setFont(Assets.getFont("small"))
-	love.graphics.printf("INSTRUCTIONS:", -179, 40, 1000, "center", 0)
-	love.graphics.setFont(self.font2)
-	love.graphics.printf(self.gamedesc, -179, 60, 1000, "center", 0)
+	love.graphics.setFont(Assets.getFont("small", 48))
+	love.graphics.printf(self.minigame_name, -179, 68, 1000, "center", 0)
 
 	love.graphics.setFont(self.font)
 	
@@ -86,8 +108,16 @@ function MinigameMenu:draw()
 	end
 	love.graphics.printf(self.options[1].refuse, -179, 268, 1000, "center", 0)
 
+	Draw.setColor(0.5, 0.5, 0.5, self.alpha)
+	love.graphics.setFont(Assets.getFont("small"))
+	love.graphics.printf("INSTRUCTIONS:", -179, 370, 1000, "center", 0)
+	love.graphics.setFont(self.font2)
+	love.graphics.printf(self.gamedesc, -179, 390, 1000, "center", 0)
+
 	self.heart.alpha = self.alpha
 	self.rectangle.alpha = self.alpha * 0.8
+	self.border.alpha = self.alpha * 0.6
+	self.border_up.alpha = self.alpha * 0.6
 end
 
 function MinigameMenu:onKeyPressed()
@@ -98,6 +128,8 @@ function MinigameMenu:onKeyPressed()
 			Game:startMinigame(self.minigame)
 			self:fadeTo(0, 0.2, function ()
 				Game.world:closeMenu()
+				Game.world.menu = nil
+				self:remove()
 				self.music.volume = self.old_volume
 				self.music.pitch = self.old_pitch
 			end)
@@ -105,6 +137,8 @@ function MinigameMenu:onKeyPressed()
 			Assets.playSound("digital", 1, 0.5)
 			self:fadeTo(0, 0.2, function ()
 				Game.world:closeMenu()
+				Game.world.menu = nil
+				self:remove()
 				self.music.volume = self.old_volume
 				self.music.pitch = self.old_pitch
 			end)
