@@ -2,7 +2,7 @@
 ---@overload fun(...) : QUEST_BORDER
 local QUEST_BORDER, super = Class(Border)
 
-function Quest:draw()
+function QUEST_BORDER:draw()
     love.graphics.setColor(0, 0, 0, BORDER_ALPHA)
     love.graphics.rectangle("fill", -8, -8, SCREEN_WIDTH + 16, SCREEN_HEIGHT + 16)
 
