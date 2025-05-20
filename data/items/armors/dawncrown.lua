@@ -34,7 +34,7 @@ function item:init()
 
     self.reactions = {
         angel = "Bask in our shining power!",
-		noelle = "I can't bear to look...!",
+		noelle = "Can't see a thing...!",
 	}
 end
 
