@@ -11,7 +11,7 @@ function DojoBG:init(color, fill)
     self.speed = 0.5
     self.size = 50
     self.layer = BATTLE_LAYERS["bottom"]
-    Game.battle.discoball = Discoball()
+    Game.battle.discoball = DiscoBall()
     Game.battle:addChild(Game.battle.discoball)
 end
 

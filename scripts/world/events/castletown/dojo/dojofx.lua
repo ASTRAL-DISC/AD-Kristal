@@ -10,7 +10,7 @@ function DojoFX:init(data)
     self.siner = 0
     self.bsiner = 0
 
-    self.discoball = Discoball()
+    self.discoball = DiscoBall()
     self.discoball.layer = self.layer + 1
     self.discoball.y = 0
     self:addChild(self.discoball)
