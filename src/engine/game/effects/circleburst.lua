@@ -1,3 +1,5 @@
+---@class CircleBurst : Object
+---@overload fun(...) : CircleBurst
 local CircleBurst, super = Class(Object)
 
 function CircleBurst:init(x, y, color, radius, line_width)

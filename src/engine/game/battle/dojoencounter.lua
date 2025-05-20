@@ -1,4 +1,6 @@
 -- original code by Skarph
+---@class DojoEncounter : Encounter
+---@overload fun(...) : DojoEncounter
 local DojoEncounter, super = Class(Encounter, "DojoEncounter")
 
 --makes a spotlight for a particular battler, using it's actor.spotlight data.

@@ -1,4 +1,6 @@
 -- original library by KateBulka
+---@class LightTransition : Object
+---@overload fun(...) : LightTransition
 local LightTransition, super = Class(Object)
 
 function LightTransition:init(x, y, data)

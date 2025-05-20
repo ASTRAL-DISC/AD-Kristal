@@ -1,4 +1,6 @@
 -- original library by Skarph
+---@class Spotlight : Object
+---@overload fun(...) : Spotlight
 local Spotlight, super = Class(Object, "Spotlight")
 
 local TRIANGLE_MESH = love.graphics.newMesh(
@@ -49,10 +51,8 @@ options = {
     shader_data = {<...>} --table that gets indexed into when shader_fields lookup fails on `self`. the data in the table is copied, not the refrence
 }
 ]]
-function Spotlight:init(x,y, options)
-
-
-    if(options) then
+function Spotlight:init(x, y, options)
+    if (options) then
         super.init(self, x + (options.offset_x or 0), y + (options.offset_y or 0))
     else
         super.init(self, x,y)

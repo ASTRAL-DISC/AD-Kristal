@@ -1,3 +1,5 @@
+---@class RectTextbox : Object
+---@overload fun(...) : RectTextbox
 local RectTextbox, super = Class(Object)
 
 function RectTextbox:init(x, y, width, height, default_font, default_font_size)

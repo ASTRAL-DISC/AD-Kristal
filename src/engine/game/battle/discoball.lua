@@ -1,5 +1,6 @@
 -- code by Agent 7
 ---@class DiscoBall : Object
+---@overload fun(...) : DiscoBall
 local DiscoBall, super = Class(Object)
 
 function DiscoBall:init()

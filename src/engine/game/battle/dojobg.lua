@@ -1,4 +1,6 @@
 -- code by J.A.R.U. and Agent 7
+---@class DojoBG : Object
+---@overload fun(...) : DojoBG
 local DojoBG, super = Class(Object)
 
 function DojoBG:init(color, fill)

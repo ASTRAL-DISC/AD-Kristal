@@ -546,6 +546,7 @@ end
 ---|"marker, chara" # The marker name to spawn the player at and the Actor (instance or id) to use for the player
 ---@param party? string The party member ID associated with the player
 function World:spawnPlayer(...)
+    local previous_player = self.player
     local args = {...}
 
     local x, y = 0, 0
@@ -596,6 +597,14 @@ function World:spawnPlayer(...)
     end
     if self.camera.attached_y then
         self.camera:setPosition(self.camera.x, self.player.y - (self.player.height * 2)/2)
+    end
+
+    if (previous_player) then
+        for i, obj in ipairs(previous_player.children) do
+            if (obj.persistent) then
+                obj:setParent(self.player)
+            end
+        end
     end
 end
 

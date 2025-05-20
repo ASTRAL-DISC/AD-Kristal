@@ -1,7 +1,9 @@
 -- taken from Test Mod
-local GonerBackground, super = Class(Object)
+---@class GonerBG : Object
+---@overload fun(...) : GonerBG
+local GonerBG, super = Class(Object)
 
-function GonerBackground:init()
+function GonerBG:init()
     super.init(self, 0, 0, 320, 240)
     self:setScale(2)
     self:setOrigin(0, 0)
@@ -18,7 +20,7 @@ function GonerBackground:init()
     self.timer = Timer()
     self.timer:every(40/30, function()
         self.ob_depth = self.ob_depth - 0.001
-        local piece = self:addChild(GonerBackgroundPiece(self.sprite))
+        local piece = self:addChild(GonerBGPiece(self.sprite))
         piece.stretch_speed = 0.01 * self.OBM
         piece.layer = self.ob_depth
     end)
@@ -30,7 +32,7 @@ function GonerBackground:init()
     self.music_pitch = 0.02
 end
 
-function GonerBackground:update()
+function GonerBG:update()
     if (self.music_pitch < 0.96) then
         self.music_pitch = self.music_pitch + 0.02 * DTMULT
     end
@@ -39,4 +41,4 @@ function GonerBackground:update()
     super.update(self)
 end
 
-return GonerBackground
+return GonerBG

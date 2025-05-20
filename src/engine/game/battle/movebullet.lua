@@ -1,4 +1,5 @@
--- og code by Vitellary
+---@class MoveBullet : Bullet
+---@overload fun(...) : MoveBullet
 local MoveBullet, super = Class(Bullet)
 
 function MoveBullet:init(x, y, type, texture)

@@ -1,17 +1,6 @@
+---@class Junkball : Sprite
+---@overload fun(...) : Junkball
 local Junkball, super = Class(Sprite)
-
---hook by Skarph to make sure the object persists between rooms
-Utils.hook(World, "spawnPlayer", function(orig, self, ...)
-    local previous_player = self.player
-    orig(self, ...)
-    if (previous_player) then
-        for i, obj in ipairs(previous_player.children) do
-            if(obj.persistent) then
-                obj:setParent(self.player)
-            end
-        end
-    end
-end)
 
 function Junkball:init()
     super.init(self)

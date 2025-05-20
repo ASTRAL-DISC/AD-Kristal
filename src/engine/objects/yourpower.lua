@@ -1,5 +1,6 @@
 -- taken from Dark Place
 ---@class YourPower : Object
+---@overload fun(...) : YourPower
 local YourPower, super = Class(Object)
 
 function YourPower:init(x, y)
@@ -19,8 +20,8 @@ end
 function YourPower:draw()
     local r,g,b,a = self:getDrawColor()
     local function drawSprite(x_scale, y_scale, alpha)
-        love.graphics.setColor(r, g, b, a * alpha)
-        love.graphics.draw(self.texture,
+        Draw.setColor(r, g, b, a * alpha)
+        Draw.draw(self.texture,
         self.width / 2, self.height / 2, nil,
         self.scale_x * x_scale, self.scale_y * y_scale,
         self.width * self.origin_x, self.width * self.origin_y)

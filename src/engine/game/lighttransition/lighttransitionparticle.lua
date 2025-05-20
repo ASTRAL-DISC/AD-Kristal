@@ -1,4 +1,6 @@
 -- original library by KateBulka
+---@class LightTransitionParticle : Sprite
+---@overload fun(...) : LightTransitionParticle
 local LightTransitionParticle, super = Class(Sprite)
 
 function LightTransitionParticle:init(x, y)

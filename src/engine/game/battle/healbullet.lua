@@ -1,4 +1,5 @@
--- original library by KateBulka
+---@class HealBullet : Bullet
+---@overload fun(...) : HealBullet
 local HealBullet, super = Class(Bullet)
 
 function HealBullet:init(x, y, texture)

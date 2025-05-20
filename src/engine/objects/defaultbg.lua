@@ -1,6 +1,8 @@
-local BG, super = Class(Object)
+---@class DefaultBG : Object
+---@overload fun(...) : DefaultBG
+local DefaultBG, super = Class(Object)
 
-function BG:init(color, back_color, fill)
+function DefaultBG:init(color, back_color, fill)
     super.init(self)
     self.color = color
     self.back_color = back_color or color
@@ -12,7 +14,7 @@ function BG:init(color, back_color, fill)
 	self.alpha_fx = self:addFX(AlphaFX())
 end
 
-function BG:update(dt)
+function DefaultBG:update(dt)
     super.update(self, dt)
     self.fade = Game.battle.transition_timer / 10
 	self.offset = self.offset + self.speed*DTMULT
@@ -24,7 +26,7 @@ function BG:update(dt)
 	self.alpha_fx.alpha = Game.battle.transition_timer / 10
 end
 
-function BG:draw()
+function DefaultBG:draw()
     super.draw(self)
 
     self:drawFill()
@@ -35,13 +37,13 @@ function BG:draw()
     Draw.rectangle("fill", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 end
 
-function BG:drawFill()
+function DefaultBG:drawFill()
     local r,g,b,a = unpack(self.fill)
     love.graphics.setColor(r,g,b, a or self.fade)
     love.graphics.rectangle("fill", -8, -8, SCREEN_WIDTH+16, SCREEN_HEIGHT+16)
 end
 
-function BG:drawBack()
+function DefaultBG:drawBack()
     local r,g,b,a = unpack(self.back_color)
     love.graphics.setColor(r,g,b, a or self.fade/2)
 	for x = -100, 740, 50 do
@@ -52,7 +54,7 @@ function BG:drawBack()
 	end
 end
 
-function BG:drawFront()
+function DefaultBG:drawFront()
     local r,g,b,a = unpack(self.color)
     love.graphics.setColor(r,g,b, a or self.fade)
 	for x = 0, 740, 50 do
@@ -63,4 +65,4 @@ function BG:drawFront()
 	end
 end
 
-return BG
+return DefaultBG

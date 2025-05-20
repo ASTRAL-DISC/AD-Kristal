@@ -1,3 +1,5 @@
+---@class ChurchOverlay : Object
+---@overload fun(...) : ChurchOverlay
 local ChurchOverlay, super = Class(Object)
 
 function ChurchOverlay:init(lobby)

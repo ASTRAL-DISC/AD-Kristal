@@ -1,3 +1,5 @@
+---@class ColorShadowFX : FXBase
+---@overload fun(...) : ColorShadowFX
 local ColorShadowFX, super = Class(FXBase)
 
 function ColorShadowFX:init(alpha, color, highlight, scale, priority, no_shadow)

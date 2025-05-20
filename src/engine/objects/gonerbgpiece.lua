@@ -1,7 +1,9 @@
 -- Taken from Test Mod
-local GonerBackgroundPiece, super = Class(Object)
+---@class GonerBGPiece : Object
+---@overload fun(...) : GonerBGPiece
+local GonerBGPiece, super = Class(Object)
 
-function GonerBackgroundPiece:init(sprite)
+function GonerBGPiece:init(sprite)
     super.init(self, 0, 0, 320, 240)
 
     self.sprite = sprite
@@ -16,7 +18,7 @@ function GonerBackgroundPiece:init(sprite)
     self.b_insurance = -0.2
 end
 
-function GonerBackgroundPiece:update()
+function GonerBGPiece:update()
     self.timer = self.timer + DTMULT
     if (self.stretch_speed > 0) then
         self.alpha = (math.sin((self.timer / 34)) * 0.2)
@@ -36,7 +38,7 @@ function GonerBackgroundPiece:update()
     super.update(self)
 end
 
-function GonerBackgroundPiece:draw()
+function GonerBGPiece:draw()
     if (self.timer > 2) then
         love.graphics.setColor(1, 1, 1, ((0.2 + self.alpha) - self.o_insurance) + self.b_insurance)
         love.graphics.draw(self.sprite, 160, 120, 0, ( 1 + self.xstretch), ( 1 + self.ystretch))
@@ -46,4 +48,4 @@ function GonerBackgroundPiece:draw()
     end
 end
 
-return GonerBackgroundPiece
+return GonerBGPiece
