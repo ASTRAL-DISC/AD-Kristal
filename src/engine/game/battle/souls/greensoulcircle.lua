@@ -1,3 +1,5 @@
+---@class GreenSoulCircle : Object
+---@overload fun(...) : GreenSoulCircle
 local GreenSoulCircle, super = Class(Object)
 
 function GreenSoulCircle:init(x, y, color)

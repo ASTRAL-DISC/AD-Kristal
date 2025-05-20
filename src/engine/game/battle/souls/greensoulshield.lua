@@ -1,3 +1,5 @@
+---@class GreenSoulShield : Object
+---@overload fun(...) : GreenSoulShield
 local GreenSoulShield, super = Class(Object)
 
 function GreenSoulShield:init(x, y, sound)

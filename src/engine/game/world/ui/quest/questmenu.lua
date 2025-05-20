@@ -1,3 +1,5 @@
+---@class QuestMenu : Object
+---@overload fun(...) : QuestMenu
 local QuestMenu, super = Class(Object)
 
 function QuestMenu:init()

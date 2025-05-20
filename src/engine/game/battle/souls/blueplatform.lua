@@ -1,4 +1,6 @@
 -- by Agent 7
+---@class BluePlatform : Object
+---@overload fun(...) : BluePlatform
 local BluePlatform, super = Class(Object)
 
 function BluePlatform:init(x, y, width, slippery)

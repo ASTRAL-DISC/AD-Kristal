@@ -1,6 +1,8 @@
-local Battle, super = Class(Border)
+---@class BATTLE_BORDER : Border
+---@overload fun(...) : BATTLE_BORDER
+local BATTLE_BORDER, super = Class(Border)
 
-function Battle:draw()
+function BATTLE_BORDER:draw()
     love.graphics.setColor(0, 0, 0, BORDER_ALPHA)
     love.graphics.rectangle("fill", -8, -8, SCREEN_WIDTH+16, SCREEN_HEIGHT+16)
 
@@ -35,4 +37,4 @@ function Battle:draw()
     love.graphics.rectangle("line", left, top, 640 + (width * 2) - 5, 480 + (width * 2) - 5)
 end
 
-return Battle
+return BATTLE_BORDER

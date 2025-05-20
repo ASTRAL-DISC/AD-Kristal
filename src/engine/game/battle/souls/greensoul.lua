@@ -1,3 +1,5 @@
+---@class GreenSoul : Soul
+---@overload fun(...) : GreenSoul
 local GreenSoul, super = Class(Soul)
 
 function GreenSoul:init(x, y)

@@ -1,3 +1,5 @@
+---@class AppleCounter : Object
+---@overload fun(...) : AppleCounter
 local AppleCounter, super = Class(Object)
 
 function AppleCounter:init()

@@ -1,3 +1,5 @@
+---@class MinigameMenu : Object
+---@overload fun(...) : MinigameMenu
 local MinigameMenu, super = Class(Object)
 
 function MinigameMenu:init(width, height, minigame)

@@ -1,3 +1,5 @@
+---@class CyanSoul : Soul
+---@overload fun(...) : CyanSoul
 local CyanSoul, super = Class(Soul)
 
 function CyanSoul:init(x, y, mode)

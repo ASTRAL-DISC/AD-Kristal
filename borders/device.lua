@@ -1,6 +1,8 @@
-local Device, super = Class(Border)
+---@class DEVICE_BORDER : Border
+---@overload fun(...) : DEVICE_BORDER
+local DEVICE_BORDER, super = Class(Border)
 
-function Device:draw()
+function DEVICE_BORDER:draw()
     love.graphics.setColor(0, 0, 0, BORDER_ALPHA)
     love.graphics.rectangle("fill", -8, -8, SCREEN_WIDTH + 16, SCREEN_HEIGHT + 16)
 
@@ -23,4 +25,4 @@ function Device:draw()
     end
 end
 
-return Device
+return DEVICE_BORDER

@@ -1,4 +1,6 @@
-local Quest, super = Class(Border)
+---@class QUEST_BORDER : Border
+---@overload fun(...) : QUEST_BORDER
+local QUEST_BORDER, super = Class(Border)
 
 function Quest:draw()
     love.graphics.setColor(0, 0, 0, BORDER_ALPHA)
@@ -16,4 +18,4 @@ function Quest:draw()
     love.graphics.rectangle("line", left, top, 640 + (width * 2) - 5, 480 + (width * 2) - 5)
 end
 
-return Quest
+return QUEST_BORDER

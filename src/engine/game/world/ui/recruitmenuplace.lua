@@ -1,3 +1,5 @@
+---@class RecruitMenuPlace : RecruitMenu
+---@overload fun(...) : RecruitMenuPlace
 local RecruitMenuPlace, super = Class(RecruitMenu)
 
 function RecruitMenuPlace:init()

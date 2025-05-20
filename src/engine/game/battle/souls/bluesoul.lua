@@ -1,4 +1,6 @@
 -- by Nyako, from Testmod
+---@class BlueSoul : Soul
+---@overload fun(...) : BlueSoul
 local BlueSoul, super = Class(Soul)
 
 function BlueSoul:init(x, y)

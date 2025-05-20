@@ -1,3 +1,5 @@
+---@class QuestBorder : Object
+---@overload fun(...) : QuestBorder
 local QuestBorder, super = Class(Object)
 
 function QuestBorder:init()

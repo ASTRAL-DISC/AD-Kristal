@@ -1,3 +1,5 @@
+---@class PurpleSoul : Soul
+---@overload fun(...) : PurpleSoul
 local PurpleSoul, super = Class(Soul)
 
 function PurpleSoul:init(x, y)

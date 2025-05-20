@@ -1,3 +1,5 @@
+---@class CyanWave : Wave
+---@overload fun(...) : CyanWave
 local CyanWave, super = Class(Wave)
 
 function CyanWave:init()

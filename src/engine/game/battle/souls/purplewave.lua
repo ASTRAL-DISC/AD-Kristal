@@ -1,3 +1,5 @@
+---@class PurpleWave : Wave
+---@overload fun(...) : PurpleWave
 local PurpleWave, super = Class(Wave)
 
 function PurpleWave:init()

@@ -1,6 +1,8 @@
-local StarMenu, super = Class(Object)
+---@class QuestSaveMenu : Object
+---@overload fun(...) : QuestSaveMenu
+local QuestSaveMenu, super = Class(Object)
 
-function StarMenu:init(save_id, marker)
+function QuestSaveMenu:init(save_id, marker)
     super.init(self, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 
     self.parallax_x = 0
@@ -35,7 +37,7 @@ function StarMenu:init(save_id, marker)
     self.saved_file = Kristal.getSaveFile(save_id)
 end
 
-function StarMenu:update()
+function QuestSaveMenu:update()
     if self.state == "MAIN" then
         if Input.pressed("cancel") then
             Assets.playSound("quest/error")
@@ -70,7 +72,7 @@ function StarMenu:update()
     super.update(self)
 end
 
-function StarMenu:draw()
+function QuestSaveMenu:draw()
     love.graphics.setFont(self.font)
 
     if self.state == "SAVED" then
@@ -131,4 +133,4 @@ function StarMenu:draw()
     super.draw(self)
 end
 
-return StarMenu
+return QuestSaveMenu

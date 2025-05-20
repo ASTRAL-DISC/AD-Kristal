@@ -1,3 +1,5 @@
+---@class QuestTransition : Object
+---@overload fun(...) : QuestTransition
 local QuestTransition, super = Class(Object)
 
 function QuestTransition:init()

@@ -1,3 +1,5 @@
+---@class GreenSoulBullet : Bullet
+---@overload fun(...) : GreenSoulBullet
 local GreenSoulBullet, super = Class(Bullet)
 
 function GreenSoulBullet:init(x, y, texture)
