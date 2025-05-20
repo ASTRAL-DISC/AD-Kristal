@@ -36,6 +36,12 @@ function DojoEncounter.makeSpotlight(battler, isBattlerChild)
     return spotlight
 end
 
+function DojoEncounter:onBattleInit()
+    super.onBattleInit(self)
+	Game.battle.dojo_bg = DojoBG({1, 1, 1})
+    Game.battle:addChild(Game.battle.dojo_bg)
+end
+
 --deltarune dojo spawns lights AFTER the fun gang do their little dance
 function DojoEncounter:onStateChange(old, new)
     super.onStateChange(self, old, new)
@@ -51,6 +57,9 @@ function DojoEncounter:onStateChange(old, new)
             DojoEncounter.makeSpotlight(battler)
         end
         self.spotlights_ready = true
+    elseif new == "VICTORY" then
+        Game.battle:setState("TRANSITIONOUT")
+        self:onBattleEnd()
     end
 end
 
@@ -79,6 +88,14 @@ function DojoEncounter:getPartyPosition(index)
     x = x + (battler.actor:getWidth()/2 + ox) * 2 
     y = y + (battler.actor:getHeight()  + oy) * 2
     return x, y
+end
+
+function DojoEncounter:getVictoryText()
+    return ""
+end
+
+function DojoEncounter:getVictoryMoney()
+    return 0
 end
 
 return DojoEncounter
