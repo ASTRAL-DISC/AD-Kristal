@@ -103,4 +103,18 @@ return {
             cutscene:wait(4)
         end
     end,
+    actorsprite_test = function (cutscene, event)
+        cutscene:panTo(0, 0, 0)
+        Game.world.music:stop()
+        local fade_rect = Rectangle(0, 0, Game.world.width, Game.world.height)
+        fade_rect:setColor(0.5, 0.5, 0.5)
+        fade_rect.alpha = 1
+        Game.world:spawnObject(fade_rect, "below_ui")
+        cutscene:wait(0.5)
+
+        local friend = Game.world:spawnNPC("friend", SCREEN_WIDTH/2, SCREEN_HEIGHT/2 + 20)
+        friend:setLayer(WORLD_LAYERS["above_ui"])
+        friend:setAnimation("idle")
+        --friend:addFX(ShaderFX(Assets.getShader("glitchy")))
+    end
 }
