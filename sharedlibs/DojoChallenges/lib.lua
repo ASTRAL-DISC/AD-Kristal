@@ -19,4 +19,12 @@ function lib:createChallenge(id, ...)
     end
 end
 
+function lib:getChallenge(challenge)
+    if type(challenge) ~= "string" then
+        error(string.format("Expected param 1 to be a string, got a %s", type(challenge)))
+    end
+
+    return self.challenges[challenge]
+end
+
 return lib

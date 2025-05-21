@@ -7,7 +7,7 @@ function Challenge:init()
     self.prize = 250
     self.prize_id = 250
     self.description = "Winning's as easy as A-B-C!\nYou've got three chances, boss!"
-    self.encounter = "dojo/tasquemanager"
+    self.encounter = nil
     self.claimed = true
 end
 

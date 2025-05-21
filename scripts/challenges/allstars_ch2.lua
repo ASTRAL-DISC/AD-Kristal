@@ -7,7 +7,7 @@ function Challenge:init()
     self.prize = "TensionGem"
     self.prize_id = "tensiongem"
     self.description = "Face everyone in a row!\nIt'll take some stamina..."
-    self.encounter = "dojo/tasque"
+    self.encounter = nil
     self.claimed = true
 end
 

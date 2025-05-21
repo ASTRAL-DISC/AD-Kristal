@@ -7,7 +7,7 @@ function Challenge:init()
     self.prize = 100
     self.prize_id = 100
     self.description = "Get 100% TP without getting hit!\nYou can do it, boss!"
-    self.encounter = "dojo/tasque"
+    self.encounter = nil
     self.claimed = true
 end
 

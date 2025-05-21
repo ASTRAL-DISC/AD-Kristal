@@ -45,7 +45,7 @@ function ChallengeMenu:update()
     if Input.pressed("confirm") then
         if self.state == "CHALLENGE" then
 			local challenge = self.challenges[self.selected]
-			if challenge.id == "empty" then
+			if not challenge.encounter then
 				Assets.stopAndPlaySound("ui_cant_select")
 			else
 				self.state = "CONFIRM"

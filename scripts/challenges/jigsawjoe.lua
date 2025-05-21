@@ -7,7 +7,7 @@ function Challenge:init()
     self.prize = "Joe's Life Savings"
     self.prize_id = 1
     self.description = "Learn how to spare like a champ."
-    self.encounter = "dojo/tasque"
+    self.encounter = nil
     self.claimed = true
 end
 
