@@ -103,7 +103,7 @@ return {
             cutscene:wait(4)
         end
     end,
-    actorsprite_test = function (cutscene, event)
+    actorsprite = function (cutscene, event)
         cutscene:panTo(0, 0, 0)
         Game.world.music:stop()
         local fade_rect = Rectangle(0, 0, Game.world.width, Game.world.height)
