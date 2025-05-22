@@ -89,7 +89,7 @@ end
 function FRIEND:update()
     super.update(self)
 
-    --[[if (not self.anim) or (self.anim == "idle") then
+    if (not self.anim) or (self.anim == "idle") then
         self.siner = self.siner + 1 * DTMULT
 
         self.face:setPosition(self.face.x, self.face.y + math.cos(self.siner / 3.99999))
@@ -104,7 +104,7 @@ function FRIEND:update()
 
         self.leg_l:setPosition(self.leg_l.x, self.leg_l.y + math.cos(self.siner / 2.8))
         self.leg_r:setPosition(self.leg_r.x, self.leg_r.y + math.cos(self.siner / 2.7))
-    end]]
+    end
 end
 
 function FRIEND:setAnimation(anim, ...)

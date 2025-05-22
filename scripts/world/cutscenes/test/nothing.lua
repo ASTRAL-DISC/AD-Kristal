@@ -107,14 +107,48 @@ return {
         cutscene:panTo(0, 0, 0)
         Game.world.music:stop()
         local fade_rect = Rectangle(0, 0, Game.world.width, Game.world.height)
-        fade_rect:setColor(0.5, 0.5, 0.5)
+        fade_rect:setColor(0.3, 0.3, 0.3)
         fade_rect.alpha = 1
         Game.world:spawnObject(fade_rect, "below_ui")
         cutscene:wait(0.5)
 
-        local friend = Game.world:spawnNPC("friend", SCREEN_WIDTH/2, SCREEN_HEIGHT/2 + 20)
-        friend:setLayer(WORLD_LAYERS["above_ui"])
+        local noelle = Game.world:spawnNPC("noelle", SCREEN_WIDTH/2, SCREEN_HEIGHT/2 + 30)
+        noelle:setLayer(WORLD_LAYERS["above_ui"])
+        noelle:setAnimation({"exasperated", 0.3, true})
+
+        local friend = Game.world:spawnNPC("friend", SCREEN_WIDTH/2 + 50, SCREEN_HEIGHT/2 + 60)
+        friend:setLayer(noelle.layer + 1)
         friend:setAnimation("idle")
-        --friend:addFX(ShaderFX(Assets.getShader("glitchy")))
+
+        local siner = 0
+        cutscene:during(function ()
+            siner = siner + 1 * DTMULT
+            local sin = math.sin(2 + (siner / 48))
+            local cos = math.cos(2 + (siner / 48))
+            friend:setPosition(friend.x + sin * 2, friend.y + cos * 2)
+            friend:setScale(2 * sin)
+            if friend.scale_x < 0 then
+                friend:setLayer(noelle.layer - 1)
+            else
+                friend:setLayer(noelle.layer + 1)
+            end
+        end)
+
+        Game.world.timer:script(function(wait)
+            while true do
+                for _, part in ipairs(friend.sprite.parts) do
+                    if part.id ~= "face" then
+                        Game.world.timer:tween(0.8, part, {alpha = 0}, "linear")
+                        Game.world.timer:tween(0.8, part, {alpha = 1}, "linear")
+                        wait(0.8)
+                        Game.world.timer:tween(0.8, part, {alpha = 1}, "linear")
+                        Game.world.timer:tween(0.8, part, {alpha = 0}, "linear")
+                        wait(0.8)
+                    end
+                end
+            end
+        end)
+
+        cutscene:wait(function() return Input.pressed("confirm") end); Input.clear("confirm")
     end
 }
