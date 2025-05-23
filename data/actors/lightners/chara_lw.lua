@@ -6,9 +6,9 @@ function actor:init()
     self.name = "Chara"
 
     self.width = 24
-    self.height = 48
+    self.height = 47
 
-    self.hitbox = {6, 29, 19, 14}
+    self.hitbox = {6, 28, 19, 15}
 
     self.color = {1, 0, 0}
 
