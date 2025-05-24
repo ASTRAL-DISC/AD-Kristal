@@ -10,7 +10,7 @@ function actor:init()
 
     self.hitbox = {0, 25, 19, 14}
 
-    self.path = "ch3/npcs/halojack"
+    self.path = "npcs/ch3/halojack"
     self.default = "idle"
     
     self.voice = "halojack"

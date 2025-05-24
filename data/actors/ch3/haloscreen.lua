@@ -8,7 +8,7 @@ function actor:init()
     self.width = 78
     self.height = 49
 
-    self.path = "ch3/npcs/halojack/screen"
+    self.path = "npcs/ch3/halojack/screen"
     self.default = "idle"
 
     self.voice = "halojack"
