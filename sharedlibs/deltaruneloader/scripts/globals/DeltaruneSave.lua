@@ -43,6 +43,8 @@ function DeltaruneSave:init(chapter, slot, completed)
     self.lw_armor = nil
 
     self.vessel_name = ""
+    self.vessel_honest = false
+    self.vessel_seizure = false
     self.vessel_ids = {
         ["food"]        = 0,
         ["blood_type"]  = 100,
@@ -64,6 +66,17 @@ function DeltaruneSave:init(chapter, slot, completed)
     self.failed_snowgrave = false
 
     self.eggs = {[1] = false, [2] = false}
+
+    self.onionsan = false
+
+    self.onion_name_id = 0
+    self.onion_name = DeltaruneConsts.ONION_NAMES[0]
+
+    self.onion_krisname_id = 0
+    self.onion_krisname = DeltaruneConsts.ONION_KRISNAMES[0]
+
+    self.onionsan_ch2 = false
+    self.onion_missed = false
 
     if self.chapter == 1 then
         self.flag_start = 317
@@ -122,6 +135,14 @@ end
 
 function DeltaruneSave:getTeamName()
     return DeltaruneConsts.TEAM_NAMES[self.team_name_id] or "Guys"
+end
+
+function DeltaruneSave:getOnionName()
+    return DeltaruneConsts.ONION_NAMES[self.onion_name_id] or "Onion"
+end
+
+function DeltaruneSave:getOnionKrisName()
+    return DeltaruneConsts.ONION_KRISNAMES[self.onion_krisname_id] or "Kris"
 end
 
 function DeltaruneSave:getTitleName(character)
@@ -273,6 +294,8 @@ function DeltaruneSave:parseData(data)
     -- Extra variables
 
     self.vessel_name = data[2]
+    self.vessel_honest = self:getFlag(907, "boolean")
+    self.vessel_seizure = self:getFlag(908, "boolean")
 
     local food = self:getFlag(903, "number")
     if food == 1 then
@@ -325,16 +348,16 @@ function DeltaruneSave:parseData(data)
     end
 
     local gift = self:getFlag(909, "number")
-    if gift == 1 then
-        self.vessel_ids["gift"] = 401 -- MIND
-    elseif gift == 2 then
-        self.vessel_ids["gift"] = 402 -- AMBITION
-    elseif gift == 3 then
-        self.vessel_ids["gift"] = 403 -- BRAVERY
-    elseif gift == 4 then
-        self.vessel_ids["gift"] = 404 -- VOICE
+    if gift == -3 then
+        self.vessel_ids["gift"] = 397 -- VOICE
+    elseif gift == -2 then
+        self.vessel_ids["gift"] = 398 -- BRAVERY
+    elseif gift == -1 then
+        self.vessel_ids["gift"] = 399 -- AMBITION
+    elseif gift == 1 then
+        self.vessel_ids["gift"] = 401 -- KINDNESS
     else
-        self.vessel_ids["gift"] = 400 -- KINDNESS
+        self.vessel_ids["gift"] = 400 -- MIND
     end
 
     self.team_name_id = self:getFlag(214, "number")
@@ -356,6 +379,19 @@ function DeltaruneSave:parseData(data)
 
     self.snowgrave = self:getFlag(915, "number") >= 6
     self.failed_snowgrave = self:getFlag(916, "boolean")
+
+    if self:getFlag(258, "number") == 2 then
+        self.onionsan = true
+    end
+
+    self.onion_krisname_id = self:getFlag(259, "number")
+    self.onion_krisname = DeltaruneConsts.ONION_KRISNAMES[self.onion_krisname_id] or self.onion_krisname
+
+    self.onion_name_id = self:getFlag(260, "number")
+    self.onion_name = DeltaruneConsts.ONION_NAMES[self.onion_name_id] or self.onion_name
+
+    self.onionsan_ch2 = self:getFlag(424, "boolean")
+    self.onion_missed = self:getFlag(425, "boolean")
 end
 
 function DeltaruneSave:load()

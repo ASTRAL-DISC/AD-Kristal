@@ -170,6 +170,18 @@ DeltaruneConsts.TEAM_NAMES = {
     [3] = "Fun Gang"
 }
 
+DeltaruneConsts.ONION_KRISNAMES = {
+    [0] = "Kris",
+    [1] = "Hippopotamus"
+}
+
+DeltaruneConsts.ONION_NAMES = {
+    [0] = "Onion",
+    [1] = "Beauty",
+    [2] = "Asriel II",
+    [3] = "Disgusting"
+}
+
 DeltaruneConsts.TITLE_NAMES = {
     -- Kris
     [  0] = "Human",
@@ -253,11 +265,11 @@ DeltaruneConsts.VESSEL_CHOICES = {
     [302] = "DISGUST",
     [303] = "FEAR",
     -- GIFT
-    [400] = "KINDNESS",
-    [401] = "MIND",
-    [402] = "AMBITION",
-    [403] = "BRAVERY",
-    [404] = "VOICE"
+    [397] = "VOICE",
+    [398] = "BRAVERY",
+    [399] = "AMBITION",
+    [400] = "MIND",
+    [401] = "KINDNESS",
 }
 
 return DeltaruneConsts
