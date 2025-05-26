@@ -500,6 +500,7 @@ function DeltaruneSave:load()
     end
     
     Game:setFlag("shadow_crystals", self.shadow_crystals)
+    Game:setFlag("eggs", self.eggs)
 
     if self.chapter >= 2 then
         local noelle = Game:getPartyMember("noelle")
