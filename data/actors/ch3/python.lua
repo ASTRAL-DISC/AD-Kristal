@@ -30,13 +30,13 @@ function actor:init()
     self.animations = {
         ["idle"] = {"idle", 1/12, true},
         ["hurt"] = {"hurt", 1/10, true},
-        ["charge"] = {"charge", 1/8, true},
+        ["chasing"] = {"chasing", 1/8, true},
     }
     
     self.offsets = {
         ["idle"] = {0, 0},
         ["hurt"] = {-4, -2},
-        ["charge"] = {0, 0},
+        ["chasing"] = {0, 0},
     }
 end
 
