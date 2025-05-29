@@ -10,6 +10,7 @@ function character:init()
     self:setDarkTransitionActor("noelle_dark_transition")
     self:setPastActor("noelle_past")
     self:setQuestActor("quest/noelle")
+    self:setDepthsActor("noelle_depths")
 
     self.quest_sprite = "party/noelle/quest/walk/down_1"
 
