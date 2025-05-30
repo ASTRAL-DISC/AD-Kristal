@@ -28,6 +28,11 @@ function actor:init()
         ["walk/right"] = {0, 0},
         ["walk/left"] = {0, 0},
         ["walk/up"] = {0, 0},
+
+        ["walk_shock/down"] = {0, 0},
+        ["walk_shock/right"] = {0, 0},
+        ["walk_shock/left"] = {0, 0},
+        ["walk_shock/up"] = {0, 0},
     }
 end
 
