@@ -59,8 +59,8 @@ end
 function MainMenuControls:registerMainPage()
     local page = {}
 
-    page.title = "DEVICE"
-    page.mod = "DEVICE"
+    page.title = "KRISTAL"
+    page.mod = "KRISTAL"
     page.entries = {}
 
     for _, keybind in ipairs(Input.order) do

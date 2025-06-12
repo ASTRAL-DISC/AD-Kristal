@@ -91,7 +91,7 @@ function MainMenuCredits:init(menu)
             },
         },
         {
-            "THE DEVICE",
+            "KRISTAL",
             {
                 {"LEAD DEVELOPERS", {0, 0.5, 0, 1}},
                 "NyakoFox",
@@ -119,7 +119,7 @@ function MainMenuCredits:init(menu)
             }
         },
         {
-            "THE DEVICE",
+            "KRISTAL",
             {
                 {"GITHUB CONTRIBUTORS", {0, 0.5, 0, 1}},
                 "Luna",

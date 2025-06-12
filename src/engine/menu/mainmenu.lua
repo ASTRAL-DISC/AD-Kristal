@@ -459,7 +459,7 @@ function MainMenu:drawVersion()
             end
         end
     else
-        local full_ver = "DEVICE: " .. self.ver_string
+        local full_ver = "KRISTAL: " .. self.ver_string
 
         if self.selected_mod.version then
             ver_y = ver_y - self.small_font:getHeight()
