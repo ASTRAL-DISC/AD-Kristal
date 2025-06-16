@@ -80,15 +80,37 @@ function character:init()
             defense = 2,
             magic = 21
         }
+    elseif Game.chapter == 3 then
+        self.stats = {
+            health = 140,
+            attack = 12,
+            defense = 2,
+            magic = 11,
+        }
+    else
+        self.stats = {
+            health = 180,
+            attack = 15,
+            defense = 2,
+            magic = 14,
+        }
     end
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.max_stats = {
+            health = 100
+        }
+    elseif Game.chapter == 2 then
+        self.max_stats = {
+            health = 140
+        }
+    elseif Game.chapter == 3 then
         self.max_stats = {
             health = 180,
         }
     elseif Game.chapter == 4 then
         self.max_stats = {
-            health = 240,
+            health = 210,
         }
     elseif Game.chapter == 5 then
         self.max_stats = {
@@ -190,11 +212,14 @@ function character:drawPowerStat(index, x, y, menu)
                 love.graphics.print("Dogness", x, y)
                 love.graphics.print("1", x+130, y)
             end
-        else
+        elseif Game.chapter == 2 then
+            -- Chapter 2 Ralsei "Sweetness" stat (non-doggable)
             local icon = Assets.getTexture("ui/menu/icon/lollipop")
             Draw.draw(icon, x-26, y+6, 0, 2, 2)
             love.graphics.print("Sweetness", x, y)
             love.graphics.print("97", x+130, y)
+        else
+            return
         end
         return true
     elseif index == 2 then
@@ -203,7 +228,8 @@ function character:drawPowerStat(index, x, y, menu)
         love.graphics.print("Fluffiness", x, y, 0, 0.8, 1)
 
         Draw.draw(icon, x+130, y+6, 0, 2, 2)
-        if Game.chapter >= 2 then
+        -- Ralsei loses bonus fluffiness in Chapter 3
+        if Game.chapter == 2 then
             Draw.draw(icon, x+150, y+6, 0, 2, 2)
         end
         return true
@@ -211,6 +237,10 @@ function character:drawPowerStat(index, x, y, menu)
         local icon = Assets.getTexture("ui/menu/icon/fire")
         Draw.draw(icon, x-26, y+6, 0, 2, 2)
         love.graphics.print("Guts:", x, y)
+        -- Ralsei has Guts (Chapter 3 only...)
+        if Game.chapter == 3 then
+            Draw.draw(icon, x+90, y+6, 0, 2, 2)
+        end
         return true
     end
 end

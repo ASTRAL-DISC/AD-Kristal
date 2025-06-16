@@ -79,6 +79,21 @@ function character:init()
             defense = 2,
             magic = 0
         }
+    elseif Game.chapter == 3 then
+        self.stats = {
+            health = 160,
+            attack = 14,
+            defense = 2,
+            magic = 0
+        }
+    else
+        self.stats = {
+            health = 200,
+            attack = 17,
+            defense = 2,
+            magic = 0
+        }
+
     end
 
     if Game.chapter == 3 then
@@ -105,6 +120,14 @@ function character:init()
         self.max_stats = {
             health = 490,
 			attack = 24,
+        }
+    elseif Game.chapter == 3 then
+        self.max_stats = {
+            health = 200
+        }
+    else
+        self.max_stats = {
+            health = 240
         }
     end
 
