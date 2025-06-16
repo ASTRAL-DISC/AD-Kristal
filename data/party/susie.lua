@@ -13,16 +13,12 @@ function character:init()
     self.quest_sprite = "party/susie/quest/walk/down_1"
 
     self.level = Game.chapter
-<<<<<<< HEAD
-    self.title = "Dark Knight\nDoes damage using\ndark energy."
-=======
     -- Default title / class (saved to the save file)
     if Game.chapter <= 3 then
         self.title = "Dark Knight\nDoes damage using\ndark energy."
     else
         self.title = "Dark Hero\nCarries out fate\nwith the blade."
     end
->>>>>>> upstream/main
 
     self.soul_priority = 1
     self.soul_color = {1, 0, 0}
@@ -38,7 +34,6 @@ function character:init()
         self:addSpell("ultimate_heal")
     end
 
-<<<<<<< HEAD
     if Game.chapter == 3 then
         self.health = 190
     elseif Game.chapter == 4 then
@@ -51,17 +46,6 @@ function character:init()
         self.health = 440
     elseif Game:getFlag("epilogue") then
         self.health = 530
-=======
-    -- Current health (saved to the save file)
-    if Game.chapter == 1 then
-        self.health = 110
-    elseif Game.chapter == 2 then
-        self.health = 140
-    elseif Game.chapter == 3 then
-        self.health = 190
-    else
-        self.health = 230
->>>>>>> upstream/main
     end
 
     if Game.chapter == 3 then
@@ -71,11 +55,7 @@ function character:init()
             defense = 2,
             magic = 3
         }
-<<<<<<< HEAD
     elseif Game.chapter == 4 then
-=======
-    elseif Game.chapter == 2 then
->>>>>>> upstream/main
         self.stats = {
             health = 230,
             attack = 20,
@@ -131,11 +111,7 @@ function character:init()
         self.max_stats = {
             health = 230,
         }
-<<<<<<< HEAD
     elseif Game.chapter == 4 then
-=======
-    elseif Game.chapter == 2 then
->>>>>>> upstream/main
         self.max_stats = {
             health = 290,
         }
