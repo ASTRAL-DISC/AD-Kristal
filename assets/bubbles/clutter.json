@@ -1,0 +1,22 @@
+{
+    "auto": true,
+    "sprites": {
+        "left": "clutter/left",
+        "right": "clutter/right",
+        "top": "clutter/top",
+        "bottom": "clutter/bottom",
+        "top_left": "clutter/top_left",
+        "top_right": "clutter/top_right",
+        "bottom_left": "clutter/bottom_left",
+        "bottom_right": "clutter/bottom_right",
+        "tail": "tail",
+        "fill": "fill"
+    },
+	"text_padding": {
+        "left":   6,
+        "top":    5,
+        "right":  5,
+        "bottom": 5
+	},
+	"speed": 0.2
+}

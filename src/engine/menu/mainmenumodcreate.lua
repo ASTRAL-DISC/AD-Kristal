@@ -34,7 +34,7 @@ function MainMenuModCreate:init(menu)
     }
     self.selected_option = 1
 
-    self.chapter_options = {1, 2, 3, 4}
+    self.chapter_options = {1, 2, 3, 4, 5, 6, 7, 8}
     self.id_adjusted = false
 
     self.input_pos_x = 0
