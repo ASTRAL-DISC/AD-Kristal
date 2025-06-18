@@ -8,8 +8,8 @@ function PartyBattler:init(chara, x, y)
 	self.shield = 0
 end
 
-function PartyBattler:addShield(amount)
-    Assets.stopAndPlaySound("shield")
+function PartyBattler:addShield(amount, sound)
+    Assets.stopAndPlaySound(sound)
 
     amount = math.floor(amount)
 
@@ -34,27 +34,31 @@ function PartyBattler:breakShield()
 	
 	self:setAnimation("battle/hurt")
 	
-	self:statusMessage("msg", "broken")
+	self:statusMessage("msg", "break")
 end
 
 function PartyBattler:removeHealth(amount, pierce)
     if (self.chara:getHealth() <= 0) then
         amount = Utils.round(amount / 4)
-		if self.shield < amount then
-			amount = amount - self.shield
-			self.shield = 0
-		else
-			self.shield = self.shield - amount
-			amount = 0
+		if not pierce then
+			if self.shield < amount then
+				amount = amount - self.shield
+				self.shield = 0
+			else
+				self.shield = self.shield - amount
+				amount = 0
+			end
 		end
         self.chara:setHealth(self.chara:getHealth() - amount)
     else
-		if self.shield < amount then
-			amount = amount - self.shield
-			self.shield = 0
-		else
-			self.shield = self.shield - amount
-			amount = 0
+		if not pierce then
+			if self.shield < amount then
+				amount = amount - self.shield
+				self.shield = 0
+			else
+				self.shield = self.shield - amount
+				amount = 0
+			end
 		end
         self.chara:setHealth(self.chara:getHealth() - amount)
         if (self.chara:getHealth() <= 0) then
@@ -62,7 +66,6 @@ function PartyBattler:removeHealth(amount, pierce)
             self.chara:setHealth(Utils.round(((-self.chara:getStat("health")) / 2)))
         end
     end
-
     self:checkHealth()
 end
 
@@ -95,6 +98,73 @@ function PartyBattler:hurt(amount, exact, color, options)
 	super.hurt(self, amount, exact, color, options)
 	
 	if (not self.defending) and (not self.is_down) then
+		self.sleeping = false
+		self.hurting = true
+		self:toggleOverlay(true)
+		self.overlay_sprite:setAnimation("battle/hurt", function()
+			if self.hurting then
+				self.hurting = false
+				self:toggleOverlay(false)
+			end
+			
+			if (self.chara:getHealth() <= (self.chara:getStat("health") / 4)) and self.chara.actor:getAnimation("battle/low_health") then
+				self:setAnimation("battle/low_health")
+			end
+		end)
+		if not self.overlay_sprite.anim_frames then -- backup if the ID doesn't animate, so it doesn't get stuck with the hurt animation
+			Game.battle.timer:after(0.5, function()
+				if self.hurting then
+					self.hurting = false
+					self:toggleOverlay(false)
+				end
+			end)
+		end
+	end
+end
+
+function PartyBattler:pierce(amount, exact, color, options)
+    options = options or {}
+
+    if not options["all"] then
+        Assets.playSound("hurt")
+        if not exact then
+            amount = self:calculateDamage(amount)
+            if self.defending then
+                amount = math.ceil((2 * amount) / 3)
+            end
+            -- we don't have elements right now
+            local element = 0
+            amount = math.ceil((amount * self:getElementReduction(element)))
+        end
+
+        self:removeHealth(amount, true)
+    else
+        -- We're targeting everyone.
+        if not exact then
+            amount = self:calculateDamage(amount)
+            -- we don't have elements right now
+            local element = 0
+            amount = math.ceil((amount * self:getElementReduction(element)))
+
+            if self.defending then
+                amount = math.ceil((3 * amount) / 4) -- Slightly different than the above
+            end
+
+            self:removeHealth(amount, true) -- Use a separate function for cleanliness
+        end
+    end
+
+    if (self.chara:getHealth() <= 0) then
+        self:statusMessage("msg", "down", color, true)
+    else
+        self:statusMessage("damage", amount, color, true)
+    end
+
+    self.sprite.x = -10
+    self.hurt_timer = 4
+    Game.battle:shakeCamera(4)
+
+    if (not self.defending) and (not self.is_down) then
 		self.sleeping = false
 		self.hurting = true
 		self:toggleOverlay(true)
