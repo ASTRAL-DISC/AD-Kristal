@@ -33,7 +33,7 @@ function spell:init()
 end
 
 function spell:onCast(user, target)
-    target:addShield(self.shield_amounts[target.chara.id])
+    target:addShield(self.shield_amounts[target.chara.id], "iceshield")
     Game.battle.timer:after(2/30, function()
         local x, y = user.width/2, user.height/2
 

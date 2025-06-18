@@ -34,7 +34,7 @@ end
 
 function spell:onCast(user, target)
     for _,battler in ipairs(target) do
-        battler:addShield(self.shield_amounts[battler.chara.id])
+        battler:addShield(self.shield_amounts[battler.chara.id], "iceshield")
 
         Game.battle.timer:after(2/30, function()
             local x, y = user.width/2, user.height/2
