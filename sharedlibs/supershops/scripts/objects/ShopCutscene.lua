@@ -84,6 +84,12 @@ function ShopCutscene:update()
         self.move_targets[v] = nil
     end
 
+    if Game.shop.shopkeeper.talk_sprite then
+        self.textbox.text.talk_sprite = Game.shop.shopkeeper.sprite
+    else
+        self.textbox.text.talk_sprite = nil
+    end
+
     super.update(self)
 end
 
