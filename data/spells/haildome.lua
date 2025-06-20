@@ -35,73 +35,13 @@ end
 function spell:onCast(user, target)
     target:addShield(self.shield_amounts[target.chara.id], "iceshield")
     Game.battle.timer:after(2/30, function()
-        local x, y = user.width/2, user.height/2
+        local x, y = user.width/2, user.height/2 - 25
+        local hail = HailStone(x, y, target)
 
-        local bg = Sprite("effects/snowglobe/background", x, y)
-        bg:setColor(0, 0.5, 1)
-        bg.alpha = 0
-        bg:setScale(1)
-        bg:setOrigin(0.5, 0.5)
-        bg:fadeTo(1, 1)
-        bg.layer = target.layer - 1
-        target.bg = bg
-        target:addChild(bg)
+        target:addChild(hail)
 
-        local orb = Sprite("effects/snowglobe/gradient", x, y)
-        orb:setColor(0, 0, 1)
-        orb.alpha = 0
-        orb:setScale(1)
-        orb:setOrigin(0.5, 0.5)
-        orb:fadeTo(0.5, 1)
-        orb.layer = target.layer + 100
-        target.orb = orb
-        target:addChild(orb)
-
-        local mask = Sprite("effects/snowglobe/gradient", x, y)
-        --mask:setColor(0.5, 0.5, 1)
-        target:addChild(mask)
-        target.mask = mask
-        target.mask.layer = orb.layer + 1
-        mask.alpha = 0
-        mask:fadeTo(1, 1)
-        target.mask.visible = false
-        mask.origin_x = 0.5
-        mask.origin_y = 0.5
-
-        local snow = Sprite("world/events/darkfountain/bg", x, y)
-        snow:setColor(0.5, 1, 1)
-        target:addChild(snow)
-        snow.alpha = 0
-        snow:fadeTo(1, 1)
-        target.snow = snow
-        target.snow.layer = orb.layer + 1
-        snow:setWrap(true)
-        snow.physics.speed_x = 1
-        snow.physics.speed_y = 1
-        snow.origin_x = 0.5
-        snow.origin_y = 0.5
-        target.snow.mask_fx = snow:addFX(MaskFX(mask))
-
-        local snow2 = Sprite("world/events/darkfountain/bg", x, y)
-        snow2:setColor(0, 1, 1)
-        target:addChild(snow2)
-        snow2.alpha = 0
-        snow2:fadeTo(0.5, 1)
-        target.snow2 = snow2
-        target.snow2.layer = bg.layer + 1
-        snow2:setWrap(true)
-        snow2.physics.speed_x = -1
-        snow2.physics.speed_y = -1
-        snow2.origin_x = 0.5
-        snow2.origin_y = 0.5
-        target.snow2.mask_fx = snow2:addFX(MaskFX(mask))
-
-        Game.battle.timer:after(20/30, function()
-            bg:fadeOutAndRemove(1)
-            orb:fadeOutAndRemove(1)
-            mask:fadeOutAndRemove(1)
-            snow:fadeOutAndRemove(1)
-            snow2:fadeOutAndRemove(1)
+        Game.battle.timer:after(8/30, function()
+            hail:fadeOutAndRemove(1.5)
         end)
     end)
 end

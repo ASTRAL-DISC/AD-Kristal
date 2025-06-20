@@ -6,7 +6,7 @@ function Lib:init()
 end
 
 function Lib:loadEncounterHooks()
-    -- HailGuard (Used once per encounter, as a spell)
+    -- HailGuard (Used once per encounter)
     Utils.hook(Encounter, "init", function(orig, self)
         orig(self)
 
@@ -23,21 +23,18 @@ function Lib:loadEncounterHooks()
 end
 
 function Lib:loadBattleHooks()
-    -- HailGuard (Used with a cooldown, as a Power Act)
+    -- HailGuard (Used once per battle, as a Power Act)
     Utils.hook(Battle, "addMenuItem", function(orig, self, tbl)
         local tbl = orig(self, tbl)
-        for _,battler in ipairs(self.party) do
-            if battler.shield > 0 then
-                if tbl.name == "HailGuard" then
-                    tbl.unusable = true
-                    tbl.color = {0.5, 0.5, 0.5, 1}
-                    tbl.description = "Cooldown"
-                end
-            end
+        if self.encounter.hail_used and tbl.name == "HailGuard" then
+            tbl.unusable = true
+            tbl.color = {0.5, 0.5, 0.5, 1}
+            tbl.description = "Cooldown\nPer Battle"
         end
         return tbl
     end)
 
+    -- Discoball
     Utils.hook(Battle, "onStateChange", function(orig, self, old, new)
         orig(self, old, new)
         
