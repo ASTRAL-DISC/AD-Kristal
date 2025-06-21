@@ -10,9 +10,14 @@ function actor:init()
 
     self.hitbox = {2, 50, 21, 18}
 
-    self.path = "npcs/ch4/gospiel"
+    self.color = {1, 1, 1}
 
+    self.path = "npcs/ch4/gospiel"
     self.default = "walk"
+
+    self.voice = "gospiel"
+    self.portrait_path = "face/gospiel"
+    self.portrait_offset = {0, 0}
 
     self.animations = {}
     
