@@ -5,19 +5,20 @@ local HailStone, super = Class(Object)
 function HailStone:init(x, y, target)
     super.init(self, x, y)
 
-    self.target = target
+    self.x = x
+    self.y = y
 
     self.hailstone = Assets.getTexture("effects/icespell/hailstone")
-    self.hailstone_b = Assets.getTexture("effects/icespell/hailstone_b")
-    self.hailstone_c = Assets.getTexture("effects/icespell/hailstone_c")
 
-    self:setOrigin(0.5)
+    self:setScale(2)
 
     self.siner = 0
     self.timer = 0
     self.alpha = 1
 
     self.count = 20
+
+    self.target = target
 end
 
 function HailStone:update()
@@ -37,12 +38,18 @@ function HailStone:draw()
     super.draw(self)
 
     for i = 0, self.count - 1 do
-        local x = -math.sin((i / 2) + (self.siner / 8))
-        local y = x + i
+        self.x2 = -math.sin((i / 2) + (self.siner / 8))
+        self.y2 = self.x2 + i
 
-        Draw.draw(self.hailstone, x * 15, y * 2, 0, (math.sin((self.siner / 8)) * 1), 1, self.hailstone:getWidth() / 2, self.hailstone:getHeight() / 2)
-        Draw.draw(self.hailstone_b, x * 20, y * 2, 0, (math.sin((self.siner / 8)) * 0.5), 0.5, self.hailstone_b:getWidth() / 2, self.hailstone_b:getHeight() / 2)
-        Draw.draw(self.hailstone_c, -x * 30, y * 2, 0, (math.sin((self.siner / 8)) * 1), 1, self.hailstone_c:getWidth() / 2, self.hailstone_c:getHeight() / 2)
+        if math.cos((i / 2) + (self.siner / 8)) > 0 then
+            self:setLayer(self.target.layer - 1)
+        else
+            self:setLayer(self.target.layer + 1)
+        end
+
+        Draw.draw(self.hailstone, self.x2 * 15, self.y2 * 2, 0, (math.sin((self.siner / 8)) * 1), 1, self.hailstone:getWidth() / 2, self.hailstone:getHeight() / 2)
+        Draw.draw(self.hailstone, self.x2 * 20, self.y2 * 2, 0, (math.sin((self.siner / 8)) * 0.5), 0.5, self.hailstone:getWidth() / 2, self.hailstone:getHeight() / 2)
+        Draw.draw(self.hailstone, -self.x2 * 30, self.y2 * 2, 0, (math.sin((self.siner / 8)) * 1), 1, self.hailstone:getWidth() / 2, self.hailstone:getHeight() / 2)
     end
 end
 

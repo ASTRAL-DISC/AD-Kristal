@@ -6,7 +6,7 @@ function spell:init()
     -- Display name
     self.name = "HailGuard"
     -- Name displayed when cast (optional)
-    self.cast_name = nil
+    self.cast_name = "HAILGUARD"
 
     -- Battle description
     self.effect = "Shield\nAll Once"
@@ -37,10 +37,10 @@ function spell:onCast(user, target)
         battler:addShield(self.shield_amounts[battler.chara.id], "iceshield")
 
         Game.battle.timer:after(2/30, function()
-            local x, y = user.width/2, user.height/2 - 25
+            local x, y = battler:getRelativePos(battler.width/2, battler.height/2 - 25, Game.battle)
             local hail = HailStone(x, y, battler)
 
-            battler:addChild(hail)
+            Game.battle:addChild(hail)
 
             Game.battle.timer:after(8/30, function()
                 hail:fadeOutAndRemove(1.5)
