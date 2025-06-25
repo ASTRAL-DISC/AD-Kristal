@@ -862,6 +862,16 @@ function Text:drawChar(node, state, use_color)
         love.graphics.rectangle("fill", x, y, w, h)
 
         return true
+    elseif state.style == "underline" then
+        local w, h = self:getNodeSize(node, state)
+        Draw.setColor(0.4, 0.4, 0.4)
+        love.graphics.rectangle("fill", x, y + h + -2 * scale, w, 2 * scale)
+        
+        local state_copy = Utils.copy(state, true)
+        state_copy.style = "dark"
+        state = state_copy
+        
+        return true
     elseif state.style == "rainbow" then
 		local w, h = self:getNodeSize(node, state)
 
@@ -874,7 +884,7 @@ function Text:drawChar(node, state, use_color)
 end
 
 function Text:isStyleAnimated(style)
-    return style == "GONER" or style == "unused" or style == "depths" or Kristal.callEvent(KRISTAL_EVENT.isTextStyleAnimated, style, self)
+    return style == "GONER" or style == "unused" or style == "depths" or style == "spoiler" or style == "rainbow" or Kristal.callEvent(KRISTAL_EVENT.isTextStyleAnimated, style, self)
 end
 
 function Text:processStyle(style)
