@@ -73,7 +73,7 @@ function CreditsText:draw()
 		love.graphics.printf("Kittblush", -100, 140, SCREEN_WIDTH, "center")
 		love.graphics.printf("Sylladexter", 100, 60, SCREEN_WIDTH, "center")
 		love.graphics.printf("lex", 100, 100, SCREEN_WIDTH, "center")
-		love.graphics.printf("xnq", 100, 140, SCREEN_WIDTH, "center")
+		love.graphics.printf("doedreemurr", 100, 140, SCREEN_WIDTH, "center")
 		love.graphics.printf("Eribetra", -100, 180, SCREEN_WIDTH, "center")
 	elseif self.music:tell() > 28.3 and self.music:tell() < 31.1 then
 		love.graphics.printf("-Additional Help-", 0, 20, SCREEN_WIDTH, "center")

@@ -51,7 +51,7 @@ function MainMenuCredits:init(menu)
                 "lex3x",
                 "Wilkus Milkus",
                 "surreal",
-                "xnq",
+                "doedreemurr",
                 "Kittblush",
                 "marineflames",
             },
