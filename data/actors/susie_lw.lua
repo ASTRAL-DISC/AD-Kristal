@@ -23,10 +23,12 @@ function actor:init()
     end
 
     self.voice = "susie"
-    if Game.chapter == 1 then
+    if Game:getConfig("susieStyle") == 1 then
         self.portrait_path = "face/susie_bangs"
-    else
+    elseif Game:getConfig("susieStyle") == 2 then
         self.portrait_path = "face/susie"
+    else
+        self.portrait_path = "face/susie_eyes"
     end
     self.portrait_offset = {-5, 0}
 
@@ -131,7 +133,7 @@ function actor:init()
 end
 
 function actor:getPortraitPath()
-    if Game:getPartyMember("susie"):getFlag("eyes") then
+    if Game:getPartyMember("susie"):getFlag("eyes") or Game:getConfig("susieStyle") == 3 then
         return "face/susie_eyes"
     else
         return "face/susie"

@@ -188,7 +188,7 @@ function character:getTitle()
 end
 
 function character:getMenuIcon()
-    if self:getFlag("eyes") then
+    if self:getFlag("eyes") or Game:getConfig("susieStyle") == 3 then
         return "party/susie/head_eyes"
     else
         return "party/susie/head"
