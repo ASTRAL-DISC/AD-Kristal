@@ -76,19 +76,13 @@ function actor:init()
         -- Battle offsets
         ["battle/idle"] = {-15, -3}
     }
-
-    self.voice_timer = 0
-end
-
-function actor:onWorldUpdate(chara)
-    self.voice_timer = Utils.approach(self.voice_timer, 0, DTMULT)
 end
 
 function actor:onTextSound(node, state)
-    if self.voice_timer == 0 then
+    if Game.voice_timer == 0 then
         local snd = Assets.stopAndPlaySound("voice/angel")
         snd:setPitch(0.8 + Utils.random(0.4))
-        self.voice_timer = 1.1
+        Game.voice_timer = 1.1
     end
     return true
 end

@@ -340,6 +340,8 @@ function Game:load(data, index, fade)
     -- Used to carry the soul invulnerability frames between waves
     self.old_soul_inv_timer = 0
 
+    self.voice_timer = 0
+
     -- BEGIN SAVE FILE VARIABLES --
 
     self.chapter = data.chapter or Kristal.getModOption("chapter") or 2
@@ -1114,6 +1116,8 @@ function Game:update()
     if Kristal.callEvent(KRISTAL_EVENT.preUpdate, DT) then
         return
     end
+
+    self.voice_timer = Utils.approach(self.voice_timer, 0, DTMULT)
 
     if (self.state == "BATTLE" and self.battle and self.battle:isWorldHidden()) or
        (self.state == "SHOP"   and self.shop) then
