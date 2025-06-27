@@ -1,4 +1,4 @@
-local Item, super = Class(Item)
+local Item, super = Utils.hookScript(Item)
 
 function Item:init()
 	super.init(self)

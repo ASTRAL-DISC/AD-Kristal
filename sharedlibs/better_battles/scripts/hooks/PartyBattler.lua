@@ -1,11 +1,17 @@
 ---@class PartyBattler : PartyBattler
 ---@overload fun(...) : PartyBattler
-local PartyBattler, super = Class("PartyBattler", true)
+local PartyBattler, super = Utils.hookScript(PartyBattler)
 
 function PartyBattler:init(chara, x, y)
 	super.init(self, chara, x, y)
 	
 	self.shield = 0
+	
+	self.guard_chance = 0 -- out of 100
+    for _,equipment in ipairs(self.chara:getEquipment()) do
+        self.guard_chance = self.guard_chance + (equipment.bonuses.guard_chance or 0)
+    end
+	self.guard_mult = self.chara.guard_mult or 0.8
 end
 
 function PartyBattler:addShield(amount, sound)
@@ -28,7 +34,7 @@ end
 
 function PartyBattler:breakShield()
     Assets.stopAndPlaySound("glassbreak", 0.4, 0.6)
-	Assets.stopAndPlaySound("hurt")
+    Assets.stopAndPlaySound("hurt")
 
     self.shield = 0
 	
@@ -95,6 +101,10 @@ function PartyBattler:setAnimation(animation, callback)
 end
 
 function PartyBattler:hurt(amount, exact, color, options)
+	if love.math.random(1,100) < self.guard_chance then
+		self:statusMessage("msg", "guard")
+		amount = math.ceil(amount * self.guard_mult)
+	end
 	super.hurt(self, amount, exact, color, options)
 	
 	if (not self.defending) and (not self.is_down) then
@@ -123,6 +133,10 @@ function PartyBattler:hurt(amount, exact, color, options)
 end
 
 function PartyBattler:pierce(amount, exact, color, options)
+	if love.math.random(1,100) < self.guard_chance then
+		self:statusMessage("msg", "guard")
+		amount = math.ceil(amount * self.guard_mult)
+	end
     options = options or {}
 
     if not options["all"] then

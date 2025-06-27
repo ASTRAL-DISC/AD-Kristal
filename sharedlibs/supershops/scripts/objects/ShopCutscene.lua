@@ -44,11 +44,11 @@ function ShopCutscene:init(group, id, ...)
 	
 	if Mod.libs["magical-glass"] and Kristal.getLibConfig("super_shops", "magical-glass") then
 		if isClass(Game.shop) and Game.shop:includes(LightShop) then
-            x = 26
-            y = 266
-            w = 590
-            h = 190
-        end
+			x = 26
+			y = 266
+			w = 590
+			h = 190
+		end
 	end
 
     local left, top = Game.shop.large_box:getBorder()
@@ -368,9 +368,9 @@ end
 ---@param y    		string		The y value of the text according to the textbox. Exactly what you think.
 ---@param offset?	string		How far down the lines will go.
 function ShopCutscene:setTextboxPadding(x, y, offset)
-    while not self.textbox do
-        self:wait()
-    end
+	while not self.textbox do
+		self:wait()
+	end
 
     if (not x) or (not y) then
 		error("Tried to set textbox padding, but was missing a positional argument")

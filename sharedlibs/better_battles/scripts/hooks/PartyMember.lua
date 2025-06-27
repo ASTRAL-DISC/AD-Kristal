@@ -1,6 +1,14 @@
 ---@class PartyMember : PartyMember
 ---@overload fun(...) : PartyMember
-local PartyMember, super = Class("PartyMember", true)
+local PartyMember, super = Utils.hookScript(PartyMember)
+
+function PartyMember:init()
+	super.init(self)
+	
+	self.flee_text = {}
+	
+	self.has_command = false
+end
 
 function PartyMember:getMaxShield()
 	return self:getStat("health") / 2
@@ -134,6 +142,10 @@ function PartyMember:getSkills()
 			Game.battle:setState("MENUSELECT", "SPELL")
 		end}
 	}
+end
+
+function PartyMember:getCommandOptions()
+	return {"FIGHT", "ACT", "MAGIC"}, {"ITEM", "SPARE", "DEFEND"}
 end
 
 return PartyMember

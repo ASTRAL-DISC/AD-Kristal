@@ -1,6 +1,6 @@
 ---@class ActionBox : ActionBox
 ---@overload fun(...) : ActionBox
-local ActionBox, super = Class(ActionBox)
+local ActionBox, super = Utils.hookScript(ActionBox)
 
 function ActionBox:createButtons()
     for _,button in ipairs(self.buttons or {}) do

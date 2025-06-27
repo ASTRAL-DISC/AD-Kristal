@@ -1,4 +1,4 @@
-local Shop, super = Class(Shop)
+local Shop, super = Utils.hookScript(Shop)
 
 function Shop:init()
 	super.init(self)
@@ -91,7 +91,7 @@ function Shop:init()
     -- Shown when you refuse to buy something
     self.loyalty_refuse_text = "Loyal\nrefused\ntext"
     -- Shown when you buy something
-    self.loyalty_text = "Loyal text"
+    self.loyalty_texti = "Loyal text"
     -- Shown when you buy something and it goes in your storage
     self.loyalty_storage_text = "Storage\nloyal text"
     -- Shown when you don't have enough money to buy something
@@ -796,7 +796,7 @@ function Shop:buyItemLoyalty(current_item)
         if Game.inventory:addItem(new_item) then
             -- Visual/auditorial feedback (did I spell that right?)
             Assets.playSound("locker")
-            self:setRightText(self.loyalty_text)
+            self:setRightText(self.loyalty_texti)
 
             -- PURCHASE THE ITEM
             -- Remove the LP
@@ -809,6 +809,12 @@ function Shop:buyItemLoyalty(current_item)
 end
 
 function Shop:update()
+	if Game.shop.shopkeeper.talk_sprite then
+        self.textbox.text.talk_sprite = Game.shop.shopkeeper.sprite
+    else
+        self.textbox.text.talk_sprite = nil
+    end
+
 	super.update(self)
 	
 	if self.state == "BONUS" then
@@ -857,7 +863,7 @@ end
 function Shop:draw()
     self:drawBackground()
 
-    super.super.draw(self)
+    Object.draw(self)
 
     love.graphics.setFont(self.font)
     if self.state == "MAINMENU" then
@@ -1001,11 +1007,36 @@ function Shop:draw()
 
                 local current_storage = Game.inventory:getDefaultStorage(current_item.item)
                 local space = Game.inventory:getFreeSpace(current_storage)
+				local space2 = Game.inventory:getItemCount(current_storage)
+                local total_space = space+space2
+				--this is really stupid but current_storage.max wasnt working??
+				local storagespace = Game.inventory:getItemCount("storage")
+                local total_storagespace = Game.inventory:getItemCount("storage")+Game.inventory:getFreeSpace("storage")
 
-                if space <= 0 then
-                    love.graphics.print("NO SPACE", 521, 430)
-                else
-                    love.graphics.print("Space:" .. space, 521, 430)
+                if not Game:getConfig("shopspaceui") then
+                    if space <= 0 then
+                        love.graphics.print("NO SPACE", 521, 430)
+                    else
+                        love.graphics.print("Space:" .. space, 521, 430)
+				    end
+			    else
+					love.graphics.setFont(Assets.getFont("8bitsmall"))
+					if current_item.item.type ~= "armor" and current_item.item.type ~= "weapon" and current_item.item.type ~= "key" then 
+						love.graphics.print(space2 .. "/" .. total_space, 556, 413)
+						love.graphics.print(storagespace .. "/" .. total_storagespace, 556, 445)
+						Draw.draw(Assets.getTexture("ui/shop/ui_hold"), 555, 398)
+						Draw.draw(Assets.getTexture("ui/shop/ui_storage"), 555, 430)
+					else
+						love.graphics.print(space2 .. "/" .. total_space, 556, 437)
+						Draw.draw(Assets.getTexture("ui/shop/ui_hold"), 555, 422)
+						if current_item.item.type == "armor" then
+							Draw.draw(Assets.getTexture("ui/shop/ui_armor"), 555, 410)
+						elseif current_item.item.type == "weapon" then
+							Draw.draw(Assets.getTexture("ui/shop/ui_weapon"), 555, 410)
+						elseif current_item.item.type == "key" then
+							Draw.draw(Assets.getTexture("ui/shop/ui_pocket"), 555, 410)
+						end
+					end
                 end
             end
         end
@@ -1136,11 +1167,36 @@ function Shop:draw()
 
                 local current_storage = Game.inventory:getDefaultStorage(current_item.item)
                 local space = Game.inventory:getFreeSpace(current_storage)
+				local space2 = Game.inventory:getItemCount(current_storage)
+                local total_space = space+space2
+				--this is really stupid but current_storage.max wasnt working??
+				local storagespace = Game.inventory:getItemCount("storage")
+                local total_storagespace = Game.inventory:getItemCount("storage")+Game.inventory:getFreeSpace("storage")
 
-                if space <= 0 then
-                    love.graphics.print("NO SPACE", 521, 430)
-                else
-                    love.graphics.print("Space:" .. space, 521, 430)
+                if not Game:getConfig("shopspaceui") then
+                    if space <= 0 then
+                        love.graphics.print("NO SPACE", 521, 430)
+                    else
+                        love.graphics.print("Space:" .. space, 521, 430)
+				    end
+			    else
+					love.graphics.setFont(Assets.getFont("8bitsmall"))
+					if current_item.item.type ~= "armor" and current_item.item.type ~= "weapon" and current_item.item.type ~= "key" then 
+						love.graphics.print(space2 .. "/" .. total_space, 556, 413)
+						love.graphics.print(storagespace .. "/" .. total_storagespace, 556, 445)
+						Draw.draw(Assets.getTexture("ui/shop/ui_hold"), 555, 398)
+						Draw.draw(Assets.getTexture("ui/shop/ui_storage"), 555, 430)
+					else
+						love.graphics.print(space2 .. "/" .. total_space, 556, 437)
+						Draw.draw(Assets.getTexture("ui/shop/ui_hold"), 555, 422)
+						if current_item.item.type == "armor" then
+							Draw.draw(Assets.getTexture("ui/shop/ui_armor"), 555, 410)
+						elseif current_item.item.type == "weapon" then
+							Draw.draw(Assets.getTexture("ui/shop/ui_weapon"), 555, 410)
+						elseif current_item.item.type == "key" then
+							Draw.draw(Assets.getTexture("ui/shop/ui_pocket"), 555, 410)
+						end
+					end
                 end
             end
         end

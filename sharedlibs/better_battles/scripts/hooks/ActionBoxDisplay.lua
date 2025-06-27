@@ -1,6 +1,6 @@
 ---@class ActionBoxDisplay : ActionBoxDisplay
 ---@overload fun(...) : ActionBoxDisplay
-local ActionBoxDisplay, super = Class(ActionBoxDisplay)
+local ActionBoxDisplay, super = Utils.hookScript(ActionBoxDisplay)
 
 function ActionBoxDisplay:draw()
     if Game.battle.current_selecting == self.actbox.index then
@@ -56,7 +56,7 @@ function ActionBoxDisplay:draw()
     Draw.setColor(color)
     love.graphics.print(self.actbox.battler.chara:getStat("health"), 205 - string_width, 9 - self.actbox.data_offset)
 
-    super.super.draw(self)
+    Object.draw(self)
 end
 
 return ActionBoxDisplay

@@ -4,10 +4,9 @@ function Lib:init()
 	Utils.hook(Item, "getDiscountPrice", function(orig, self, id)
 		return false
 	end)
+
 	if Mod.libs["magical-glass"] and Kristal.getLibConfig("super_shops", "magical-glass") then
-		print("[Super Shops] Magical Glass detected and changes allowed.")
 		if LightShop then
-			print("[Super Shops] LightShop detected. Modifying...")
 			
 			Utils.hook(LightShop, "init", function(orig, self)
 				orig(self)
@@ -152,7 +151,16 @@ function Lib:init()
 				end
 			end)
 			
-			print("[Super Shops] LightShop modified successfully!")
+			Utils.hook(LightShop, "onStateChange", function(orig, self, old, new)
+				orig(self, old, new)
+				
+				if new == "CUTSCENE" then
+					self.dialogue_text.width = 598
+					self:setRightText("")
+					self.info_box.visible = false
+					self:setDialogueText("")
+				end
+			end)
 		else
 			Kristal.Console:warn("Magical Glass LightShop not detected.")
 		end
