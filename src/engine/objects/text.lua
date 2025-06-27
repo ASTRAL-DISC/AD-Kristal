@@ -696,10 +696,8 @@ function Text:drawChar(node, state, use_color)
         state.offset_y = yspeed * 0.7
     end
 
-    if (state.float_dist and state.float_dist > 0) then
+    if state.float_dist > 0 then
         state.offset_y = state.float_dist * math.sin((state.float_speed * Kristal.getTime()) + (state.float_phase * state.typed_characters))
-    else
-        state.offset_y = 0
     end
 
     local x, y = state.current_x + state.offset_x, state.current_y + state.offset_y
