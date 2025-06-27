@@ -809,12 +809,6 @@ function Shop:buyItemLoyalty(current_item)
 end
 
 function Shop:update()
-	if Game.shop.shopkeeper.talk_sprite then
-        self.textbox.text.talk_sprite = Game.shop.shopkeeper.sprite
-    else
-        self.textbox.text.talk_sprite = nil
-    end
-
 	super.update(self)
 	
 	if self.state == "BONUS" then
