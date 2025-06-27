@@ -49,12 +49,7 @@ end
 
 function actor:onTextSound(node, state)
     if Game.voice_timer == 0 then
-        local snd = Assets.stopAndPlaySound("voice/beltrowel")
-        if not self.angry then
-            snd:setPitch(0.8 + Utils.random(0.15))
-        else
-            snd:setPitch(0.9)
-        end
+        Assets.stopAndPlaySound("voice/beltrowel", 1.2, 1)
         Game.voice_timer = 1.1
     end
     return true
