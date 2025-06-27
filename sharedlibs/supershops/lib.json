@@ -11,6 +11,6 @@
 		"magical-glass"
 	],
 	"config": {
-		"magical-glass": true
+		"magical-glass": false
 	}
 }
