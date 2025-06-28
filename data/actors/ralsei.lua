@@ -227,6 +227,16 @@ function actor:initChapter2()
         ["walk_unhappy/right"] = {0, 0},
         ["walk_unhappy/up"] = {0, 0},
 
+        ["walk_sad/down"] = {0, 0},
+        ["walk_sad/left"] = {0, 0},
+        ["walk_sad/right"] = {0, 0},
+        ["walk_sad/up"] = {0, 0},
+
+        ["walk_sadder/down"] = {0, 0},
+        ["walk_sadder/left"] = {0, 0},
+        ["walk_sadder/right"] = {0, 0},
+        ["walk_sadder/up"] = {0, 0},
+
         ["slide"] = {-2, 2},
 
         -- Battle offsets
@@ -261,6 +271,8 @@ function actor:initChapter2()
 
         ["laugh"] = {-1, 0},
 
+        ["shocked"] = {-9, 3},
+        ["shocked_landed"] = {-9, 3},
         ["shocked_behind"] = {-9, 3},
         ["surprised_down"] = {-5, -1},
 
