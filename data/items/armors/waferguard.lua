@@ -1,28 +1,25 @@
--- Create an item and specify its ID (id is optional, defaults to file path)
-local item, super = Class(Item, "test_item")
+local item, super = Class(Item, "waferguard")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Test Item"
-    -- Name displayed when used in battle (optional)
-    self.use_name = nil
+    self.name = "Waferguard"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "item"
+    self.type = "armor"
     -- Item icon (for equipment)
-    self.icon = nil
+    self.icon = "ui/menu/icon/armor"
 
     -- Battle description
     self.effect = ""
     -- Shop description
-    self.shop = ""
+    self.shop = "Holey\namulet"
     -- Menu description
-    self.description = "Example item."
+    self.description = "Although it looks brittle, it contains a magical\nenergy that blunts damage on impact. +4DF"
 
     -- Default shop price (sell price is halved)
-    self.price = 0
+    self.price = 900
     -- Whether the item can be sold
     self.can_sell = true
 
@@ -36,7 +33,9 @@ function item:init()
     self.instant = false
 
     -- Equip bonuses (for weapons and armor)
-    self.bonuses = {}
+    self.bonuses = {
+        defense = 4,
+    }
     -- Bonus name and icon (displayed in equip menu)
     self.bonus_name = nil
     self.bonus_icon = nil
@@ -44,10 +43,15 @@ function item:init()
     -- Equippable characters (default true for armors, false for weapons)
     self.can_equip = {}
 
-    -- Character reactions (key = party member id)
-    self.reactions = {}
+    -- Character reactions
+    self.reactions = {
+        susie = "(Don't eat it. Don't eat it.)",
+        ralsei = {
+            susie = "(Too bad)",
+            ralsei = "It's got drool on it.",
+        },
+        noelle = "What's next, cheezy armor? Faha!",
+    }
 end
-
--- Function overrides go here
 
 return item

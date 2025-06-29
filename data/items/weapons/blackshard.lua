@@ -1,25 +1,22 @@
--- Create an item and specify its ID (id is optional, defaults to file path)
-local item, super = Class(Item, "test_item")
+local item, super = Class(Item, "blackshard")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Test Item"
-    -- Name displayed when used in battle (optional)
-    self.use_name = nil
+    self.name = "BlackShard"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "item"
+    self.type = "weapon"
     -- Item icon (for equipment)
-    self.icon = nil
+    self.icon = "ui/menu/icon/shard"
 
     -- Battle description
     self.effect = ""
     -- Shop description
     self.shop = ""
     -- Menu description
-    self.description = "Example item."
+    self.description = "A dagger-like shard of the Black Knife.\nStrikes the weakness of dark-element enemies."
 
     -- Default shop price (sell price is halved)
     self.price = 0
@@ -36,18 +33,32 @@ function item:init()
     self.instant = false
 
     -- Equip bonuses (for weapons and armor)
-    self.bonuses = {}
+    self.bonuses = {
+        attack = 16,
+    }
     -- Bonus name and icon (displayed in equip menu)
-    self.bonus_name = nil
-    self.bonus_icon = nil
+    self.bonus_name = "SlayDark"
+    self.bonus_icon = "ui/menu/icon/shard"
 
     -- Equippable characters (default true for armors, false for weapons)
-    self.can_equip = {}
+    self.can_equip = {
+        kris = true,
+        noelle = true,
+    }
 
-    -- Character reactions (key = party member id)
-    self.reactions = {}
+    -- Character reactions
+    self.reactions = {
+        susie = "... how is this a weapon?",
+        ralsei = "I... shouldn't use it.",
+    }
 end
 
--- Function overrides go here
+function item:convertToLightEquip(chara)
+    return "light/blackshard"
+end
+
+function item:getAttackSprite(battler, enemy, points)
+    return "effects/attack/shard"
+end
 
 return item

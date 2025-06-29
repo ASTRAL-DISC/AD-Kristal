@@ -1,28 +1,25 @@
--- Create an item and specify its ID (id is optional, defaults to file path)
-local item, super = Class(Item, "test_item")
+local item, super = Class(Item, "lodestone")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Test Item"
-    -- Name displayed when used in battle (optional)
-    self.use_name = nil
+    self.name = "LodeStone"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "item"
+    self.type = "armor"
     -- Item icon (for equipment)
-    self.icon = nil
+    self.icon = "ui/menu/icon/armor"
 
     -- Battle description
     self.effect = ""
     -- Shop description
-    self.shop = ""
+    self.shop = "Gain more TP\nfrom bullets"
     -- Menu description
-    self.description = "Example item."
+    self.description = "A lodestone token shaped like a snail's shell.\nEnemy bullets give a bit more TP."
 
     -- Default shop price (sell price is halved)
-    self.price = 0
+    self.price = 220
     -- Whether the item can be sold
     self.can_sell = true
 
@@ -36,18 +33,24 @@ function item:init()
     self.instant = false
 
     -- Equip bonuses (for weapons and armor)
-    self.bonuses = {}
+    self.bonuses = {
+        defense = 2,
+
+        graze_tp = 0.05,
+    }
     -- Bonus name and icon (displayed in equip menu)
-    self.bonus_name = nil
-    self.bonus_icon = nil
+    self.bonus_name = "TPGain"
+    self.bonus_icon = "ui/menu/icon/up"
 
     -- Equippable characters (default true for armors, false for weapons)
     self.can_equip = {}
 
-    -- Character reactions (key = party member id)
-    self.reactions = {}
+    -- Character reactions
+    self.reactions = {
+        susie = "Escargot? ... escargross.",
+        ralsei = "I have no opinions on snails!",
+        noelle = "Did your mom eat the non-shell part?",
+    }
 end
-
--- Function overrides go here
 
 return item

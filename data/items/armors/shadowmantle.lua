@@ -1,25 +1,22 @@
--- Create an item and specify its ID (id is optional, defaults to file path)
-local item, super = Class(Item, "test_item")
+local item, super = Class(Item, "shadowmantle")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Test Item"
-    -- Name displayed when used in battle (optional)
-    self.use_name = nil
+    self.name = "ShadowMantle"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "item"
+    self.type = "armor"
     -- Item icon (for equipment)
-    self.icon = nil
+    self.icon = "ui/menu/icon/armor"
 
     -- Battle description
     self.effect = ""
     -- Shop description
     self.shop = ""
     -- Menu description
-    self.description = "Example item."
+    self.description = "Shadows slip off like water.\nGreatly protects against Dark and Star attacks."
 
     -- Default shop price (sell price is halved)
     self.price = 0
@@ -36,18 +33,27 @@ function item:init()
     self.instant = false
 
     -- Equip bonuses (for weapons and armor)
-    self.bonuses = {}
+    self.bonuses = {
+        defense = Game.chapter,
+    }
     -- Bonus name and icon (displayed in equip menu)
-    self.bonus_name = nil
-    self.bonus_icon = nil
+    self.bonus_name = "Dark/Star"
+    self.bonus_icon = "ui/menu/icon/armor"
 
     -- Equippable characters (default true for armors, false for weapons)
-    self.can_equip = {}
+    self.can_equip = {
+        noelle = false,
+    }
 
-    -- Character reactions (key = party member id)
-    self.reactions = {}
+    -- Character reactions
+    self.reactions = {
+        susie = "Hell yeah, what's this?",
+        ralsei = "Sh-should I wear this...?",
+        noelle = "No... it's for someone... taller.",
+    }
+
+    -- TODO: Elemental resistance
+    -- Resists element 5 by 0.66
 end
-
--- Function overrides go here
 
 return item

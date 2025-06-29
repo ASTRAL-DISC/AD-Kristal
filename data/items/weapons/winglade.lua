@@ -1,28 +1,25 @@
--- Create an item and specify its ID (id is optional, defaults to file path)
-local item, super = Class(Item, "test_item")
+local item, super = Class(Item, "winglade")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Test Item"
-    -- Name displayed when used in battle (optional)
-    self.use_name = nil
+    self.name = "Winglade"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "item"
+    self.type = "weapon"
     -- Item icon (for equipment)
-    self.icon = nil
+    self.icon = "ui/menu/icon/sword"
 
     -- Battle description
     self.effect = ""
     -- Shop description
     self.shop = ""
     -- Menu description
-    self.description = "Example item."
+    self.description = "A majestic sword with a white feathered hilt.\nSlightly increases money won."
 
     -- Default shop price (sell price is halved)
-    self.price = 0
+    self.price = 999
     -- Whether the item can be sold
     self.can_sell = true
 
@@ -36,18 +33,32 @@ function item:init()
     self.instant = false
 
     -- Equip bonuses (for weapons and armor)
-    self.bonuses = {}
+    self.bonuses = {
+        attack = 8,
+    }
     -- Bonus name and icon (displayed in equip menu)
-    self.bonus_name = nil
-    self.bonus_icon = nil
+    self.bonus_name = "$ +5%"
+    self.bonus_icon = "ui/menu/icon/up"
 
     -- Equippable characters (default true for armors, false for weapons)
-    self.can_equip = {}
+    self.can_equip = {
+        kris = true,
+    }
 
-    -- Character reactions (key = party member id)
-    self.reactions = {}
+    -- Character reactions
+    self.reactions = {
+        susie = "Don't make me sneeze!",
+        ralsei = "Th-that tickles!",
+        noelle = "... whose feather is this?",
+    }
 end
 
--- Function overrides go here
+function item:convertToLightEquip(chara)
+    return "light/quillpen"
+end
+
+function item:applyMoneyBonus(gold)
+    return gold * 1.05
+end
 
 return item

@@ -1,28 +1,25 @@
--- Create an item and specify its ID (id is optional, defaults to file path)
-local item, super = Class(Item, "test_item")
+local item, super = Class(Item, "princessrbn")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Test Item"
-    -- Name displayed when used in battle (optional)
-    self.use_name = nil
+    self.name = "PrincessRBN"
 
     -- Item type (item, key, weapon, armor)
-    self.type = "item"
+    self.type = "armor"
     -- Item icon (for equipment)
-    self.icon = nil
+    self.icon = "ui/menu/icon/armor"
 
     -- Battle description
     self.effect = ""
     -- Shop description
     self.shop = ""
     -- Menu description
-    self.description = "Example item."
+    self.description = "Elegant lace ribbon with gloves,\ndelicate enough to see through. +4 DEF +2 ATK"
 
     -- Default shop price (sell price is halved)
-    self.price = 0
+    self.price = 1234
     -- Whether the item can be sold
     self.can_sell = true
 
@@ -36,18 +33,25 @@ function item:init()
     self.instant = false
 
     -- Equip bonuses (for weapons and armor)
-    self.bonuses = {}
+    self.bonuses = {
+        attack = 2,
+        defense = 4,
+    }
     -- Bonus name and icon (displayed in equip menu)
-    self.bonus_name = nil
-    self.bonus_icon = nil
+    self.bonus_name = "Elegance"
+    self.bonus_icon = "ui/menu/icon/up"
 
     -- Equippable characters (default true for armors, false for weapons)
-    self.can_equip = {}
+    self.can_equip = {
+        susie = false,
+    }
 
-    -- Character reactions (key = party member id)
-    self.reactions = {}
+    -- Character reactions
+    self.reactions = {
+        susie = "Nah. Gloves don't fit.",
+        ralsei = "Cute! (Gloves don't fit)",
+        noelle = "Kris, you can wear the gloves!",
+    }
 end
-
--- Function overrides go here
 
 return item

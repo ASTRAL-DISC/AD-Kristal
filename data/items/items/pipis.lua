@@ -1,10 +1,10 @@
-local item, super = Class(Item, "revivemint")
+local item, super = Class(Item, "pipis")
 
 function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "ReviveMint"
+    self.name = "Pipis"
     -- Name displayed when used in battle (optional)
     self.use_name = nil
 
@@ -14,14 +14,14 @@ function item:init()
     self.icon = nil
 
     -- Battle description
-    self.effect = "Heal\nDowned\nAlly"
+    self.effect = "Does\nnothing"
     -- Shop description
     self.shop = ""
     -- Menu description
-    self.description = "Heals a fallen ally to MAX HP.\nA minty green crystal."
+    self.description = "A certain person's special \"???\"\nCannot be used in battle."
 
     -- Default shop price (sell price is halved)
-    self.price = 400
+    self.price = 0
     -- Whether the item can be sold
     self.can_sell = true
 
@@ -43,33 +43,27 @@ function item:init()
     -- Equippable characters (default true for armors, false for weapons)
     self.can_equip = {}
 
-    -- Character reactions
+    -- Character reactions (key = party member id)
     self.reactions = {
-        susie = {
-            susie = "I'm ALIVE!!!",
-            ralsei = "(You weren't dead)",
+        kris = {
+            susie = "Huh?",
+            ralsei = "Where'd it go?",
+            noelle = "Kris! (I wanted that...)"
         },
-        ralsei = {
-            susie = "(Don't look it)",
-            ralsei = "Ah, I'm refreshed!"
-        },
-        noelle = "Mints? I love mints!"
+        susie = "Hell no.",
+        ralsei = "Is... that, um, nutritious?",
+        noelle = "C... Can we keep it?"
     }
 end
 
 function item:onWorldUse(target)
-    Game.world:heal(target, math.ceil(target:getStat("health") / 2))
-    return true
-end
-
-function item:onBattleUse(user, target)
-    local heal_amount
-    if target.chara:getHealth() <= 0 then
-        heal_amount = math.abs(target.chara:getHealth()) + target.chara:getStat("health")
+    if target.id == "kris" then
+        -- ????
+        Game.world:heal(target, 100)
+        return true
     else
-        heal_amount = math.ceil(target.chara:getStat("health") / 2)
+        return false
     end
-    target:heal(Game.battle:applyHealBonuses(heal_amount, user.chara))
 end
 
 return item
