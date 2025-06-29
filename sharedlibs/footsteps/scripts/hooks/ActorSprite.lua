@@ -1,4 +1,6 @@
-local ActorSprite, super = Class(ActorSprite, true)
+---@class ActorSprite : ActorSprite
+---@overload fun(...) : ActorSprite
+local ActorSprite, super = Utils.hookScript(ActorSprite)
 
 function ActorSprite:update()
     if self.actor:preSpriteUpdate(self) then
