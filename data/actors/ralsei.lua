@@ -228,13 +228,13 @@ function actor:initChapter2()
         ["walk_unhappy/up"] = {0, 0},
 
         ["walk_sad/down"] = {0, 0},
-        ["walk_sad/left"] = {0, 0},
-        ["walk_sad/right"] = {0, 0},
+        ["walk_sad/left"] = {-1, 0},
+        ["walk_sad/right"] = {-1, 0},
         ["walk_sad/up"] = {0, 0},
 
         ["walk_sadder/down"] = {0, 0},
-        ["walk_sadder/left"] = {0, 0},
-        ["walk_sadder/right"] = {0, 0},
+        ["walk_sadder/left"] = {-1, 0},
+        ["walk_sadder/right"] = {-1, 0},
         ["walk_sadder/up"] = {0, 0},
 
         ["slide"] = {-2, 2},
@@ -269,10 +269,16 @@ function actor:initChapter2()
         ["hug"] = {0, 0},
         ["hug_stop"] = {0, 0},
 
+        ["turn_away_right"] = {0, 0},
+        ["turn_away_left"] = {0, 0},
+
+        ["up_turn_right"] = {0, -1},
+        ["up_turn_left"] = {0, -1},
+
         ["laugh"] = {-1, 0},
 
-        ["shocked"] = {-9, 3},
-        ["shocked_landed"] = {-9, 3},
+        ["shocked"] = {-3, 4},
+        ["shocked_landed"] = {-3, 4},
         ["shocked_behind"] = {-9, 3},
         ["surprised_down"] = {-5, -1},
 
