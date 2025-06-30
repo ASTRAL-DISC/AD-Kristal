@@ -66,6 +66,10 @@ function actor:init()
         ["choir/hold_b"] = {"choir/hold_b", 1/15, true},
         ["choir/idle"] = {"choir/idle", 4/30, true},
         ["choir/single_note"] = {"choir/single_note", 4/30, true},
+
+        -- Scroll
+        ["scroll_sing_normal"] = {"scroll_sing_normal", 4/30, false, temp=true, duration=0.5, next="scroll_focus"},
+        ["scroll_sing"] = {"scroll_sing", 5/30, true},
     }
 
     self.animations_alt = {
@@ -244,6 +248,7 @@ function actor:init()
     
         ["scroll"] = {0, 0},
         ["scroll_focus"] = {0, 1},
+        ["scroll_sing_normal"] = {0, 0},
         ["scroll_sing"] = {-2, 2},
     
         -- Choir Minigame
