@@ -17,7 +17,7 @@ function item:init()
     self.can_sell = false
 
     self.target = "none"
-    self.usable_in = "world"
+    self.usable_in = "none"
     self.result_item = nil
     self.instant = false
 
@@ -28,19 +28,6 @@ function item:init()
     self.can_equip = {}
     
     self.reactions = {}
-end
-
-function item:onWorldUse()
-    if Game:getFlag("incantation") and Game:hasPartyMember("noelle") then
-        Game.world:showText("* You gave the Old Scroll to Noelle.")
-        Game.world:startCutscene("ch4/beltrowel.incantation")
-    elseif Game:hasPartyMember("noelle") then
-        Game.world:showText("* You try to give the Old Scroll to Noelle.")
-        Game.world:startCutscene("ch4/beltrowel.old_scroll")
-    else
-        Game.world:showText("* You need someone to sing it.")
-    end
-    return false
 end
 
 return item
