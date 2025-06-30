@@ -275,6 +275,9 @@ function actor:initChapter2()
         ["up_turn_right"] = {0, -1},
         ["up_turn_left"] = {0, -1},
 
+        ["look_back_right"] = {0, -1},
+        ["look_back_left"] = {0, -1},
+
         ["laugh"] = {-1, 0},
 
         ["shocked"] = {-3, 4},
