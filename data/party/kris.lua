@@ -32,7 +32,11 @@ function character:init()
     self.has_xact = true
     self.xact_name = "K-Action"
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.health = 90
+    elseif Game.chapter == 2 then
+        self.health = 120
+    elseif Game.chapter == 3 then
         self.health = 160
     elseif Game.chapter == 4 then
         self.health = 200
@@ -44,7 +48,21 @@ function character:init()
         self.health = 410
     end
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.stats = {
+            health = 90,
+            attack = 10,
+            defense = 2,
+            magic = 0
+        }
+    elseif Game.chapter == 2 then
+        self.stats = {
+            health = 120,
+            attack = 12,
+            defense = 2,
+            magic = 0
+        }
+    elseif Game.chapter == 3 then
         self.stats = {
             health = 160,
             attack = 14,
@@ -63,71 +81,51 @@ function character:init()
             health = 260,
             attack = 18,
             defense = 2,
-            magic = 0
+            magic = 1
         }
     elseif Game.chapter == 6 then
         self.stats = {
             health = 330,
             attack = 20,
-            defense = 2,
-            magic = 0
+            defense = 3,
+            magic = 1
         }
     elseif Game.chapter == 7 then
         self.stats = {
             health = 410,
             attack = 22,
-            defense = 2,
-            magic = 0
+            defense = 4,
+            magic = 2
         }
-    elseif Game.chapter == 3 then
-        self.stats = {
-            health = 160,
-            attack = 14,
-            defense = 2,
-            magic = 0
-        }
-    else
-        self.stats = {
-            health = 200,
-            attack = 17,
-            defense = 2,
-            magic = 0
-        }
-
     end
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.max_stats = {
+            health = 120
+        }
+    elseif Game.chapter == 2 then
+        self.max_stats = {
+            health = 160
+        }
+    elseif Game.chapter == 3 then
         self.max_stats = {
             health = 200,
-            attack = 16,
         }
     elseif Game.chapter == 4 then
         self.max_stats = {
             health = 260,
-            attack = 18,
         }
     elseif Game.chapter == 5 then
         self.max_stats = {
             health = 330,
-            attack = 20,
         }
     elseif Game.chapter == 6 then
         self.max_stats = {
             health = 410,
-			attack = 22,
         }
     elseif Game.chapter == 7 then
         self.max_stats = {
             health = 490,
-			attack = 24,
-        }
-    elseif Game.chapter == 3 then
-        self.max_stats = {
-            health = 200
-        }
-    else
-        self.max_stats = {
-            health = 240
         }
     end
 

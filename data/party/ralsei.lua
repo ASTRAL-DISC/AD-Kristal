@@ -33,7 +33,11 @@ function character:init()
     self:addSpell("pacify")
     self:addSpell("heal_prayer")
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.health = 70
+    elseif Game.chapter == 2 then
+        self.health = 100
+    elseif Game.chapter == 3 then
         self.health = 140
     elseif Game.chapter == 4 then
         self.health = 180
@@ -45,7 +49,21 @@ function character:init()
         self.health = 390
     end
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.stats = {
+            health = 70,
+            attack = 8,
+            defense = 2,
+            magic = 7
+        }
+    elseif Game.chapter == 2 then
+        self.stats = {
+            health = 100,
+            attack = 10,
+            defense = 2,
+            magic = 9,
+        }
+    elseif Game.chapter == 3 then
         self.stats = {
             health = 140,
             attack = 12,
@@ -55,44 +73,30 @@ function character:init()
     elseif Game.chapter == 4 then
         self.stats = {
             health = 180,
-            attack = 16,
+            attack = 15,
             defense = 2,
-            magic = 15
+            magic = 14
         }
     elseif Game.chapter == 5 then
         self.stats = {
             health = 240,
             attack = 18,
             defense = 2,
-            magic = 17
+            magic = 16
         }
     elseif Game.chapter == 6 then
         self.stats = {
             health = 310,
             attack = 20,
-            defense = 2,
-            magic = 19
+            defense = 3,
+            magic = 18
         }
     elseif Game.chapter == 7 then
         self.stats = {
             health = 390,
-            attack = 22,
-            defense = 2,
+            attack = 23,
+            defense = 4,
             magic = 21
-        }
-    elseif Game.chapter == 3 then
-        self.stats = {
-            health = 140,
-            attack = 12,
-            defense = 2,
-            magic = 11,
-        }
-    else
-        self.stats = {
-            health = 180,
-            attack = 15,
-            defense = 2,
-            magic = 14,
         }
     end
 

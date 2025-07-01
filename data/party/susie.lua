@@ -13,7 +13,7 @@ function character:init()
     self.quest_sprite = "party/susie/quest/walk/down_1"
 
     self.level = Game.chapter
-    -- Default title / class (saved to the save file)
+
     if Game.chapter <= 3 then
         self.title = "Dark Knight\nDoes damage using\ndark energy."
     else
@@ -34,7 +34,11 @@ function character:init()
         self:addSpell("ultimate_heal")
     end
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
+        self.health = 110
+    elseif Game.chapter == 2 then
+        self.health = 140
+    elseif Game.chapter == 3 then
         self.health = 190
     elseif Game.chapter == 4 then
         self.health = 230
@@ -44,51 +48,23 @@ function character:init()
         self.health = 360
     elseif Game.chapter == 7 then
         self.health = 440
-    elseif Game:getFlag("epilogue") then
+    else
         self.health = 530
     end
 
-    if Game.chapter == 3 then
+    if Game.chapter == 1 then
         self.stats = {
-            health = 190,
-            attack = 18,
+            health = 110,
+            attack = 14,
             defense = 2,
-            magic = 3
+            magic = 1
         }
-    elseif Game.chapter == 4 then
+    elseif Game.chapter == 2 then
         self.stats = {
-            health = 230,
-            attack = 20,
+            health = 140,
+            attack = 16,
             defense = 2,
-            magic = 5
-        }
-    elseif Game.chapter == 5 then
-        self.stats = {
-            health = 290,
-            attack = 22,
-            defense = 2,
-            magic = 7
-        }
-    elseif Game.chapter == 6 then
-        self.stats = {
-            health = 360,
-            attack = 24,
-            defense = 4,
-            magic = 9
-        }
-    elseif Game.chapter == 7 then
-        self.stats = {
-            health = 440,
-            attack = 27,
-            defense = 5,
-            magic = 12
-        }
-    elseif Game:getFlag("epilogue") then
-        self.stats = {
-            health = 530,
-            attack = 30,
-            defense = 6,
-            magic = 14
+            magic = 1
         }
     elseif Game.chapter == 3 then
         self.stats = {
@@ -97,43 +73,70 @@ function character:init()
             defense = 2,
             magic = 2
         }
-    else
+    elseif Game.chapter == 4 then
         self.stats = {
             health = 230,
             attack = 22,
             defense = 2,
             magic = 3
         }
-    end
-
-    -- Max stats from level-ups
-    if Game.chapter == 3 then
-        self.max_stats = {
-            health = 230,
-        }
-    elseif Game.chapter == 4 then
-        self.max_stats = {
-            health = 290,
-        }
     elseif Game.chapter == 5 then
-        self.max_stats = {
-            health = 360,
+        self.stats = {
+            health = 290,
+            attack = 23,
+            defense = 3,
+            magic = 4
         }
     elseif Game.chapter == 6 then
-        self.max_stats = {
-            health = 440,
+        self.stats = {
+            health = 360,
+            attack = 25,
+            defense = 3,
+            magic = 4
         }
     elseif Game.chapter == 7 then
-        self.max_stats = {
+        self.stats = {
+            health = 440,
+            attack = 26,
+            defense = 4,
+            magic = 5
+        }
+    else
+        self.stats = {
             health = 530,
+            attack = 28,
+            defense = 6,
+            magic = 6
+        }
+    end
+
+    if Game.chapter == 1 then
+        self.max_stats = {
+            health = 140
+        }
+    elseif Game.chapter == 2 then
+        self.max_stats = {
+            health = 190
         }
     elseif Game.chapter == 3 then
         self.max_stats = {
-            health = 240
+            health = 240,
         }
-    else
+    elseif Game.chapter == 4 then
         self.max_stats = {
-            health = 290
+            health = 300,
+        }
+    elseif Game.chapter == 5 then
+        self.max_stats = {
+            health = 370,
+        }
+    elseif Game.chapter == 6 then
+        self.max_stats = {
+            health = 450,
+        }
+    elseif Game.chapter == 7 then
+        self.max_stats = {
+            health = 540,
         }
     end
 

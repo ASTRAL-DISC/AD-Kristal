@@ -38,65 +38,67 @@ function character:init()
         self:addSpell("haildome")
     end
 
-    if Game.chapter == 2 or Game.chapter == 3 then
+    if Game.chapter == 1 or Game.chapter == 2 then
         self.health = 90
-    elseif Game.chapter == 4 then
+    elseif Game.chapter == 3 then
         self.health = 140
+    elseif Game.chapter == 4 then
+        self.health = 180
     elseif Game.chapter == 5 then
-        self.health = 210
-    elseif Game.chapter >= 6 then
-        self.health = 270
+        self.health = 240
+    elseif Game.chapter == 6 then
+        self.health = 310
+    elseif Game.chapter == 7 then
+        self.health = 390
     end
 
-    if Game.chapter == 2 or Game.chapter == 3 then
+    if Game.chapter == 1 or Game.chapter == 2 then
         self.stats = {
             health = 90,
             attack = 3,
             defense = 1,
             magic = 11
         }
-    elseif Game.chapter == 4 then
+    elseif Game.chapter == 3 then
         self.stats = {
             health = 140,
-            attack = 5,
+            attack = 2,
+            defense = 1,
+            magic = 11
+        }
+    elseif Game.chapter == 4 then
+        self.stats = {
+            health = 180,
+            attack = 4,
             defense = 3,
-            magic = 13
+            magic = 14
         }
     elseif Game.chapter == 5 then
         self.stats = {
-            health = 210,
-            attack = 7,
-            defense = 3,
-            magic = 15
+            health = 240,
+            attack = 5,
+            defense = 5,
+            magic = 16
         }
-    elseif Game.chapter >= 6 then
+    elseif Game.chapter == 6 then
         self.stats = {
-            health = 270,
-            attack = 9,
-            defense = 3,
-            magic = 17
+            health = 310,
+            attack = 8,
+            defense = 8,
+            magic = 19
+        }
+    elseif Game.chapter == 7 then
+        self.stats = {
+            health = 390,
+            attack = 10,
+            defense = 10,
+            magic = 20
         }
     end
 
-    if Game.chapter == 4 then
-        self.max_stats = {
-            health = 166,
-        }
-    elseif Game.chapter == 5 then
-        self.max_stats = {
-            health = 266,
-        }
-    elseif Game.chapter >= 6 then
-        self.max_stats = {
-            health = 330,
-			attack = 10,
-            magic = 20
-        }
-    else
-        self.max_stats = {
-            health = 999
-        }
-    end
+    self.max_stats = {
+        health = 999
+    }
 
     self.stronger_absent = {}
 
