@@ -29,7 +29,8 @@ function PartyBattler:addShield(amount, sound)
     if self.shield >= self.chara:getMaxShield() then
         self.shield = self.chara:getMaxShield()
     end
-	self:statusMessage("heal", amount, {128/255, 128/255, 128/255})
+	--self:statusMessage("heal", amount, {128/255, 128/255, 128/255})
+	self:statusMessage("msg", "shield")
 end
 
 function PartyBattler:breakShield()
@@ -40,7 +41,7 @@ function PartyBattler:breakShield()
 	
 	self:setAnimation("battle/hurt")
 	
-	self:statusMessage("msg", "break")
+	self:statusMessage("msg", "broken")
 end
 
 function PartyBattler:removeHealth(amount, pierce)
