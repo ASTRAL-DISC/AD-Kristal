@@ -111,16 +111,15 @@ function Loading:drawSprite(image, x, y, alpha)
 end
 
 function Loading:draw()
+    if Kristal.Config["skipIntro"] then
+        love.graphics.push()
+        love.graphics.translate(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+        love.graphics.scale(2, 2)
+        self:drawSprite(self.logo, 0, 0, 1)
+        love.graphics.pop()
+        return
+    end
     if self.load_complete and (Kristal.Mods.getMod("astraldisc") or TARGET_MOD) then
-        if Kristal.Config["skipIntro"] then
-            love.graphics.push()
-            love.graphics.translate(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-            love.graphics.scale(2, 2)
-            self:drawSprite(self.logo, 0, 0, 1)
-            love.graphics.pop()
-            return
-        end
-
         local dt_mult = DT * 15
 
         -- We need to draw the logo on a canvas
