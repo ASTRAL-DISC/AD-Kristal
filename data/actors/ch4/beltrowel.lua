@@ -26,19 +26,28 @@ function actor:init()
 
     self.talk_sprites = {}
 
-    self.animations = {}
+    self.animations = {
+        ["defeat_laugh"] = {"defeat_laugh", 0.15, true},
+    }
     
     self.offsets = {
         ["arms_folded"] = {0, 0},
         ["arms_folded_closed"] = {0, 0},
+        ["arms_folded_up"] = {-2, 0},
+        ["arms_folded_up_look"] = {-2, 0},
+        ["arms_folded_up_look_b"] = {-2, 0},
 
         ["arms_out"] = {-6, 0},
         ["arms_out_up"] = {-7, 0},
 
         ["defeat"] = {-6, 12},
         ["defeat_look"] = {-6, 10},
+        ["defeat_laugh"] = {-6, 9},
 
         ["limp_wrist"] = {0, 1},
+
+        ["surprised_left"] = {-9, 1},
+        ["point_angry_left"] = {-14, 1},
 
         ["transform_a"] = {-18, -8},
         ["transform_b"] = {-34, -27},
