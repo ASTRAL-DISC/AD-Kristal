@@ -27,7 +27,11 @@ function actor:init()
     self.talk_sprites = {}
 
     self.animations = {
+        ["laugh"] = {"laugh", 0.15, true},
         ["defeat_laugh"] = {"defeat_laugh", 0.15, true},
+
+        ["teleport_away"] = {"teleport_away", 0.18, false},
+        ["teleport_back"] = {"teleport_back", 0.18, false},
     }
     
     self.offsets = {
@@ -36,6 +40,20 @@ function actor:init()
         ["arms_folded_up"] = {-2, 0},
         ["arms_folded_up_look"] = {-2, 0},
         ["arms_folded_up_look_b"] = {-2, 0},
+
+        ["gremlin"] = {0, 0},
+
+        ["angry"] = {-8, 1},
+        ["surprised"] = {-8, 1},
+        ["surprised_oh"] = {-8, 1},
+
+        ["sliding_right"] = {0, 1},
+
+        ["shocked"] = {-10, -1},
+
+        ["laugh"] = {-10, 1},
+        ["laugh_stop"] = {-10, 1},
+        ["laugh_stop_look"] = {-10, 1},
 
         ["arms_out"] = {-6, 0},
         ["arms_out_up"] = {-7, 0},
@@ -48,6 +66,9 @@ function actor:init()
 
         ["surprised_left"] = {-9, 1},
         ["point_angry_left"] = {-14, 1},
+
+        ["teleport_away"] = {-12, -12},
+        ["teleport_back"] = {-12, -12},
 
         ["transform_a"] = {-18, -8},
         ["transform_b"] = {-34, -27},
