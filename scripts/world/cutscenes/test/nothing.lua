@@ -1,4 +1,16 @@
 return {
+    portrait_overlay = function (cutscene, event)
+        cutscene:text("* Would thou mindeth", "neutral", "rouxls")
+        cutscene:text("* Testingeth", "eyes_closed", "rouxls")
+        Game:setFlag("cowboy_rouxls", true)
+        cutscene:text("* Mine Cowboyeth Hat", "smile_wide", "rouxls")
+        cutscene:text("* Yee", "eyes_closed", "rouxls")
+        cutscene:text("* HAW--", "smile_wide", "rouxls", {auto = true})
+        Game:setFlag("cowboy_rouxls", false)
+        cutscene:text("* [sound:splat]...", "smile_wide", "rouxls")
+        cutscene:text("* ... [wait:5]Where IS it", "baffled_look", "rouxls")
+        cutscene:text("* Eated it", "smile", "susie")
+    end,
     newsletters = function (cutscene, event)
         if Game.chapter == 3 then
             --[[local x, y = cutscene:getMarker("mike")
