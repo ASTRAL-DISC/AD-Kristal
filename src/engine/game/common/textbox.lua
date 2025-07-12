@@ -224,14 +224,21 @@ end
 
 function Textbox:setFace(face, ox, oy)
     local actor_ox, actor_oy
+    local overlay
     if self.face.path == "face/gaster" and not self.face:isSprite(face) then
         if not self.face.texture then self.face:setSprite(face) end
         self.face:play(4/30)
-        if self.actor then
+
+        if self.actor and self.actor:onPortraitDraw(face, overlay, self.face_x + (ox or 0), self.face_y + (oy or 0), self) then
+            actor_ox, actor_oy = self.actor:getPortraitOffset()
+            ox = (ox or 0) + actor_ox
+            oy = (oy or 0) + actor_oy
+        elseif self.actor then
             actor_ox, actor_oy = self.actor:getPortraitOffset()
             ox = (ox or 0) + actor_ox
             oy = (oy or 0) + actor_oy
         end
+
         self.face:setPosition(self.face_x + (ox or 0), self.face_y + (oy or 0))
         self:updateTextBounds()
 
@@ -242,11 +249,16 @@ function Textbox:setFace(face, ox, oy)
         self.face:setSprite(face)
         self.face:play(4/30)
 
-        if self.actor then
+        if self.actor and self.actor:onPortraitDraw(face, overlay, self.face_x + (ox or 0), self.face_y + (oy or 0), self) then
+            actor_ox, actor_oy = self.actor:getPortraitOffset()
+            ox = (ox or 0) + actor_ox
+            oy = (oy or 0) + actor_oy
+        elseif self.actor then
             actor_ox, actor_oy = self.actor:getPortraitOffset()
             ox = (ox or 0) + actor_ox
             oy = (oy or 0) + actor_oy
         end
+        
         self.face:setPosition(self.face_x + (ox or 0), self.face_y + (oy or 0))
         self:updateTextBounds()
     end
