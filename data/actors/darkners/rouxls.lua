@@ -19,7 +19,7 @@ function actor:init()
 
     self.voice = nil
     self.portrait_path = "face/rouxls"
-    self.portrait_offset = nil
+    self.portrait_offset = {0, 0}
 
     self.talk_sprites = {
         ["talk"] = 0.25,
@@ -40,6 +40,14 @@ function actor:init()
         ["cowboy/appear"] = {0, 2},
         ["nun/appear"] = {0, 0},
     }
+end
+
+function actor:onPortraitDraw(portrait, overlay, x, y, textbox)
+    if Game:getFlag("cowboy_rouxls") and portrait then
+        overlay = Sprite(self.portrait_path .. "/hats/cowboy", x, y - 5)
+        overlay:setScale(2)
+        textbox:addChild(overlay)
+    end
 end
 
 return actor
