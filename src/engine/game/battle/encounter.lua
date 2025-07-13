@@ -52,7 +52,7 @@ end
 --- *If this function returns `true`, then the battle will not override any state changes made here.*
 ---@return boolean?
 function Encounter:onBattleInit()
-    if self.background then
+    if self.background and Game.world.map:getBorder() then
         Game:setBorder(BATTLE_BORDER())
     end
 end
@@ -127,9 +127,8 @@ function Encounter:onGameOver() end
 --- *(Override)* Called just before returning to the world.
 ---@param events Character  A list of enemy events in the world that are linked to the enemies in battle.
 function Encounter:onReturnToWorld(events)
-    if self.background then
-        local border = Game.world.map:getBorder()
-        Game:setBorder(border)
+    if self.background and Game.world.map:getBorder() then
+        Game:setBorder(Game.world.map:getBorder())
     end
 end
 
