@@ -7,7 +7,7 @@ function BATTLE_BORDER:draw()
     love.graphics.rectangle("fill", -8, -8, SCREEN_WIDTH+16, SCREEN_HEIGHT+16)
 
     love.graphics.setLineStyle("rough")
-    love.graphics.setLineWidth(2)
+    love.graphics.setLineWidth(1)
 
     self = {}
     self.offset = (Kristal.getTime() * 30)
