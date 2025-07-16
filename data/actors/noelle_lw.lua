@@ -53,6 +53,11 @@ function actor:init()
         ["walk_blush/up"] = {0, 0},
         ["walk_blush/down"] = {0, 0},
 
+        ["walk_blush_down/left"] = {0, 0},
+        ["walk_blush_down/right"] = {0, 0},
+        ["walk_blush_down/up"] = {0, 0},
+        ["walk_blush_down/down"] = {0, 0},
+
         ["walk_sad/left"] = {0, 0},
         ["walk_sad/right"] = {0, 0},
         ["walk_sad/up"] = {0, 0},
@@ -96,7 +101,6 @@ function actor:init()
 
         -- Animations
         ["clap"] = {2, -1},
-        ["sweater"] = {2, -1},
         ["laugh"] = {0, 0},
 
         ["sit_bench_turn"] = {1, 3},
